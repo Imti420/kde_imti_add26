@@ -1,0 +1,157 @@
+import { Link } from "@tanstack/react-router";
+import { Fragment } from "react";
+import { ExternalLink } from "@/components/marks";
+import { cn } from "@/lib/cn";
+import { nextWireAt, wireDeskStatus, type WireDeskStatus } from "@/lib/wire/gate";
+import type { WireItem, WireVerification } from "@/lib/wire/types";
+import { useWire } from "@/lib/wire/use-wire";
+
+const VERIFY: Record<WireVerification, string> = {
+  official: "OFFICIAL",
+  reported: "REPORTED",
+  community: "COMMUNITY",
+  unverified: "UNVERIFIED",
+  corrected: "CORRECTED",
+};
+
+const DESK: Record<WireDeskStatus, string> = {
+  never: "NO WIRE YET",
+  running: "CYCLE RUNNING",
+  current: "ON SCHEDULE",
+  late: "UPDATE LATE",
+  stale: "WIRE IS STALE",
+  failed: "LAST CYCLE FAILED",
+  degraded: "SOME SOURCES FAILED",
+};
+
+export function formatWireWhen(iso: string | null): string {
+  if (!iso) return "NO PUBLICATION TIME";
+  const then = Date.parse(iso);
+  if (Number.isNaN(then)) return "NO PUBLICATION TIME";
+  const stamp = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Dhaka",
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+  }).format(then);
+  return `${stamp} DHAKA`;
+}
+
+export function ago(iso: string | null, now: Date): string {
+  if (!iso) return "NEVER";
+  const then = Date.parse(iso);
+  if (Number.isNaN(then)) return "UNKNOWN";
+  const minutes = Math.floor(Math.max(0, now.getTime() - then) / 60_000);
+  if (minutes < 1) return "JUST NOW";
+  if (minutes < 60) return `${minutes} MIN AGO`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 48) return `${hours} HR AGO`;
+  const days = Math.floor(hours / 24);
+  return `${days} DAY${days === 1 ? "" : "S"} AGO`;
+}
+
+function kindLabel(item: WireItem): string {
+  if (item.origin === "manual") return "MANUAL";
+  if (item.sourceId.startsWith("udvash") || item.sourceId.startsWith("acs") || item.sourceId.startsWith("apars") || item.sourceId.startsWith("fb-apars") || item.sourceId === "fb-udvash") {
+    return "COACHING";
+  }
+  if (item.sourceCategory === "news") return "NEWSROOM";
+  if (item.sourceCategory === "community") return "COMMUNITY";
+  return "INSTITUTION";
+}
+
+function caveat(item: WireItem): string | null {
+  if (item.verification === "reported") return "News report. Not the original circular.";
+  if (item.verification === "community" || item.verification === "unverified") return "Not an official announcement.";
+  if (kindLabel(item) === "COACHING") return "Coaching announcement. Not a university circular.";
+  if (item.verification === "corrected") return "Correction from the institution. Read the source.";
+  return null;
+}
+
+export function WireHeadline({
+  item,
+  fresh,
+  now,
+}: {
+  item: WireItem;
+  fresh: boolean;
+  now: Date;
+}) {
+  const alert = item.importance === "official-alert";
+  const note = caveat(item);
+  return (
+    <article
+      className={cn(
+        "border-b border-ink px-3 py-2",
+        alert && "border-l-4 border-l-accent bg-panel",
+        fresh && "wire-in",
+      )}
+    >
+      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <p className="font-mono text-xs text-mute">{item.publishedAt ? formatWireWhen(item.publishedAt) : "PUBLICATION TIME NOT ON THE SOURCE"}</p>
+        <p className={cn("font-mono text-xs tracking-widest", alert ? "text-accent" : "text-ink")}>
+          {VERIFY[item.verification]} · {kindLabel(item)}
+        </p>
+      </div>
+      <h3 className="mt-1 font-display text-xl font-bold uppercase leading-tight md:text-2xl">{item.headline}</h3>
+      {item.summary ? <p className="mt-1 max-w-4xl text-sm text-pretty">{item.summary}</p> : null}
+      <p className="mt-1 font-mono text-xs text-mute">
+        <ExternalLink href={item.sourceUrl}>{item.sourceName}</ExternalLink>
+        {" · FOUND "}
+        {ago(item.discoveredAt, now)}
+        {note ? ` · ${note}` : ""}
+      </p>
+    </article>
+  );
+}
+
+export function WireStrip() {
+  const { live, phase, arrivedAt } = useWire();
+  const now = new Date();
+  const status = wireDeskStatus(phase === "ready" ? live : null, now);
+  const items = (live?.items ?? []).slice(0, 5);
+  const next = nextWireAt(live);
+  const pulsing = status === "running" || arrivedAt != null;
+
+  return (
+    <section id="wire" className="window desk-anchor mt-8">
+      <div className="flex flex-wrap items-end justify-between gap-3 border-b border-ink px-3 py-3">
+        <div>
+          <p className="font-mono text-xs tracking-widest text-accent">ADMISSION SEASON NEWSWIRE</p>
+          <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none">The wire</h2>
+        </div>
+        <Link to="/newswire" className="font-mono text-xs tracking-widest underline underline-offset-4">
+          FULL WIRE
+        </Link>
+      </div>
+      <div className="flex flex-wrap items-center gap-3 border-b border-ink px-3 py-2">
+        <span className={cn("inline-block h-3 w-3 border border-ink", pulsing ? "wire-live bg-accent" : "bg-transparent")} aria-hidden />
+        <p className={cn("font-mono text-xs tracking-widest", status === "failed" || status === "stale" || status === "late" ? "text-accent" : "text-mute")}>
+          {phase === "loading" ? "READING THE WIRE" : DESK[status]}
+        </p>
+        <p className="font-mono text-xs text-mute">
+          {live?.completedAt ? `LAST CYCLE ${ago(live.completedAt, now)}` : "NO COMPLETED CYCLE"}
+          {next ? ` · NEXT EXPECTED ${formatWireWhen(next.toISOString())}` : ""}
+        </p>
+      </div>
+      {phase === "missing" ? (
+        <p className="px-3 py-4 font-mono text-xs tracking-widest text-mute">NO WIRE FILE. NOTHING HERE IS A HEADLINE.</p>
+      ) : null}
+      {items.length === 0 && phase === "ready" ? (
+        <p className="px-3 py-4 font-mono text-xs tracking-widest text-mute">NO ADMISSION HEADLINE IS IN THE PUBLISHED WIRE.</p>
+      ) : null}
+      <div className={cn(arrivedAt ? "filter-swap" : undefined)}>
+        {items.map((item, index) => (
+          <Fragment key={item.id}>
+            {!item.publishedAt && (index === 0 || items[index - 1]?.publishedAt) ? (
+              <p className="border-b border-ink bg-ink px-3 py-2 font-mono text-xs tracking-widest text-paper">NO PUBLICATION TIME ON THE SOURCE</p>
+            ) : null}
+            <WireHeadline item={item} fresh={Boolean(arrivedAt)} now={now} />
+          </Fragment>
+        ))}
+      </div>
+    </section>
+  );
+}

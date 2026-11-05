@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Overview — ADMISSION//26",
+      "hasCanvas": false,
+      "bodyTextLen": 21218,
+      "bodyTextHash": "11712de235ee54b0b921d5be0c261e11f9ab45692bc4c491148a2a3969c721b0",
+      "bodyTextPrefix": "A//26 ADMISSION ARCHIVE OVERVIEW NEWSWIRE MY ADMISSION DESK CALE",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Overview — ADMISSION//26",
+      "hasCanvas": false,
+      "bodyTextLen": 23180,
+      "bodyTextHash": "4c72739404da3265b6a0ed5c72aa2e8d33d1c20a7f9c7535c596d944994d772b",
+      "bodyTextPrefix": "SKIP VOL. 01 · DHAKA DESK · SESSION 2026–27 ADMISSION//26 FILE N",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
