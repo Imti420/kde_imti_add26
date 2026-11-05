@@ -1,5 +1,23 @@
 [
   {
+    "id": "c9cd1a6a002e4933",
+    "headline": "এমআইএসটির ভর্তি পরীক্ষার তারিখ পুনর্নির্ধারণ",
+    "summary": "মিলিটারি ইনস্টিটিউট অব সায়েন্স অ্যান্ড টেকনোলজির ২০২৬-২৭ সেশনের ভর্তি পরীক্ষা ১৫ ও ২২ জানুয়ারি ২০২৭ পুনর্নির্ধারিত হয়েছে।",
+    "sourceId": "prothom-alo",
+    "sourceName": "Prothom Alo",
+    "sourceUrl": "https://www.prothomalo.com/education/admission/qoacncfb0h",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-05T09:23:58.000Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
+    "contentHash": "c9cd1a6a002e4933c940c5e9bcb7d64c22f684dd1f94a4f6ec42f3dc35e8aed5",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "633fd3bf808134fc",
     "headline": "HSC retake form fill-up begins tomorrow",
     "summary": "Eligible candidates who failed up to two subjects can apply online until November 9; exams to begin December 1",
@@ -10,10 +28,12 @@
     "platform": "web",
     "verification": "reported",
     "publishedAt": "2026-11-04T09:32:59.000Z",
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "633fd3bf808134fc15e83f64a62a0e1fe525f660e37f94f889ade737364313f5",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "5f3f7ae712e75ea8",
@@ -26,10 +46,12 @@
     "platform": "web",
     "verification": "reported",
     "publishedAt": "2026-11-03T18:00:00.000Z",
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "5f3f7ae712e75ea8f38bb56f5b549cb7e3f5ee31a2fa2f99b90154c3911a2ea2",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "913adb8694d26b34",
@@ -42,10 +64,12 @@
     "platform": "web",
     "verification": "reported",
     "publishedAt": "2026-11-02T08:40:00.000Z",
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "913adb8694d26b349fde47d2930799c3fb4a79c0338fc7746035db6b76abb6c5",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "96e32c3bf2e6533b",
@@ -58,26 +82,12 @@
     "platform": "web",
     "verification": "reported",
     "publishedAt": "2026-11-01T05:50:00.000Z",
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "96e32c3bf2e6533b6db7734a08154d52129d953ecd2d9f30d452c75587537be9",
     "importance": "normal",
-    "origin": "crawled"
-  },
-  {
-    "id": "df47870d4295ebd2",
-    "headline": "ইঞ্জিনিয়ারিং এডমিশন প্রোগ্রাম ২০২৭ (DP ব্যাচ)",
-    "summary": null,
-    "sourceId": "udvash-web",
-    "sourceName": "Udvash Academic & Admission Care",
-    "sourceUrl": "https://udvash.com/HomePage",
-    "sourceCategory": "official",
-    "platform": "web",
-    "verification": "official",
-    "publishedAt": null,
-    "discoveredAt": "2026-11-04T22:53:28.423Z",
-    "contentHash": "df47870d4295ebd2230fbb7bbc0fe2ce13a12ac92b49eb54401518de897dfbe4",
-    "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "59f52d8505599ae9",
@@ -90,10 +100,12 @@
     "platform": "web",
     "verification": "official",
     "publishedAt": null,
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "59f52d8505599ae955ce698a04d64e4f77fc0b3659874b6debc6ea5b383011b1",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "83d427d9930e8c72",
@@ -106,10 +118,48 @@
     "platform": "web",
     "verification": "official",
     "publishedAt": null,
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "83d427d9930e8c72f2c08cbb3e7330d1c1fd85c4dbae07d3f5e23bd646aefe12",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
+    "id": "2529bbeea29322cb",
+    "headline": "Applications for HSC result re-scrutiny begin Sunday",
+    "summary": null,
+    "sourceId": "dhaka-tribune-education",
+    "sourceName": "Dhaka Tribune — Education",
+    "sourceUrl": "https://www.dhakatribune.com/bangladesh/education/423420/applications-for-hsc-result-re-scrutiny-begin",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": null,
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
+    "contentHash": "2529bbeea29322cbef5d385ef8ad43d31c11652d1eeb807f20cb12a17a891009",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
+    "id": "c6c1a135d0c079b5",
+    "headline": "HSC supplementary exams to begin on December 1",
+    "summary": null,
+    "sourceId": "dhaka-tribune-education",
+    "sourceName": "Dhaka Tribune — Education",
+    "sourceUrl": "https://www.dhakatribune.com/bangladesh/education/423716/hsc-supplementary-exams-to-begin-on-december-1",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": null,
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
+    "contentHash": "c6c1a135d0c079b59082c3c4227fb0d3fecb2a2a6ac84a292401303993245903",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "6ee4f93935edaaa7",
@@ -122,10 +172,30 @@
     "platform": "web",
     "verification": "official",
     "publishedAt": null,
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "6ee4f93935edaaa7e511c2054a06b77196457c6ad06207e4fdf16aeca64bde42",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
+    "id": "df47870d4295ebd2",
+    "headline": "ইঞ্জিনিয়ারিং এডমিশন প্রোগ্রাম ২০২৭ (DP ব্যাচ)",
+    "summary": null,
+    "sourceId": "udvash-web",
+    "sourceName": "Udvash Academic & Admission Care",
+    "sourceUrl": "https://udvash.com/HomePage",
+    "sourceCategory": "official",
+    "platform": "web",
+    "verification": "official",
+    "publishedAt": null,
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
+    "contentHash": "df47870d4295ebd2230fbb7bbc0fe2ce13a12ac92b49eb54401518de897dfbe4",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "df8971a134da036e",
@@ -138,10 +208,12 @@
     "platform": "web",
     "verification": "official",
     "publishedAt": null,
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "df8971a134da036e6d9136c1e0777eba924a0609a9f564b0b2a99f95a2ab99ff",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "9b9d39f786b324ba",
@@ -154,10 +226,12 @@
     "platform": "web",
     "verification": "official",
     "publishedAt": null,
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "9b9d39f786b324ba10a6e394301ee2c6952a5fbfbe4296737cf7db38aaccb299",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "9ddb89ec3d1a729a",
@@ -170,10 +244,12 @@
     "platform": "web",
     "verification": "official",
     "publishedAt": null,
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "9ddb89ec3d1a729ad01b1a84b076e55b7730c50ec9636451a4b1436911fc87d2",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "29e821e4ad706a8f",
@@ -186,10 +262,12 @@
     "platform": "web",
     "verification": "official",
     "publishedAt": null,
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "29e821e4ad706a8fae79b876529679772380c44d9a3d65ed79cd03cad472e2b1",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "f5d5e563df4d1eaa",
@@ -202,10 +280,12 @@
     "platform": "web",
     "verification": "official",
     "publishedAt": null,
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "f5d5e563df4d1eaa8d48383c8a8a35230ccc6dac85a34bd50a1eabe1ecb89b9a",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "20316824180fe7ed",
@@ -218,10 +298,12 @@
     "platform": "web",
     "verification": "official",
     "publishedAt": null,
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "20316824180fe7ed474eee56454ab87c9413bc53454b2c0235035e6ee51d85f5",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "60fa897d803c379f",
@@ -234,10 +316,12 @@
     "platform": "web",
     "verification": "official",
     "publishedAt": null,
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "60fa897d803c379f20aae9a2e77402d3e0334ff0b01aef6670cedfae2e91a5a7",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   },
   {
     "id": "37e53419a7523b14",
@@ -250,9 +334,11 @@
     "platform": "web",
     "verification": "official",
     "publishedAt": null,
-    "discoveredAt": "2026-11-04T22:50:39.071Z",
+    "discoveredAt": "2026-11-05T10:34:29.666Z",
     "contentHash": "37e53419a7523b14591c6f5eab9c1331760f29c0992908432c1cc314aca75f5a",
     "importance": "normal",
-    "origin": "crawled"
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
   }
 ]
