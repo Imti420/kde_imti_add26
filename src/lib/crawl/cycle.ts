@@ -414,169 +414,187 @@ export async function runDiscovery(input: RunInput): Promise<{ skipped: boolean;
       counts: tally(),
     });
   };
-  for (const institution of institutions) {
+  const processInstitution = async (institution: SeedInstitution) => {
     try {
-    const owned = registry.filter((source) => source.universityId === institution.id);
-    const homepage = owned.find((source) => source.type === "homepage") ?? null;
-    if (!homepage || !homepage.url) {
-      log({
-        level: "warn",
-        type: "skip",
-        universityId: institution.id,
-        sourceId: homepage?.id ?? null,
-        url: null,
-        message: `${institution.name} has no official website on file. Skipped. Not marked unchanged.`,
-      });
-      continue;
-    }
-    inspected += 1;
-    log({
-      level: "info",
-      type: "connect",
-      universityId: institution.id,
-      sourceId: homepage.id,
-      url: homepage.url,
-      message: `Connecting to ${institution.name} official homepage.`,
-    });
-    const robots = await loadRobots(homepage.url);
-    if (capped && !pageCache.has(homepage.url)) {
-      log({
-        level: "warn",
-        type: "cap",
-        universityId: institution.id,
-        sourceId: homepage.id,
-        url: homepage.url,
-        message: "Fetch cap reached. Remaining sources stay unchecked and were not marked successful.",
-      });
-      break;
-    }
-    const path = new URL(homepage.url).pathname || "/";
-    if (robots && !robotsAllows(robots, path, USER_AGENT)) {
-      homepage.reachability = "skipped_robots";
-      homepage.lastCheckedAt = clock().toISOString();
-      homepage.note = "robots.txt disallows this path. Not fetched.";
-      homepage.error = "disallowed by robots.txt";
-      log({
-        level: "warn",
-        type: "skip",
-        universityId: institution.id,
-        sourceId: homepage.id,
-        url: homepage.url,
-        message: `Skipped ${institution.shortName} homepage because robots.txt disallows it.`,
-      });
-      continue;
-    }
-    const hit = await retrieve(homepage.url, homepage);
-    if (!hit) {
-      log({
-        level: "warn",
-        type: "cap",
-        universityId: institution.id,
-        sourceId: homepage.id,
-        url: homepage.url,
-        message: "Fetch cap reached before this homepage. It was not marked successful.",
-      });
-      break;
-    }
-    const reach = applyHit(homepage, hit, clock().toISOString());
-    if (reach === "no_change" && hit.httpStatus === 304) {
+      const owned = registry.filter((source) => source.universityId === institution.id);
+      const homepage = owned.find((source) => source.type === "homepage") ?? null;
+      if (!homepage || !homepage.url) {
+        log({
+          level: "warn",
+          type: "skip",
+          universityId: institution.id,
+          sourceId: homepage?.id ?? null,
+          url: null,
+          message: `${institution.name} has no official website on file. Skipped. Not marked unchanged.`,
+        });
+        return;
+      }
+      inspected += 1;
       log({
         level: "info",
-        type: "no_change",
+        type: "connect",
         universityId: institution.id,
         sourceId: homepage.id,
         url: homepage.url,
-        message: `${institution.shortName} homepage is unchanged (304).`,
+        message: `Connecting to ${institution.name} official homepage.`,
       });
-      continue;
-    }
-    if (reach === "unreachable" || reach === "retry_scheduled" || reach === "source_broken") {
+      const robots = await loadRobots(homepage.url);
+      if (capped && !pageCache.has(homepage.url)) {
+        log({
+          level: "warn",
+          type: "cap",
+          universityId: institution.id,
+          sourceId: homepage.id,
+          url: homepage.url,
+          message: "Fetch cap reached. Remaining sources stay unchecked and were not marked successful.",
+        });
+        return;
+      }
+      const path = new URL(homepage.url).pathname || "/";
+      if (robots && !robotsAllows(robots, path, USER_AGENT)) {
+        homepage.reachability = "skipped_robots";
+        homepage.lastCheckedAt = clock().toISOString();
+        homepage.note = "robots.txt disallows this path. Not fetched.";
+        homepage.error = "disallowed by robots.txt";
+        log({
+          level: "warn",
+          type: "skip",
+          universityId: institution.id,
+          sourceId: homepage.id,
+          url: homepage.url,
+          message: `Skipped ${institution.shortName} homepage because robots.txt disallows it.`,
+        });
+        return;
+      }
+      const hit = await retrieve(homepage.url, homepage);
+      if (!hit) {
+        log({
+          level: "warn",
+          type: "cap",
+          universityId: institution.id,
+          sourceId: homepage.id,
+          url: homepage.url,
+          message: "Fetch cap reached before this homepage. It was not marked successful.",
+        });
+        return;
+      }
+      const reach = applyHit(homepage, hit, clock().toISOString());
+      if (reach === "no_change" && hit.httpStatus === 304) {
+        log({
+          level: "info",
+          type: "no_change",
+          universityId: institution.id,
+          sourceId: homepage.id,
+          url: homepage.url,
+          message: `${institution.shortName} homepage is unchanged (304).`,
+        });
+        return;
+      }
+      if (reach === "unreachable" || reach === "retry_scheduled" || reach === "source_broken") {
+        log({
+          level: "error",
+          type: "fail",
+          universityId: institution.id,
+          sourceId: homepage.id,
+          url: homepage.url,
+          message: `${institution.shortName} homepage failed: ${homepage.note}`,
+        });
+        return;
+      }
       log({
-        level: "error",
-        type: "fail",
-        universityId: institution.id,
-        sourceId: homepage.id,
-        url: homepage.url,
-        message: `${institution.shortName} homepage failed: ${homepage.note}`,
-      });
-      continue;
-    }
-    log({
-      level: "info",
-      type: "fetched",
-      universityId: institution.id,
-      sourceId: homepage.id,
-      url: hit.finalUrl,
-      message: reach === "no_change"
-        ? `${institution.shortName} homepage matches the stored fingerprint.`
-        : `Retrieved ${institution.shortName} homepage.`,
-    });
-    if (!hit.bodyText || !looksLikeHtml(hit.contentType, hit.finalUrl)) continue;
-    if (!sameSite(homepage.url, hit.finalUrl)) {
-      homepage.note = "Homepage redirected off the official site. Links on the destination were not treated as official.";
-      log({
-        level: "warn",
-        type: "skip",
+        level: "info",
+        type: "fetched",
         universityId: institution.id,
         sourceId: homepage.id,
         url: hit.finalUrl,
-        message: `${institution.shortName} redirected off its official site. Off-site page was not crawled.`,
+        message: reach === "no_change"
+          ? `${institution.shortName} homepage matches the stored fingerprint.`
+          : `Retrieved ${institution.shortName} homepage.`,
       });
-      continue;
-    }
-    const freshDocs = collectLinks(homepage, hit.bodyText, hit.finalUrl, remember);
-    if (freshDocs.length) {
-      homepage.reachability = "new_document";
-      homepage.note = `Recorded ${freshDocs.length} new document link${freshDocs.length === 1 ? "" : "s"}. The files were not downloaded. No date was published.`;
-      for (const doc of freshDocs) {
+      if (!hit.bodyText || !looksLikeHtml(hit.contentType, hit.finalUrl)) return;
+      if (!sameSite(homepage.url, hit.finalUrl)) {
+        homepage.note = "Homepage redirected off the official site. Links on the destination were not treated as official.";
         log({
-          level: "info",
-          type: "discover",
+          level: "warn",
+          type: "skip",
           universityId: institution.id,
           sourceId: homepage.id,
-          url: doc.url,
-          message: `New document link on ${institution.shortName}: ${doc.title || doc.url}. Not downloaded.`,
+          url: hit.finalUrl,
+          message: `${institution.shortName} redirected off its official site. Off-site page was not crawled.`,
+        });
+        return;
+      }
+      const freshDocs = collectLinks(homepage, hit.bodyText, hit.finalUrl, remember);
+      if (freshDocs.length) {
+        homepage.reachability = "new_document";
+        homepage.note = `Recorded ${freshDocs.length} new document link${freshDocs.length === 1 ? "" : "s"}. The files were not downloaded. No date was published.`;
+        for (const doc of freshDocs) {
+          log({
+            level: "info",
+            type: "discover",
+            universityId: institution.id,
+            sourceId: homepage.id,
+            url: doc.url,
+            message: `New document link on ${institution.shortName}: ${doc.title || doc.url}. Not downloaded.`,
+          });
+        }
+      } else if (reach === "success" || reach === "no_change") {
+        log({
+          level: "info",
+          type: "no_change",
+          universityId: institution.id,
+          sourceId: homepage.id,
+          url: homepage.url,
+          message: `No new documents on ${institution.shortName}.`,
         });
       }
-    } else if (reach === "success" || reach === "no_change") {
-      log({
-        level: "info",
-        type: "no_change",
-        universityId: institution.id,
-        sourceId: homepage.id,
-        url: homepage.url,
-        message: `No new documents on ${institution.shortName}.`,
+      await followPages({
+        homepage,
+        html: hit.bodyText,
+        finalUrl: hit.finalUrl,
+        robots,
+        registry,
+        limits,
+        clock,
+        log,
+        remember,
+        retrieve,
+        capped: () => capped,
       });
-    }
-    await followPages({
-      homepage,
-      html: hit.bodyText,
-      finalUrl: hit.finalUrl,
-      robots,
-      registry,
-      limits,
-      clock,
-      log,
-      remember,
-      retrieve,
-      capped: () => capped,
-    });
-    await readFeeds({
-      homepage,
-      html: hit.bodyText,
-      finalUrl: hit.finalUrl,
-      clock,
-      log,
-      remember,
-      retrieve,
-      capped: () => capped,
-    });
-    if (robots) {
-      const sitemap = robots.sitemaps.map((item) => normalizeUrl(item)).find((item) => item && sameSite(homepage.url!, item));
-      if (sitemap) await readSitemap(homepage, sitemap, registry, limits, clock, log, remember, retrieve);
-    }
+      await readFeeds({
+        homepage,
+        html: hit.bodyText,
+        finalUrl: hit.finalUrl,
+        clock,
+        log,
+        remember,
+        retrieve,
+        capped: () => capped,
+      });
+      if (robots) {
+        const sitemap = robots.sitemaps.map((item) => normalizeUrl(item)).find((item) => item && sameSite(homepage.url!, item));
+        if (sitemap) await readSitemap(homepage, sitemap, registry, limits, clock, log, remember, retrieve);
+      }
     } finally {
       publish();
+    }
+  };
+
+  const poolSize = Math.max(1, limits.concurrency ?? 1);
+  if (poolSize > 1) {
+    let nextIndex = 0;
+    const workers = Array.from({ length: Math.min(poolSize, institutions.length) }, async () => {
+      while (nextIndex < institutions.length) {
+        if (capped) break;
+        const current = nextIndex++;
+        await processInstitution(institutions[current]);
+      }
+    });
+    await Promise.all(workers);
+  } else {
+    for (const institution of institutions) {
+      if (capped) break;
+      await processInstitution(institution);
     }
   }
 
