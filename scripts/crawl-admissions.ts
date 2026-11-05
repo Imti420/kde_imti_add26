@@ -61,9 +61,12 @@ const institutions = [...seedUniversities, ...seedSystems].map((institution) => 
   website: institution.website,
 }));
 
-const previousSources = readJson<SourceRecord[]>(registryPath, []);
-const previousDiscoveries = readJson<DiscoveryRecord[]>(discoveriesPath, []);
-const previousLive = readJson<Partial<LiveFile> | null>(livePath, null);
+const rawSources = readJson<unknown>(registryPath, []);
+const previousSources: SourceRecord[] = Array.isArray(rawSources) ? (rawSources as SourceRecord[]) : Array.isArray((rawSources as any)?.value) ? (rawSources as any).value : [];
+const rawDiscoveries = readJson<unknown>(discoveriesPath, []);
+const previousDiscoveries: DiscoveryRecord[] = Array.isArray(rawDiscoveries) ? (rawDiscoveries as DiscoveryRecord[]) : Array.isArray((rawDiscoveries as any)?.value) ? (rawDiscoveries as any).value : [];
+const rawLive = readJson<unknown>(livePath, null);
+const previousLive: Partial<LiveFile> | null = (rawLive && typeof rawLive === "object") ? (rawLive as Partial<LiveFile>) : null;
 
 const running: LiveFile = {
   version: 1,
