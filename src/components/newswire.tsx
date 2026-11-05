@@ -93,6 +93,7 @@ export function WireHeadline({
         <p className="font-mono text-xs text-mute">{item.publishedAt ? formatWireWhen(item.publishedAt) : "PUBLICATION TIME NOT ON THE SOURCE"}</p>
         <p className={cn("font-mono text-xs tracking-widest", alert ? "text-accent" : "text-ink")}>
           {VERIFY[item.verification]} · {kindLabel(item)}
+          {item.classifier === "ai" ? " · AI" : item.classifier === "heuristic" ? " · HEURISTIC" : ""}
         </p>
       </div>
       <h3 className="mt-1 font-display text-xl font-bold uppercase leading-tight md:text-2xl">{item.headline}</h3>
