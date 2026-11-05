@@ -219,6 +219,32 @@ function DiscoveryPage() {
               rows={reachRows}
             />
           </div>
+          <section className="mt-6 border border-ink">
+            <div className="border-b border-ink px-3 py-3">
+              <h2 className="font-display text-3xl font-bold uppercase">Document links</h2>
+              <p className="mt-1 max-w-3xl text-sm">
+                Links stored from official pages. A baseline link was already there the first time that site was seen, so it is not counted as new. Nothing here was downloaded, and none of these rows is an admission date.
+              </p>
+            </div>
+            <ul className="max-h-80 overflow-y-auto">
+              {(live.discoveries.filter((item) => item.kind === "pdf").length ?? 0) === 0 ? (
+                <li className="px-3 py-4 font-mono text-xs tracking-widest text-mute">NO DOCUMENT LINKS IN THIS FILE.</li>
+              ) : null}
+              {live.discoveries
+                .filter((item) => item.kind === "pdf")
+                .slice()
+                .reverse()
+                .map((item) => (
+                  <li key={item.id} className="grid gap-1 border-t border-ink px-3 py-2 md:grid-cols-[6.5rem_1fr]">
+                    <span className="font-mono text-xs tracking-widest">{item.disposition === "baseline" ? "BASELINE" : item.disposition === "new" ? "NEW" : "LINK"}</span>
+                    <span className="min-w-0 font-mono text-xs">
+                      <span className="mr-2">{item.shortName}</span>
+                      <ExternalLink href={item.url}>{item.title || item.url}</ExternalLink>
+                    </span>
+                  </li>
+                ))}
+            </ul>
+          </section>
         </>
       ) : null}
 

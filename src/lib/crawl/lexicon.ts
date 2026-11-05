@@ -27,11 +27,38 @@ const TERMS: { phrase: string; weight: number }[] = [
   { phrase: "notice", weight: 1 },
 ];
 
+/** Generic notice words follow a board, but they do not make a file an admission document. */
+const WEAK_PHRASES = new Set(["notice", "নোটিশ", "notice board"]);
+
+const GENERIC_ANCHOR =
+  /^(?:read\s*more|download|click(?:\s+here)?|pdf|view(?:\s+details)?|details|here|more|see\s+more|file|attachment|বিস্তারিত|ডাউনলোড(?:\s+করুন)?|দেখুন|ক্লিক(?:\s+করুন)?)$/iu;
+
+export function normalizeMatchText(value: string): string {
+  return value.normalize("NFC").toLowerCase();
+}
+
+export function linkTitle(text: string, context = ""): string {
+  const clean = text.normalize("NFC").replace(/\s+/g, " ").trim();
+  const around = context.normalize("NFC").replace(/\s+/g, " ").trim();
+  if (clean && !GENERIC_ANCHOR.test(clean)) return clean.slice(0, 240);
+  return (around || clean).slice(0, 240);
+}
+
+/** True when the title, surrounding row/heading, or URL actually talks about admission. */
+export function admissionSignal(text: string, url: string): boolean {
+  const hay = normalizeMatchText(`${text} ${url}`);
+  for (const term of TERMS) {
+    if (WEAK_PHRASES.has(term.phrase) || term.weight < 3) continue;
+    if (hay.includes(normalizeMatchText(term.phrase))) return true;
+  }
+  return false;
+}
+
 export function scoreLink(text: string, url: string): number {
-  const hay = `${text} ${url}`.toLowerCase();
+  const hay = normalizeMatchText(`${text} ${url}`);
   let score = 0;
   for (const term of TERMS) {
-    if (hay.includes(term.phrase)) score += term.weight;
+    if (hay.includes(normalizeMatchText(term.phrase))) score += term.weight;
   }
   if (url.toLowerCase().includes(".pdf")) score += 2;
   try {

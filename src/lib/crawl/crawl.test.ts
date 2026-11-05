@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import { runDiscovery } from "./cycle.ts";
 import { extractFeedItems } from "./html.ts";
 import { shouldStartCycle, systemStatus } from "./gate.ts";
-import { scoreLink } from "./lexicon.ts";
+import { scoreLink, admissionSignal, linkTitle } from "./lexicon.ts";
 import { parseRobots, robotsAllows } from "./robots.ts";
 import { NO_DATE_NOTE, type CrawlState, type LiveFile, type SeedInstitution } from "./types.ts";
 import { sameSite, siteKey } from "./url.ts";
@@ -62,6 +62,11 @@ describe("discovery crawler", () => {
     assert.ok(scoreLink("Undergraduate admission notice", "https://www.du.ac.bd/notices") >= 4);
     assert.ok(scoreLink("নোটিশ", "https://www.du.ac.bd/notice-board") >= 4);
     assert.equal(scoreLink("Library catalog", "https://www.du.ac.bd/library"), 0);
+    assert.equal(admissionSignal("Download", "https://www.du.ac.bd/files/holiday.pdf"), false);
+    assert.equal(
+      admissionSignal(linkTitle("Download", "Undergraduate admission circular"), "https://www.du.ac.bd/files/admit.pdf"),
+      true,
+    );
   });
 
   it("reads admission links out of an RSS feed and ignores other sites", () => {
@@ -178,7 +183,9 @@ describe("discovery crawler", () => {
     assert.equal(urls.some((url) => url.includes("example.com")), false);
     assert.equal(urls.some((url) => url.includes("thedailystar")), false);
     const home = live.sources.find((source) => source.type === "homepage");
-    assert.equal(home?.reachability, "new_document");
+    assert.equal(home?.reachability, "success");
+    assert.match(home?.note ?? "", /Baselined/);
+    assert.equal(live.counts.newDocuments, 0);
     assert.equal(live.discoveries.every((item) => item.downloaded === false), true);
     assert.equal(JSON.stringify(live).includes("auto_applied"), false);
     assert.match(live.events.map((event) => event.message).join("\n"), /Starting discovery cycle/);
@@ -220,5 +227,173 @@ describe("discovery crawler", () => {
     assert.equal(shouldStartCycle("2026-11-04T16:00:00.000Z", new Date("2026-11-04T16:20:00.000Z"), 45, "completed"), false);
     assert.equal(shouldStartCycle("2026-11-04T16:00:00.000Z", new Date("2026-11-04T16:50:00.000Z"), 45, "completed"), true);
     assert.equal(shouldStartCycle("2026-11-04T16:00:00.000Z", new Date("2026-11-04T16:10:00.000Z"), 45, "running"), true);
+  });
+
+  it("does not refetch an unchanged site until its revisit window opens", async () => {
+    let fetches = 0;
+    const html = `<html><body><a href="/a/1.pdf">admission circular 2026</a></body></html>`;
+    const fetchImpl: typeof fetch = async (url) => {
+      fetches += 1;
+      const target = new URL(String(url));
+      if (target.pathname === "/robots.txt") return jsonResponse("User-agent: *\nAllow: /\n", 200, "text/plain");
+      return jsonResponse(html);
+    };
+    const first = await runDiscovery({
+      institutions: [du],
+      previousRegistry: [],
+      previousDiscoveries: [],
+      previousState: null,
+      now: new Date("2026-11-04T16:00:00.000Z"),
+      force: true,
+      runner: "test",
+      limits,
+      clock: () => new Date("2026-11-04T16:00:00.000Z"),
+      fetchImpl,
+    });
+    const firstFetches = fetches;
+    fetches = 0;
+    const second = await runDiscovery({
+      institutions: [du],
+      previousRegistry: first.bundle!.registry,
+      previousDiscoveries: first.bundle!.discoveries,
+      previousSeen: first.bundle!.seen,
+      previousRobots: first.bundle!.robots,
+      previousState: first.bundle!.state,
+      now: new Date("2026-11-04T16:05:00.000Z"),
+      force: true,
+      runner: "test",
+      limits,
+      clock: () => new Date("2026-11-04T16:05:00.000Z"),
+      fetchImpl,
+    });
+    assert.ok(firstFetches >= 2);
+    assert.equal(fetches, 0);
+    assert.equal(second.bundle?.live.counts.newDocuments, 0);
+    assert.match(second.bundle?.live.events.map((event) => event.message).join("\n") ?? "", /revisit window/);
+  });
+
+  it("keeps seen document ids after the discovery window trims them", async () => {
+    const many = Array.from({ length: 40 }, (_, index) => `<a href="/a/${index}.pdf">admission circular ${index}</a>`).join("");
+    const html = `<html><body>${many}</body></html>`;
+    let extra = "";
+    const fetchImpl: typeof fetch = async (url) => {
+      const target = new URL(String(url));
+      if (target.pathname === "/robots.txt") return jsonResponse("User-agent: *\nAllow: /\n", 200, "text/plain");
+      return jsonResponse(`<html><body>${many}${extra}</body></html>`);
+    };
+    const narrow = { ...limits, maxDiscoveries: 30, maxEvents: 500, maxExtraPages: 0 };
+    const at = (iso: string) => new Date(iso);
+    const first = await runDiscovery({
+      institutions: [du],
+      previousRegistry: [],
+      previousDiscoveries: [],
+      previousState: null,
+      now: at("2026-11-04T16:00:00.000Z"),
+      force: true,
+      runner: "test",
+      limits: narrow,
+      clock: () => at("2026-11-04T16:00:00.000Z"),
+      fetchImpl,
+    });
+    assert.equal(first.bundle?.live.counts.newDocuments, 0);
+    assert.equal(first.bundle?.discoveries.length, 30);
+    assert.equal(first.bundle?.seen.length, 40);
+    const second = await runDiscovery({
+      institutions: [du],
+      previousRegistry: first.bundle!.registry,
+      previousDiscoveries: first.bundle!.discoveries,
+      previousSeen: first.bundle!.seen,
+      previousRobots: first.bundle!.robots,
+      previousState: first.bundle!.state,
+      now: at("2026-11-04T18:00:00.000Z"),
+      force: true,
+      runner: "test",
+      limits: narrow,
+      clock: () => at("2026-11-04T18:00:00.000Z"),
+      fetchImpl,
+    });
+    assert.equal(second.bundle?.live.counts.newDocuments, 0);
+    extra = `<a href="/a/new.pdf">admission circular new</a>`;
+    const third = await runDiscovery({
+      institutions: [du],
+      previousRegistry: second.bundle!.registry,
+      previousDiscoveries: second.bundle!.discoveries,
+      previousSeen: second.bundle!.seen,
+      previousRobots: second.bundle!.robots,
+      previousState: second.bundle!.state,
+      now: at("2026-11-04T20:00:00.000Z"),
+      force: true,
+      runner: "test",
+      limits: narrow,
+      clock: () => at("2026-11-04T20:00:00.000Z"),
+      fetchImpl,
+    });
+    assert.equal(third.bundle?.live.counts.newDocuments, 1);
+    assert.ok(third.bundle?.discoveries.some((item) => item.url.endsWith("/a/new.pdf")));
+  });
+
+  it("scores the row around a generic download link and drops holiday files", async () => {
+    const html = `<table>
+      <tr><td>Holiday office notice</td><td><a href="/files/holiday.pdf">Download</a></td></tr>
+      <tr><td>Undergraduate admission circular</td><td><a href="/files/admit.pdf">Download</a></td></tr>
+    </table>`;
+    const result = await runDiscovery({
+      institutions: [du],
+      previousRegistry: [],
+      previousDiscoveries: [],
+      previousState: null,
+      now: new Date("2026-11-04T16:00:00.000Z"),
+      force: true,
+      runner: "test",
+      limits: { ...limits, maxExtraPages: 0 },
+      clock: () => new Date("2026-11-04T16:00:00.000Z"),
+      fetchImpl: async (url) => {
+        const target = new URL(String(url));
+        if (target.pathname === "/robots.txt") return jsonResponse("User-agent: *\nAllow: /\n", 200, "text/plain");
+        return jsonResponse(html);
+      },
+    });
+    const urls = result.bundle?.discoveries.map((item) => item.url) ?? [];
+    assert.equal(urls.some((url) => url.endsWith("/holiday.pdf")), false);
+    assert.ok(urls.some((url) => url.endsWith("/admit.pdf")));
+  });
+
+  it("does not download robots.txt again inside 24 hours", async () => {
+    const seen: string[] = [];
+    const fetchImpl: typeof fetch = async (url) => {
+      const target = new URL(String(url));
+      seen.push(target.pathname);
+      if (target.pathname === "/robots.txt") return jsonResponse("User-agent: *\nAllow: /\n", 200, "text/plain");
+      return jsonResponse(`<html><body><a href="/a/1.pdf">admission circular</a></body></html>`);
+    };
+    const first = await runDiscovery({
+      institutions: [du],
+      previousRegistry: [],
+      previousDiscoveries: [],
+      previousState: null,
+      now: new Date("2026-11-04T16:00:00.000Z"),
+      force: true,
+      runner: "test",
+      limits: { ...limits, maxExtraPages: 0 },
+      clock: () => new Date("2026-11-04T16:00:00.000Z"),
+      fetchImpl,
+    });
+    seen.length = 0;
+    await runDiscovery({
+      institutions: [du],
+      previousRegistry: first.bundle!.registry,
+      previousDiscoveries: first.bundle!.discoveries,
+      previousSeen: first.bundle!.seen,
+      previousRobots: first.bundle!.robots,
+      previousState: first.bundle!.state,
+      now: new Date("2026-11-04T20:00:00.000Z"),
+      force: true,
+      runner: "test",
+      limits: { ...limits, maxExtraPages: 0 },
+      clock: () => new Date("2026-11-04T20:00:00.000Z"),
+      fetchImpl,
+    });
+    assert.equal(seen.includes("/robots.txt"), false);
+    assert.ok(seen.includes("/"));
   });
 });

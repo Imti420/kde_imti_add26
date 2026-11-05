@@ -3,6 +3,8 @@ import { isDocumentUrl, normalizeUrl } from "./url.ts";
 export interface FoundLink {
   url: string;
   text: string;
+  /** Heading or table-row text around the anchor. "Download" alone is not a title. */
+  context: string;
 }
 
 function decode(text: string): string {
@@ -23,6 +25,17 @@ function decodeHref(raw: string): string {
   return raw.replace(/&/gi, "&").replace(/"/gi, '"').trim();
 }
 
+function anchorContext(html: string, index: number): string {
+  const slice = html.slice(Math.max(0, index - 800), index);
+  const headings = [...slice.matchAll(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi)];
+  const heading = headings.length ? decode(headings[headings.length - 1]?.[1] ?? "") : "";
+  const rowMatch = slice.match(/<tr\b[^>]*>((?:(?!<tr\b)[\s\S])*)$/i);
+  const row = rowMatch ? decode(rowMatch[1] ?? "") : "";
+  const strong = [...slice.matchAll(/<(strong|b|th)\b[^>]*>([\s\S]*?)<\/\1>/gi)];
+  const label = strong.length ? decode(strong[strong.length - 1]?.[2] ?? "") : "";
+  return [heading, label, row].filter(Boolean).join(" · ").slice(0, 240);
+}
+
 export function extractAnchors(html: string, base: string): FoundLink[] {
   const found: FoundLink[] = [];
   const seen = new Set<string>();
@@ -32,7 +45,11 @@ export function extractAnchors(html: string, base: string): FoundLink[] {
     const url = normalizeUrl(raw, base);
     if (!url || seen.has(url)) continue;
     seen.add(url);
-    found.push({ url, text: decode(match[4] ?? "").slice(0, 240) });
+    found.push({
+      url,
+      text: decode(match[4] ?? "").slice(0, 240),
+      context: anchorContext(html, match.index ?? 0),
+    });
     if (found.length >= 250) break;
   }
   return found;
@@ -64,7 +81,7 @@ export function extractFeedItems(xml: string, base: string): FoundLink[] {
     const url = normalizeUrl(decodeHref(atom || rss || guid || ""), base);
     if (!url || seen.has(url)) continue;
     seen.add(url);
-    found.push({ url, text: title.slice(0, 240) });
+    found.push({ url, text: title.slice(0, 240), context: "" });
     if (found.length >= 40) break;
   }
   return found;

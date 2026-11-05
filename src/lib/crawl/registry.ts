@@ -70,6 +70,8 @@ function healthOf(source: SourceRecord): Pick<
   | "contentHash"
   | "error"
   | "note"
+  | "unchangedStreak"
+  | "lastNewDocumentAt"
 > {
   return {
     lastSuccessAt: source.lastSuccessAt,
@@ -84,5 +86,7 @@ function healthOf(source: SourceRecord): Pick<
     contentHash: source.contentHash,
     error: source.error,
     note: source.note,
+    unchangedStreak: source.unchangedStreak ?? 0,
+    lastNewDocumentAt: source.lastNewDocumentAt ?? null,
   };
 }

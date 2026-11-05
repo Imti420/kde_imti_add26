@@ -2,7 +2,7 @@ import { mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { runDiscovery } from "../src/lib/crawl/cycle.ts";
 import { shouldStartCycle } from "../src/lib/crawl/gate.ts";
-import { NO_DATE_NOTE, type CrawlState, type DiscoveryRecord, type LiveFile, type SourceRecord } from "../src/lib/crawl/types.ts";
+import { NO_DATE_NOTE, type CrawlState, type DiscoveryRecord, type LiveFile, type RobotsCacheEntry, type SourceRecord } from "../src/lib/crawl/types.ts";
 import { seedSystems, seedUniversities } from "../src/data/universities.ts";
 
 const root = resolve(import.meta.dirname, "..");
@@ -28,6 +28,8 @@ const statePath = resolve(root, "data/ops/state.json");
 const registryPath = resolve(root, "data/ops/registry.json");
 const discoveriesPath = resolve(root, "data/ops/discoveries.json");
 const eventsPath = resolve(root, "data/ops/events.json");
+const seenPath = resolve(root, "data/ops/seen.json");
+const robotsPath = resolve(root, "data/ops/robots.json");
 const livePath = resolve(root, "public/ops/live.json");
 
 const previous = readJson<CrawlState>(statePath, {
@@ -65,6 +67,14 @@ const rawSources = readJson<unknown>(registryPath, []);
 const previousSources: SourceRecord[] = Array.isArray(rawSources) ? (rawSources as SourceRecord[]) : Array.isArray((rawSources as any)?.value) ? (rawSources as any).value : [];
 const rawDiscoveries = readJson<unknown>(discoveriesPath, []);
 const previousDiscoveries: DiscoveryRecord[] = Array.isArray(rawDiscoveries) ? (rawDiscoveries as DiscoveryRecord[]) : Array.isArray((rawDiscoveries as any)?.value) ? (rawDiscoveries as any).value : [];
+const rawSeen = readJson<unknown>(seenPath, null);
+const previousSeen: string[] = Array.isArray((rawSeen as { hashes?: unknown } | null)?.hashes)
+  ? ((rawSeen as { hashes: unknown[] }).hashes.filter((item) => typeof item === "string") as string[])
+  : [];
+const rawRobots = readJson<unknown>(robotsPath, null);
+const previousRobots: RobotsCacheEntry[] = Array.isArray((rawRobots as { entries?: unknown } | null)?.entries)
+  ? ((rawRobots as { entries: RobotsCacheEntry[] }).entries)
+  : [];
 const rawLive = readJson<unknown>(livePath, null);
 const previousLive: Partial<LiveFile> | null = (rawLive && typeof rawLive === "object") ? (rawLive as Partial<LiveFile>) : null;
 
@@ -115,32 +125,33 @@ writeJson(statePath, {
 });
 writeJson(livePath, running);
 
+let checkpointCursor = previous.cursor ?? 0;
+
 try {
   const result = await runDiscovery({
     institutions,
     previousRegistry: previousSources,
     previousDiscoveries,
+    previousSeen,
+    previousRobots,
     previousState: previous,
     now,
     force: true,
     runner,
     fetchImpl: fetch,
     onProgress: (snapshot) => {
-      writeJson(livePath, {
-        version: 1,
-        generatedAt: new Date().toISOString(),
-        status: "running",
-        runner,
-        intervalMinutes: 45,
+      checkpointCursor = snapshot.cursor;
+      writeJson(seenPath, { version: 1, hashes: snapshot.seen });
+      writeJson(robotsPath, { version: 1, entries: snapshot.robots });
+      writeJson(registryPath, snapshot.sources);
+      writeJson(discoveriesPath, snapshot.discoveries);
+      writeJson(statePath, {
+        ...previous,
+        lastStatus: "running",
+        lastStartedAt: snapshot.startedAt,
         cycleId: snapshot.cycleId,
-        startedAt: snapshot.startedAt,
-        completedAt: null,
-        durationMs: null,
-        note: "Discovery cycle is in progress. These events have already happened. No admission date is published.",
-        counts: snapshot.counts,
-        events: snapshot.events,
-        sources: snapshot.sources,
-        discoveries: snapshot.discoveries,
+        cursor: snapshot.cursor,
+        note: "Discovery cycle is in progress. Registry, cursor, and seen documents are checkpointed. A crash here is not a successful scan.",
       });
     },
   });
@@ -156,6 +167,8 @@ try {
   writeJson(registryPath, result.bundle.registry);
   writeJson(discoveriesPath, result.bundle.discoveries);
   writeJson(eventsPath, result.bundle.events);
+  writeJson(seenPath, { version: 1, hashes: result.bundle.seen });
+  writeJson(robotsPath, { version: 1, entries: result.bundle.robots });
   writeJson(livePath, result.bundle.live);
   console.log(
     JSON.stringify({
@@ -176,9 +189,10 @@ try {
   writeJson(statePath, {
     ...previous,
     lastStartedAt: now.toISOString(),
-    lastCompletedAt: failedAt,
+    lastCompletedAt: null,
     lastStatus: "failed",
-    note: "The cycle crashed before it finished. This is not a successful scan and it is not an unchanged result.",
+    cursor: checkpointCursor,
+    note: "The cycle crashed before it finished. Checkpointed registry and seen documents were kept. This is not a successful scan.",
   });
   writeJson(livePath, {
     ...running,

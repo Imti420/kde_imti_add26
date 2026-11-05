@@ -53,6 +53,10 @@ export interface SourceRecord {
   contentHash: string | null;
   error: string | null;
   note: string;
+  /** How many checks in a row came back unchanged. Missing on older rows means 0. */
+  unchangedStreak?: number;
+  /** When a post-baseline document link was last recorded. */
+  lastNewDocumentAt?: string | null;
 }
 
 export interface DiscoveryRecord {
@@ -67,6 +71,8 @@ export interface DiscoveryRecord {
   score: number;
   sameSite: boolean;
   downloaded: false;
+  /** First observation of a host is a baseline, not a "new" announcement. */
+  disposition?: "baseline" | "new";
 }
 
 export interface CrawlEvent {
@@ -130,12 +136,21 @@ export interface LiveFile {
   discoveries: DiscoveryRecord[];
 }
 
+export interface RobotsCacheEntry {
+  origin: string;
+  fetchedAt: string;
+  body: string | null;
+}
+
 export interface OpsBundle {
   state: CrawlState;
   registry: SourceRecord[];
   discoveries: DiscoveryRecord[];
   events: CrawlEvent[];
   live: LiveFile;
+  /** Compact hashes of every document id ever seen. Not trimmed with discoveries. */
+  seen: string[];
+  robots: RobotsCacheEntry[];
 }
 
 export interface CrawlLimits {
@@ -158,7 +173,7 @@ export const PRODUCTION_LIMITS: CrawlLimits = {
   retries: 1,
   retryBaseMs: 400,
   maxExtraPages: 2,
-  maxFetches: 320,
+  maxFetches: 500,
   concurrency: 5,
   maxDiscoveries: 2000,
   maxEvents: 400,
