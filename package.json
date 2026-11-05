@@ -8,6 +8,9 @@
   },
   "scripts": {
     "dev": "node scripts/with-app-env.mjs vite dev --host 0.0.0.0 --port 8080",
+    "crawl:admissions": "node --experimental-strip-types scripts/crawl-admissions.ts",
+    "crawl:newswire": "node --experimental-strip-types scripts/crawl-newswire.ts",
+    "crawl": "npm run crawl:newswire && npm run crawl:admissions",
     "build": "node scripts/with-app-env.mjs vite build && npm run db:migrate",
     "db:migrate": "node scripts/migrate.mjs",
     "build:dev": "node scripts/with-app-env.mjs vite build --mode development",
