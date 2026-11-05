@@ -51,8 +51,10 @@ if (!force && !shouldStartCycle(previous.lastCompletedAt, now, previous.interval
   process.exit(0);
 }
 
-const previousItems = readJson<WireItem[]>(itemsPath, []);
-const previousSources = readJson<WireSourceState[]>(registryPath, []);
+const rawItems = readJson<unknown>(itemsPath, []);
+const previousItems: WireItem[] = Array.isArray(rawItems) ? (rawItems as WireItem[]) : Array.isArray((rawItems as any)?.value) ? (rawItems as any).value : [];
+const rawSources = readJson<unknown>(registryPath, []);
+const previousSources: WireSourceState[] = Array.isArray(rawSources) ? (rawSources as WireSourceState[]) : Array.isArray((rawSources as any)?.value) ? (rawSources as any).value : [];
 const manual = readManual(readJson<unknown>(manualPath, { version: 1, submissions: [] }));
 
 writeJson(statePath, {
@@ -71,6 +73,7 @@ try {
     now,
     runner,
     fetchImpl: fetch,
+    geminiApiKey: process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || null,
   });
   const state: WireStateFile = {
     version: 1,
