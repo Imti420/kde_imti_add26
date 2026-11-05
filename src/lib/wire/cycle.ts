@@ -1,4 +1,5 @@
 import { parseRobots, robotsAllows } from "../crawl/robots.ts";
+import { enrichWithGemini } from "./ai.ts";
 import { parseFeed, parseHtml, type ParsedItem } from "./parse.ts";
 import { admissionRelevance, classifyVerification } from "./relevance.ts";
 import { cleanHeadline, digest, hashKey, parseFeedDate } from "./text.ts";
@@ -34,6 +35,7 @@ export interface WireRunInput {
   runner: WireLive["runner"];
   fetchImpl: typeof fetch;
   limits?: Partial<WireLimits>;
+  geminiApiKey?: string | null;
 }
 
 class HostGate {
@@ -403,8 +405,26 @@ export async function runWireCycle(input: WireRunInput): Promise<WireLive> {
     return admissionRelevance(item.headline, source.relevance).keep;
   });
   const byHash = new Map(crawledPrev.map((item) => [item.contentHash, item]));
+  let enrichedFresh = fresh;
+  let aiCount = 0;
+  let heuristicCount = fresh.length;
+  if (input.geminiApiKey && fresh.length > 0) {
+    try {
+      const aiResult = await enrichWithGemini(fresh, input.geminiApiKey);
+      enrichedFresh = aiResult.enriched;
+      aiCount = aiResult.aiCount;
+      heuristicCount = aiResult.heuristicCount;
+      noteLine("info", null, `AI news intelligence processed ${aiCount} articles with Gemini.`);
+    } catch {
+      enrichedFresh = fresh.map((item) => ({ ...item, classifier: "heuristic" as const, aiModel: null }));
+      noteLine("warn", null, "AI enrichment failed, fell back to heuristic classification.");
+    }
+  } else {
+    enrichedFresh = fresh.map((item) => ({ ...item, classifier: "heuristic" as const, aiModel: null }));
+  }
+
   let newItems = 0;
-  for (const item of fresh) {
+  for (const item of enrichedFresh) {
     if (byHash.has(item.contentHash)) continue;
     byHash.set(item.contentHash, item);
     newItems += 1;
@@ -429,6 +449,8 @@ export async function runWireCycle(input: WireRunInput): Promise<WireLive> {
     manualOnly,
     items: items.length,
     newItems,
+    aiClassified: aiCount,
+    heuristicClassified: heuristicCount,
   };
   const status = reached === 0 ? "failed" : "completed";
   const completed = new Date();
