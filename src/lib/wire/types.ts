@@ -81,6 +81,13 @@ export interface WireItem {
   contentHash: string;
   importance: "normal" | "official-alert";
   origin: "crawled" | "manual";
+  classifier?: "ai" | "heuristic";
+  aiModel?: string | null;
+  detectedDates?: {
+    applicationOpens?: string | null;
+    applicationCloses?: string | null;
+    examDate?: string | null;
+  } | null;
 }
 
 export interface WireLogLine {
@@ -99,6 +106,8 @@ export interface WireCounts {
   manualOnly: number;
   items: number;
   newItems: number;
+  aiClassified?: number;
+  heuristicClassified?: number;
 }
 
 export interface WireLive {
