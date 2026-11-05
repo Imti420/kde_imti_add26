@@ -152,20 +152,20 @@ export interface CrawlLimits {
 }
 
 export const PRODUCTION_LIMITS: CrawlLimits = {
-  hostGapMs: 1500,
-  timeoutMs: 10000,
+  hostGapMs: 1000,
+  timeoutMs: 5000,
   maxBytes: 1_500_000,
   retries: 1,
-  retryBaseMs: 700,
+  retryBaseMs: 400,
   maxExtraPages: 2,
   maxFetches: 320,
-  concurrency: 4,
+  concurrency: 5,
   maxDiscoveries: 2000,
   maxEvents: 400,
 };
 
 export const USER_AGENT =
-  "ADMISSION26-discovery/1.0 (educational archive; +https://turbo-timber-tundra-zephyr.vercel.app/discovery)";
+  "ADMISSION26-discovery/1.0 (educational archive; +https://kdeimtiadd26.vercel.app/discovery)";
 
 export const NO_DATE_NOTE =
   "Discovery only. No admission date was extracted or published by this cycle.";
