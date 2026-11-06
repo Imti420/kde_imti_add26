@@ -1,3 +1,4 @@
 {
-  "installCommand": "npm install --omit=dev --no-audit --no-fund"
+  "installCommand": "npm install --omit=dev --no-audit --no-fund",
+  "ignoreCommand": "git log -1 --pretty=%B | grep -E -q '\\[skip ci\\]|\\[skip vercel\\]|\\[vercel skip\\]|chore\\(ops\\)|chore\\(wire\\)' && exit 0 || exit 1"
 }
