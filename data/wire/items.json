@@ -1,5 +1,23 @@
 [
   {
+    "id": "4c43e6d60a9a6b2b",
+    "headline": "HSC supplementary exams: Allegations of extra fees for form submission",
+    "summary": null,
+    "sourceId": "prothom-alo-english",
+    "sourceName": "Prothom Alo English",
+    "sourceUrl": "https://en.prothomalo.com/youth/education/vaoowrjzze",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-06T13:51:44.000Z",
+    "discoveredAt": "2026-11-06T17:04:30.096Z",
+    "contentHash": "4c43e6d60a9a6b2bf1d0b658e51b17d90811fca7c51ff4fcda8aa8fdfb0529ff",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "d096823687495f9f",
     "headline": "স্কুলের ভর্তি তথ্য: আদমজী ক্যান্টনমেন্ট ও ঢাকা বিএএফ শাহীন কলেজ",
     "summary": "ঢাকা বিএএফ শাহীন কলেজে ২০২৭ শিক্ষাবর্ষে শিশু (কেজি) শ্রেণিতে ছাত্রছাত্রী ভর্তি করা হবে। ভর্তির জন্য অনলাইনের মাধ্যমে আবেদন করতে হবে।",
