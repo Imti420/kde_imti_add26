@@ -1,1 +1,0 @@
-import{d as e,l as t}from"./cn-BMVeN8V3.js";import{t as n}from"./useRouter-Dm_Pw79U.js";var r=e(t(),1);function i(e){let t=n();return r.useCallback(n=>t.navigate({...n,from:n.from??e?.from}),[e?.from,t])}export{i as t};
