@@ -51,6 +51,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No new university documents or reachability changes discovered."
           else
-            git commit -m "chore(ops): official university admission discovery update [skip ci] [skip vercel]"
+            git commit -m "chore(ops): official university admission discovery update"
             git push origin HEAD:main
           fi

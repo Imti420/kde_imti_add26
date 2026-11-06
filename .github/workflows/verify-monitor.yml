@@ -1,0 +1,53 @@
+name: "Admission Source Verification Monitor"
+
+on:
+  schedule:
+    # Runs every 12 hours automatically
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+    # Allows manual execution on demand from the Actions tab
+
+concurrency:
+  group: "verify-monitor"
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    name: "Fingerprint & Verify Official Admission Sources"
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci || npm install --no-audit
+
+      - name: Run Source Verification Engine
+        env:
+          GITHUB_ACTIONS: "true"
+        run: |
+          node --experimental-strip-types scripts/verify-sources.ts
+
+      - name: Commit and push verification updates
+        run: |
+          git config --global user.name "Imti420"
+          git config --global user.email "imtihanislam57@gmail.com"
+          git add data/verification/ public/verification/ src/data/source-manifest.ts
+          if git diff --staged --quiet; then
+            echo "No changes in admission source fingerprints."
+          else
+            git commit -m "chore(monitor): update admission source verification report"
+            git push origin HEAD:main
+          fi
