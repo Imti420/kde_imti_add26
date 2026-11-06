@@ -17345,5 +17345,33 @@
     "shortName": "AAUB",
     "downloaded": false,
     "disposition": "baseline"
+  },
+  {
+    "url": "https://jnu.ac.bd/assets/notice/878f30679acb18d34b0096af93adc0f1.pdf",
+    "foundOn": "https://www.jnu.ac.bd/",
+    "foundAt": "2026-11-06T19:03:48.276Z",
+    "title": "০৭/১১/২০২৬ তারিখ শনিবার জাতীয় বিপ্লব ও সংহতি দিবস সংক্রান্ত বিজ্ঞপ্তি",
+    "kind": "pdf",
+    "score": 10,
+    "sameSite": true,
+    "id": "jnu:https://jnu.ac.bd/assets/notice/878f30679acb18d34b0096af93adc0f1.pdf",
+    "universityId": "jnu",
+    "shortName": "JnU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bmu.ac.bd/notice/1996?from=all",
+    "foundOn": "https://www.bmu.ac.bd/",
+    "foundAt": "2026-11-06T19:04:43.894Z",
+    "title": "06 Nov 2026 Residency Program (MD &amp; MS Phase-A) Admission Test Result - March 2027 NEW",
+    "kind": "page",
+    "score": 12,
+    "sameSite": true,
+    "id": "bmu-med:https://www.bmu.ac.bd/notice/1996?from=all",
+    "universityId": "bmu-med",
+    "shortName": "BMU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
