@@ -17373,5 +17373,19 @@
     "shortName": "BMU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.du.ac.bd/du_post_details/notice/29105",
+    "foundOn": "https://www.du.ac.bd/",
+    "foundAt": "2026-11-07T09:45:19.376Z",
+    "title": "07 Nov Master of Professional MIS (MPMIS) Program Call for Admission Notice 07 Nov, 2026",
+    "kind": "page",
+    "score": 13,
+    "sameSite": true,
+    "id": "du:https://www.du.ac.bd/du_post_details/notice/29105",
+    "universityId": "du",
+    "shortName": "DU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
