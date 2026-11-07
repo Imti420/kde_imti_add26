@@ -1,5 +1,23 @@
 [
   {
+    "id": "bf4cef025bd5c676",
+    "headline": "অ্যাভিয়েশন অ্যান্ড অ্যারোস্পেস বিশ্ববিদ্যালয়ে ভর্তি, দ্বিতীয়বার পরীক্ষার সুযোগ",
+    "summary": "অ্যাভিয়েশন অ্যান্ড অ্যারোস্পেস বিশ্ববিদ্যালয়ে ভর্তি পরীক্ষার তারিখ ঘোষণা। ৫ ডিসেম্বর স্নাতকের ভর্তি পরীক্ষা এবং ৪ ডিসেম্বর স্নাতকোত্তরের ভর্তি পরীক্ষা অনুষ্ঠিত হবে।",
+    "sourceId": "prothom-alo",
+    "sourceName": "Prothom Alo",
+    "sourceUrl": "https://www.prothomalo.com/education/examination/54jz9q56ox",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-07T09:52:01.000Z",
+    "discoveredAt": "2026-11-07T10:49:57.842Z",
+    "contentHash": "bf4cef025bd5c676c46f31798a6bd20da140cafb4f48747392c2ee1ca7ab3d4b",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "4c43e6d60a9a6b2b",
     "headline": "HSC supplementary exams: Allegations of extra fees for form submission",
     "summary": null,
