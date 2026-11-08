@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { NoticeBell } from "@/components/notifications";
 import { IntroSequence } from "@/components/intro";
 import { Signature } from "@/components/signature";
-import { ThemeToggle } from "@/components/theme";
+import { NaughtyBadge, ThemeToggle } from "@/components/theme";
 import { useCatalog } from "@/lib/catalog";
 import { cn } from "@/lib/cn";
 import { isMonitorStale } from "@/lib/verify-engine";
@@ -181,6 +181,7 @@ export function Shell({ children }: { children: ReactNode }) {
                   </div>
                 ) : null}
               </div>
+              <NaughtyBadge />
               <ThemeToggle />
               <NoticeBell />
               <p className="hidden font-mono text-xs tracking-widest text-mute xl:block">SESSION 2026–27</p>

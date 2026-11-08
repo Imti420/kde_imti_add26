@@ -1,9 +1,11 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { Heart } from "lucide-react";
+import { useEffect, useState } from "react";
 import { EVIDENCE_COPY } from "@/data/circulars";
 import { SYSTEM_LABEL, TRACK_LABEL, type Track } from "@/data/types";
 import { Signature } from "@/components/signature";
 import { PageHead, TextButton, controlClass } from "@/components/marks";
+import { applyNaughty, resolveNaughty } from "@/components/theme";
 import { blankCircular, blankUniversity, buildCatalog, useCatalog } from "@/lib/catalog";
 import { todayISO } from "@/lib/dates";
 import { parseBackup, personalSnapshot, usePersonal } from "@/lib/store";
@@ -205,6 +207,8 @@ function SettingsPage() {
       <Signature variant="about" />
 
       <SeedCount />
+
+      <NaughtyModePanel />
     </div>
   );
 }
@@ -216,5 +220,81 @@ function SeedCount() {
     <p className="mt-8 font-mono text-xs text-mute">
       {String(count).padStart(2, "0")} RECORDS VISIBLE AFTER YOUR AMENDMENTS AND HIDES.
     </p>
+  );
+}
+
+/** Secret desk mode. Pink. Horny. Entirely optional. */
+function NaughtyModePanel() {
+  const [on, setOn] = useState(false);
+  const [revealed, setRevealed] = useState(false);
+
+  useEffect(() => {
+    const sync = () => setOn(document.documentElement.classList.contains("naughty"));
+    sync();
+    const obs = new MutationObserver(sync);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => obs.disconnect();
+  }, []);
+
+  const toggle = () => {
+    const next = !on;
+    applyNaughty(next);
+    setOn(next);
+    if (next) setRevealed(true);
+  };
+
+  return (
+    <section className="mt-12 border border-dashed border-mute/60 p-4 opacity-80 transition hover:opacity-100">
+      <button
+        type="button"
+        className="flex w-full items-center justify-between gap-3 text-left"
+        onClick={() => setRevealed((v) => !v)}
+        aria-expanded={revealed}
+      >
+        <span className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase">
+          · · · desk experiment · · ·
+        </span>
+        <span className="font-mono text-[10px] text-mute">{revealed ? "hide" : "peek"}</span>
+      </button>
+
+      {revealed ? (
+        <div className="mt-4 space-y-3">
+          <div className="flex items-start gap-3">
+            <Heart
+              className={`mt-0.5 size-5 shrink-0 ${on ? "fill-accent text-accent" : "text-mute"}`}
+              aria-hidden
+            />
+            <div>
+              <h2 className="font-display text-2xl font-bold uppercase tracking-wide">Naughty mode</h2>
+              <p className="mt-1 max-w-prose text-sm text-mute">
+                Flip this and the whole archive goes pink. Accents blush. Selection gets sticky. The
+                live bar starts throbbing. Nothing about the data changes — only the mood. Turn it
+                off anytime. Your secret is safe in this browser.
+              </p>
+            </div>
+          </div>
+
+          <label className="flex cursor-pointer items-center gap-3 rounded-lg border-[3px] border-ink bg-panel px-4 py-3">
+            <input
+              type="checkbox"
+              className="size-5 accent-[var(--color-accent)]"
+              checked={on}
+              onChange={toggle}
+              aria-label="Enable Naughty mode"
+            />
+            <span className="font-display text-lg font-bold uppercase tracking-wider">
+              {on ? "Currently horny 🥵" : "Keep it professional"}
+            </span>
+          </label>
+
+          {on ? (
+            <p className="font-mono text-xs text-accent">
+              Site is blushing. Header shows a little heart badge. Dark mode still works — just
+              darker pink.
+            </p>
+          ) : null}
+        </div>
+      ) : null}
+    </section>
   );
 }
