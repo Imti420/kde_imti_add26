@@ -155,7 +155,7 @@ function CalendarPage() {
         <div className="mt-2 flex gap-1 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {(["month", "week", "agenda"] as const).map((item) => (
             <button
-              key={t(`cal.${item}`)}
+              key={item}
               type="button"
               className={cn(
                 "h-9 shrink-0 rounded-full border-2 px-3.5 font-display text-xs font-bold uppercase tracking-widest transition-colors",
@@ -546,7 +546,7 @@ function EventForm({
       onSubmit={(event) => {
         event.preventDefault();
         if (!title.trim() || !/^\d{4}-\d{2}-\d{2}$/.test(day)) {
-          setError("{t("cal.needTitle")}");
+          setError(t("cal.needTitle"));
           return;
         }
         if (editing) {
@@ -664,7 +664,7 @@ function EventForm({
             <TextButton
               tone="ghost"
               onClick={() => {
-                if (confirm("t("cal.deleteConfirm")")) onDelete(editing.id);
+                if (confirm(t("cal.deleteConfirm"))) onDelete(editing.id);
               }}
             >
               Delete
