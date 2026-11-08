@@ -1,6 +1,6 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { Search, X } from "lucide-react";
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from "react";
 import { NoticeBell } from "@/components/notifications";
 import { IntroSequence } from "@/components/intro";
 import { Signature } from "@/components/signature";
@@ -276,7 +276,7 @@ function SearchBox({
   t,
   phone = false,
 }: {
-  inputRef: React.RefObject<HTMLInputElement | null>;
+  inputRef: RefObject<HTMLInputElement | null>;
   query: string;
   setQuery: (value: string) => void;
   setSearchOpen: (value: boolean) => void;

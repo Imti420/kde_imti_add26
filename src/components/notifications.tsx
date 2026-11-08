@@ -6,7 +6,7 @@ import { usePublishedReport } from "@/lib/published-report";
 import { usePersonal } from "@/lib/store";
 import { cn } from "@/lib/cn";
 
-export function NoticeBell({ compact: _compact = false }: { compact?: boolean } = {}) {
+export function NoticeBell({ compact = false }: { compact?: boolean }) {
   const report = usePublishedReport((s) => s.report);
   const decisions = usePersonal((s) => s.proposalDecisions);
   const events = usePersonal((s) => s.personalEvents);
@@ -26,7 +26,7 @@ export function NoticeBell({ compact: _compact = false }: { compact?: boolean } 
         onClick={() => setOpen((value) => !value)}
       >
         <Bell className="size-4" aria-hidden />
-        <span className="hidden md:inline">Notices</span>
+        <span className={compact ? "sr-only" : "hidden md:inline"}>Notices</span>
         {unread > 0 ? <span className="rounded-full bg-accent px-1.5 text-onaccent">{unread}</span> : null}
       </button>
       {open ? (
