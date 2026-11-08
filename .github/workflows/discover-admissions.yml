@@ -2,8 +2,9 @@ name: "University Discovery Crawler"
 
 on:
   schedule:
-    # Runs every 3 hours automatically
-    - cron: "0 */3 * * *"
+    # Target every 45 minutes to match INTERVAL_MINUTES / UI copy.
+    # GitHub may delay scheduled runs; workflow_dispatch remains available.
+    - cron: "*/45 * * * *"
   workflow_dispatch:
     # Allows manual execution on demand from the Actions tab
 

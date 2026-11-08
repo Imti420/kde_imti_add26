@@ -24,9 +24,10 @@ export function CountUp({ value, pad = 2 }: { value: number; pad?: number }) {
     }
     let raf = 0;
     let start: number | null = null;
+    const duration = 420; // snappier than 780ms
     const tick = (now: number) => {
       if (start == null) start = now;
-      const p = Math.min(1, (now - start) / 780);
+      const p = Math.min(1, (now - start) / duration);
       const eased = 1 - (1 - p) ** 3;
       setDisplay(Math.round(value * eased));
       if (p < 1) raf = requestAnimationFrame(tick);
@@ -49,7 +50,7 @@ export function Reveal({
   children: ReactNode;
   style?: CSSProperties;
 }) {
-  const delay = Math.min(index, 12) * 50;
+  const delay = Math.min(index, 12) * 32;
   return (
     <div className={cn(index < 12 ? "rise" : undefined, className)} style={{ ...style, animationDelay: `${delay}ms` }}>
       {children}
