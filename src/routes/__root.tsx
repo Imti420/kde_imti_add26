@@ -3,6 +3,7 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { Shell } from "@/components/shell";
 import { THEME_BOOT, ThemeBoot } from "@/components/theme";
+import { LANG_BOOT, LangProvider } from "@/lib/i18n";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -24,23 +25,25 @@ export const Route = createRootRoute({
       { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap",
       },
     ],
   }),
   component: () => (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT }} />
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT + LANG_BOOT }} />
         <HeadContent />
       </head>
       <body>
         <PreviewHostBridge />
         <ThemeBoot />
         <AuthProvider>
-          <Shell>
-            <Outlet />
-          </Shell>
+          <LangProvider>
+            <Shell>
+              <Outlet />
+            </Shell>
+          </LangProvider>
         </AuthProvider>
         <Scripts />
       </body>
