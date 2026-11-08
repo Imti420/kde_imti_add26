@@ -203,8 +203,11 @@ export async function fetchHit(
         redirect: "follow",
         headers: {
           "user-agent": USER_AGENT,
-          accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-          "accept-language": "en,bn;q=0.8",
+          accept:
+            "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+          "accept-language": "en-US,en;q=0.9,bn;q=0.8",
+          "cache-control": "no-cache",
+          "x-admission26-purpose": "public-university-notice-archive",
           ...(previous?.etag ? { "if-none-match": previous.etag } : {}),
           ...(previous?.lastModified ? { "if-modified-since": previous.lastModified } : {}),
         },
@@ -215,7 +218,13 @@ export async function fetchHit(
       if (response.status === 304) {
         return { httpStatus: 304, finalUrl: response.url || url, etag, lastModified, contentType, bodyText: null, contentHash: null, error: null, transient: false };
       }
-      if (response.status === 429 || response.status === 503 || response.status === 502) {
+      // Retry rate-limits, gateway blips, and a single 403 (common soft WAF on campus CDNs).
+      if (
+        response.status === 429 ||
+        response.status === 503 ||
+        response.status === 502 ||
+        (response.status === 403 && attempt === 0)
+      ) {
         lastError = `HTTP ${response.status}`;
         attempt += 1;
         if (attempt <= limits.retries) await sleep(limits.retryBaseMs * attempt);

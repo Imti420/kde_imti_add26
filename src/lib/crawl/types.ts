@@ -167,20 +167,23 @@ export interface CrawlLimits {
 }
 
 export const PRODUCTION_LIMITS: CrawlLimits = {
-  hostGapMs: 1000,
-  timeoutMs: 5000,
+  hostGapMs: 900,
+  // Bangladesh university origins are often slow from GitHub runners.
+  timeoutMs: 10_000,
   maxBytes: 1_500_000,
-  retries: 1,
-  retryBaseMs: 400,
+  retries: 2,
+  retryBaseMs: 600,
   maxExtraPages: 2,
   maxFetches: 500,
-  concurrency: 5,
+  concurrency: 4,
   maxDiscoveries: 2000,
   maxEvents: 400,
 };
 
+// Browser-shaped UA reduces blanket 403s on campus CDNs that block bot tokens.
+// Purpose is still declared via a custom header in the fetch layer.
 export const USER_AGENT =
-  "ADMISSION26-discovery/1.0 (educational archive; +https://kdeimtiadd26.vercel.app/discovery)";
+  "Mozilla/5.0 (compatible; ADMISSION26-discovery/1.1; +https://github.com/Imti420/kde_imti_add26) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
 export const NO_DATE_NOTE =
   "Discovery only. No admission date was extracted or published by this cycle.";

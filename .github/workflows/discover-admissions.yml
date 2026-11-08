@@ -2,11 +2,12 @@ name: "University Discovery Crawler"
 
 on:
   schedule:
-    # Target every 45 minutes to match INTERVAL_MINUTES / UI copy.
-    # GitHub may delay scheduled runs; workflow_dispatch remains available.
-    - cron: "*/45 * * * *"
+    # GitHub schedule is best-effort and often drifts. Multiple pins raise the
+    # chance of a run inside each hour instead of a single missed */45 slot.
+    - cron: "7 * * * *"
+    - cron: "27 * * * *"
+    - cron: "47 * * * *"
   workflow_dispatch:
-    # Allows manual execution on demand from the Actions tab
 
 concurrency:
   group: "discover-admissions"
@@ -19,13 +20,14 @@ jobs:
   discover:
     name: "Scan Official University Portals & Notice Boards"
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 12
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          fetch-depth: 40
 
       - name: Set up Node.js 22
         uses: actions/setup-node@v4
@@ -46,12 +48,5 @@ jobs:
 
       - name: Commit and push official discoveries
         run: |
-          git config --global user.name "Imti420"
-          git config --global user.email "imtihanislam57@gmail.com"
-          git add data/ops/ public/ops/
-          if git diff --staged --quiet; then
-            echo "No new university documents or reachability changes discovered."
-          else
-            git commit -m "chore(ops): official university admission discovery update"
-            git push origin HEAD:main
-          fi
+          chmod +x scripts/git-publish.sh
+          scripts/git-publish.sh "chore(ops): official university admission discovery update" data/ops/ public/ops/

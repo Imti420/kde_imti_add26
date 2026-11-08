@@ -2,10 +2,10 @@ name: "Admission Newswire & AI Intelligence"
 
 on:
   schedule:
-    # Runs every 2 hours automatically
-    - cron: "0 */2 * * *"
+    # Twice-hourly pins; GitHub may still delay, but this beats a single 2h hole.
+    - cron: "12 * * * *"
+    - cron: "42 * * * *"
   workflow_dispatch:
-    # Allows manual execution on demand from the Actions tab
 
 concurrency:
   group: "crawl-newswire"
@@ -18,13 +18,14 @@ jobs:
   newswire:
     name: "Monitor Education Desks & Ingest Admission News"
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          fetch-depth: 40
 
       - name: Set up Node.js 22
         uses: actions/setup-node@v4
@@ -43,12 +44,5 @@ jobs:
 
       - name: Commit and push newswire updates
         run: |
-          git config --global user.name "Imti420"
-          git config --global user.email "imtihanislam57@gmail.com"
-          git add data/wire/ public/wire/
-          if git diff --staged --quiet; then
-            echo "No new admission headlines or newswire updates found."
-          else
-            git commit -m "chore(wire): admission newswire & intelligence update"
-            git push origin HEAD:main
-          fi
+          chmod +x scripts/git-publish.sh
+          scripts/git-publish.sh "chore(wire): admission newswire & intelligence update" data/wire/ public/wire/
