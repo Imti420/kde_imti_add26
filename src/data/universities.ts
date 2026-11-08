@@ -35,7 +35,8 @@ export const seedUniversities: University[] = [
   }),
   U("ru", "University of Rajshahi", "RU", "general", "Rajshahi", "https://www.ru.ac.bd", {
     nameBn: "রাজশাহী বিশ্ববিদ্যালয়",
-    directoryNote: "Runs its own undergraduate admission. The stored 2026–27 dates are still marked preliminary by the university's own public relations office.",
+    directoryNote:
+      "Runs its own undergraduate admission. Apps 12–27 Nov 2026; unit tests B 8 Jan / C 9 Jan / A 16 Jan 2027. Centres include Rajshahi plus Dhaka, Chattogram, Khulna, Sylhet, Mymensingh, Rangpur. Schedule still labelled preliminary in some coverage.",
   }),
   U("cu", "University of Chittagong", "CU", "general", "Chattogram", "https://www.cu.ac.bd", {
     nameBn: "চট্টগ্রাম বিশ্ববিদ্যালয়",
@@ -55,7 +56,8 @@ export const seedUniversities: University[] = [
   }),
   U("jnu", "Jagannath University", "JnU", "general", "Dhaka", "https://www.jnu.ac.bd", {
     nameBn: "জগন্নাথ বিশ্ববিদ্যালয়",
-    directoryNote: "Runs its own undergraduate admission. Not the same institution as Jahangirnagar University (JU).",
+    directoryNote:
+      "Runs its own undergraduate admission (not GST). Apps 15 Nov – 10 Dec 2026; five unit tests from 1 Jan 2027 in Dhaka. Flat fee ~৳400 reported. Compilation seats ~2,900. Not the same institution as Jahangirnagar University (JU).",
   }),
   U("cou", "Comilla University", "CoU", "general", "Cumilla", "https://www.cou.ac.bd", {
     nameBn: "কুমিল্লা বিশ্ববিদ্যালয়",
