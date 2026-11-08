@@ -40,15 +40,15 @@ export const SPICE_CARDS: SpiceCard[] = [
     published: "2026-11-08",
   },
   {
-    id: "spice-coaching-machine",
+    id: "spice-gpa-crash",
     heat: "MARKET",
-    kicker: "GPA-5 COLLAPSE · ৳25,000+ CRORE SHADOW SYSTEM",
-    headline: "HSC scores crashed. The coaching industry did not. Welcome to the real admission economy.",
+    kicker: "GPA-5 COLLAPSE · COACHING ECONOMY STILL RICH",
+    headline: "Pass rates in the low 50s, GPA-5 in free fall — and the coaching machine never blinked.",
     body:
-      "Pass rates cratered toward the low fifties; GPA-5 counts collapsed into the tens of thousands. Boards talk about ending artificial inflation. Meanwhile Bangladesh still runs thousands of registered coaching centres — and a much larger unregistered swarm — in a parallel market variously estimated north of ৳25,000 crore. Grade-1 lottery is dead; admission exams for children are back; coaching for six-year-olds is already a business plan. University season is when that machine prints the hardest: mock tests, batch fees, 'guaranteed' seats, and panic sold by the hour.",
-    punch: "The state grades harder. The market sells certainty. Guess who collects.",
-    sourceLabel: "TBS · Bangladesh Post · Daily Sun desk synthesis, Nov 2026",
-    sourceUrl: "https://www.tbsnews.net/bangladesh/education/teacher-shortages-learning-gaps-blamed-hsc-results-slump-1588971",
+      "Only about 40,000 students locked GPA-5 this year (science+home economics slice ~26.7k). Pass rate around 52%. Meanwhile the shadow coaching economy that sells 'certainty' for BUET / medical / DU keeps printing money. Families who already spent lakhs on coaching now watch the retake calendar and the elite gates close in the same month. The product being sold was never a guaranteed seat. It was hope with a receipt.",
+    punch: "The market is fine. The students are not.",
+    sourceLabel: "Board results · admission desk synthesis, Nov 2026",
+    sourceUrl: "https://www.tbsnews.net/bangladesh/education/du-undergraduate-admission-applications-open-11-november-1594166",
     published: "2026-11-08",
   },
 ];
