@@ -1,11 +1,10 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { Heart } from "lucide-react";
 import { useEffect, useState } from "react";
 import { EVIDENCE_COPY } from "@/data/circulars";
 import { SYSTEM_LABEL, TRACK_LABEL, type Track } from "@/data/types";
 import { Signature } from "@/components/signature";
-import { PageHead, TextButton, controlClass } from "@/components/marks";
 import { applyNaughty, resolveNaughty } from "@/components/theme";
+import { PageHead, TextButton, controlClass } from "@/components/marks";
 import { blankCircular, blankUniversity, buildCatalog, useCatalog } from "@/lib/catalog";
 import { todayISO } from "@/lib/dates";
 import { parseBackup, personalSnapshot, usePersonal } from "@/lib/store";
@@ -207,9 +206,10 @@ function SettingsPage() {
       <Signature variant="about" />
 
       <SeedCount />
-
-      <NaughtyModePanel />
-    </div>
+    
+      {/* Creator-only desk experiment — buried on purpose */}
+      <DeskExperiment />
+</div>
   );
 }
 
@@ -223,74 +223,53 @@ function SeedCount() {
   );
 }
 
-/** Secret desk mode. Pink. Horny. Entirely optional. */
-function NaughtyModePanel() {
+
+function DeskExperiment() {
+  const [open, setOpen] = useState(false);
   const [on, setOn] = useState(false);
-  const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
-    const sync = () => setOn(document.documentElement.classList.contains("naughty"));
-    sync();
-    const obs = new MutationObserver(sync);
-    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => obs.disconnect();
+    setOn(resolveNaughty());
   }, []);
 
-  const toggle = () => {
-    const next = !on;
+  const toggle = (next: boolean) => {
     applyNaughty(next);
     setOn(next);
-    if (next) setRevealed(true);
   };
 
   return (
-    <section className="mt-12 border border-dashed border-mute/60 p-4 opacity-80 transition hover:opacity-100">
+    <section
+      className="desk-experiment mt-16 border border-ink p-3"
+      data-open={open ? "true" : "false"}
+    >
       <button
         type="button"
-        className="flex w-full items-center justify-between gap-3 text-left"
-        onClick={() => setRevealed((v) => !v)}
-        aria-expanded={revealed}
+        className="flex w-full items-center justify-between font-mono text-[10px] tracking-widest text-mute uppercase"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
       >
-        <span className="font-mono text-[10px] tracking-[0.2em] text-mute uppercase">
-          · · · desk experiment · · ·
-        </span>
-        <span className="font-mono text-[10px] text-mute">{revealed ? "hide" : "peek"}</span>
+        <span>desk experiment · local only</span>
+        <span>{open ? "−" : "+"}</span>
       </button>
-
-      {revealed ? (
-        <div className="mt-4 space-y-3">
-          <div className="flex items-start gap-3">
-            <Heart
-              className={`mt-0.5 size-5 shrink-0 ${on ? "fill-accent text-accent" : "text-mute"}`}
-              aria-hidden
-            />
-            <div>
-              <h2 className="font-display text-2xl font-bold uppercase tracking-wide">Naughty mode</h2>
-              <p className="mt-1 max-w-prose text-sm text-mute">
-                Flip this and the whole archive goes pink. Accents blush. Selection gets sticky. The
-                live bar starts throbbing. Nothing about the data changes — only the mood. Turn it
-                off anytime. Your secret is safe in this browser.
-              </p>
-            </div>
-          </div>
-
-          <label className="flex cursor-pointer items-center gap-3 rounded-lg border-[3px] border-ink bg-panel px-4 py-3">
+      {open ? (
+        <div className="mt-3 border-t border-ink pt-3">
+          <p className="mb-3 text-xs text-mute">
+            Browser-only skin. Not synced. Not in the public product. Flip it if you know what you are doing.
+          </p>
+          <label className="flex cursor-pointer items-center gap-3">
             <input
               type="checkbox"
-              className="size-5 accent-[var(--color-accent)]"
+              className="size-4 accent-[var(--color-accent)]"
               checked={on}
-              onChange={toggle}
-              aria-label="Enable Naughty mode"
+              onChange={(e) => toggle(e.target.checked)}
             />
-            <span className="font-display text-lg font-bold uppercase tracking-wider">
-              {on ? "Currently horny 🥵" : "Keep it professional"}
+            <span className="font-display text-lg font-bold uppercase tracking-wide">
+              {on ? "♥ soaked · on" : "horny mode · off"}
             </span>
           </label>
-
           {on ? (
-            <p className="font-mono text-xs text-accent">
-              Site is blushing. Header shows a little heart badge. Dark mode still works — just
-              darker pink.
+            <p className="mt-2 font-mono text-[10px] tracking-widest text-accent">
+              palette hot · badge throbbing · this machine only
             </p>
           ) : null}
         </div>
@@ -298,3 +277,4 @@ function NaughtyModePanel() {
     </section>
   );
 }
+
