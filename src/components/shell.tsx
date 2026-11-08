@@ -183,6 +183,7 @@ export function Shell({ children }: { children: ReactNode }) {
                   </div>
                 ) : null}
               </div>
+              <LangToggle />
               <ThemeToggle />
               <NaughtyBadge />
               <NoticeBell />
