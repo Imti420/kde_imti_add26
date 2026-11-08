@@ -157,7 +157,7 @@ function NewswirePage() {
       <PageHead
         kicker="ADMISSION SEASON · 55-MINUTE CYCLE"
         title="Newswire"
-        lede="Three desk briefings on top — written spicy, sourced hard. Below that: the crawler feed. A news report is still not a circular."
+        lede="Nine desk briefings on top — ACS vs Udvash, Hulkenstein, HSC crash, coaching street fights, written spicy and sourced hard. Below that: the crawler feed. A news report is still not a circular."
         aside={
           <button
             type="button"
@@ -198,16 +198,16 @@ function NewswirePage() {
 
 
       <div className="mb-6">
-        <p className="mb-2 font-mono text-xs tracking-widest text-accent">DESK · THREE THAT MATTER</p>
-        <div className="grid gap-3 md:grid-cols-3">
+        <p className="mb-2 font-mono text-xs tracking-widest text-accent">DESK · NINE THAT MATTER</p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {SPICE_CARDS.map((card) => (
             <article key={card.id} className="flex flex-col border-[3px] border-ink bg-panel p-4 shadow-[6px_6px_0_0_var(--color-ink)]">
               <div className="flex flex-wrap items-center gap-2">
                 <span
                   className={
-                    card.heat === "HOT"
+                    card.heat === "HOT" || card.heat === "WAR"
                       ? "bg-accent px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-onaccent"
-                      : card.heat === "MARKET"
+                      : card.heat === "MARKET" || card.heat === "SCAM"
                         ? "bg-yellow px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-onyellow"
                         : "bg-ink px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-paper"
                   }
