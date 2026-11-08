@@ -112,6 +112,9 @@ const HEAT_CLASS: Record<string, string> = {
   HOT: "bg-accent text-onaccent",
   SYSTEM: "bg-ink text-paper",
   MARKET: "bg-yellow text-onyellow",
+  WAR: "bg-accent text-onaccent",
+  STREET: "bg-ink text-paper",
+  SCAM: "bg-yellow text-onyellow",
 };
 
 export function WireStrip() {
@@ -126,9 +129,9 @@ export function WireStrip() {
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-ink px-3 py-3">
         <div>
           <p className="font-mono text-xs tracking-widest text-accent">DESK BRIEFING · NOT A HEADLINE FEED</p>
-          <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none">Three that matter</h2>
+          <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none">Nine that matter</h2>
           <p className="mt-2 max-w-2xl text-sm text-mute">
-            Written by the desk from the messy admission and edtech season — not a sad grid of scraped headlines.
+            Written by the desk from the messy admission and edtech season — ACS vs Udvash, Hulkenstein hype, HSC crash, coaching street fights, and the rest. Not a sad grid of scraped headlines.
           </p>
         </div>
         <Link to="/newswire" className="press text-xs tracking-widest">
@@ -147,14 +150,14 @@ export function WireStrip() {
         </p>
       </div>
 
-      <div className="grid gap-0 md:grid-cols-3">
+      <div className="grid gap-0 sm:grid-cols-2 lg:grid-cols-3">
         {SPICE_CARDS.map((card, i) => (
           <article
             key={card.id}
             className={cn(
-              "flex flex-col border-ink bg-panel p-4 md:p-5",
-              i < SPICE_CARDS.length - 1 && "border-b md:border-b-0 md:border-r",
-              "border-ink",
+              "flex flex-col border-ink bg-panel p-4 md:p-5 border-b border-ink",
+              (i + 1) % 2 !== 0 && "sm:border-r",
+              (i + 1) % 3 !== 0 && "lg:border-r",
             )}
           >
             <div className="flex flex-wrap items-center gap-2">
