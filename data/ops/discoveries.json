@@ -17401,5 +17401,19 @@
     "shortName": "BUTEX",
     "downloaded": false,
     "disposition": "baseline"
+  },
+  {
+    "url": "https://www.du.ac.bd/du_post_details/notice/29111",
+    "foundOn": "https://www.du.ac.bd/",
+    "foundAt": "2026-11-08T05:08:48.922Z",
+    "title": "08 Nov প্রফেশনাল মাস্টার অব পপুলেশন হেলথ (এমপিএইচ) প্রোগ্রাম (জানুয়ারি ২০২৭ সেমিস্টার) ভর্তি বিজ্ঞপ্তি 08 Nov, 2026",
+    "kind": "page",
+    "score": 20,
+    "sameSite": true,
+    "id": "du:https://www.du.ac.bd/du_post_details/notice/29111",
+    "universityId": "du",
+    "shortName": "DU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
