@@ -6,24 +6,16 @@ import type { WireLive } from "@/lib/wire/types";
 
 const PUBLISHED_WIRE = "https://raw.githubusercontent.com/Imti420/kde_imti_add26/main/public/wire/live.json";
 
-export const fetchPublishedWire = createServerFn({ method: "POST" }).handler(async (): Promise<WireLive | null> => {
-  // First attempt: direct local read in SSR/server environment
-  try {
-    const localPath = resolve(process.cwd(), "public/wire/live.json");
-    const localContent = readFileSync(localPath, "utf8");
-    const json = JSON.parse(localContent);
-    if (isWireLive(json)) return json;
-  } catch {
-    // Proceed to network fetch if local file not accessible
-  }
-
+async function readRemote(): Promise<WireLive | null> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 8000);
   try {
-    const response = await fetch(PUBLISHED_WIRE, {
+    const response = await fetch(`${PUBLISHED_WIRE}?t=${Date.now()}`, {
       signal: controller.signal,
+      cache: "no-store",
       headers: {
         accept: "application/json",
+        "cache-control": "no-cache",
         "user-agent": "ADMISSION26-newswire/1.0",
       },
     });
@@ -35,4 +27,20 @@ export const fetchPublishedWire = createServerFn({ method: "POST" }).handler(asy
   } finally {
     clearTimeout(timer);
   }
+}
+
+function readLocal(): WireLive | null {
+  try {
+    const localPath = resolve(process.cwd(), "public/wire/live.json");
+    const json: unknown = JSON.parse(readFileSync(localPath, "utf8"));
+    return isWireLive(json) ? json : null;
+  } catch {
+    return null;
+  }
+}
+
+export const fetchPublishedWire = createServerFn({ method: "POST" }).handler(async (): Promise<WireLive | null> => {
+  const remote = await readRemote();
+  if (remote) return remote;
+  return readLocal();
 });
