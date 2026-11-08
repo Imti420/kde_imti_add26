@@ -1,10 +1,11 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
+import { Search, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { NoticeBell } from "@/components/notifications";
 import { IntroSequence } from "@/components/intro";
 import { Signature } from "@/components/signature";
 import { ChromeToggles, NaughtyBadge } from "@/components/theme";
-import { useT } from "@/lib/i18n";
+import { useLang, useT } from "@/lib/i18n";
 import { useCatalog } from "@/lib/catalog";
 import { cn } from "@/lib/cn";
 import { isMonitorStale } from "@/lib/verify-engine";
@@ -26,6 +27,13 @@ const NAV = [
   { href: "/settings", key: "nav.settings" },
 ] as const;
 
+const DOCK = [
+  { href: "/", en: "Home", bn: "হোম" },
+  { href: "/newswire", en: "Wire", bn: "খবর" },
+  { href: "/calendar", en: "Dates", bn: "তারিখ" },
+  { href: "/universities", en: "Unis", bn: "বিশ্ব" },
+] as const;
+
 function active(path: string, href: string) {
   if (href === "/") return path === "/";
   return path === href || path.startsWith(`${href}/`);
@@ -33,6 +41,7 @@ function active(path: string, href: string) {
 
 export function Shell({ children }: { children: ReactNode }) {
   const t = useT();
+  const { lang } = useLang();
   const path = useRouterState({ select: (s) => s.location.pathname });
   const shortlist = usePersonal((s) => s.shortlist.length);
   const review = usePublishedReport((s) => s.report?.summary.reviewRequired ?? 0);
@@ -98,6 +107,13 @@ export function Shell({ children }: { children: ReactNode }) {
     void navigate({ to: to as never });
   };
 
+  const openSearch = () => {
+    setSearchOpen(true);
+    window.setTimeout(() => inputRef.current?.focus(), 30);
+  };
+
+  const docked = DOCK.some((item) => active(path, item.href));
+
   return (
     <div className="min-h-screen bg-paper text-ink">
       <IntroSequence />
@@ -117,71 +133,53 @@ export function Shell({ children }: { children: ReactNode }) {
           </div>
         </aside>
 
-        <div className="min-w-0">
-          <header className="sticky top-0 z-30 border-b-[3px] border-ink bg-paper">
-            <div className="flex items-center gap-2 px-3 py-3 md:gap-3 md:px-6">
-              <button type="button" className="press md:hidden" onClick={() => setMenu(true)}>
-                {t("chrome.menu")}
-              </button>
+        <div className="min-w-0 pb-[calc(4.6rem+env(safe-area-inset-bottom))] md:pb-0">
+          <header className="sticky top-0 z-30 border-b-[3px] border-ink bg-paper/95 backdrop-blur-md">
+            <div className="flex items-center gap-2 px-3 py-2 md:hidden">
+              {searchOpen ? (
+                <div className="relative min-w-0 flex-1">
+                  <SearchBox
+                    inputRef={inputRef}
+                    query={query}
+                    setQuery={setQuery}
+                    setSearchOpen={setSearchOpen}
+                    results={results}
+                    go={go}
+                    t={t}
+                    phone
+                  />
+                </div>
+              ) : (
+                <Link to="/" className="font-display text-[2rem] font-bold uppercase leading-none tracking-tight">
+                  A<span className="text-accent">//</span>26
+                </Link>
+              )}
+              {searchOpen ? (
+                <button type="button" className="press h-11 w-11 shrink-0 px-0" onClick={() => setSearchOpen(false)} aria-label={t("chrome.close")}>
+                  <X className="size-4" aria-hidden />
+                </button>
+              ) : (
+                <div className="ml-auto flex items-center gap-1.5">
+                  <button type="button" className="press h-11 w-11 px-0" onClick={openSearch} aria-label={t("chrome.searchLabel")}>
+                    <Search className="size-4" aria-hidden />
+                  </button>
+                  <ChromeToggles />
+                  <NoticeBell compact />
+                </div>
+              )}
+            </div>
+
+            <div className="hidden items-center gap-3 px-6 py-3 md:flex">
               <div className="relative min-w-0 flex-1">
-                <label className="sr-only" htmlFor="archive-search">
-                  {t("chrome.searchLabel")}
-                </label>
-                <input
-                  id="archive-search"
-                  ref={inputRef}
-                  value={query}
-                  placeholder={t("chrome.search")}
-                  suppressHydrationWarning
-                  className="h-11 w-full rounded-xl border-[3px] border-ink bg-paper px-3 font-mono text-xs uppercase tracking-widest text-ink outline-none placeholder:text-mute focus:bg-panel"
-                  onChange={(event) => {
-                    setQuery(event.target.value);
-                    setSearchOpen(true);
-                  }}
-                  onFocus={() => setSearchOpen(true)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      const uni = results.universities[0];
-                      const circular = results.circulars[0];
-                      if (uni) go(`/universities/${uni.id}`);
-                      else if (circular) go(`/circulars/${circular.id}`);
-                    }
-                  }}
+                <SearchBox
+                  inputRef={inputRef}
+                  query={query}
+                  setQuery={setQuery}
+                  setSearchOpen={setSearchOpen}
+                  results={results}
+                  go={go}
+                  t={t}
                 />
-                {searchOpen && query.trim() ? (
-                  <div className="absolute top-full right-0 left-0 z-40 mt-2 max-h-[70vh] overflow-auto rounded-2xl border-[3px] border-ink bg-paper shadow-[6px_6px_0_0_var(--color-accent)]">
-                    {results.universities.length + results.circulars.length === 0 ? (
-                      <p className="px-3 py-4 font-mono text-xs text-mute">{t("chrome.noMatch")}</p>
-                    ) : null}
-                    {results.universities.length ? (
-                      <p className="border-b border-ink px-3 py-2 font-mono text-xs tracking-widest text-mute">{t("chrome.universities")}</p>
-                    ) : null}
-                    {results.universities.map((uni) => (
-                      <button
-                        key={uni.id}
-                        type="button"
-                        className="flex w-full items-baseline gap-3 border-b border-ink px-3 py-3 text-left hover:bg-panel"
-                        onClick={() => go(`/universities/${uni.id}`)}
-                      >
-                        <span className="font-display text-2xl font-bold uppercase">{uni.shortName}</span>
-                        <span className="text-sm">{uni.name}</span>
-                      </button>
-                    ))}
-                    {results.circulars.length ? (
-                      <p className="border-b border-ink px-3 py-2 font-mono text-xs tracking-widest text-mute">{t("chrome.circulars")}</p>
-                    ) : null}
-                    {results.circulars.map((item) => (
-                      <button
-                        key={item.id}
-                        type="button"
-                        className="block w-full border-b border-ink px-3 py-3 text-left text-sm hover:bg-panel"
-                        onClick={() => go(`/circulars/${item.id}`)}
-                      >
-                        {item.title}
-                      </button>
-                    ))}
-                  </div>
-                ) : null}
               </div>
               <ChromeToggles />
               <NaughtyBadge />
@@ -200,35 +198,161 @@ export function Shell({ children }: { children: ReactNode }) {
               </p>
             </div>
           ) : null}
-          <main className="px-3 py-6 md:px-6 md:py-8">
+          <main className="px-3 py-5 md:px-6 md:py-8">
             <div key={path} className="page-enter">
               {children}
             </div>
           </main>
           <footer className="border-t-[3px] border-ink px-4 py-4 md:px-6">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <p className="max-w-3xl font-mono text-xs leading-relaxed text-mute">
-                {t("chrome.footer")}
-              </p>
+              <p className="max-w-3xl font-mono text-xs leading-relaxed text-mute">{t("chrome.footer")}</p>
               <Signature variant="colophon" />
             </div>
           </footer>
         </div>
       </div>
 
+      <nav
+        className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t-[3px] border-ink bg-paper md:hidden"
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+        aria-label="Primary"
+      >
+        {DOCK.map((item) => {
+          const on = active(path, item.href);
+          return (
+            <Link
+              key={item.href}
+              to={item.href}
+              aria-current={on ? "page" : undefined}
+              className={cn(
+                "flex min-h-14 flex-col items-center justify-center gap-0.5 font-display text-[0.95rem] font-bold uppercase leading-none tracking-wide",
+                on ? "bg-yellow text-onyellow" : "text-ink",
+              )}
+            >
+              <span className={cn("h-1 w-5 rounded-full", on ? "bg-accent" : "bg-transparent")} aria-hidden />
+              {lang === "bn" ? item.bn : item.en}
+            </Link>
+          );
+        })}
+        <button
+          type="button"
+          className={cn(
+            "flex min-h-14 flex-col items-center justify-center gap-0.5 font-display text-[0.95rem] font-bold uppercase leading-none tracking-wide",
+            !docked || menu ? "bg-ink text-paper" : "text-ink",
+          )}
+          onClick={() => setMenu(true)}
+        >
+          <span className={cn("h-1 w-5 rounded-full", menu ? "bg-accent" : "bg-transparent")} aria-hidden />
+          {lang === "bn" ? "আরও" : "More"}
+        </button>
+      </nav>
+
       {menu ? (
         <div className="fixed inset-0 z-50 flex flex-col bg-rail text-railfg md:hidden">
-          <div className="flex items-center justify-between border-b border-railfg/25 px-4 py-3">
+          <div className="flex items-center justify-between border-b border-railfg/25 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))]">
             <Brand compact />
             <button type="button" className="press press-ink" onClick={() => setMenu(false)}>
               {t("chrome.close")}
             </button>
           </div>
           <Nav path={path} shortlist={shortlist} review={review} onNavigate={() => setMenu(false)} />
+          <div className="border-t border-railfg/25 px-4 py-3">
+            <NaughtyBadge />
+          </div>
           <Signature variant="rail" />
         </div>
       ) : null}
     </div>
+  );
+}
+
+function SearchBox({
+  inputRef,
+  query,
+  setQuery,
+  setSearchOpen,
+  results,
+  go,
+  t,
+  phone = false,
+}: {
+  inputRef: React.RefObject<HTMLInputElement | null>;
+  query: string;
+  setQuery: (value: string) => void;
+  setSearchOpen: (value: boolean) => void;
+  results: {
+    universities: { id: string; shortName: string; name: string }[];
+    circulars: { id: string; title: string }[];
+  };
+  go: (to: string) => void;
+  t: (key: string) => string;
+  phone?: boolean;
+}) {
+  return (
+    <>
+      <label className="sr-only" htmlFor={phone ? "archive-search-phone" : "archive-search"}>
+        {t("chrome.searchLabel")}
+      </label>
+      <input
+        id={phone ? "archive-search-phone" : "archive-search"}
+        ref={inputRef}
+        value={query}
+        placeholder={t("chrome.search")}
+        suppressHydrationWarning
+        enterKeyHint="search"
+        className={cn(
+          "w-full rounded-xl border-[3px] border-ink bg-paper px-3 font-mono uppercase tracking-widest text-ink outline-none placeholder:text-mute focus:bg-panel",
+          phone ? "h-11 text-base" : "h-11 text-xs",
+        )}
+        onChange={(event) => {
+          setQuery(event.target.value);
+          setSearchOpen(true);
+        }}
+        onFocus={() => setSearchOpen(true)}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            const uni = results.universities[0];
+            const circular = results.circulars[0];
+            if (uni) go(`/universities/${uni.id}`);
+            else if (circular) go(`/circulars/${circular.id}`);
+          }
+        }}
+      />
+      {query.trim() ? (
+        <div className="absolute top-full right-0 left-0 z-40 mt-2 max-h-[60vh] overflow-auto rounded-2xl border-[3px] border-ink bg-paper shadow-[6px_6px_0_0_var(--color-accent)]">
+          {results.universities.length + results.circulars.length === 0 ? (
+            <p className="px-3 py-4 font-mono text-xs text-mute">{t("chrome.noMatch")}</p>
+          ) : null}
+          {results.universities.length ? (
+            <p className="border-b border-ink px-3 py-2 font-mono text-xs tracking-widest text-mute">{t("chrome.universities")}</p>
+          ) : null}
+          {results.universities.map((uni) => (
+            <button
+              key={uni.id}
+              type="button"
+              className="flex min-h-12 w-full items-baseline gap-3 border-b border-ink px-3 py-3 text-left active:bg-yellow"
+              onClick={() => go(`/universities/${uni.id}`)}
+            >
+              <span className="font-display text-2xl font-bold uppercase">{uni.shortName}</span>
+              <span className="truncate text-sm">{uni.name}</span>
+            </button>
+          ))}
+          {results.circulars.length ? (
+            <p className="border-b border-ink px-3 py-2 font-mono text-xs tracking-widest text-mute">{t("chrome.circulars")}</p>
+          ) : null}
+          {results.circulars.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              className="block min-h-12 w-full border-b border-ink px-3 py-3 text-left text-sm active:bg-yellow"
+              onClick={() => go(`/circulars/${item.id}`)}
+            >
+              {item.title}
+            </button>
+          ))}
+        </div>
+      ) : null}
+    </>
   );
 }
 
@@ -268,10 +392,10 @@ function Nav({
             onClick={onNavigate}
             aria-current={on ? "page" : undefined}
             className={cn(
-              "flex min-h-11 items-center justify-between gap-3 rounded-xl border-[3px] px-3 py-2 font-display text-lg font-semibold uppercase leading-none tracking-wide transition-[transform,background-color,box-shadow] duration-150",
+              "flex min-h-12 items-center justify-between gap-3 rounded-xl border-[3px] px-3 py-2 font-display text-lg font-semibold uppercase leading-none tracking-wide",
               on
                 ? "border-ink bg-yellow text-onyellow shadow-[3px_3px_0_0_var(--color-accent)]"
-                : "border-transparent text-railfg hover:border-railfg/40 hover:bg-railfg/10",
+                : "border-transparent text-railfg active:bg-railfg/10",
             )}
           >
             {t(item.key)}
