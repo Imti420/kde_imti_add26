@@ -1,10 +1,10 @@
-import { Heart, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const KEY = "a26-theme";
 const NAUGHTY_KEY = "a26-naughty";
 
-export const THEME_BOOT = `(function(){try{var t=localStorage.getItem("${KEY}");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);document.documentElement.style.colorScheme=d?"dark":"light";var n=localStorage.getItem("${NAUGHTY_KEY}")==="1";document.documentElement.classList.toggle("naughty",n);}catch(e){}})();`;
+export const THEME_BOOT = `(function(){try{var t=localStorage.getItem("${KEY}");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);document.documentElement.style.colorScheme=d?"dark":"light";var n=localStorage.getItem("${NAUGHTY_KEY}");if(n==="1"||n==="on"||n==="true"){document.documentElement.classList.add("naughty");}}catch(e){}})();`;
 
 function systemDark() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -23,7 +23,8 @@ export function resolveDark(): boolean {
 
 export function resolveNaughty(): boolean {
   try {
-    return localStorage.getItem(NAUGHTY_KEY) === "1";
+    const v = localStorage.getItem(NAUGHTY_KEY);
+    return v === "1" || v === "on" || v === "true";
   } catch {
     return false;
   }
@@ -35,7 +36,7 @@ export function applyTheme(dark: boolean) {
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) {
     const naughty = document.documentElement.classList.contains("naughty");
-    if (naughty) meta.setAttribute("content", dark ? "#2a0f1a" : "#ff4d8d");
+    if (naughty) meta.setAttribute("content", dark ? "#1a0510" : "#ff4d8a");
     else meta.setAttribute("content", dark ? "#171513" : "#141414");
   }
 }
@@ -43,12 +44,17 @@ export function applyTheme(dark: boolean) {
 export function applyNaughty(on: boolean) {
   document.documentElement.classList.toggle("naughty", on);
   try {
-    localStorage.setItem(NAUGHTY_KEY, on ? "1" : "0");
+    if (on) localStorage.setItem(NAUGHTY_KEY, "1");
+    else localStorage.removeItem(NAUGHTY_KEY);
   } catch {
-    /* ignore */
+    /* private mode */
   }
-  // Refresh theme-color to match the new accent mood
-  applyTheme(document.documentElement.classList.contains("dark"));
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) {
+    const dark = document.documentElement.classList.contains("dark");
+    if (on) meta.setAttribute("content", dark ? "#1a0510" : "#ff4d8a");
+    else meta.setAttribute("content", dark ? "#171513" : "#141414");
+  }
 }
 
 export function ThemeBoot() {
@@ -97,7 +103,7 @@ export function ThemeToggle() {
   );
 }
 
-/** Tiny pulse badge that only shows when Naughty mode is on. */
+/** Creator-only. Renders nothing until naughty is on. */
 export function NaughtyBadge() {
   const [on, setOn] = useState(false);
 
@@ -113,12 +119,14 @@ export function NaughtyBadge() {
 
   return (
     <span
-      className="naughty-badge inline-flex items-center gap-1 rounded-full border-[2px] border-ink bg-accent px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-onaccent"
-      title="Naughty mode is on. Settings → bottom to turn off."
-      aria-label="Naughty mode active"
+      className="naughty-badge inline-flex items-center gap-1 rounded-full border-[3px] border-ink bg-accent px-2.5 py-1 font-display text-xs font-bold uppercase tracking-widest text-onaccent"
+      title="Creator mode · this browser only"
+      aria-label="Horny mode active"
     >
-      <Heart className="size-3 fill-current" aria-hidden />
-      Horny
+      <span className="naughty-heart" aria-hidden>
+        ♥
+      </span>
+      <span className="naughty-label">Soaked</span>
     </span>
   );
 }
