@@ -1,5 +1,6 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useT } from "@/lib/i18n";
 
 const KEY = "a26-theme";
 const NAUGHTY_KEY = "a26-naughty";
@@ -72,6 +73,7 @@ export function ThemeBoot() {
 }
 
 export function ThemeToggle() {
+  const t = useT();
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
@@ -95,10 +97,10 @@ export function ThemeToggle() {
       className="press h-11 px-3"
       onClick={toggle}
       aria-pressed={dark}
-      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label={dark ? t("chrome.themeAriaLight") : t("chrome.themeAriaDark")}
     >
       {dark ? <Sun className="size-4" aria-hidden /> : <Moon className="size-4" aria-hidden />}
-      <span className="hidden sm:inline">{dark ? "Day" : "Night"}</span>
+      <span className="hidden sm:inline">{dark ? t("chrome.day") : t("chrome.night")}</span>
     </button>
   );
 }
