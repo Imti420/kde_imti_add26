@@ -31,92 +31,6 @@ html.dark {
   color-scheme: dark;
 }
 
-/*
- * Naughty mode — secret pink / horny palette.
- * Independent of dark/light; stacks on top and rewrites the accent mood.
- */
-html.naughty {
-  --color-paper: #fff0f5;
-  --color-ink: #3b0a1f;
-  --color-accent: #ff2d7a;
-  --color-mute: #9b4a6b;
-  --color-panel: #ffe4ef;
-  --color-signal: #ff6b9d;
-  --color-yellow: #ffc0e0;
-  --color-onyellow: #3b0a1f;
-  --color-onaccent: #fff5f9;
-  --color-rail: #2a0f1a;
-  --color-railfg: #ffe4ef;
-}
-
-html.dark.naughty {
-  --color-paper: #1a0a12;
-  --color-ink: #ffe4ef;
-  --color-accent: #ff4d9a;
-  --color-mute: #e8a0bc;
-  --color-panel: #2c1220;
-  --color-signal: #ff8fb8;
-  --color-yellow: #ff6b9d;
-  --color-onyellow: #1a0a12;
-  --color-onaccent: #1a0a12;
-  --color-rail: #12060c;
-  --color-railfg: #ffe4ef;
-}
-
-html.naughty ::selection {
-  background: #ff2d7a;
-  color: #fff5f9;
-}
-
-html.naughty .press:hover {
-  box-shadow: 7px 7px 0 0 #ff2d7a;
-}
-
-html.naughty .card-doc:hover,
-html.naughty .card-doc:focus-within {
-  box-shadow: 5px 5px 0 0 #ff2d7a;
-}
-
-/* Soft heart-pulse on the live status bar when naughty is on */
-html.naughty .status-live-bar {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    #ff2d7a 30%,
-    #ff9ec8 50%,
-    #ff2d7a 70%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: naughty-throb 1.1s ease-in-out infinite;
-}
-
-@keyframes naughty-throb {
-  0%,
-  100% {
-    background-position: 0% 50%;
-    filter: brightness(1);
-  }
-  50% {
-    background-position: 100% 50%;
-    filter: brightness(1.25);
-  }
-}
-
-.naughty-badge {
-  animation: naughty-badge-pulse 1.4s ease-in-out infinite;
-}
-
-@keyframes naughty-badge-pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.06);
-  }
-}
-
 html {
   color-scheme: light;
 }
@@ -745,4 +659,170 @@ html {
     animation: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CREATOR-ONLY · NAUGHTY MODE (html.naughty)
+   LocalStorage key: a26-naughty. Buried in settings.
+   Not for public users. Max heat.
+   ═══════════════════════════════════════════════════════════ */
+
+html.naughty {
+  --color-paper: #fff0f6;
+  --color-ink: #2a0614;
+  --color-accent: #ff1a6c;
+  --color-mute: #9a4a68;
+  --color-panel: #ffe4ef;
+  --color-signal: #ff4d9a;
+  --color-yellow: #ffb3d1;
+  --color-onyellow: #2a0614;
+  --color-onaccent: #fff5f9;
+  --color-rail: #1a0510;
+  --color-railfg: #ffd6e8;
+  --naughty-glow: 0 0 28px rgba(255, 26, 108, 0.55);
+  --naughty-pulse: 0 0 40px rgba(255, 77, 154, 0.7);
+}
+
+html.dark.naughty {
+  --color-paper: #1a0510;
+  --color-ink: #ffe4ef;
+  --color-accent: #ff4d9a;
+  --color-mute: #d48aa8;
+  --color-panel: #2d0a1a;
+  --color-signal: #ff7ab8;
+  --color-yellow: #ff9ec8;
+  --color-onyellow: #1a0510;
+  --color-onaccent: #1a0510;
+  --color-rail: #0d0208;
+  --color-railfg: #ffd6e8;
+  --naughty-glow: 0 0 36px rgba(255, 77, 154, 0.65);
+  --naughty-pulse: 0 0 52px rgba(255, 105, 180, 0.8);
+}
+
+html.naughty body {
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(255, 26, 108, 0.18), transparent 55%),
+    radial-gradient(ellipse 80% 50% at 100% 100%, rgba(255, 77, 154, 0.12), transparent 45%);
+}
+
+html.dark.naughty body {
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(255, 77, 154, 0.22), transparent 55%),
+    radial-gradient(ellipse 80% 50% at 100% 100%, rgba(255, 26, 108, 0.15), transparent 45%);
+}
+
+html.naughty ::selection {
+  background: #ff1a6c;
+  color: #fff5f9;
+}
+
+html.naughty .press:hover {
+  box-shadow: 7px 7px 0 0 var(--color-accent), var(--naughty-glow);
+}
+
+html.naughty .press-accent,
+html.naughty .press[aria-pressed="true"] {
+  box-shadow: 0 0 18px rgba(255, 26, 108, 0.45);
+}
+
+html.naughty a:hover {
+  text-shadow: 0 0 12px rgba(255, 26, 108, 0.5);
+}
+
+/* throbbing badge + heart */
+@keyframes naughty-throb {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 26, 108, 0.55);
+  }
+  40% {
+    transform: scale(1.08);
+    box-shadow: 0 0 22px 6px rgba(255, 26, 108, 0.35);
+  }
+  70% {
+    transform: scale(0.97);
+    box-shadow: 0 0 8px 2px rgba(255, 77, 154, 0.4);
+  }
+}
+
+@keyframes naughty-heart-beat {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 2px rgba(255, 26, 108, 0.6));
+  }
+  15% {
+    transform: scale(1.35);
+    filter: drop-shadow(0 0 10px rgba(255, 26, 108, 0.95));
+  }
+  30% {
+    transform: scale(1.05);
+  }
+  45% {
+    transform: scale(1.28);
+    filter: drop-shadow(0 0 14px rgba(255, 77, 154, 1));
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+
+@keyframes naughty-label-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    letter-spacing: 0.06em;
+  }
+  50% {
+    opacity: 0.85;
+    letter-spacing: 0.14em;
+  }
+}
+
+.naughty-badge {
+  animation: naughty-throb 1.4s ease-in-out infinite;
+  cursor: default;
+  user-select: none;
+}
+
+.naughty-heart {
+  display: inline-block;
+  animation: naughty-heart-beat 1.1s ease-in-out infinite;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.naughty-label {
+  animation: naughty-label-pulse 2.2s ease-in-out infinite;
+}
+
+/* soft body heat when mode is on */
+html.naughty .window,
+html.naughty .uni-card,
+html.naughty header {
+  box-shadow: 0 0 0 1px rgba(255, 26, 108, 0.08);
+}
+
+html.naughty .border-accent,
+html.naughty [class*="border-accent"] {
+  border-color: var(--color-accent) !important;
+}
+
+/* settings secret panel — barely visible until expanded */
+.desk-experiment {
+  border-style: dashed;
+  opacity: 0.55;
+  transition: opacity 160ms ease, border-color 160ms ease;
+}
+.desk-experiment:hover,
+.desk-experiment[data-open="true"] {
+  opacity: 1;
+  border-color: var(--color-accent);
+}
+
+html.naughty .desk-experiment {
+  opacity: 1;
+  border-style: solid;
+  box-shadow: var(--naughty-glow);
 }
