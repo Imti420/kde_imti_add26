@@ -260,7 +260,15 @@ export function LangProvider({ children }: { children: ReactNode }) {
 
 export function useLang() {
   const ctx = useContext(LangContext);
-  if (!ctx) throw new Error("useLang must be used inside LangProvider");
+  if (!ctx) {
+    return {
+      lang: "en" as Lang,
+      setLang: (next: Lang) => {
+        applyLang(next);
+      },
+      t: (key: string) => en[key] ?? key,
+    };
+  }
   return ctx;
 }
 
