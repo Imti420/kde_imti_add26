@@ -17513,5 +17513,19 @@
     "shortName": "DCU",
     "downloaded": false,
     "disposition": "baseline"
+  },
+  {
+    "url": "https://forms.bmu.ac.bd/bmu_residency_2027/local/admission/upload/subject_list_march_2027.pdf",
+    "foundOn": "https://forms.bmu.ac.bd/bmu_residency_2027/local/admission/index.php",
+    "foundAt": "2026-11-08T20:24:31.217Z",
+    "title": "please click here",
+    "kind": "pdf",
+    "score": 9,
+    "sameSite": true,
+    "id": "bmu-med:https://forms.bmu.ac.bd/bmu_residency_2027/local/admission/upload/subject_list_march_2027.pdf",
+    "universityId": "bmu-med",
+    "shortName": "BMU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
