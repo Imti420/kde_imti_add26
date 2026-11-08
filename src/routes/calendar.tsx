@@ -7,6 +7,7 @@ import { useCatalog } from "@/lib/catalog";
 import { cn } from "@/lib/cn";
 import { formatDay, relativeDay, todayISO } from "@/lib/dates";
 import { usePersonal } from "@/lib/store";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/calendar")({
   head: () => ({ meta: [{ title: "Calendar — ADMISSION//26" }] }),
@@ -24,6 +25,7 @@ const KINDS: { id: PersonalEventKind; label: string }[] = [
 ];
 
 function CalendarPage() {
+  const t = useT();
   const { circulars, byId } = useCatalog();
   const personal = usePersonal((s) => s.personalEvents);
   const shortlist = usePersonal((s) => s.shortlist);
@@ -97,9 +99,9 @@ function CalendarPage() {
   return (
     <div className="cal-page">
       <PageHead
-        kicker="Planning instrument"
-        title="Calendar"
-        lede="Deadlines, examinations, openings and admit-card dates from the archive, plus events you add on this desk. A date with a thin confidence stamp has not been treated as final."
+        kicker={t("cal.kicker")}
+        title={t("cal.title")}
+        lede={t("cal.lede")}
         aside={
           <div className="flex flex-wrap gap-2">
             <TextButton tone="paper" onClick={download}>
@@ -153,7 +155,7 @@ function CalendarPage() {
         <div className="mt-2 flex gap-1 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {(["month", "week", "agenda"] as const).map((item) => (
             <button
-              key={item}
+              key={t(`cal.${item}`)}
               type="button"
               className={cn(
                 "h-9 shrink-0 rounded-full border-2 px-3.5 font-display text-xs font-bold uppercase tracking-widest transition-colors",
@@ -161,7 +163,7 @@ function CalendarPage() {
               )}
               onClick={() => setView(item)}
             >
-              {item}
+              {t(`cal.${item}`)}
             </button>
           ))}
           <select
@@ -169,8 +171,8 @@ function CalendarPage() {
             value={scope}
             onChange={(event) => setScope(event.target.value as "all" | "shortlist")}
           >
-            <option value="all">All dates</option>
-            <option value="shortlist">Shortlist</option>
+            <option value="all">{t("cal.allDates")}</option>
+            <option value="shortlist">{t("cal.shortlist")}</option>
           </select>
           <label className="flex h-9 shrink-0 items-center gap-1.5 rounded-full border-2 border-ink/40 bg-panel px-3 font-mono text-[11px] tracking-wide">
             <input
@@ -179,7 +181,7 @@ function CalendarPage() {
               checked={hideDone}
               onChange={(event) => setHideDone(event.target.checked)}
             />
-            Hide done
+            {t("cal.hideDone")}
           </label>
         </div>
       </div>
@@ -187,16 +189,16 @@ function CalendarPage() {
       {/* Legend — compact chips */}
       <ul className="mb-3 flex flex-wrap gap-2 font-mono text-[10px] tracking-widest">
         <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
-          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-accent" /> DEADLINE
+          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-accent" /> {t("cal.deadline")}
         </li>
         <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
           <i className="inline-block h-2.5 w-2.5 rounded-sm bg-ink" /> EXAM
         </li>
         <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
-          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-mute" /> OPENS
+          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-mute" /> {t("cal.opens")}
         </li>
         <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
-          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-signal" /> ADMIT
+          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-signal" /> {t("cal.admit")}
         </li>
       </ul>
 
@@ -312,7 +314,7 @@ function CalendarPage() {
                 </button>
                 <div className="mt-3 grid gap-1.5">
                   {dayEvents.length === 0 ? (
-                    <p className="font-mono text-[11px] text-mute">No events</p>
+                    <p className="font-mono text-[11px] text-mute">{t("cal.noEvents")}</p>
                   ) : (
                     dayEvents.map((event) => (
                       <button
@@ -340,7 +342,7 @@ function CalendarPage() {
       {view === "agenda" ? (
         <ol className="cal-agenda divide-y-2 divide-ink overflow-hidden rounded-[1.1rem] border-[3px] border-ink bg-paper shadow-[5px_5px_0_0_var(--color-ink)]">
           {visible.length === 0 ? (
-            <li className="px-4 py-6 text-sm text-mute">Nothing dated in this range.</li>
+            <li className="px-4 py-6 text-sm text-mute">{t("cal.nothing")}</li>
           ) : null}
           {visible.map((event) => {
             const rel = relativeDay(event.day);
@@ -405,7 +407,7 @@ function CalendarPage() {
         </div>
         <div className="p-4">
           {selectedEvents.length === 0 ? (
-            <p className="text-sm text-mute">No events on this day. Add one below.</p>
+            <p className="text-sm text-mute">{t("cal.noEventsDay")}</p>
           ) : (
             <ul className="divide-y divide-ink/20">
               {selectedEvents.map((event) => (
@@ -464,7 +466,7 @@ function EventDetail({ event }: { event: CalendarEvent }) {
             params={{ id: event.circularId }}
             className="font-mono text-[11px] font-bold tracking-widest underline"
           >
-            OPEN CIRCULAR
+            {t("cal.openCircular")}
           </Link>
         ) : null}
         {event.universityId ? (
@@ -473,7 +475,7 @@ function EventDetail({ event }: { event: CalendarEvent }) {
             params={{ id: event.universityId }}
             className="font-mono text-[11px] font-bold tracking-widest underline"
           >
-            OPEN UNIVERSITY
+            {t("cal.openUniversity")}
           </Link>
         ) : null}
       </div>
@@ -498,6 +500,7 @@ function EventForm({
   onUpdate: (id: string, patch: Partial<PersonalEvent>) => void;
   onDelete: (id: string) => void;
 }) {
+  const t = useT();
   const [title, setTitle] = useState("");
   const [day, setDay] = useState(defaultDay);
   const [time, setTime] = useState("");
@@ -543,7 +546,7 @@ function EventForm({
       onSubmit={(event) => {
         event.preventDefault();
         if (!title.trim() || !/^\d{4}-\d{2}-\d{2}$/.test(day)) {
-          setError("A title and a valid date are required.");
+          setError("{t("cal.needTitle")}");
           return;
         }
         if (editing) {
@@ -575,18 +578,18 @@ function EventForm({
       }}
     >
       <p className="font-display text-2xl font-bold uppercase leading-none">
-        {editing ? "Edit personal event" : "Add personal event"}
+        {editing ? t("cal.editEvent") : t("cal.addEvent")}
       </p>
       <p className="mt-1 font-mono text-[11px] tracking-widest text-mute">
-        Local desk only — never overwrites archive events.
+        {t("cal.localOnly")}
       </p>
       {!hydrated ? (
-        <p className="mt-3 font-mono text-xs text-mute">RESTORING THIS DESK…</p>
+        <p className="mt-3 font-mono text-xs text-mute">{t("cal.restoring")}</p>
       ) : null}
       <div className="mt-4 grid gap-3">
         <input
           className={controlClass}
-          placeholder="Title"
+          placeholder={t("cal.titlePh")}
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
@@ -611,7 +614,7 @@ function EventForm({
         >
           {KINDS.map((item) => (
             <option key={item.id} value={item.id}>
-              {item.label}
+              {t(`cal.kind.${item.id}`)}
             </option>
           ))}
         </select>
@@ -620,7 +623,7 @@ function EventForm({
           value={universityId}
           onChange={(event) => setUniversityId(event.target.value)}
         >
-          <option value="">No university link</option>
+          <option value="">{t("cal.noUni")}</option>
           {universities.map((uni) => (
             <option key={uni.id} value={uni.id}>
               {uni.shortName} — {uni.name}
@@ -632,36 +635,36 @@ function EventForm({
           value={remind}
           onChange={(event) => setRemind(event.target.value)}
         >
-          <option value="">No reminder</option>
-          <option value="0">On the day</option>
-          <option value="1">1 day before</option>
-          <option value="3">3 days before</option>
-          <option value="7">7 days before</option>
+          <option value="">{t("cal.noRemind")}</option>
+          <option value="0">{t("cal.remind0")}</option>
+          <option value="1">{t("cal.remind1")}</option>
+          <option value="3">{t("cal.remind3")}</option>
+          <option value="7">{t("cal.remind7")}</option>
         </select>
         <textarea
           className={`${controlClass} h-24 py-2`}
-          placeholder="Notes"
+          placeholder={t("cal.notesPh")}
           value={notes}
           onChange={(event) => setNotes(event.target.value)}
         />
         {error ? <p className="font-mono text-xs text-accent">{error}</p> : null}
         <div className="flex flex-wrap gap-2">
           <TextButton type="submit" disabled={!hydrated}>
-            {editing ? "Save event" : "Add event"}
+            {editing ? t("cal.save") : t("cal.add")}
           </TextButton>
           {editing ? (
             <TextButton
               tone="paper"
               onClick={() => onUpdate(editing.id, { completed: !editing.completed })}
             >
-              {editing.completed ? "Mark open" : "Mark completed"}
+              {editing.completed ? t("cal.markOpen") : t("cal.markDone")}
             </TextButton>
           ) : null}
           {editing ? (
             <TextButton
               tone="ghost"
               onClick={() => {
-                if (confirm("Delete this personal event?")) onDelete(editing.id);
+                if (confirm("t("cal.deleteConfirm")")) onDelete(editing.id);
               }}
             >
               Delete
