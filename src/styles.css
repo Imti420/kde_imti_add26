@@ -866,3 +866,19 @@ html.naughty .desk-experiment {
     grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 }
+
+
+/* ——— Bangla mode ——— */
+html.lang-bn {
+  --font-sans: "Noto Sans Bengali", "Source Sans 3", "Segoe UI", sans-serif;
+}
+html.lang-bn body {
+  font-family: var(--font-sans);
+  line-height: 1.55;
+}
+html.lang-bn .font-display {
+  letter-spacing: 0.01em;
+}
+html.lang-bn .font-mono {
+  letter-spacing: 0.02em;
+}
