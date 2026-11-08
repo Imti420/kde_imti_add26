@@ -714,3 +714,4 @@ function EventChip({ event, compact }: { event: CalendarEvent; compact?: boolean
     </span>
   );
 }
+// deploy-bump 20261108160932
