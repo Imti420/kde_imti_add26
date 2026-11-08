@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState, type FormEvent, Fragment } from "react";
-import { PageHead } from "@/components/marks";
+import { PageHead, ExternalLink } from "@/components/marks";
+import { SPICE_CARDS } from "@/data/desk-spice";
 import { WireHeadline, ago, formatWireWhen } from "@/components/newswire";
 import { cn } from "@/lib/cn";
 import { parseFeedDate } from "@/lib/wire/text";
@@ -156,7 +157,7 @@ function NewswirePage() {
       <PageHead
         kicker="ADMISSION SEASON · 55-MINUTE CYCLE"
         title="Newswire"
-        lede="Headlines from public admission sources. A news report is not a circular. A community note is not an official announcement. Facebook pages in the registry are listed, not monitored."
+        lede="Three desk briefings on top — written spicy, sourced hard. Below that: the crawler feed. A news report is still not a circular."
         aside={
           <button
             type="button"
@@ -193,6 +194,39 @@ function NewswirePage() {
         ) : null}
         {reloadNote ? <p className="mt-2 font-mono text-xs text-ink">{reloadNote}</p> : null}
         {arrivedAt ? <p className="mt-2 font-mono text-xs tracking-widest text-accent">NEW WIRE ARRIVED</p> : null}
+      </div>
+
+
+      <div className="mb-6">
+        <p className="mb-2 font-mono text-xs tracking-widest text-accent">DESK · THREE THAT MATTER</p>
+        <div className="grid gap-3 md:grid-cols-3">
+          {SPICE_CARDS.map((card) => (
+            <article key={card.id} className="flex flex-col border-[3px] border-ink bg-panel p-4 shadow-[6px_6px_0_0_var(--color-ink)]">
+              <div className="flex flex-wrap items-center gap-2">
+                <span
+                  className={
+                    card.heat === "HOT"
+                      ? "bg-accent px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-onaccent"
+                      : card.heat === "MARKET"
+                        ? "bg-yellow px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-onyellow"
+                        : "bg-ink px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-paper"
+                  }
+                >
+                  {card.heat}
+                </span>
+                <span className="font-mono text-[10px] tracking-widest text-mute">{card.kicker}</span>
+              </div>
+              <h2 className="mt-3 font-display text-2xl font-bold uppercase leading-[0.95]">{card.headline}</h2>
+              <p className="mt-3 flex-1 text-sm leading-relaxed">{card.body}</p>
+              <p className="mt-3 border-l-4 border-accent pl-3 font-display text-sm font-bold uppercase text-accent">{card.punch}</p>
+              <p className="mt-3 font-mono text-[10px] text-mute">
+                <ExternalLink href={card.sourceUrl}>{card.sourceLabel}</ExternalLink>
+                {" · "}
+                {card.published}
+              </p>
+            </article>
+          ))}
+        </div>
       </div>
 
       <div className="mb-4 flex flex-col gap-2 md:flex-row">

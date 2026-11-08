@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { Fragment } from "react";
 import { ExternalLink } from "@/components/marks";
 import { cn } from "@/lib/cn";
 import { nextWireAt, wireDeskStatus, type WireDeskStatus } from "@/lib/wire/gate";
 import type { WireItem, WireVerification } from "@/lib/wire/types";
 import { useWire } from "@/lib/wire/use-wire";
+import { SPICE_CARDS } from "@/data/desk-spice";
 
 const VERIFY: Record<WireVerification, string> = {
   official: "OFFICIAL",
@@ -108,11 +108,16 @@ export function WireHeadline({
   );
 }
 
+const HEAT_CLASS: Record<string, string> = {
+  HOT: "bg-accent text-onaccent",
+  SYSTEM: "bg-ink text-paper",
+  MARKET: "bg-yellow text-onyellow",
+};
+
 export function WireStrip() {
   const { live, phase, arrivedAt } = useWire();
   const now = new Date();
   const status = wireDeskStatus(phase === "ready" ? live : null, now);
-  const items = (live?.items ?? []).slice(0, 5);
   const next = nextWireAt(live);
   const pulsing = status === "running" || arrivedAt != null;
 
@@ -120,37 +125,57 @@ export function WireStrip() {
     <section id="wire" className="window desk-anchor mt-8">
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-ink px-3 py-3">
         <div>
-          <p className="font-mono text-xs tracking-widest text-accent">ADMISSION SEASON NEWSWIRE</p>
-          <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none">The wire</h2>
+          <p className="font-mono text-xs tracking-widest text-accent">DESK BRIEFING · NOT A HEADLINE FEED</p>
+          <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none">Three that matter</h2>
+          <p className="mt-2 max-w-2xl text-sm text-mute">
+            Written by the desk from the messy admission and edtech season — not a sad grid of scraped headlines.
+          </p>
         </div>
-        <Link to="/newswire" className="font-mono text-xs tracking-widest underline underline-offset-4">
-          FULL WIRE
+        <Link to="/newswire" className="press text-xs tracking-widest">
+          FULL WIRE →
         </Link>
       </div>
+
       <div className="flex flex-wrap items-center gap-3 border-b border-ink px-3 py-2">
         <span className={cn("inline-block h-3 w-3 border border-ink", pulsing ? "wire-live bg-accent" : "bg-transparent")} aria-hidden />
         <p className={cn("font-mono text-xs tracking-widest", status === "failed" || status === "stale" || status === "late" ? "text-accent" : "text-mute")}>
           {phase === "loading" ? "READING THE WIRE" : DESK[status]}
         </p>
         <p className="font-mono text-xs text-mute">
-          {live?.completedAt ? `LAST CYCLE ${ago(live.completedAt, now)}` : "NO COMPLETED CYCLE"}
-          {next ? ` · NEXT EXPECTED ${formatWireWhen(next.toISOString())}` : ""}
+          {live?.completedAt ? `CRAWLER CYCLE ${ago(live.completedAt, now)}` : "NO CRAWLER CYCLE YET"}
+          {next ? ` · NEXT ${formatWireWhen(next.toISOString())}` : ""}
         </p>
       </div>
-      {phase === "missing" ? (
-        <p className="px-3 py-4 font-mono text-xs tracking-widest text-mute">NO WIRE FILE. NOTHING HERE IS A HEADLINE.</p>
-      ) : null}
-      {items.length === 0 && phase === "ready" ? (
-        <p className="px-3 py-4 font-mono text-xs tracking-widest text-mute">NO ADMISSION HEADLINE IS IN THE PUBLISHED WIRE.</p>
-      ) : null}
-      <div className={cn(arrivedAt ? "filter-swap" : undefined)}>
-        {items.map((item, index) => (
-          <Fragment key={item.id}>
-            {!item.publishedAt && (index === 0 || items[index - 1]?.publishedAt) ? (
-              <p className="border-b border-ink bg-ink px-3 py-2 font-mono text-xs tracking-widest text-paper">NO PUBLICATION TIME ON THE SOURCE</p>
-            ) : null}
-            <WireHeadline item={item} fresh={Boolean(arrivedAt)} now={now} />
-          </Fragment>
+
+      <div className="grid gap-0 md:grid-cols-3">
+        {SPICE_CARDS.map((card, i) => (
+          <article
+            key={card.id}
+            className={cn(
+              "flex flex-col border-ink bg-panel p-4 md:p-5",
+              i < SPICE_CARDS.length - 1 && "border-b md:border-b-0 md:border-r",
+              "border-ink",
+            )}
+          >
+            <div className="flex flex-wrap items-center gap-2">
+              <span className={cn("px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest", HEAT_CLASS[card.heat] ?? "bg-ink text-paper")}>
+                {card.heat}
+              </span>
+              <span className="font-mono text-[10px] tracking-widest text-mute">{card.kicker}</span>
+            </div>
+            <h3 className="mt-3 font-display text-2xl font-bold uppercase leading-[0.95] md:text-[1.65rem]">
+              {card.headline}
+            </h3>
+            <p className="mt-3 flex-1 text-sm leading-relaxed text-pretty">{card.body}</p>
+            <p className="mt-4 border-l-4 border-accent pl-3 font-display text-base font-bold uppercase leading-snug text-accent">
+              {card.punch}
+            </p>
+            <p className="mt-4 font-mono text-[10px] tracking-wide text-mute">
+              <ExternalLink href={card.sourceUrl}>{card.sourceLabel}</ExternalLink>
+              {" · "}
+              {card.published}
+            </p>
+          </article>
         ))}
       </div>
     </section>
