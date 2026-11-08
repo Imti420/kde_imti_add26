@@ -826,3 +826,43 @@ html.naughty .desk-experiment {
   border-style: solid;
   box-shadow: var(--naughty-glow);
 }
+
+
+/* ——— Calendar (phone-first) ——— */
+.cal-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border: 3px solid var(--color-ink);
+  border-radius: 0.85rem;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: 3px 3px 0 0 var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.12s ease;
+}
+.cal-nav-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 0 var(--color-ink);
+}
+.cal-day:active {
+  transform: scale(0.98);
+}
+.cal-week {
+  -webkit-overflow-scrolling: touch;
+}
+.cal-week-card {
+  scroll-snap-align: center;
+}
+@media (min-width: 768px) {
+  .cal-week {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
