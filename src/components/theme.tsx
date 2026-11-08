@@ -1,6 +1,6 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useT } from "@/lib/i18n";
+import { useLang, useT } from "@/lib/i18n";
 
 const KEY = "a26-theme";
 const NAUGHTY_KEY = "a26-naughty";
@@ -102,6 +102,37 @@ export function ThemeToggle() {
       {dark ? <Sun className="size-4" aria-hidden /> : <Moon className="size-4" aria-hidden />}
       <span className="hidden sm:inline">{dark ? t("chrome.day") : t("chrome.night")}</span>
     </button>
+  );
+}
+
+
+export function LangToggle() {
+  const { lang, setLang, t } = useLang();
+  const next = lang === "bn" ? "en" : "bn";
+
+  return (
+    <button
+      type="button"
+      className="press h-11 min-w-11 px-3"
+      onClick={() => setLang(next)}
+      aria-pressed={lang === "bn"}
+      aria-label={lang === "bn" ? t("chrome.langAriaEn") : t("chrome.langAriaBn")}
+      title={lang === "bn" ? "English" : "বাংলা"}
+    >
+      <span className="font-display text-sm font-bold tracking-wide">
+        {lang === "bn" ? "EN" : "বাংলা"}
+      </span>
+    </button>
+  );
+}
+
+/** Language + day/night — keep together so production never tree-shakes the lang control. */
+export function ChromeToggles() {
+  return (
+    <div className="flex items-center gap-2">
+      <LangToggle />
+      <ThemeToggle />
+    </div>
   );
 }
 
