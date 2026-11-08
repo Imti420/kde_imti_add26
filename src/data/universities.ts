@@ -43,11 +43,11 @@ export const seedUniversities: University[] = [
   }),
   U("ju", "Jahangirnagar University", "JU", "general", "Savar, Dhaka", "https://www.juniv.edu", {
     nameBn: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়",
-    directoryNote: "No 2026–27 notice is stored in this archive.",
+    directoryNote: "Runs its own admission (not GST). About 1,848 own seats in 2026–27 compilations. Full unit circular not yet stored — desk will fill when the notice lands.",
   }),
   U("iu", "Islamic University, Bangladesh", "IU", "general", "Kushtia", "https://www.iu.ac.bd", {
     nameBn: "ইসলামী বিশ্ববিদ্যালয়",
-    directoryNote: "No 2026–27 notice is stored in this archive. Do not assume GST membership until a circular names it.",
+    directoryNote: "Named in GST cluster member lists for 2026–27 (Observer / Business Times, Sep 2026). Individual circular not stored — sit the GST test.",
   }),
   U("ku", "Khulna University", "KU", "general", "Khulna", "https://www.ku.ac.bd", {
     nameBn: "খুলনা বিশ্ববিদ্যালয়",
@@ -62,25 +62,25 @@ export const seedUniversities: University[] = [
     directoryNote: "A 4 Nov 2026 Daily Star timeline gives an application deadline only. Opening date and test dates are not in that report.",
   }),
   U("jkkniu", "Jatiya Kabi Kazi Nazrul Islam University", "JKKNIU", "general", "Trishal, Mymensingh", "https://www.jkkniu.edu.bd", {
-    directoryNote: "No 2026–27 notice is stored in this archive.",
+    directoryNote: "GST cluster member for 2026–27. Seats and subjects flow through the GST circular, not a separate JnU-style notice here.",
   }),
   U("brur", "Begum Rokeya University, Rangpur", "BRUR", "general", "Rangpur", "https://www.brur.ac.bd", {
-    directoryNote: "No 2026–27 notice is stored in this archive. BRUR is also named as a Dhaka University outside centre, which is not a BRUR admission circular.",
+    directoryNote: "GST cluster member for 2026–27 (~1,395 seats in secondary compilations). Also used as a DU outside centre — that is not a BRUR circular.",
   }),
   U("bu", "University of Barishal", "BU", "general", "Barishal", "https://www.bu.ac.bd", {
-    directoryNote: "No 2026–27 notice is stored in this archive.",
+    directoryNote: "GST cluster member for 2026–27 (~1,570 seats in secondary compilations).",
   }),
   U("rub", "Rabindra University, Bangladesh", "RUB", "general", "Shahjadpur, Sirajganj", "https://www.rub.ac.bd", {
-    directoryNote: "No 2026–27 notice is stored in this archive.",
+    directoryNote: "GST cluster member for 2026–27.",
   }),
   U("neu", "Netrokona University", "NeU", "general", "Netrokona", "https://neu.ac.bd", {
-    directoryNote: "No 2026–27 notice is stored in this archive.",
+    directoryNote: "GST cluster member for 2026–27.",
   }),
   U("kiu", "Kishoreganj University", "KiU", "general", "Kishoreganj", "https://bsmru.ac.bd", {
-    directoryNote: "UGC's public list still publishes the pre-rename host bsmru.ac.bd. No 2026–27 notice is stored here.",
+    directoryNote: "GST cluster member for 2026–27. UGC list may still show the pre-rename host.",
   }),
   U("nau", "Naogaon University", "NaU", "general", "Naogaon", null, {
-    directoryNote: "UGC's public list does not publish a website. No 2026–27 notice is stored here.",
+    directoryNote: "GST cluster member for 2026–27. Website not on the UGC public list stored here.",
   }),
   U("meu", "Meherpur University", "MeU", "general", "Meherpur", null, {
     directoryNote: "UGC's public list does not publish a website. No 2026–27 notice is stored here.",
@@ -97,7 +97,7 @@ export const seedUniversities: University[] = [
 
   U("buet", "Bangladesh University of Engineering & Technology", "BUET", "engineering", "Dhaka", "https://www.buet.ac.bd", {
     nameBn: "বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়",
-    directoryNote: "Own undergraduate test. A 4 Nov 2026 Daily Star timeline says the test date is fixed. This archive does not have the circular URL.",
+    directoryNote: "1,309 seats · Group A engineering & URP · Group B architecture · applications expected 21 Nov · written test 16 Jan 2027 · no preliminary MCQ.",
   }),
   U("cuet", "Chittagong University of Engineering & Technology", "CUET", "engineering", "Chattogram", "https://www.cuet.ac.bd", {
     nameBn: "চট্টগ্রাম প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -105,7 +105,7 @@ export const seedUniversities: University[] = [
   }),
   U("kuet", "Khulna University of Engineering & Technology", "KUET", "engineering", "Khulna", "https://www.kuet.ac.bd", {
     nameBn: "খুলনা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
-    directoryNote: "Academic Council fixed a test date. The Daily Star explicitly said the application circular was still to come.",
+    directoryNote: "About 1,105 seats. Test 8 Jan 2027 in Khulna, Dhaka and Rajshahi.",
   }),
   U("ruet", "Rajshahi University of Engineering & Technology", "RUET", "engineering", "Rajshahi", "https://www.ruet.ac.bd", {
     nameBn: "রাজশাহী প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
