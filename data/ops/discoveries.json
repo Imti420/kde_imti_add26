@@ -17499,5 +17499,19 @@
     "shortName": "RUB",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://dcu.ac.bd/notice",
+    "foundOn": "https://dcu.ac.bd/",
+    "foundAt": "2026-11-08T15:20:02.176Z",
+    "title": "Notice",
+    "kind": "page",
+    "score": 4,
+    "sameSite": true,
+    "id": "dcu:https://dcu.ac.bd/notice",
+    "universityId": "dcu",
+    "shortName": "DCU",
+    "downloaded": false,
+    "disposition": "baseline"
   }
 ]
