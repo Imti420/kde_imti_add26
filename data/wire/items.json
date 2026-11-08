@@ -1,5 +1,23 @@
 [
   {
+    "id": "cb4d605f5546beb1",
+    "headline": "HSC supplementary exam: Will the results count towards university admission?",
+    "summary": null,
+    "sourceId": "prothom-alo-english",
+    "sourceName": "Prothom Alo English",
+    "sourceUrl": "https://en.prothomalo.com/youth/education/1vba0jjm65",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-08T12:03:56.000Z",
+    "discoveredAt": "2026-11-08T15:19:44.244Z",
+    "contentHash": "cb4d605f5546beb151d1818a39dc298b74469a4d4afe6f8c4fc238f4e9e36bbd",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "80e2fe64d925e767",
     "headline": "Dec 18 medical tests may leave HSC retake candidates out",
     "summary": "The medical and dental admission tests for the 2026-27 academic session are likely to be held on December 18, a timeline that could leave out HSC students who need to retake one or two subjects.",
