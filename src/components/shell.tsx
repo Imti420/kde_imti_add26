@@ -3,8 +3,8 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { NoticeBell } from "@/components/notifications";
 import { IntroSequence } from "@/components/intro";
 import { Signature } from "@/components/signature";
-import { ThemeToggle, NaughtyBadge } from "@/components/theme";
-import { LangToggle, useT } from "@/lib/i18n";
+import { ChromeToggles, NaughtyBadge } from "@/components/theme";
+import { useT } from "@/lib/i18n";
 import { useCatalog } from "@/lib/catalog";
 import { cn } from "@/lib/cn";
 import { isMonitorStale } from "@/lib/verify-engine";
@@ -183,8 +183,7 @@ export function Shell({ children }: { children: ReactNode }) {
                   </div>
                 ) : null}
               </div>
-              <LangToggle />
-              <ThemeToggle />
+              <ChromeToggles />
               <NaughtyBadge />
               <NoticeBell />
               <p className="hidden font-mono text-xs tracking-widest text-mute xl:block">{t("chrome.session")}</p>
