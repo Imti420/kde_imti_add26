@@ -5,7 +5,7 @@ import type { PersonalEvent, PersonalEventKind } from "@/data/types";
 import { archiveEvents, monthMatrix, shiftMonth, toIcs, toneFor, weekDays, type CalendarEvent } from "@/lib/calendar";
 import { useCatalog } from "@/lib/catalog";
 import { cn } from "@/lib/cn";
-import { formatDay, todayISO } from "@/lib/dates";
+import { formatDay, relativeDay, todayISO } from "@/lib/dates";
 import { usePersonal } from "@/lib/store";
 
 export const Route = createFileRoute("/calendar")({
@@ -13,7 +13,8 @@ export const Route = createFileRoute("/calendar")({
   component: CalendarPage,
 });
 
-const WEEKDAYS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+const WEEKDAYS = ["S", "M", "T", "W", "T", "F", "S"];
+const WEEKDAYS_FULL = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 const KINDS: { id: PersonalEventKind; label: string }[] = [
   { id: "closes", label: "Deadline" },
   { id: "exam", label: "Examination" },
@@ -37,14 +38,17 @@ function CalendarPage() {
   const [scope, setScope] = useState<"all" | "shortlist">("all");
   const [hideDone, setHideDone] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   const names = useMemo(() => new Map([...byId.values()].map((uni) => [uni.id, uni.shortName])), [byId]);
   const events = useMemo(() => {
-    const archive = archiveEvents(circulars, names).filter((event) => scope === "all" || (event.universityId && shortlist.includes(event.universityId)));
+    const archive = archiveEvents(circulars, names).filter(
+      (event) => scope === "all" || (event.universityId && shortlist.includes(event.universityId)),
+    );
     const mine = personal
       .filter((event) => scope === "all" || !event.universityId || shortlist.includes(event.universityId))
       .filter((event) => (hideDone ? !event.completed : true))
-      .map((event) => toCalendar(event, event.universityId ? names.get(event.universityId) ?? null : null));
+      .map((event) => toCalendar(event, event.universityId ? (names.get(event.universityId) ?? null) : null));
     return [...archive, ...mine].sort((a, b) => a.day.localeCompare(b.day) || a.title.localeCompare(b.title));
   }, [circulars, names, personal, scope, shortlist, hideDone]);
 
@@ -54,9 +58,14 @@ function CalendarPage() {
   const week = weekDays(cursor);
   const monthKey = cursor.slice(0, 7);
   const visible =
-    view === "month" ? events.filter((event) => event.day.startsWith(monthKey)) : view === "week" ? events.filter((event) => week.includes(event.day)) : events;
+    view === "month"
+      ? events.filter((event) => event.day.startsWith(monthKey))
+      : view === "week"
+        ? events.filter((event) => week.includes(event.day))
+        : events;
   const selectedEvents = events.filter((event) => event.day === selected);
   const active = events.find((event) => event.id === activeId) ?? null;
+  const monthLabel = formatDay(`${monthKey}-01`).slice(3);
 
   const shift = (delta: number) => {
     if (view === "week") {
@@ -67,6 +76,12 @@ function CalendarPage() {
     }
     const next = shiftMonth(year, month, delta);
     setCursor(todayISO(new Date(next.year, next.month, 1)));
+  };
+
+  const pickDay = (day: string, firstId?: string | null) => {
+    setSelected(day);
+    setActiveId(firstId ?? null);
+    setSheetOpen(true);
   };
 
   const download = () => {
@@ -80,7 +95,7 @@ function CalendarPage() {
   };
 
   return (
-    <div>
+    <div className="cal-page">
       <PageHead
         kicker="Planning instrument"
         title="Calendar"
@@ -95,6 +110,7 @@ function CalendarPage() {
               onClick={() => {
                 setCursor(today);
                 setSelected(today);
+                setSheetOpen(true);
               }}
             >
               Today
@@ -103,74 +119,151 @@ function CalendarPage() {
         }
       />
 
-      <div className="flex flex-wrap items-center gap-2">
-        {(["month", "week", "agenda"] as const).map((item) => (
+      {/* Sticky mobile-first control dock */}
+      <div className="cal-dock sticky top-0 z-20 -mx-1 mb-3 border-[3px] border-ink bg-paper/95 px-2 py-2 shadow-[4px_4px_0_0_var(--color-ink)] backdrop-blur-md md:static md:mx-0 md:shadow-none md:backdrop-blur-none">
+        <div className="flex items-center gap-2">
           <button
-            key={item}
             type="button"
-            className={cn("h-11 border px-3 font-display text-sm font-semibold uppercase tracking-widest", view === item ? "border-ink bg-ink text-paper" : "border-ink")}
-            onClick={() => setView(item)}
+            aria-label="Previous"
+            className="cal-nav-btn"
+            onClick={() => shift(-1)}
           >
-            {item}
+            ‹
           </button>
-        ))}
-        <button type="button" className="h-11 border border-ink px-3 font-mono text-xs" onClick={() => shift(-1)}>
-          PREV
-        </button>
-        <button type="button" className="h-11 border border-ink px-3 font-mono text-xs" onClick={() => shift(1)}>
-          NEXT
-        </button>
-        <p className="font-display text-3xl font-bold uppercase">{view === "week" ? `${formatDay(week[0] ?? cursor)} – ${formatDay(week[6] ?? cursor)}` : formatDay(`${monthKey}-01`).slice(3)}</p>
-        <select className={`${controlClass} h-11 w-auto`} value={scope} onChange={(event) => setScope(event.target.value as "all" | "shortlist")}>
-          <option value="all">All archive dates</option>
-          <option value="shortlist">Shortlist only</option>
-        </select>
-        <label className="flex h-11 items-center gap-2 border border-ink px-3 font-mono text-xs">
-          <input type="checkbox" checked={hideDone} onChange={(event) => setHideDone(event.target.checked)} />
-          HIDE COMPLETED
-        </label>
+          <div className="min-w-0 flex-1 text-center">
+            <p className="font-display text-2xl font-bold uppercase leading-none tracking-tight md:text-3xl">
+              {view === "week"
+                ? `${formatDay(week[0] ?? cursor).slice(0, 6)} – ${formatDay(week[6] ?? cursor).slice(0, 6)}`
+                : monthLabel}
+            </p>
+            <p className="mt-0.5 font-mono text-[10px] tracking-widest text-mute">
+              {view === "agenda" ? `${visible.length} EVENTS` : view.toUpperCase()}
+            </p>
+          </div>
+          <button
+            type="button"
+            aria-label="Next"
+            className="cal-nav-btn"
+            onClick={() => shift(1)}
+          >
+            ›
+          </button>
+        </div>
+
+        <div className="mt-2 flex gap-1 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {(["month", "week", "agenda"] as const).map((item) => (
+            <button
+              key={item}
+              type="button"
+              className={cn(
+                "h-9 shrink-0 rounded-full border-2 px-3.5 font-display text-xs font-bold uppercase tracking-widest transition-colors",
+                view === item ? "border-ink bg-ink text-paper" : "border-ink/40 bg-panel text-ink",
+              )}
+              onClick={() => setView(item)}
+            >
+              {item}
+            </button>
+          ))}
+          <select
+            className="h-9 shrink-0 rounded-full border-2 border-ink/40 bg-panel px-3 font-mono text-[11px] tracking-wide outline-none"
+            value={scope}
+            onChange={(event) => setScope(event.target.value as "all" | "shortlist")}
+          >
+            <option value="all">All dates</option>
+            <option value="shortlist">Shortlist</option>
+          </select>
+          <label className="flex h-9 shrink-0 items-center gap-1.5 rounded-full border-2 border-ink/40 bg-panel px-3 font-mono text-[11px] tracking-wide">
+            <input
+              type="checkbox"
+              className="accent-accent"
+              checked={hideDone}
+              onChange={(event) => setHideDone(event.target.checked)}
+            />
+            Hide done
+          </label>
+        </div>
       </div>
 
-      <ul className="mt-4 flex flex-wrap gap-3 font-mono text-xs tracking-widest">
-        <li className="flex items-center gap-2"><i className="inline-block h-3 w-3 bg-accent" /> DEADLINE</li>
-        <li className="flex items-center gap-2"><i className="inline-block h-3 w-3 bg-ink" /> EXAMINATION</li>
-        <li className="flex items-center gap-2"><i className="inline-block h-3 w-3 border border-ink bg-mute" /> OPENS</li>
-        <li className="flex items-center gap-2"><i className="inline-block h-3 w-3 bg-signal" /> ADMIT / OTHER</li>
+      {/* Legend — compact chips */}
+      <ul className="mb-3 flex flex-wrap gap-2 font-mono text-[10px] tracking-widest">
+        <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
+          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-accent" /> DEADLINE
+        </li>
+        <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
+          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-ink" /> EXAM
+        </li>
+        <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
+          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-mute" /> OPENS
+        </li>
+        <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
+          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-signal" /> ADMIT
+        </li>
       </ul>
 
+      {/* MONTH VIEW — phone-first grid */}
       {view === "month" ? (
-        <div className="mt-4">
-          <div className="grid grid-cols-7 border border-ink border-b-0">
-            {WEEKDAYS.map((day) => (
-              <p key={day} className="border-b border-ink px-1 py-2 text-center font-mono text-xs text-mute">{day}</p>
+        <div className="cal-month overflow-hidden rounded-[1.1rem] border-[3px] border-ink bg-paper shadow-[5px_5px_0_0_var(--color-ink)]">
+          <div className="grid grid-cols-7 border-b-2 border-ink bg-panel">
+            {WEEKDAYS.map((day, i) => (
+              <p
+                key={`${day}-${i}`}
+                className="py-2 text-center font-mono text-[11px] font-semibold tracking-widest text-mute"
+              >
+                {day}
+              </p>
             ))}
           </div>
-          <div className="grid grid-cols-7 border border-ink border-t-0">
+          <div className="grid grid-cols-7">
             {monthDays.map((day) => {
               const inMonth = day.startsWith(monthKey);
               const items = events.filter((event) => event.day === day);
+              const isToday = day === today;
+              const isSelected = selected === day;
+              const count = items.length;
               return (
                 <button
                   key={day}
                   type="button"
-                  onClick={() => {
-                    setSelected(day);
-                    setActiveId(items[0]?.id ?? null);
-                  }}
-                  className={cn("min-h-16 border-t border-r border-ink p-1 text-left md:min-h-28", !inMonth && "bg-panel", selected === day && "outline outline-2 outline-accent")}
+                  onClick={() => pickDay(day, items[0]?.id ?? null)}
+                  className={cn(
+                    "cal-day relative flex min-h-[3.35rem] flex-col items-center justify-start gap-0.5 border-b border-r border-ink/15 p-1 pt-1.5 transition-colors active:bg-yellow/40 md:min-h-[5.5rem] md:items-stretch md:p-1.5",
+                    !inMonth && "bg-panel/60 text-mute",
+                    isSelected && "z-[1] bg-yellow/30 ring-2 ring-inset ring-accent",
+                    isToday && !isSelected && "bg-accent/5",
+                  )}
                 >
-                  <span className={cn("inline-flex h-7 min-w-7 items-center justify-center font-mono text-xs", day === today && "bg-accent text-onaccent")}>
-                    {day.slice(8)}
+                  <span
+                    className={cn(
+                      "inline-flex h-7 w-7 items-center justify-center rounded-full font-mono text-sm font-bold tabular-nums md:h-8 md:w-8 md:text-base",
+                      isToday && "bg-accent text-onaccent shadow-[2px_2px_0_0_var(--color-ink)]",
+                      isSelected && !isToday && "bg-ink text-paper",
+                    )}
+                  >
+                    {Number(day.slice(8))}
                   </span>
-                  <span className="mt-1 hidden md:block">
+                  {/* Mobile: count badge */}
+                  {count > 0 ? (
+                    <span
+                      className={cn(
+                        "mt-0.5 flex h-4 min-w-4 items-center justify-center rounded-full px-1 font-mono text-[10px] font-bold leading-none md:hidden",
+                        items.some((e) => toneFor(e.kind) === "accent")
+                          ? "bg-accent text-onaccent"
+                          : items.some((e) => toneFor(e.kind) === "ink")
+                            ? "bg-ink text-paper"
+                            : "bg-signal text-onaccent",
+                      )}
+                    >
+                      {count}
+                    </span>
+                  ) : null}
+                  {/* Desktop: chips */}
+                  <span className="mt-1 hidden flex-col gap-0.5 md:flex">
                     {items.slice(0, 3).map((event) => (
-                      <EventChip key={event.id} event={event} />
+                      <EventChip key={event.id} event={event} compact />
                     ))}
-                  </span>
-                  <span className="mt-1 flex gap-1 md:hidden">
-                    {items.slice(0, 4).map((event) => (
-                      <i key={event.id} className={cn("h-2 w-2", dotClass(event))} />
-                    ))}
+                    {count > 3 ? (
+                      <span className="font-mono text-[10px] text-mute">+{count - 3}</span>
+                    ) : null}
                   </span>
                 </button>
               );
@@ -179,60 +272,172 @@ function CalendarPage() {
         </div>
       ) : null}
 
+      {/* WEEK VIEW — horizontal snap on mobile */}
       {view === "week" ? (
-        <div className="mt-4 grid gap-px bg-ink md:grid-cols-7">
-          {week.map((day) => (
-            <section key={day} className={cn("bg-paper p-2", day === today && "outline outline-2 outline-accent")}>
-              <button type="button" className="font-mono text-xs" onClick={() => setSelected(day)}>
-                {WEEKDAYS[new Date(Number(day.slice(0, 4)), Number(day.slice(5, 7)) - 1, Number(day.slice(8))).getDay()]} {day.slice(8)}
-              </button>
-              <div className="mt-2 grid gap-1">
-                {events.filter((event) => event.day === day).map((event) => (
-                  <button key={event.id} type="button" className="text-left" onClick={() => { setSelected(day); setActiveId(event.id); }}>
-                    <EventChip event={event} />
-                  </button>
-                ))}
-              </div>
-            </section>
-          ))}
+        <div className="cal-week -mx-1 flex gap-2 overflow-x-auto px-1 pb-2 snap-x snap-mandatory md:mx-0 md:grid md:grid-cols-7 md:gap-px md:overflow-visible md:bg-ink md:p-0 md:snap-none">
+          {week.map((day) => {
+            const dayEvents = events.filter((event) => event.day === day);
+            const isToday = day === today;
+            const isSelected = selected === day;
+            const wd = new Date(
+              Number(day.slice(0, 4)),
+              Number(day.slice(5, 7)) - 1,
+              Number(day.slice(8)),
+            ).getDay();
+            return (
+              <section
+                key={day}
+                className={cn(
+                  "cal-week-card min-w-[78vw] shrink-0 snap-center rounded-[1rem] border-[3px] border-ink bg-paper p-3 shadow-[4px_4px_0_0_var(--color-ink)] md:min-w-0 md:rounded-none md:border-0 md:shadow-none md:p-2",
+                  isToday && "ring-2 ring-accent ring-offset-2 ring-offset-paper",
+                  isSelected && "bg-yellow/25",
+                )}
+              >
+                <button
+                  type="button"
+                  className="flex w-full items-baseline justify-between gap-2"
+                  onClick={() => pickDay(day, dayEvents[0]?.id ?? null)}
+                >
+                  <span className="font-mono text-[11px] tracking-widest text-mute">
+                    {WEEKDAYS_FULL[wd]}
+                  </span>
+                  <span
+                    className={cn(
+                      "font-display text-3xl font-bold leading-none",
+                      isToday && "text-accent",
+                    )}
+                  >
+                    {Number(day.slice(8))}
+                  </span>
+                </button>
+                <div className="mt-3 grid gap-1.5">
+                  {dayEvents.length === 0 ? (
+                    <p className="font-mono text-[11px] text-mute">No events</p>
+                  ) : (
+                    dayEvents.map((event) => (
+                      <button
+                        key={event.id}
+                        type="button"
+                        className="text-left"
+                        onClick={() => {
+                          setSelected(day);
+                          setActiveId(event.id);
+                          setSheetOpen(true);
+                        }}
+                      >
+                        <EventChip event={event} />
+                      </button>
+                    ))
+                  )}
+                </div>
+              </section>
+            );
+          })}
         </div>
       ) : null}
 
+      {/* AGENDA VIEW */}
       {view === "agenda" ? (
-        <ol className="mt-4 divide-y divide-ink border-y border-ink">
-          {visible.length === 0 ? <li className="py-4 text-sm">Nothing dated in this range.</li> : null}
-          {visible.map((event) => (
-            <li key={event.id}>
-              <button type="button" className="grid w-full gap-2 py-3 text-left md:grid-cols-[9rem_1fr_auto]" onClick={() => { setSelected(event.day); setActiveId(event.id); }}>
-                <span className="font-mono text-xs">{formatDay(event.day)}{event.day === today ? " · TODAY" : ""}</span>
-                <span className={cn("font-display text-2xl font-bold uppercase leading-none", event.completed && "line-through")}>{event.title}</span>
-                <span className="font-mono text-xs text-mute">{event.confidenceLabel}</span>
-              </button>
-            </li>
-          ))}
+        <ol className="cal-agenda divide-y-2 divide-ink overflow-hidden rounded-[1.1rem] border-[3px] border-ink bg-paper shadow-[5px_5px_0_0_var(--color-ink)]">
+          {visible.length === 0 ? (
+            <li className="px-4 py-6 text-sm text-mute">Nothing dated in this range.</li>
+          ) : null}
+          {visible.map((event) => {
+            const rel = relativeDay(event.day);
+            return (
+              <li key={event.id}>
+                <button
+                  type="button"
+                  className="flex w-full flex-col gap-1 px-4 py-3.5 text-left active:bg-yellow/30 md:grid md:grid-cols-[7.5rem_1fr_auto] md:items-center md:gap-3"
+                  onClick={() => {
+                    setSelected(event.day);
+                    setActiveId(event.id);
+                    setSheetOpen(true);
+                  }}
+                >
+                  <span className="flex items-center gap-2 font-mono text-[11px] tracking-wide">
+                    <span className={cn("rounded-full px-2 py-0.5 font-bold", event.day === today ? "bg-accent text-onaccent" : "bg-panel text-mute")}>
+                      {rel}
+                    </span>
+                    <span className="text-mute">{formatDay(event.day)}</span>
+                  </span>
+                  <span
+                    className={cn(
+                      "font-display text-xl font-bold uppercase leading-tight md:text-2xl",
+                      event.completed && "line-through opacity-60",
+                    )}
+                  >
+                    {event.title}
+                  </span>
+                  <span className="font-mono text-[10px] tracking-widest text-mute md:text-right">
+                    {event.confidenceLabel}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
         </ol>
       ) : null}
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-        <section className="border border-ink p-4">
-          <p className="font-mono text-xs tracking-widest text-mute">{formatDay(selected)}{selected === today ? " · TODAY" : ""}</p>
-          {selectedEvents.length === 0 ? <p className="mt-3 text-sm">No events on this day.</p> : null}
-          <ul className="mt-3 divide-y divide-ink border-y border-ink">
-            {selectedEvents.map((event) => (
-              <li key={event.id}>
-                <button type="button" className="w-full py-3 text-left" onClick={() => setActiveId(event.id)}>
-                  <EventChip event={event} />
-                  <span className="mt-1 block font-mono text-xs text-mute">{event.confidenceLabel}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-          {active ? <EventDetail event={active} /> : null}
-        </section>
+      {/* Selected day panel — always visible, sheet-like on mobile */}
+      <div
+        className={cn(
+          "cal-sheet mt-4 overflow-hidden rounded-[1.1rem] border-[3px] border-ink bg-paper shadow-[5px_5px_0_0_var(--color-ink)]",
+          !sheetOpen && view === "month" && "max-md:hidden",
+        )}
+      >
+        <div className="flex items-center justify-between gap-2 border-b-2 border-ink bg-panel px-4 py-3">
+          <div>
+            <p className="font-mono text-[10px] tracking-widest text-mute">
+              {selected === today ? "TODAY" : relativeDay(selected)}
+            </p>
+            <p className="font-display text-2xl font-bold uppercase leading-none">
+              {formatDay(selected)}
+            </p>
+          </div>
+          <button
+            type="button"
+            className="h-9 rounded-full border-2 border-ink px-3 font-mono text-[11px] tracking-widest md:hidden"
+            onClick={() => setSheetOpen(false)}
+          >
+            CLOSE
+          </button>
+        </div>
+        <div className="p-4">
+          {selectedEvents.length === 0 ? (
+            <p className="text-sm text-mute">No events on this day. Add one below.</p>
+          ) : (
+            <ul className="divide-y divide-ink/20">
+              {selectedEvents.map((event) => (
+                <li key={event.id}>
+                  <button
+                    type="button"
+                    className={cn(
+                      "w-full py-3 text-left transition-colors",
+                      activeId === event.id && "bg-yellow/20",
+                    )}
+                    onClick={() => setActiveId(event.id === activeId ? null : event.id)}
+                  >
+                    <EventChip event={event} />
+                    <span className="mt-1 block font-mono text-[10px] tracking-widest text-mute">
+                      {event.confidenceLabel}
+                      {event.time ? ` · ${event.time}` : ""}
+                    </span>
+                  </button>
+                  {active?.id === event.id ? <EventDetail event={event} /> : null}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+
+      {/* Personal event form */}
+      <div className="mt-5">
         <EventForm
           hydrated={hydrated}
           universities={[...byId.values()]}
-          editing={active?.personal ? personal.find((event) => event.id === active.id) ?? null : null}
+          editing={active?.personal ? (personal.find((event) => event.id === active.id) ?? null) : null}
           defaultDay={selected}
           onCreate={addPersonalEvent}
           onUpdate={updatePersonalEvent}
@@ -245,19 +450,29 @@ function CalendarPage() {
 
 function EventDetail({ event }: { event: CalendarEvent }) {
   return (
-    <div className="mt-4 border-t border-ink pt-3">
-      <p className="font-display text-3xl font-bold uppercase leading-none">{event.title}</p>
-      <p className="mt-2 font-mono text-xs tracking-widest">{event.confidenceLabel}</p>
-      {event.time ? <p className="mt-2 font-mono text-xs">{event.time} · BANGLADESH LOCAL</p> : null}
-      {event.notes ? <p className="mt-2 text-sm">{event.notes}</p> : null}
+    <div className="mt-2 rounded-xl border-2 border-ink/15 bg-panel p-3">
+      <p className="font-display text-xl font-bold uppercase leading-none">{event.title}</p>
+      <p className="mt-1.5 font-mono text-[10px] tracking-widest text-mute">{event.confidenceLabel}</p>
+      {event.time ? (
+        <p className="mt-1 font-mono text-xs">{event.time} · BANGLADESH LOCAL</p>
+      ) : null}
+      {event.notes ? <p className="mt-2 text-sm leading-snug">{event.notes}</p> : null}
       <div className="mt-3 flex flex-wrap gap-3">
         {event.circularId ? (
-          <Link to="/circulars/$id" params={{ id: event.circularId }} className="font-mono text-xs underline">
+          <Link
+            to="/circulars/$id"
+            params={{ id: event.circularId }}
+            className="font-mono text-[11px] font-bold tracking-widest underline"
+          >
             OPEN CIRCULAR
           </Link>
         ) : null}
         {event.universityId ? (
-          <Link to="/universities/$id" params={{ id: event.universityId }} className="font-mono text-xs underline">
+          <Link
+            to="/universities/$id"
+            params={{ id: event.universityId }}
+            className="font-mono text-[11px] font-bold tracking-widest underline"
+          >
             OPEN UNIVERSITY
           </Link>
         ) : null}
@@ -324,58 +539,116 @@ function EventForm({
   return (
     <form
       id="new-event"
-      className="border border-ink p-4"
+      className="overflow-hidden rounded-[1.1rem] border-[3px] border-ink bg-paper p-4 shadow-[5px_5px_0_0_var(--color-ink)]"
       onSubmit={(event) => {
         event.preventDefault();
         if (!title.trim() || !/^\d{4}-\d{2}-\d{2}$/.test(day)) {
-          setError("A personal event needs a title and a real date.");
+          setError("A title and a valid date are required.");
           return;
         }
-        const payload = {
-          title: title.trim(),
-          day,
-          time: /^\d{2}:\d{2}$/.test(time) ? time : null,
-          kind,
-          notes: notes.trim(),
-          remindDays: remind === "" ? null : Number(remind),
-          universityId: universityId || null,
-          circularId: null,
-        };
-        if (editing) onUpdate(editing.id, payload);
-        else onCreate({ ...payload, id: `pe-${Date.now().toString(36)}`, completed: false });
-        if (!editing) clear();
+        if (editing) {
+          onUpdate(editing.id, {
+            title: title.trim(),
+            day,
+            time: time || null,
+            kind,
+            notes,
+            remindDays: remind === "" ? null : Number(remind),
+            universityId: universityId || null,
+          });
+        } else {
+          onCreate({
+            id: `p-${Date.now()}`,
+            title: title.trim(),
+            day,
+            time: time || null,
+            kind,
+            notes,
+            completed: false,
+            remindDays: remind === "" ? null : Number(remind),
+            universityId: universityId || null,
+            circularId: null,
+          });
+          clear();
+        }
         setError("");
       }}
     >
-      <h2 className="font-display text-3xl font-bold uppercase">{editing ? "Edit personal event" : "New personal event"}</h2>
-      <p className="mt-2 text-sm">Archive dates are edited on the circular, not here. This form only writes events you own.</p>
-      {!hydrated ? <p className="mt-3 font-mono text-xs text-mute">RESTORING THIS DESK…</p> : null}
+      <p className="font-display text-2xl font-bold uppercase leading-none">
+        {editing ? "Edit personal event" : "Add personal event"}
+      </p>
+      <p className="mt-1 font-mono text-[11px] tracking-widest text-mute">
+        Local desk only — never overwrites archive events.
+      </p>
+      {!hydrated ? (
+        <p className="mt-3 font-mono text-xs text-mute">RESTORING THIS DESK…</p>
+      ) : null}
       <div className="mt-4 grid gap-3">
-        <input className={controlClass} placeholder="Title" value={title} onChange={(event) => setTitle(event.target.value)} />
-        <input className={controlClass} type="date" value={day} onChange={(event) => setDay(event.target.value)} />
-        <input className={controlClass} type="time" value={time} onChange={(event) => setTime(event.target.value)} />
-        <select className={controlClass} value={kind} onChange={(event) => setKind(event.target.value as PersonalEventKind)}>
+        <input
+          className={controlClass}
+          placeholder="Title"
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+        />
+        <div className="grid grid-cols-2 gap-2">
+          <input
+            className={controlClass}
+            type="date"
+            value={day}
+            onChange={(event) => setDay(event.target.value)}
+          />
+          <input
+            className={controlClass}
+            type="time"
+            value={time}
+            onChange={(event) => setTime(event.target.value)}
+          />
+        </div>
+        <select
+          className={controlClass}
+          value={kind}
+          onChange={(event) => setKind(event.target.value as PersonalEventKind)}
+        >
           {KINDS.map((item) => (
-            <option key={item.id} value={item.id}>{item.label}</option>
+            <option key={item.id} value={item.id}>
+              {item.label}
+            </option>
           ))}
         </select>
-        <select className={controlClass} value={universityId} onChange={(event) => setUniversityId(event.target.value)}>
+        <select
+          className={controlClass}
+          value={universityId}
+          onChange={(event) => setUniversityId(event.target.value)}
+        >
           <option value="">No university link</option>
           {universities.map((uni) => (
-            <option key={uni.id} value={uni.id}>{uni.shortName} — {uni.name}</option>
+            <option key={uni.id} value={uni.id}>
+              {uni.shortName} — {uni.name}
+            </option>
           ))}
         </select>
-        <select className={controlClass} value={remind} onChange={(event) => setRemind(event.target.value)}>
+        <select
+          className={controlClass}
+          value={remind}
+          onChange={(event) => setRemind(event.target.value)}
+        >
           <option value="">No reminder</option>
           <option value="0">On the day</option>
           <option value="1">1 day before</option>
           <option value="3">3 days before</option>
           <option value="7">7 days before</option>
         </select>
-        <textarea className={`${controlClass} h-24 py-2`} placeholder="Notes" value={notes} onChange={(event) => setNotes(event.target.value)} />
+        <textarea
+          className={`${controlClass} h-24 py-2`}
+          placeholder="Notes"
+          value={notes}
+          onChange={(event) => setNotes(event.target.value)}
+        />
         {error ? <p className="font-mono text-xs text-accent">{error}</p> : null}
         <div className="flex flex-wrap gap-2">
-          <TextButton type="submit" disabled={!hydrated}>{editing ? "Save event" : "Add event"}</TextButton>
+          <TextButton type="submit" disabled={!hydrated}>
+            {editing ? "Save event" : "Add event"}
+          </TextButton>
           {editing ? (
             <TextButton
               tone="paper"
@@ -418,18 +691,20 @@ function toCalendar(event: PersonalEvent, shortName: string | null): CalendarEve
   };
 }
 
-function dotClass(event: CalendarEvent): string {
-  const tone = toneFor(event.kind);
-  if (tone === "accent") return "bg-accent";
-  if (tone === "ink") return "bg-ink";
-  if (tone === "mute") return "bg-mute";
-  return "bg-signal";
-}
-
-function EventChip({ event }: { event: CalendarEvent }) {
+function EventChip({ event, compact }: { event: CalendarEvent; compact?: boolean }) {
   const tone = toneFor(event.kind);
   return (
-    <span className={cn("mt-1 block truncate border-l-4 px-1 font-mono text-xs leading-5", event.completed && "line-through", tone === "accent" && "border-accent", tone === "ink" && "border-ink", tone === "mute" && "border-mute text-mute", tone === "signal" && "border-signal text-signal")}>
+    <span
+      className={cn(
+        "block truncate border-l-[3px] font-mono leading-snug",
+        compact ? "px-1 text-[10px]" : "mt-0.5 px-1.5 py-0.5 text-xs",
+        event.completed && "line-through opacity-60",
+        tone === "accent" && "border-accent bg-accent/10",
+        tone === "ink" && "border-ink bg-ink/5",
+        tone === "mute" && "border-mute text-mute",
+        tone === "signal" && "border-signal bg-signal/10 text-signal",
+      )}
+    >
       {event.title}
     </span>
   );
