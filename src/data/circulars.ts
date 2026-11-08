@@ -42,6 +42,13 @@ const BDNEWS_BUET: SourceRef = {
   published: "2026-11-07",
 };
 
+
+const DAILY_SUN_MED: SourceRef = {
+  label: "Daily Sun — medical & dental tests scheduled for 18 December",
+  url: "http://www.daily-sun.com/health/907914/medical-dental-admission-tests-scheduled-for-18-december",
+  published: "2026-11-08",
+};
+
 const DAILYBD_MED: SourceRef = {
   label: "Daily Bangladesh — medical test shifted toward 18 Dec",
   url: "https://www.daily-bangladesh.com/education/540904",
@@ -596,12 +603,12 @@ export const seedCirculars: Circular[] = [
     universityId: "dghs",
     title: "MBBS and BDS admission test 2026–27",
     summary:
-      "Working date has moved from 4 Dec toward 18 Dec 2026. Circular still pending. Two new government medical colleges (Thakurgaon, Narsingdi — 50 seats each) join the pool.",
+      "Test date settled on 18 Dec 2026 in DGME messaging. Circular still pending. Applications expected mid-November. Two new government medical colleges (Thakurgaon, Narsingdi — 50 seats each) join the pool.",
     system: "medical",
     publication: "decision",
     confidence: "preliminary",
-    confidenceNote: "18 Dec line from DGHS messaging in national press (7–8 Nov). Not a signed circular.",
-    sources: [STAR_RETAKE, DAILYBD_MED],
+    confidenceNote: "18 Dec line from DGME / DGHS messaging in Daily Sun, Daily Star and others (7–8 Nov). Not a signed circular; application window still not published.",
+    sources: [STAR_RETAKE, DAILYBD_MED, DAILY_SUN_MED],
     updatedOn: "2026-11-08",
     examDate: "2026-12-18",
     eligibility: ["HSC Science; exact bars and seat totals in the DGHS circular."],
