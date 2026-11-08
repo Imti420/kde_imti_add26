@@ -5,6 +5,7 @@ import { PROGRESS_LABEL, type Progress } from "@/data/types";
 import { useCatalog } from "@/lib/catalog";
 import { formatDay } from "@/lib/dates";
 import { usePersonal } from "@/lib/store";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/tracker")({
   head: () => ({ meta: [{ title: "Application tracker — ADMISSION//26" }] }),
@@ -12,6 +13,7 @@ export const Route = createFileRoute("/tracker")({
 });
 
 function TrackerPage() {
+  const t = useT();
   const { circulars, byId, universities } = useCatalog();
   const progress = usePersonal((s) => s.progress);
   const shortlist = usePersonal((s) => s.shortlist);
@@ -33,8 +35,8 @@ function TrackerPage() {
   return (
     <div>
       <PageHead
-        kicker="Personal"
-        title="Application tracker"
+        kicker={t("track.kicker")}
+        title={t("track.title")}
         lede="Mark what you have actually submitted. Shortlisted universities with a circular appear here automatically. Nothing is sent to a server."
       />
       <div className="grid grid-cols-2 border border-ink md:grid-cols-3 xl:grid-cols-5">

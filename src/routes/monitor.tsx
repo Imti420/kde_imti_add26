@@ -9,6 +9,7 @@ import { formatDay } from "@/lib/dates";
 import { usePublishedReport } from "@/lib/published-report";
 import { usePersonal } from "@/lib/store";
 import {
+import { useT } from "@/lib/i18n";
   DATE_FIELDS,
   assembleReport,
   isISODate,
@@ -25,6 +26,7 @@ export const Route = createFileRoute("/monitor")({
 });
 
 function MonitorPage() {
+  const t = useT();
   const published = usePublishedReport((s) => s.report);
   const phase = usePublishedReport((s) => s.phase);
   const reload = usePublishedReport((s) => s.load);
@@ -95,8 +97,8 @@ function MonitorPage() {
   return (
     <div>
       <PageHead
-        kicker="Intelligence"
-        title="Information monitor"
+        kicker={t("mon.kicker")}
+        title={t("mon.title")}
         lede="Compares official pages and cited sources with the archive. A page that answers is fingerprinted. That is not the same thing as a confirmed admission date."
         aside={
           <div className="flex flex-col items-start gap-2">

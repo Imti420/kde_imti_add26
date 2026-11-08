@@ -13,22 +13,14 @@ import type { CrawlEvent } from "@/lib/crawl/types";
 import { useCatalog } from "@/lib/catalog";
 import { daysUntil, formatDay, relativeDay, todayISO } from "@/lib/dates";
 import { deriveStatus, eventsFor, isUrgent, publishedNotice } from "@/lib/status";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [{ title: "Overview — ADMISSION//26" }] }),
   component: Overview,
 });
 
-const PANELS = [
-  ["universe", "Universities"],
-  ["wire", "Newswire"],
-  ["urgent", "Deadlines"],
-  ["exams", "Exams"],
-  ["fresh", "Circulars"],
-  ["picture", "Picture"],
-  ["seats", "Seats"],
-  ["ops", "Discovery"],
-] as const;
+const PANEL_IDS = ["universe", "wire", "urgent", "exams", "fresh", "picture", "seats", "ops"] as const;
 
 const TRACKS = ["all", ...Object.keys(TRACK_LABEL)] as const;
 const LEAD = ["gst", "agri", "dghs", "du", "buet", "ru", "cu", "ju", "sust", "kuet", "ruet", "cuet", "nsu", "bracu", "bup", "ku", "mist", "bau", "nu"];
@@ -55,6 +47,7 @@ const EVENT_LABEL: Record<CrawlEvent["type"], string> = {
 };
 
 function Overview() {
+  const t = useT();
   const { universities, circulars, byId } = useCatalog();
   const { live, phase } = usePublishedLive();
   const [track, setTrack] = useState<(typeof TRACKS)[number]>("all");
@@ -181,9 +174,9 @@ function Overview() {
       </header>
 
       <nav className="mt-6 flex gap-2 overflow-x-auto pb-2" aria-label="Desk sections">
-        {PANELS.map(([id, label]) => (
+        {PANEL_IDS.map((id) => (
           <a key={id} href={`#${id}`} className="press shrink-0">
-            {label}
+            {t(`home.panel.${id}`)}
           </a>
         ))}
       </nav>
@@ -192,7 +185,7 @@ function Overview() {
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="font-mono text-xs tracking-widest text-accent">01 · THE DIRECTORY</p>
-            <h2 className="mt-1 font-display text-5xl font-bold uppercase leading-none md:text-6xl">Universities</h2>
+            <h2 className="mt-1 font-display text-5xl font-bold uppercase leading-none md:text-6xl">{t("home.panel.universe")}</h2>
           </div>
           <Link to="/universities" className="press">
             Full directory
@@ -204,7 +197,7 @@ function Overview() {
         </p>
         <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-center">
           <label className="min-w-0 flex-1">
-            <span className="sr-only">Filter universities</span>
+            <span className="sr-only">{t("home.filterUnis")}</span>
             <input
               value={gridQuery}
               onChange={(event) => setGridQuery(event.target.value)}
@@ -230,7 +223,7 @@ function Overview() {
         </div>
         {grid.length === 0 ? (
           <p className="window mt-4">
-            <span className="window-body block font-mono text-xs tracking-widest text-mute">NO UNIVERSITY MATCHES THAT FILTER.</span>
+            <span className="window-body block font-mono text-xs tracking-widest text-mute">{t("home.noUniMatch")}</span>
           </p>
         ) : (
           <div className="uni-grid mt-5">
@@ -309,7 +302,7 @@ function Overview() {
 
         <section id="exams" className="desk-anchor">
           <div className="mb-4 flex items-end justify-between gap-3 border-b border-ink pb-2">
-            <SectionLabel index="08">Examinations</SectionLabel>
+            <SectionLabel index="08">{t("home.examinations")}</SectionLabel>
             <Link to="/calendar" className="font-mono text-xs tracking-widest underline underline-offset-4">
               CALENDAR
             </Link>
@@ -341,7 +334,7 @@ function Overview() {
 
       <section id="fresh" className="desk-anchor mt-10">
         <div className="mb-4 flex items-end justify-between gap-3 border-b border-ink pb-2">
-          <SectionLabel index="09">Recently cited</SectionLabel>
+          <SectionLabel index="09">{t("home.recentlyCited")}</SectionLabel>
           <Link to="/circulars" className="font-mono text-xs tracking-widest underline underline-offset-4">
             ARCHIVE
           </Link>

@@ -8,6 +8,7 @@ import { TRACK_LABEL, type Track } from "@/data/types";
 import { useCatalog } from "@/lib/catalog";
 import { formatDay } from "@/lib/dates";
 import { deriveStatus, nextRelevantDay } from "@/lib/status";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/universities/")({
   head: () => ({ meta: [{ title: "All universities — ADMISSION//26" }] }),
@@ -17,6 +18,7 @@ export const Route = createFileRoute("/universities/")({
 const TRACKS = ["all", ...Object.keys(TRACK_LABEL)] as const;
 
 function UniversitiesPage() {
+  const t = useT();
   const { universities, circulars } = useCatalog();
   const [q, setQ] = useState("");
   const [track, setTrack] = useState<(typeof TRACKS)[number]>("all");
@@ -78,8 +80,8 @@ function UniversitiesPage() {
   return (
     <div>
       <PageHead
-        kicker="Directory"
-        title="All universities"
+        kicker={t("uni.kicker")}
+        title={t("uni.title")}
         lede="Every public university on the UGC list is here, plus the three national admission systems and a set of private universities. A missing circular, seat count or subject list stays blank."
       />
       <div className="grid gap-3 border border-ink p-3 md:grid-cols-4">

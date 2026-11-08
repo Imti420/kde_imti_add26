@@ -14,8 +14,7 @@ export const Route = createFileRoute("/calendar")({
   component: CalendarPage,
 });
 
-const WEEKDAYS = ["S", "M", "T", "W", "T", "F", "S"];
-const WEEKDAYS_FULL = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+const WEEKDAY_KEYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"] as const;
 const KINDS: { id: PersonalEventKind; label: string }[] = [
   { id: "closes", label: "Deadline" },
   { id: "exam", label: "Examination" },
@@ -105,7 +104,7 @@ function CalendarPage() {
         aside={
           <div className="flex flex-wrap gap-2">
             <TextButton tone="paper" onClick={download}>
-              Export .ics
+              {t("cal.export")}
             </TextButton>
             <TextButton
               tone="ghost"
@@ -115,7 +114,7 @@ function CalendarPage() {
                 setSheetOpen(true);
               }}
             >
-              Today
+              {t("cal.today")}
             </TextButton>
           </div>
         }
@@ -139,7 +138,7 @@ function CalendarPage() {
                 : monthLabel}
             </p>
             <p className="mt-0.5 font-mono text-[10px] tracking-widest text-mute">
-              {view === "agenda" ? `${visible.length} EVENTS` : view.toUpperCase()}
+              {view === "agenda" ? `${visible.length} ${t("cal.events")}` : t(`cal.${view}`)}
             </p>
           </div>
           <button
@@ -192,7 +191,7 @@ function CalendarPage() {
           <i className="inline-block h-2.5 w-2.5 rounded-sm bg-accent" /> {t("cal.deadline")}
         </li>
         <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
-          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-ink" /> EXAM
+          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-ink" /> {t("cal.exam")}
         </li>
         <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
           <i className="inline-block h-2.5 w-2.5 rounded-sm bg-mute" /> {t("cal.opens")}
@@ -206,12 +205,12 @@ function CalendarPage() {
       {view === "month" ? (
         <div className="cal-month overflow-hidden rounded-[1.1rem] border-[3px] border-ink bg-paper shadow-[5px_5px_0_0_var(--color-ink)]">
           <div className="grid grid-cols-7 border-b-2 border-ink bg-panel">
-            {WEEKDAYS.map((day, i) => (
+            {WEEKDAY_KEYS.map((key) => (
               <p
-                key={`${day}-${i}`}
+                key={key}
                 className="py-2 text-center font-mono text-[11px] font-semibold tracking-widest text-mute"
               >
-                {day}
+                {t(`cal.wd.${key}`)}
               </p>
             ))}
           </div>
@@ -301,7 +300,7 @@ function CalendarPage() {
                   onClick={() => pickDay(day, dayEvents[0]?.id ?? null)}
                 >
                   <span className="font-mono text-[11px] tracking-widest text-mute">
-                    {WEEKDAYS_FULL[wd]}
+                    {t(`cal.wdFull.${WEEKDAY_KEYS[wd] ?? "sun"}`)}
                   </span>
                   <span
                     className={cn(
@@ -391,7 +390,7 @@ function CalendarPage() {
         <div className="flex items-center justify-between gap-2 border-b-2 border-ink bg-panel px-4 py-3">
           <div>
             <p className="font-mono text-[10px] tracking-widest text-mute">
-              {selected === today ? "TODAY" : relativeDay(selected)}
+              {selected === today ? t("common.today") : relativeDay(selected)}
             </p>
             <p className="font-display text-2xl font-bold uppercase leading-none">
               {formatDay(selected)}
@@ -402,7 +401,7 @@ function CalendarPage() {
             className="h-9 rounded-full border-2 border-ink px-3 font-mono text-[11px] tracking-widest md:hidden"
             onClick={() => setSheetOpen(false)}
           >
-            CLOSE
+            {t("cal.close")}
           </button>
         </div>
         <div className="p-4">
@@ -451,12 +450,15 @@ function CalendarPage() {
 }
 
 function EventDetail({ event }: { event: CalendarEvent }) {
+  const t = useT();
   return (
     <div className="mt-2 rounded-xl border-2 border-ink/15 bg-panel p-3">
       <p className="font-display text-xl font-bold uppercase leading-none">{event.title}</p>
       <p className="mt-1.5 font-mono text-[10px] tracking-widest text-mute">{event.confidenceLabel}</p>
       {event.time ? (
-        <p className="mt-1 font-mono text-xs">{event.time} · BANGLADESH LOCAL</p>
+        <p className="mt-1 font-mono text-xs">
+          {event.time} · {t("cal.bdLocal")}
+        </p>
       ) : null}
       {event.notes ? <p className="mt-2 text-sm leading-snug">{event.notes}</p> : null}
       <div className="mt-3 flex flex-wrap gap-3">
@@ -667,7 +669,7 @@ function EventForm({
                 if (confirm(t("cal.deleteConfirm"))) onDelete(editing.id);
               }}
             >
-              Delete
+              {t("cal.delete")}
             </TextButton>
           ) : null}
         </div>

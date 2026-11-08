@@ -5,6 +5,7 @@ import { useCatalog } from "@/lib/catalog";
 import { formatDay } from "@/lib/dates";
 import { deriveStatus, nextRelevantDay } from "@/lib/status";
 import { usePersonal } from "@/lib/store";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/shortlist")({
   head: () => ({ meta: [{ title: "My shortlist — ADMISSION//26" }] }),
@@ -12,6 +13,7 @@ export const Route = createFileRoute("/shortlist")({
 });
 
 function ShortlistPage() {
+  const t = useT();
   const { universities, circulars } = useCatalog();
   const shortlist = usePersonal((s) => s.shortlist);
   const bookmarks = usePersonal((s) => s.bookmarks);
@@ -23,8 +25,8 @@ function ShortlistPage() {
   return (
     <div>
       <PageHead
-        kicker="Personal"
-        title="My shortlist"
+        kicker={t("short.kicker")}
+        title={t("short.title")}
         lede="Preferred universities for this season. Saved bookmarks that are not on the shortlist sit underneath. Both stay in this browser."
       />
       {!hydrated ? <p className="font-mono text-xs text-mute">RESTORING THIS DESK…</p> : null}

@@ -8,6 +8,7 @@ import { parseFeedDate } from "@/lib/wire/text";
 import { nextWireAt, wireDeskStatus, type WireDeskStatus } from "@/lib/wire/gate";
 import type { WireItem, WireSourceState } from "@/lib/wire/types";
 import { useWire } from "@/lib/wire/use-wire";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/newswire")({
   head: () => ({ meta: [{ title: "Newswire — ADMISSION//26" }] }),
@@ -65,6 +66,7 @@ function readDesk(): DeskItem[] {
 }
 
 function NewswirePage() {
+  const t = useT();
   const { live, phase, seenAt, arrivedAt, freshIds, reloadNote, reloading, reload } = useWire();
   const [now, setNow] = useState(() => new Date());
   const [filter, setFilter] = useState<Filter>("all");
@@ -156,7 +158,7 @@ function NewswirePage() {
     <div>
       <PageHead
         kicker="ADMISSION SEASON · 55-MINUTE CYCLE"
-        title="Newswire"
+        title={t("wire.title")}
         lede="Nine desk briefings on top — ACS vs Udvash, Hulkenstein, HSC crash, coaching street fights, written spicy and sourced hard. Below that: the crawler feed. A news report is still not a circular."
         aside={
           <button

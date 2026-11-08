@@ -15,6 +15,7 @@ import { formatDay, todayISO } from "@/lib/dates";
 import { usePublishedReport } from "@/lib/published-report";
 import { deriveStatus, eventsFor } from "@/lib/status";
 import { usePersonal } from "@/lib/store";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/desk")({
   head: () => ({ meta: [{ title: "My admission desk — ADMISSION//26" }] }),
@@ -31,6 +32,7 @@ const STAGES: { label: string; test: (progress: Progress | undefined) => boolean
 ];
 
 function DeskPage() {
+  const t = useT();
   const personal = usePersonal();
   const review = usePublishedReport((s) => s.report?.summary.reviewRequired ?? 0);
   const layout = personal.deskLayout;
@@ -39,8 +41,8 @@ function DeskPage() {
   return (
     <div>
       <PageHead
-        kicker="Personal"
-        title="My admission desk"
+        kicker={t("desk.kicker")}
+        title={t("desk.title")}
         lede="Your command center for this season. Shortlist, deadlines, progress and notes stay in this browser. The archive underneath is unchanged until you edit it."
       />
       {!personal.hydrated ? <p className="mb-4 font-mono text-xs text-mute">RESTORING THIS DESK…</p> : null}

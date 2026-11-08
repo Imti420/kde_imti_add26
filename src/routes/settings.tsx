@@ -8,6 +8,7 @@ import { PageHead, TextButton, controlClass } from "@/components/marks";
 import { blankCircular, blankUniversity, buildCatalog, useCatalog } from "@/lib/catalog";
 import { todayISO } from "@/lib/dates";
 import { parseBackup, personalSnapshot, usePersonal } from "@/lib/store";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/settings")({
   head: () => ({ meta: [{ title: "Settings — ADMISSION//26" }] }),
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/settings")({
 });
 
 function SettingsPage() {
+  const t = useT();
   const personal = usePersonal();
   const catalog = useCatalog();
   const navigate = useNavigate();
@@ -76,13 +78,13 @@ function SettingsPage() {
   return (
     <div>
       <PageHead
-        kicker="Desk"
-        title="Settings"
-        lede="Add a university, log a circular, and keep a JSON backup. Edits live in this browser. The seeded directory stays in the app; your amendments sit on top of it."
+        kicker={t("set.kicker")}
+        title={t("set.title")}
+        lede={t("set.lede")}
       />
 
       <section className="border border-ink p-4">
-        <h2 className="font-display text-3xl font-bold uppercase">How to read a record</h2>
+        <h2 className="font-display text-3xl font-bold uppercase">{t("set.howRead")}</h2>
         <ul className="mt-3 space-y-2 text-sm">
           {EVIDENCE_COPY.map((line) => (
             <li key={line} className="border-b border-ink py-2">
@@ -96,11 +98,11 @@ function SettingsPage() {
       </section>
 
       <section className="mt-8 border border-ink p-4">
-        <h2 className="font-display text-3xl font-bold uppercase">Backup</h2>
+        <h2 className="font-display text-3xl font-bold uppercase">{t("set.backup")}</h2>
         <div className="mt-4 flex flex-wrap gap-2">
-          <TextButton onClick={exportDesk}>Export desk backup</TextButton>
+          <TextButton onClick={exportDesk}>{t("set.exportDesk")}</TextButton>
           <TextButton tone="paper" onClick={exportMerged}>
-            Export merged catalog
+            {t("set.exportMerged")}
           </TextButton>
           <TextButton
             tone="ghost"
@@ -111,11 +113,11 @@ function SettingsPage() {
               }
             }}
           >
-            Reset this desk
+            {t("set.resetDesk")}
           </TextButton>
         </div>
         <label className="mt-4 flex flex-col gap-2">
-          <span className="font-mono text-xs tracking-widest text-mute">IMPORT DESK BACKUP</span>
+          <span className="font-mono text-xs tracking-widest text-mute">{t("set.import")}</span>
           <input
             type="file"
             accept="application/json"
@@ -152,7 +154,7 @@ function SettingsPage() {
             void navigate({ to: "/universities/$id", params: { id: uni.id } });
           }}
         >
-          <h2 className="font-display text-3xl font-bold uppercase">Add a university</h2>
+          <h2 className="font-display text-3xl font-bold uppercase">{t("set.addUni")}</h2>
           <div className="mt-4 grid gap-3">
             <input className={controlClass} placeholder="University name" value={uniName} onChange={(e) => setUniName(e.target.value)} />
             <input className={controlClass} placeholder="Short name" value={uniShort} onChange={(e) => setUniShort(e.target.value)} />
@@ -165,7 +167,7 @@ function SettingsPage() {
             </select>
             <input className={controlClass} placeholder="City" value={uniCity} onChange={(e) => setUniCity(e.target.value)} />
             <input className={controlClass} placeholder="https:// official website" value={uniSite} onChange={(e) => setUniSite(e.target.value)} />
-            <TextButton type="submit">Add university</TextButton>
+            <TextButton type="submit">{t("set.addUniBtn")}</TextButton>
           </div>
         </form>
 
@@ -185,7 +187,7 @@ function SettingsPage() {
             void navigate({ to: "/circulars/$id", params: { id: circular.id } });
           }}
         >
-          <h2 className="font-display text-3xl font-bold uppercase">Add a circular</h2>
+          <h2 className="font-display text-3xl font-bold uppercase">{t("set.addCirc")}</h2>
           <div className="mt-4 grid gap-3">
             <select className={controlClass} value={circUni} onChange={(e) => setCircUni(e.target.value)}>
               {catalog.universities.map((uni) => (
@@ -198,7 +200,7 @@ function SettingsPage() {
             <p className="font-mono text-xs text-mute">
               Systems on file: {Object.values(SYSTEM_LABEL).join(" · ")}. You will set dates on the next screen. Leave unknown fields blank.
             </p>
-            <TextButton type="submit">Add circular</TextButton>
+            <TextButton type="submit">{t("set.addCircBtn")}</TextButton>
           </div>
         </form>
       </section>

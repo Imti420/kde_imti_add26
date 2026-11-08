@@ -7,6 +7,7 @@ import { fetchPublishedLog } from "@/lib/crawl/published";
 import { isLiveFile, systemStatus, type SystemStatus } from "@/lib/crawl/gate";
 import type { CrawlEvent, LiveFile, Reachability, SourceRecord } from "@/lib/crawl/types";
 import { cn } from "@/lib/cn";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/discovery")({
   head: () => ({ meta: [{ title: "Discovery log — ADMISSION//26" }] }),
@@ -105,6 +106,7 @@ function reachClass(reach: Reachability): string {
 }
 
 function DiscoveryPage() {
+  const t = useT();
   const [live, setLive] = useState<LiveFile | null>(null);
   const [phase, setPhase] = useState<"loading" | "ready" | "missing">("loading");
   const [now, setNow] = useState(() => new Date());
@@ -196,8 +198,8 @@ function DiscoveryPage() {
   return (
     <div>
       <PageHead
-        kicker="Discovery"
-        title="Discovery log"
+        kicker={t("disc.kicker")}
+        title={t("disc.title")}
         lede="What the crawler actually opened. This page does not start a scan, and it does not publish admission dates. The job runs on GitHub about every 45 minutes even if nobody has the site open. GitHub may start it late."
       />
 

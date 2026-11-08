@@ -6,6 +6,7 @@ import { useCatalog } from "@/lib/catalog";
 import { daysUntil, formatDay, relativeDay, todayISO } from "@/lib/dates";
 import { eventsFor, isUrgent, type RadarEvent } from "@/lib/status";
 import { usePersonal } from "@/lib/store";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/radar")({
   head: () => ({ meta: [{ title: "Deadline radar — ADMISSION//26" }] }),
@@ -13,6 +14,7 @@ export const Route = createFileRoute("/radar")({
 });
 
 function RadarPage() {
+  const t = useT();
   const { circulars, byId } = useCatalog();
   const pinned = usePersonal((s) => s.pinnedIds);
   const togglePin = usePersonal((s) => s.togglePin);
@@ -36,8 +38,8 @@ function RadarPage() {
   return (
     <div>
       <PageHead
-        kicker="Calendar"
-        title="Deadline radar"
+        kicker={t("radar.kicker")}
+        title={t("radar.title")}
         lede="Nearest windows first. Red means a close date inside 14 days, or an opening or an exam inside 7 days. A clash is two institutions on the same test day."
       />
       <div className="flex flex-wrap gap-2">

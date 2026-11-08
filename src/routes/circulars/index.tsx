@@ -5,6 +5,7 @@ import { EvidenceStamp, PageHead, StatusPill, controlClass } from "@/components/
 import { useCatalog } from "@/lib/catalog";
 import { formatDay } from "@/lib/dates";
 import { deriveStatus, publishedNotice } from "@/lib/status";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/circulars/")({
   head: () => ({ meta: [{ title: "Circular archive — ADMISSION//26" }] }),
@@ -14,6 +15,7 @@ export const Route = createFileRoute("/circulars/")({
 type View = "all" | "upcoming" | "published";
 
 function CircularArchive() {
+  const t = useT();
   const { circulars, byId, universities } = useCatalog();
   const [view, setView] = useState<View>("all");
   const [q, setQ] = useState("");
@@ -60,8 +62,8 @@ function CircularArchive() {
   return (
     <div>
       <PageHead
-        kicker="Archive"
-        title="Circular archive"
+        kicker={t("circ.kicker")}
+        title={t("circ.title")}
         lede="Only records with a cited report or a note you logged yourself. Universities without a notice stay in the directory — they are not turned into fake circulars."
       />
       <div className="flex flex-wrap gap-2">
