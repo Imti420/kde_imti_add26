@@ -131,24 +131,26 @@ export function UgcNukeSuperHead() {
         <div className="flex flex-wrap items-center gap-3">
           <span className="ugc-nuke-badge inline-flex items-center gap-2 bg-accent px-3 py-1.5 font-mono text-[11px] font-black tracking-[0.25em] text-onaccent">
             <span className="inline-block h-2.5 w-2.5 animate-pulse rounded-full bg-paper" />
-            BREAKING · UGC NUKE · 9 NOV 2026
+            BREAKING · STREET DESK · 9 NOV 2026
           </span>
-          <span className="font-mono text-[11px] tracking-widest text-accent">THE SHINING MOMENT OF ADMISSION 26</span>
+          <span className="font-mono text-[11px] tracking-widest text-accent">ADMISSION 26 · NO CIRCULAR, NO DATE</span>
         </div>
 
         <p className="mt-4 font-mono text-xs font-bold tracking-[0.35em] text-accent md:text-sm">
-          THE WHOLE PUBLIC UNIVERSITY CALENDAR JUST DIED
+          ইউজিসি বললো · গ্রুপ বললো · কেউ সার্কুলার দেখায় না
         </p>
 
-        <h1 className="ugc-nuke-title mt-3 font-display text-[2.6rem] font-black uppercase leading-[0.88] tracking-tight text-paper md:text-[4.2rem] lg:text-[5.2rem]">
-          UGC POSTPONES{" "}
-          <span className="text-accent">EVERY</span>{" "}
-          PUBLIC UNI ADMISSION TEST
+        <h1 className="ugc-nuke-title mt-3 font-display text-[2.4rem] font-black uppercase leading-[0.88] tracking-tight text-paper md:text-[3.8rem] lg:text-[4.8rem]">
+          WHO GAVE A SHIT{" "}
+          <span className="text-accent">BOUT UGC</span>
+          ??
         </h1>
 
-        <p className="mt-5 max-w-4xl font-display text-xl font-bold uppercase leading-snug text-paper/95 md:text-2xl md:leading-tight">
-          Applications from 1 January 2027. Tests after 1 February. DU was opening{" "}
-          <span className="bg-accent px-1.5 text-onaccent">TOMORROW</span>. BUET on 21 Nov. Medical locked 18 Dec. The coaching war just lost its calendar.
+        <p className="mt-5 max-w-4xl font-display text-lg font-bold leading-snug text-paper/95 md:text-2xl md:leading-tight">
+          চেয়ারম্যান: সব পাবলিক ইউনির ভর্তি{" "}
+          <span className="bg-accent px-1.5 text-onaccent">জানুয়ারি</span> থেকে, পরীক্ষা{" "}
+          <span className="bg-accent px-1.5 text-onaccent">১ ফেব্রুয়ারি</span> থেকে।
+          DU কাল ফর্ম খুলছিল। BUET ২১ নভেম্বর। মেডিকেল ১৮ ডিসেম্বর। এখন গ্রুপে শুধু এক প্রশ্ন — DU কি ইনক্লুডেড?
         </p>
 
         <div className="mt-6 flex flex-col gap-4 border-t-2 border-accent/60 pt-5 md:flex-row md:items-end md:justify-between">
