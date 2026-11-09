@@ -128,12 +128,12 @@ export const seedCirculars: Circular[] = [
     universityId: "du",
     title: "University of Dhaka undergraduate admission 2026–27",
     summary:
-      "SUPERSEDED PENDING LOCAL NOTICE. UGC (9 Nov) ordered all public university admission procedures to begin after 31 Dec — applications from 1 Jan 2027, tests after 1 Feb. DU’s published 11–25 Nov application window and Dec unit tests are therefore under rewrite. Portal may still show the old countdown until DU issues its own notice. About 6,125 own seats reported. Unit splits below use prior-session pattern until the 2026–27 PDF is stored.",
+      "DU evening emergency committee (9 Nov) kept the published schedule despite UGC’s morning national floor. Applications 11–25 Nov 2026. Unit tests 5–26 Dec. About 6,125 own seats. UGC still says public universities should wait until January for HSC retakers — DU is the first hard public holdout. Portal: admission.eis.du.ac.bd.",
     system: "own",
     publication: "notice",
-    confidence: "preliminary",
+    confidence: "notice",
     confidenceNote:
-      "UGC national floor of 9 Nov supersedes the published DU calendar until DU posts a revised circular. Dates below are the last local schedule (now ghost). GPA bars and seat totals from DU press / portal still useful.",
+      "Evening 9 Nov coverage (Jagonews / Star Bangla / TOB) reports DU general admission committee unanimously retained 11–25 Nov apps and December unit tests after UGC asked every public university to slip to January. Political conflict is live; operational line on this desk follows DU’s local notice until a further DU rewrite.",
     sources: [STAR_DU, TBS_DU, DU_PORTAL, SEATS_COMP, STAR_CLASH],
     updatedOn: "2026-11-09",
     applicationOpens: "2026-11-11",
@@ -192,7 +192,9 @@ export const seedCirculars: Circular[] = [
     ],
     notes: [
       "Official portal: admission.eis.du.ac.bd",
-      "HSC retake candidates are not accommodated under the published window.",
+      "UGC (morning 9 Nov) asked all public universities to start after 31 Dec; DU evening committee kept this calendar.",
+      "HSC supplementary / late retake cohort is outside this window unless DU opens a second lane.",
+      "Re-evaluation candidates whose revised results publish ~23 Nov are reported eligible to still apply.",
     ],
   }),
 
