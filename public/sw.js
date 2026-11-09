@@ -84,7 +84,7 @@ async function checkFeedAndNotify() {
     const regIds = (feed.registrations || []).map((r) => r.id);
     const newRegs = (feed.registrations || []).filter((r) => !seen.regs.includes(r.id));
 
-    for (const n of newNews.slice(0, 3)) {
+    for (const n of newNews.slice(0, 9)) {
       await self.registration.showNotification(`NEW NEWS · ${n.heat || "DESK"}`, {
         body: n.headline,
         tag: `news-${n.id}`,

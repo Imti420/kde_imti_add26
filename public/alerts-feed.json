@@ -1,7 +1,62 @@
 {
-  "updated": "2026-11-10T00:05:00+06:00",
+  "updated": "2026-11-10T00:10:00+06:00",
   "cycle": "n0911-midnight",
-  "news": [],
+  "news": [
+    {
+      "id": "n0911-du-official-hold",
+      "heat": "NUKE",
+      "headline": "DU Pro-VC said it out loud: we are sticking to the old schedule. UGC asked to defer. DU said no.",
+      "url": "/newswire"
+    },
+    {
+      "id": "n0911-ugc-january-floor",
+      "heat": "SYSTEM",
+      "headline": "UGC still sells January as the national start. Roughly 63,000 public first-year seats.",
+      "url": "/newswire"
+    },
+    {
+      "id": "n0911-48hrs-to-portal",
+      "heat": "HOT",
+      "headline": "Under 48 hours to DU form open. If the submit button lights up at noon Wednesday, the war is operational.",
+      "url": "/newswire"
+    },
+    {
+      "id": "n0911-retaker-math",
+      "heat": "STREET",
+      "headline": "Supplementary cohort was the whole point of UGC winter. DU December sprint mostly leaves them outside.",
+      "url": "/newswire"
+    },
+    {
+      "id": "n0911-buet-silence",
+      "heat": "WAR",
+      "headline": "BUET last hard line 21 Nov / 16 Jan. After DU held, silence is a strategy.",
+      "url": "/newswire"
+    },
+    {
+      "id": "n0911-medical-lane",
+      "heat": "SYSTEM",
+      "headline": "Medical still answers to health education. Mid-December MBBS/BDS can still run.",
+      "url": "/newswire"
+    },
+    {
+      "id": "n0911-coaching-double-flip",
+      "heat": "MARKET",
+      "headline": "Morning season postponed. Evening DU still opens Wednesday. Batch SMS is a crime scene.",
+      "url": "/newswire"
+    },
+    {
+      "id": "n0911-marks-eased",
+      "heat": "HOT",
+      "headline": "DU eased some test subject marks and HSC grade floors — not a general amnesty.",
+      "url": "/newswire"
+    },
+    {
+      "id": "n0911-what-matters-now",
+      "heat": "HOT",
+      "headline": "1) DU portal noon Wednesday 2) BUET notice 3) Ministry pressure. Everything else is noise.",
+      "url": "/newswire"
+    }
+  ],
   "registrations": [
     {
       "id": "reg-c-du-2026-11-11",

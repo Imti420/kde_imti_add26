@@ -177,7 +177,7 @@ export async function runDeskAlertPass(opts?: { forceWelcome?: boolean }) {
   const seenRegs = new Set(readList(SEEN_REG_KEY));
 
   const freshNews = SPICE_CARDS.filter((c) => !seenNews.has(c.id));
-  for (const card of freshNews.slice(0, 3)) {
+  for (const card of freshNews.slice(0, 9)) {
     await showAlert({
       title: `NEW NEWS · ${card.heat}`,
       body: card.headline,
