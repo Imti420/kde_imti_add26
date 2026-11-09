@@ -1,11 +1,10 @@
 /**
  * Desk-written spicy briefings — not crawler headlines.
- * Updated by hand when the season moves. Keep claims sourced.
- * Go harder. The country has no bounds when it comes to fun news.
+ * 9 Nov 2026: UGC BOMB is the lead. Everything else is fallout.
  */
 export interface SpiceCard {
   id: string;
-  heat: "HOT" | "SYSTEM" | "MARKET" | "WAR" | "STREET" | "SCAM";
+  heat: "HOT" | "SYSTEM" | "MARKET" | "WAR" | "STREET" | "SCAM" | "NUKE";
   kicker: string;
   headline: string;
   body: string;
@@ -17,111 +16,111 @@ export interface SpiceCard {
 
 export const SPICE_CARDS: SpiceCard[] = [
   {
-    id: "spice-du-window",
-    heat: "HOT",
-    kicker: "DU · THREE DAYS TO GO",
-    headline: "Dhaka University opens at noon on 11 November. The clock is louder than any coaching slogan.",
+    id: "spice-ugc-nuke",
+    heat: "NUKE",
+    kicker: "UGC BOMB · 9 NOV · THE WHOLE CALENDAR JUST DIED",
+    headline: "UGC NUKE: EVERY public university admission test postponed. Apps from 1 Jan. Tests after 1 Feb. DU was opening TOMORROW. The season just got two months longer and infinitely messier.",
     body:
-      "Online applications start 12:00 on 11 Nov and die at 23:59 on 25 Nov. IBA test 5 Dec, Science 12 Dec, Arts/Law/Social 19 Dec, Fine Arts 22 Dec, Business 26 Dec. Classes for the batch begin 28 March 2027. The portal is live, the eligibility bars are published, and every student still waiting on an HSC retake result is already outside the room. Three days. That is the entire remaining runway.",
-    punch: "If you are still deciding whether to apply, the window will not wait for your decision.",
-    sourceLabel: "DU PRO · TBS · Observer · Daily Star, 5–8 Nov 2026",
+      "Monday afternoon, University Grants Commission HQ. VCs in the room. Chairman Prof Mamun Ahmed walks out and tells the country: all public university admission procedures start after 31 December. Applications from 1 January 2027. Tests after 1 February. The official reason is the 4.23 lakh HSC retake cohort — results by year-end, so nobody gets left behind. The unofficial reality is that DU had applications opening at noon on 11 November, BUET on 21 November, medical locked to 18 December, and half the coaching economy had already sold the old calendar. Universities that published schedules have been told to rewrite them. This is not a tweak. This is the admission season being yanked backward by two months in a single press briefing. The feud between retakers, early-movers, coaching houses and VCs just became national policy.",
+    punch: "The shining moment of Admission 26 is that nobody knows the dates anymore.",
+    sourceLabel: "bdnews24 · Daily Star · Daily Sun · Dhaka Tribune · Daily Campus, 9 Nov 2026",
+    sourceUrl: "https://bdnews24.com/education/5ntai555o0",
+    published: "2026-11-09",
+  },
+  {
+    id: "spice-du-chaos",
+    heat: "HOT",
+    kicker: "DU · PORTAL WAS LIVE · WINDOW WAS TOMORROW",
+    headline: "Dhaka University’s 11–25 November window is now a ghost. The portal still shows the old countdown.",
+    body:
+      "For weeks the desk treated 11 November noon as fixed law. Five unit tests in December. Classes March 2027. Then UGC said every public university must wait until January. DU has not yet published a formal pull-back notice as of this desk pass — but the commission’s line is unanimous and the VCs were in the room. Students who planned to hit submit tomorrow are staring at a portal that has not been told the war is over. Expect a DU notice within hours or days. Until then the archive marks the old dates as SUPERSEDED PENDING LOCAL NOTICE.",
+    punch: "A live application portal and a dead calendar can coexist for exactly one news cycle.",
+    sourceLabel: "DU portal · UGC briefing · desk, 9 Nov 2026",
     sourceUrl: "https://admission.eis.du.ac.bd/",
-    published: "2026-11-08",
+    published: "2026-11-09",
   },
   {
-    id: "spice-buet-hardline",
+    id: "spice-retake-won",
     heat: "SYSTEM",
-    kicker: "BUET · NO RELAXATION",
-    headline: "BUET keeps the GPA-5 + A+ Physics/Chem/Higher Math wall and will still only let ~10,000 sit the 16 January test.",
+    kicker: "4.23 LAKH RETAKERS · THE DOOR FINALLY OPENED",
+    headline: "The retake army forced the system to blink. UGC says they get a seat at the table.",
     body:
-      "Applications expected from 21 November. Test fixed for 16 January 2027. Committee chief Kamrul Hasan is explicit: last year’s eligibility stays. Only about 10,000 candidates will be allowed into the hall even if far more apply. HSC retake students are not part of the plan. The engineering cluster already fractured; BUET is simply refusing to bend for the late-result cohort.",
-    punch: "The filter is the policy. The calendar is the message.",
-    sourceLabel: "TBS · Prothom Alo · bdnews24 · Channel i, 7–8 Nov 2026",
-    sourceUrl: "https://www.tbsnews.net/bangladesh/education/buet-admission-applications-open-21-nov-test-set-16-jan-1595726",
-    published: "2026-11-08",
+      "Supplementary exams start 1 December. Results promised by 31 December. For two weeks DU, BUET and medical looked ready to run without them. Today the commission flipped the table: admission activity after all HSC results are in. Whether every university actually obeys — and whether medical (DGME, not UGC) follows — is the next fight. But the political signal is clear. Leaving 4.23 lakh kids outside the 2026–27 cycle was not going to hold.",
+    punch: "A second chance only matters if the gates are still open when the result arrives.",
+    sourceLabel: "UGC · Star · Prothom Alo retake file, 9 Nov 2026",
+    sourceUrl: "https://www.thedailystar.net/news/education/news/public-university-admission-procedures-begin-after-december-31-4319011",
+    published: "2026-11-09",
   },
   {
-    id: "spice-medical-18dec",
-    heat: "SYSTEM",
-    kicker: "MBBS / BDS · 18 DECEMBER",
-    headline: "Medical and dental tests lock onto 18 December. Circular still missing. Retakers remain locked out.",
-    body:
-      "DGME messaging has settled on 18 December after the old 4 December working date died. Applications are expected mid-November (15–18 Nov window floated). Two new government medical colleges — Thakurgaon and Narsingdi, 50 seats each — join the map. Retake exams start around 1 December; results hoped for by month-end. The timeline does not wait for revised marksheets. Circular still not on the desk.",
-    punch: "More seats. Same closed door for anyone still sitting a subject again.",
-    sourceLabel: "Daily Sun · Daily Star · Daily Bangladesh, 7–8 Nov 2026",
-    sourceUrl: "http://www.daily-sun.com/health/907914/medical-dental-admission-tests-scheduled-for-18-december",
-    published: "2026-11-08",
-  },
-  {
-    id: "spice-acs-udvash",
+    id: "spice-buet-standoff",
     heat: "WAR",
-    kicker: "ACS vs UDVASH · STILL THE REAL WAR",
-    headline: "While universities publish calendars, the real battlefield remains Science Lab Road and the comment sections.",
+    kicker: "BUET · SAID IT WOULD NOT WAIT · NOW WHAT",
+    headline: "BUET spent a week saying the 16 January test and 21 November apps were final. UGC just overruled the vibe.",
     body:
-      "ACS packs the FOMO machine; Udvash claims cleaner depth and EV sources. Both sell the same anxiety with different packaging. Students treat coaching ID cards like campus badges. The product is not a seat at DU or BUET. The product is the feeling that everyone else already bought the right batch. Edtech apps try to undercut the street; the street still owns the fear.",
-    punch: "Pick a side. The receipt looks the same either way.",
-    sourceLabel: "r/Dhaka · YouTube reviews · campus chatter · desk, 2026",
-    sourceUrl: "https://www.reddit.com/r/Dhaka/comments/1pf1npz/udvash_vs_acs/",
-    published: "2026-11-08",
+      "Committee chair Prof Kamrul Hasan had been explicit: eligibility stays hard, calendar stays, retakers are not a reason to slip. That was the line on 7–8 November. On 9 November the UGC meeting — with VCs present — set a national floor: no public university admission process before January. BUET is autonomous enough to try to hold the old line. It is also inside the same political weather as everyone else. Watch the next BUET notice like a hawk.",
+    punch: "Autonomy meets a commission that just nationalised the calendar.",
+    sourceLabel: "TBS · Prothom Alo · UGC, 7–9 Nov 2026",
+    sourceUrl: "https://www.tbsnews.net/bangladesh/education/buet-admission-applications-open-21-nov-test-set-16-jan-1595726",
+    published: "2026-11-09",
   },
   {
-    id: "spice-hsc-crash-aftermath",
-    heat: "HOT",
-    kicker: "52% PASS · GPA-5 HALVED",
-    headline: "The HSC crash is still writing the admission season. Fewer perfect scores, harder shortlists, louder panic.",
+    id: "spice-medical-orphan",
+    heat: "SYSTEM",
+    kicker: "MEDICAL · DGME NOT UGC · 18 DEC STILL ON THE BOARD",
+    headline: "Medical is not a university. The 18 December test may still happen while the unis wait until February.",
     body:
-      "Pass rate around 52%. GPA-5 numbers roughly halved. Boards and ministry scrambled into a December retake window for one- or two-subject failures. Top universities answered by keeping their original calendars. The result: a smaller eligible pool for the hardest tests and a large cohort that may never catch the 2026–27 train. Every coaching centre is now selling recovery as much as preparation.",
-    punch: "The system broke the average. The elite filters did not soften.",
-    sourceLabel: "Board results · ministry briefings · desk synthesis, Oct–Nov 2026",
-    sourceUrl: "https://www.thedailystar.net/news/bangladesh/education/news/admission-schedule-medical-colleges-univs-mull-relief-hsc-retakers-4315036",
-    published: "2026-11-08",
+      "DGME locked medical/dental to 18 December days ago. UGC’s postponement covers public universities. MBBS/BDS sits under health education. That gap is about to become the loudest argument in the country: retakers might get university doors opened in January while the medical door still slams in mid-December. Unless the ministry forces DGME into the same winter, two parallel realities will run at once.",
+    punch: "Same students. Two regulators. Two calendars. One crisis.",
+    sourceLabel: "DGME confirmations · UGC briefing, 8–9 Nov 2026",
+    sourceUrl: "https://observerbd.com/news/604606",
+    published: "2026-11-09",
   },
   {
-    id: "spice-gst-fracture",
+    id: "spice-coaching-meltdown",
+    heat: "MARKET",
+    kicker: "COACHING · BATCHES SOLD ON A DEAD CALENDAR",
+    headline: "ACS, Udvash and the whole street just watched their November–December product evaporate.",
+    body:
+      "Model tests timed to DU’s old December units. Crash courses sold against a 21 November BUET open. Medical batches locked to mid-December. UGC moved the entire public university season into 2027. Refund fights, batch reshuffles, and ‘new schedule orientation’ SMS storms start tonight. The coaching economy prices certainty. Today certainty was recalled by the manufacturer.",
+    punch: "You cannot sell a seat on a date the commission just deleted.",
+    sourceLabel: "Desk synthesis — coaching street + UGC, 9 Nov 2026",
+    sourceUrl: "https://bdnews24.com/education/5ntai555o0",
+    published: "2026-11-09",
+  },
+  {
+    id: "spice-coordination-committee",
+    heat: "SYSTEM",
+    kicker: "NEW BODY · UGC + MINISTRY + UNIVERSITIES",
+    headline: "They are building a permanent calendar police so this never happens cleanly again.",
+    body:
+      "The same meeting floated a central coordination committee — UGC, education ministry, university reps — to run admission schedules year-round, kill date clashes, and factor in Ramadan. That is the long game. The short game is forcing every VC who already printed a leaflet to eat it. Coordination sounds boring until you realise it is the state admitting the free-for-all was a disaster.",
+    punch: "Centralisation is what you get when every campus runs its own war.",
+    sourceLabel: "Dhaka Tribune · Star UGC briefing, 9 Nov 2026",
+    sourceUrl: "https://www.dhakatribune.com/bangladesh/424094/public-university-admission-tests-to-begin-in",
+    published: "2026-11-09",
+  },
+  {
+    id: "spice-students-in-limbo",
     heat: "STREET",
-    kicker: "GST CLUSTER · CRACKS SHOWING",
-    headline: "The GST cluster is bleeding universities that want their own tests. The central calendar is no longer sacred.",
+    kicker: "STUDENTS · TWO WEEKS OF WHIPLASH",
+    headline: "One week ago the fear was missing the bus. Today the bus was cancelled and rescheduled for winter.",
     body:
-      "Several general and science-technology universities have signalled they prefer independent exams. Engineering cluster already walked. Remaining GST dates sit in March 2027 territory while DU, BUET, JnU and the medical system run their own December–January races. Students face overlapping calendars and no single map. Cluster logic was sold as fairness. Fragmentation is the lived experience.",
-    punch: "One exam for many universities sounded efficient until the universities stopped agreeing.",
-    sourceLabel: "Daily Star · GST desks · university notices, 2026",
-    sourceUrl: "https://online.thedailystar.net/news/bangladesh/news/public-universities-admission-woes-deepen-students-3808361",
-    published: "2026-11-08",
+      "Retakers celebrate. Regular passers who built December strategy cry. Families who paid coaching on the old map want blood or refunds. Portals still show dead countdowns. Group chats are unreadable. This is what a national calendar reset feels like from the ground: not a press release, a collective nervous breakdown with PDFs.",
+    punch: "Admission 26’s shining moment is pure procedural chaos.",
+    sourceLabel: "Desk · campus channels · UGC day coverage, 9 Nov 2026",
+    sourceUrl: "https://english.thedailycampus.com/university-admission/3886",
+    published: "2026-11-09",
   },
   {
-    id: "spice-teacher-tuition",
-    heat: "MARKET",
-    kicker: "CLASSROOM EMPTY · PRIVATE ROOM FULL",
-    headline: "Teachers mark low in school, then sell the recovery after school. The second school is the real business.",
+    id: "spice-what-next",
+    heat: "HOT",
+    kicker: "NEXT 72 HOURS · WATCH THESE NOTICES",
+    headline: "DU notice. BUET notice. DGME statement. That is the only scoreboard that matters now.",
     body:
-      "Parents still report paying several times the monthly school fee for the same teachers in private rooms. Policy says disclose limited private students. Practice looks the other way. Public classrooms become trailers. The paid room is the feature film. When HSC results collapse, the private market does not shrink — it expands into recovery batches and panic packs.",
-    punch: "If the school taught the syllabus, the second school would starve.",
-    sourceLabel: "TIMES · Daily Star roundtables · parent reports, 2026",
-    sourceUrl: "https://tob.news/?p=289937",
-    published: "2026-11-08",
-  },
-  {
-    id: "spice-zero-pass",
-    heat: "SCAM",
-    kicker: "293 INSTITUTIONS · ZERO PASSERS",
-    headline: "Hundreds of schools produced nobody. Somewhere a result still got fixed.",
-    body:
-      "293 institutions recorded zero successful HSC candidates — up sharply from the previous year. 100% pass institutions collapsed. Parallel stories of scripts showing zeros and published sheets showing forties keep surfacing. Mass failure and selective miracle marks can live in the same system. Trust is the real casualty of the season.",
-    punch: "When the average collapses, every outlier needs a receipt.",
-    sourceLabel: "Daily Campus · TBS · board results, Oct–Nov 2026",
-    sourceUrl: "https://english.thedailycampus.com/college/3842",
-    published: "2026-11-08",
-  },
-  {
-    id: "spice-edtech-vs-street",
-    heat: "MARKET",
-    kicker: "APP vs CORRIDOR",
-    headline: "Edtech promises cheap, scalable certainty. The coaching street still owns the calendar and the fear.",
-    body:
-      "Online platforms undercut the big offline machines on price and reach. Some claim millions of learners. Families still pour money into ACS, Udvash and neighbourhood rooms because the exam calendar does not care about your subscription. Content is cheaper than ever. Panic is not. The product that sells is not video lectures — it is the feeling that you are not falling behind the kid who already bought the right batch.",
-    punch: "You can digitise the notes. You cannot digitise the FOMO.",
-    sourceLabel: "Platform sites · Business Inspection · desk synthesis, 2026",
-    sourceUrl: "https://hulkenstein.com/",
-    published: "2026-11-08",
+      "UGC set the floor. Each institution still has to publish its own rewritten circular. Until DU formally kills the 11 November open, the portal is Schrödinger’s application window. Until BUET speaks, 21 November and 16 January are undead dates. Until DGME lines up with or against the university winter, medical is a separate timeline. The desk will update the archive the hour those notices land.",
+    punch: "The commission spoke. The campuses have not all answered.",
+    sourceLabel: "Desk standing order, 9 Nov 2026",
+    sourceUrl: "https://www.thedailystar.net/news/education/news/public-university-admission-procedures-begin-after-december-31-4319011",
+    published: "2026-11-09",
   },
 ];
