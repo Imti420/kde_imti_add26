@@ -1,10 +1,10 @@
 {
   "version": 1,
   "intervalMinutes": 45,
-  "lastStartedAt": "2026-11-09T07:51:57.214Z",
-  "lastCompletedAt": "2026-11-09T07:55:25.422Z",
+  "lastStartedAt": "2026-11-09T18:40:57.218Z",
+  "lastCompletedAt": "2026-11-09T18:45:50.667Z",
   "lastStatus": "completed",
-  "cycleId": "cyc-2026-11-09T07:51:57.214Z",
+  "cycleId": "cyc-2026-11-09T18:40:57.218Z",
   "cursor": 0,
   "note": "Discovery only. No admission date was extracted or published by this cycle."
 }
