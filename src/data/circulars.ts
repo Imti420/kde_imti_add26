@@ -42,13 +42,6 @@ const BDNEWS_BUET: SourceRef = {
   published: "2026-11-07",
 };
 
-
-const DAILY_SUN_MED: SourceRef = {
-  label: "Daily Sun — medical & dental tests scheduled for 18 December",
-  url: "http://www.daily-sun.com/health/907914/medical-dental-admission-tests-scheduled-for-18-december",
-  published: "2026-11-08",
-};
-
 const DAILYBD_MED: SourceRef = {
   label: "Daily Bangladesh — medical test shifted toward 18 Dec",
   url: "https://www.daily-bangladesh.com/education/540904",
@@ -67,10 +60,28 @@ const GST_OBS: SourceRef = {
   published: "2026-09-18",
 };
 
+const OBS_MED: SourceRef = {
+  label: "The Daily Observer — medical/dental test 18 Dec confirmed",
+  url: "https://observerbd.com/news/604606",
+  published: "2026-11-08",
+};
+
+const BDNEWS_MED: SourceRef = {
+  label: "bdnews24 — medical tests rescheduled to Dec 18",
+  url: "https://bdnews24.com/bangladesh/v368yyqzfm",
+  published: "2026-11-08",
+};
+
+const SUN_MED: SourceRef = {
+  label: "Daily Sun — medical/dental tests 18 December",
+  url: "http://www.daily-sun.com/health/907914/medical-dental-admission-tests-scheduled-for-18-december",
+  published: "2026-11-08",
+};
+
 const DU_PORTAL: SourceRef = {
   label: "Dhaka University admission portal",
   url: "https://admission.eis.du.ac.bd/",
-  published: "2026-11-08",
+  published: "2026-11-09",
 };
 
 function C(
@@ -124,7 +135,7 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "Dates and GPA bars from DU press / portal and major newsrooms. Total own seats from 2026–27 public compilations. Unit seat splits marked as prior-session pattern until the PDF is stored.",
     sources: [STAR_DU, TBS_DU, DU_PORTAL, SEATS_COMP, STAR_CLASH],
-    updatedOn: "2026-11-08",
+    updatedOn: "2026-11-09",
     applicationOpens: "2026-11-11",
     opensAt: "12:00",
     applicationCloses: "2026-11-25",
@@ -195,18 +206,17 @@ export const seedCirculars: Circular[] = [
     publication: "decision",
     confidence: "reported",
     confidenceNote:
-      "Date, application open and eligibility retained from committee briefings (TBS / Prothom Alo / bdnews24, 7 Nov). Seat total 1,309 from session compilations and education desks citing UGC-facing figures. Full PDF circular not stored here.",
+      "Date, application open and eligibility retained from committee briefings (TBS / Prothom Alo / bdnews24, 7–8 Nov). Seat total 1,309 from session compilations. Full PDF circular not stored here. Not waiting for HSC retakers.",
     sources: [TBS_BUET, PROTHOM_BUET, BDNEWS_BUET, SEATS_COMP, STAR_RETAKE],
-    updatedOn: "2026-11-08",
+    updatedOn: "2026-11-09",
     applicationOpens: "2026-11-21",
     examDate: "2027-01-16",
     seats: 1309,
     feeBdt: null,
-    feeNote:
-      "Recent cycle pattern: Group A (Engineering/URP) ৳1,300; Group B (Architecture) ৳1,500. 2026–27 fee still awaits the formal circular.",
+    feeNote: "Last cycle: Engineering/URP ৳1,300; Architecture ৳1,500. 2026–27 fee not confirmed in this archive.",
     eligibility: [
       "Science group only.",
-      "SSC GPA ≥ 4.00; HSC GPA 5.00 with A+ (GPA 5.00) separately in Physics, Chemistry and Higher Mathematics — criteria retained from last year per committee briefings.",
+      "SSC GPA ≥ 4.00; HSC GPA 5.00 with A+ (GPA 5.00) separately in Physics, Chemistry and Higher Mathematics — criteria retained from last year per committee.",
       "Roughly 10,000 examinees will be shortlisted if applications exceed capacity.",
     ],
     units: [
@@ -343,13 +353,11 @@ export const seedCirculars: Circular[] = [
     id: "c-jnu",
     universityId: "jnu",
     title: "Jagannath University undergraduate admission 2026–27",
-    summary:
-      "Five-unit MCQ schedule in Dhaka. Applications 15 Nov – 10 Dec 2026. Tests from 1 Jan 2027. Seat compilations put own seats near 2,900; some secondary guides cite ≈2,500 — treat the lower figure as provisional until the unit circular lands. Flat application fee ৳400.",
+    summary: "Five-unit MCQ schedule in Dhaka. Applications 15 Nov – 10 Dec. About 2,957 own seats reported for the session.",
     system: "own",
     publication: "notice",
     confidence: "notice",
-    confidenceNote:
-      "Schedule from official release cited by Star. Seat total from 2026–27 compilations (some guides list lower). Fee from VarsityAdmission-style summaries pending official circular confirmation.",
+    confidenceNote: "Schedule from official release cited by Star. Seats from 2026–27 compilations.",
     sources: [STAR_CLASH, SEATS_COMP],
     updatedOn: "2026-11-08",
     applicationOpens: "2026-11-15",
@@ -359,94 +367,39 @@ export const seedCirculars: Circular[] = [
     examDate: "2027-01-01",
     examTime: "10:00–11:00",
     seats: 2957,
-    feeBdt: 400,
-    feeNote: "Flat ৳400 reported across secondary admission guides. Confirm on the JnU portal when the circular is live.",
-    eligibility: ["GPA bars were not fully in the stored press release — check JnU circular before applying."],
+    eligibility: ["GPA bars were not fully in the stored press release — check JnU circular."],
     units: [
-      {
-        code: "A",
-        detail: "Science unit (Science + Life & Earth Sciences faculties).",
-        examDate: "2027-01-01",
-        examTime: "10:00–11:00",
-        centre: "Dhaka",
-      },
-      {
-        code: "E",
-        detail: "Fine Arts unit.",
-        examDate: "2027-01-08",
-        examTime: "10:00–11:00",
-        centre: "Dhaka",
-      },
-      {
-        code: "B",
-        detail: "Arts / Law unit.",
-        examDate: "2027-01-15",
-        examTime: "10:00–11:00",
-        centre: "Dhaka",
-      },
-      {
-        code: "C",
-        detail: "Business Studies unit.",
-        examDate: "2027-01-22",
-        examTime: "10:00–11:00",
-        centre: "Dhaka",
-      },
-      {
-        code: "D",
-        detail: "Social Science unit.",
-        examDate: "2027-01-23",
-        examTime: "10:00–11:00",
-        centre: "Dhaka",
-      },
+      { code: "A", detail: "Science and Life & Earth Sciences.", examDate: "2027-01-01", examTime: "10:00–11:00", centre: "Dhaka" },
+      { code: "E", detail: "Unit E (as defined by JnU).", examDate: "2027-01-08", examTime: "10:00–11:00", centre: "Dhaka" },
+      { code: "B", detail: "Unit B.", examDate: "2027-01-15", examTime: "10:00–11:00", centre: "Dhaka" },
+      { code: "C", detail: "Unit C.", examDate: "2027-01-22", examTime: "10:00–11:00", centre: "Dhaka" },
+      { code: "D", detail: "Unit D.", examDate: "2027-01-23", examTime: "10:00–11:00", centre: "Dhaka" },
     ],
-    notes: ["All tests MCQ, Dhaka centres only.", "Unit-wise seat quotas still pending the full circular."],
+    notes: ["All tests MCQ, Dhaka centres."],
   }),
 
   C({
     id: "c-ru",
     universityId: "ru",
     title: "University of Rajshahi undergraduate admission 2026–27",
-    summary:
-      "Applications 12–27 Nov 2026. Unit tests: B 8 Jan, C 9 Jan, A 16 Jan 2027. About 3,956 own seats. Tests at Rajshahi plus outside centres in Dhaka, Chattogram, Khulna, Sylhet, Mymensingh and Rangpur.",
+    summary: "Preliminary application 12–27 Nov. Unit tests B 8 Jan, C 9 Jan, A 16 Jan 2027. About 3,956 own seats.",
     system: "own",
     publication: "decision",
     confidence: "preliminary",
-    confidenceNote:
-      "Dates from RU admissions sub-committee / PR (still labelled preliminary in some coverage). Centres expanded from committee reports. Seats from 2026–27 compilations. Full eligibility and unit seat splits still await the circular.",
+    confidenceNote: "Dates from RU PR as preliminary. Seats from 2026–27 compilations.",
     sources: [STAR_CLASH, SEATS_COMP],
     updatedOn: "2026-11-08",
     applicationOpens: "2026-11-12",
     applicationCloses: "2026-11-27",
     examDate: "2027-01-08",
     seats: 3956,
-    eligibility: ["Unit-wise GPA bars belong in the RU circular — not yet fully published in the sources used here."],
+    eligibility: ["Unit-wise GPA bars in the RU circular."],
     units: [
-      {
-        code: "B",
-        detail: "Business Studies unit.",
-        examDate: "2027-01-08",
-        examTime: null,
-        centre: "Rajshahi + Dhaka / Chattogram / Khulna / Sylhet / Mymensingh / Rangpur",
-      },
-      {
-        code: "C",
-        detail: "Science unit.",
-        examDate: "2027-01-09",
-        examTime: null,
-        centre: "Rajshahi + Dhaka / Chattogram / Khulna / Sylhet / Mymensingh / Rangpur",
-      },
-      {
-        code: "A",
-        detail: "Arts / Humanities unit.",
-        examDate: "2027-01-16",
-        examTime: null,
-        centre: "Rajshahi + Dhaka / Chattogram / Khulna / Sylhet / Mymensingh / Rangpur",
-      },
+      { code: "B", detail: "Business Studies unit.", examDate: "2027-01-08", examTime: null, centre: "Not stated." },
+      { code: "C", detail: "Science unit.", examDate: "2027-01-09", examTime: null, centre: "Not stated." },
+      { code: "A", detail: "Arts / Humanities unit.", examDate: "2027-01-16", examTime: null, centre: "Not stated." },
     ],
-    notes: [
-      "Treat the schedule as preliminary until the formal circular hardens.",
-      "Outside-centre list from committee coverage — final admit-card centres may differ.",
-    ],
+    notes: ["Treat schedule as preliminary until the circular hardens."],
   }),
 
   C({
@@ -603,15 +556,17 @@ export const seedCirculars: Circular[] = [
     universityId: "dghs",
     title: "MBBS and BDS admission test 2026–27",
     summary:
-      "Test date settled on 18 Dec 2026 in DGME messaging. Circular still pending. Applications expected mid-November. Two new government medical colleges (Thakurgaon, Narsingdi — 50 seats each) join the pool.",
+      "DGME confirmed the combined medical and dental admission test for 18 December 2026. Formal circular expected within days; online applications likely 15–18 November. Two new government medical colleges (Thakurgaon, Narsingdi — 50 seats each) join the pool. Retake eligibility still with the ministry.",
     system: "medical",
     publication: "decision",
-    confidence: "preliminary",
-    confidenceNote: "18 Dec line from DGME / DGHS messaging in Daily Sun, Daily Star and others (7–8 Nov). Not a signed circular; application window still not published.",
-    sources: [STAR_RETAKE, DAILYBD_MED, DAILY_SUN_MED],
-    updatedOn: "2026-11-08",
+    confidence: "reported",
+    confidenceNote: "18 Dec confirmed by DGME DG Prof Nazmul Hossain (Observer, Daily Sun, bdnews24, 7–8 Nov). Circular not yet on this desk. Application window still expected, not locked.",
+    sources: [OBS_MED, BDNEWS_MED, SUN_MED, STAR_RETAKE, DAILYBD_MED],
+    updatedOn: "2026-11-09",
+    applicationOpens: "2026-11-15",
+    applicationCloses: null,
     examDate: "2026-12-18",
-    eligibility: ["HSC Science; exact bars and seat totals in the DGHS circular."],
+    eligibility: ["HSC Science; exact GPA bars and seat totals in the DGME circular when published."],
     units: [
       {
         code: "MBBS / BDS",
@@ -622,8 +577,9 @@ export const seedCirculars: Circular[] = [
       },
     ],
     notes: [
-      "HSC retake cohort is largely locked out if applications open mid-November and results arrive end-December.",
-      "Application window NOT ANNOUNCED in this archive.",
+      "Originally targeted 4 Dec; slipped past HSC result delay and BCS written on 11 Dec.",
+      "HSC retake starts 1 Dec; results hoped end-December — retakers are largely locked out of this cycle unless ministry intervenes.",
+      "Formal circular still pending as of 9 Nov desk pass.",
     ],
   }),
 ];
