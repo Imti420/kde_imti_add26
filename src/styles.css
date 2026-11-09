@@ -827,58 +827,73 @@ html.naughty .desk-experiment {
   box-shadow: var(--naughty-glow);
 }
 
+/* ═══════════════════════════════════════════════════════════
+   UGC NUKE SUPER-HEAD — the shining moment of Admission 26
+   ═══════════════════════════════════════════════════════════ */
 
-/* ——— Calendar (phone-first) ——— */
-.cal-nav-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  flex-shrink: 0;
-  border: 3px solid var(--color-ink);
-  border-radius: 0.85rem;
-  background: var(--color-paper);
-  color: var(--color-ink);
-  box-shadow: 3px 3px 0 0 var(--color-ink);
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1;
-  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.12s ease;
+.ugc-nuke-super {
+  background:
+    linear-gradient(135deg, #0a0908 0%, #1a0a0a 40%, #0f0c0b 100%);
 }
-.cal-nav-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 0 var(--color-ink);
+
+.ugc-nuke-scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.015) 2px,
+    rgba(255, 255, 255, 0.015) 4px
+  );
+  mix-blend-mode: overlay;
 }
-.cal-day:active {
-  transform: scale(0.98);
+
+.ugc-nuke-badge {
+  animation: ugc-nuke-badge-flash 2.4s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(225, 6, 0, 0.55);
 }
-.cal-week {
-  -webkit-overflow-scrolling: touch;
-}
-.cal-week-card {
-  scroll-snap-align: center;
-}
-@media (min-width: 768px) {
-  .cal-week {
-    display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
+
+@keyframes ugc-nuke-badge-flash {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(225, 6, 0, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 22px 6px rgba(225, 6, 0, 0.35);
+    transform: scale(1.03);
   }
 }
 
+.ugc-nuke-pulse {
+  animation: ugc-nuke-glow 3.2s ease-in-out infinite;
+}
 
-/* ——— Bangla mode ——— */
-html.lang-bn {
-  --font-sans: "Noto Sans Bengali", "Source Sans 3", "Segoe UI", sans-serif;
+@keyframes ugc-nuke-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
 }
-html.lang-bn body {
-  font-family: var(--font-sans);
-  line-height: 1.55;
+
+.ugc-nuke-title {
+  text-shadow:
+    0 0 40px rgba(225, 6, 0, 0.35),
+    0 2px 0 rgba(0, 0, 0, 0.8);
+  letter-spacing: -0.02em;
 }
-html.lang-bn .font-display {
-  letter-spacing: 0.01em;
+
+.nuke-badge {
+  animation: ugc-nuke-badge-flash 1.8s ease-in-out infinite;
 }
-html.lang-bn .font-mono {
-  letter-spacing: 0.02em;
+
+/* make the lead spice card (NUKE) scream a bit harder in the grid */
+article:has(.nuke-badge),
+article:has([class*="NUKE"]) {
+  border-color: var(--color-accent) !important;
+  box-shadow: 6px 6px 0 0 var(--color-accent) !important;
 }
