@@ -128,12 +128,12 @@ export const seedCirculars: Circular[] = [
     universityId: "du",
     title: "University of Dhaka undergraduate admission 2026–27",
     summary:
-      "Five-unit undergraduate intake. Applications 11–25 Nov 2026. Tests 5–26 Dec. About 6,125 own seats reported for the session. Unit-level seat splits below use the last published unit breakdown where the 2026–27 PDF is not yet on file.",
+      "SUPERSEDED PENDING LOCAL NOTICE. UGC (9 Nov) ordered all public university admission procedures to begin after 31 Dec — applications from 1 Jan 2027, tests after 1 Feb. DU’s published 11–25 Nov application window and Dec unit tests are therefore under rewrite. Portal may still show the old countdown until DU issues its own notice. About 6,125 own seats reported. Unit splits below use prior-session pattern until the 2026–27 PDF is stored.",
     system: "own",
     publication: "notice",
-    confidence: "notice",
+    confidence: "preliminary",
     confidenceNote:
-      "Dates and GPA bars from DU press / portal and major newsrooms. Total own seats from 2026–27 public compilations. Unit seat splits marked as prior-session pattern until the PDF is stored.",
+      "UGC national floor of 9 Nov supersedes the published DU calendar until DU posts a revised circular. Dates below are the last local schedule (now ghost). GPA bars and seat totals from DU press / portal still useful.",
     sources: [STAR_DU, TBS_DU, DU_PORTAL, SEATS_COMP, STAR_CLASH],
     updatedOn: "2026-11-09",
     applicationOpens: "2026-11-11",
@@ -201,12 +201,12 @@ export const seedCirculars: Circular[] = [
     universityId: "buet",
     title: "BUET undergraduate admission test 2026–27",
     summary:
-      "Written test 16 Jan 2027. Applications expected from 21 Nov. 1,309 seats across Group A (Engineering & URP) and Group B (Architecture). No preliminary MCQ. About 10,000 candidates will be allowed to sit.",
+      "UNDER UGC PRESSURE. Committee had locked applications from 21 Nov and written test 16 Jan 2027 with hard GPA-5 + A+ Physics/Chem/Higher Math wall (~10,000 examinees, 1,309 seats). UGC’s 9 Nov national floor (apps from 1 Jan, tests after 1 Feb) now collides with that autonomy. Watch the next BUET notice — the old calendar is undead until they speak.",
     system: "engineering",
     publication: "decision",
-    confidence: "reported",
+    confidence: "preliminary",
     confidenceNote:
-      "Date, application open and eligibility retained from committee briefings (TBS / Prothom Alo / bdnews24, 7–8 Nov). Seat total 1,309 from session compilations. Full PDF circular not stored here. Not waiting for HSC retakers.",
+      "Pre-UGC dates from TBS / Prothom Alo / bdnews24 (7–8 Nov). UGC floor of 9 Nov applies to public universities; BUET has not yet published a revised circular. Eligibility wall still the standing local line.",
     sources: [TBS_BUET, PROTHOM_BUET, BDNEWS_BUET, SEATS_COMP, STAR_RETAKE],
     updatedOn: "2026-11-09",
     applicationOpens: "2026-11-21",
