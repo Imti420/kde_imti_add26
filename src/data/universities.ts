@@ -45,6 +45,7 @@ export const seedUniversities: University[] = [
     directoryNote: "Runs its own undergraduate admission. Stored 2026–27 test dates were described as probable.",
   }),
   U("ju", "Jahangirnagar University", "JU", "general", "Savar, Dhaka", "https://www.juniv.edu", {
+    admissionUrl: "https://juadmission.tech/",
     nameBn: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়",
     directoryNote: "Runs its own admission (not GST). About 1,848 own seats in 2026–27 compilations. Full unit circular not yet stored — desk will fill when the notice lands.",
   }),
@@ -53,6 +54,7 @@ export const seedUniversities: University[] = [
     directoryNote: "Named in GST cluster member lists for 2026–27 (Observer / Business Times, Sep 2026). Individual circular not stored — sit the GST test.",
   }),
   U("ku", "Khulna University", "KU", "general", "Khulna", "https://www.ku.ac.bd", {
+    admissionUrl: "https://admission.ku.ac.bd/",
     nameBn: "খুলনা বিশ্ববিদ্যালয়",
     directoryNote: "Runs its own undergraduate admission for 2026–27, according to a notice cited by The Daily Star.",
   }),
@@ -181,6 +183,7 @@ export const seedUniversities: University[] = [
     directoryNote: "No 2026–27 notice is stored here. Cluster membership for 2026–27 was not named in the stored report.",
   }),
   U("sau", "Sher-e-Bangla Agricultural University", "SAU", "agricultural", "Dhaka", "https://www.sau.edu.bd", {
+    admissionUrl: "https://sau.edu.bd/",
     nameBn: "শেরেবাংলা কৃষি বিশ্ববিদ্যালয়",
     directoryNote: "The Daily Star (4 Nov 2026) names Sher-e-Bangla Agricultural University as coordinator of the nine-university agricultural cluster. The nine members were not listed. This is not the same host as Sylhet Agricultural University.",
   }),
@@ -220,9 +223,11 @@ export const seedUniversities: University[] = [
   }),
 
   U("bup", "Bangladesh University of Professionals", "BUP", "specialized", "Dhaka", "https://www.bup.edu.bd", {
+    admissionUrl: "https://bup.edu.bd/",
     directoryNote: "Runs its own undergraduate admission. No 2026–27 notice is stored here.",
   }),
   U("mist", "Military Institute of Science and Technology", "MIST", "specialized", "Dhaka", "https://mist.ac.bd", {
+    admissionUrl: "https://mist.ac.bd/study-with-us/menu/apply-online",
     nameBn: "মিলিটারি ইনস্টিটিউট অব সায়েন্স অ্যান্ড টেকনোলজি",
     tags: ["engineering"],
     directoryNote: "Undergraduate notice for 2026–27 was cited by The Daily Star. Application dates were not in that report.",

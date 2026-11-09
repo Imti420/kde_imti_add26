@@ -124,6 +124,42 @@ function UniversityPage() {
         />
       </div>
 
+      <div className="mt-4 flex flex-wrap gap-2 rounded-2xl border-[3px] border-ink bg-panel p-3">
+        {uni.admissionUrl ? (
+          <a
+            href={uni.admissionUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="press bg-accent text-onaccent font-mono text-xs tracking-widest uppercase"
+          >
+            Official portal ↗
+          </a>
+        ) : (
+          <span className="font-mono text-xs text-mute">PORTAL NOT ON FILE</span>
+        )}
+        {primary?.pdfUrl ? (
+          <a
+            href={primary.pdfUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="press bg-ink text-paper font-mono text-xs tracking-widest uppercase"
+          >
+            Circular / PDF ↗
+          </a>
+        ) : (
+          <span className="font-mono text-xs text-mute">CIRCULAR PDF NOT ON FILE</span>
+        )}
+        {primary ? (
+          <Link
+            to="/circulars/$id"
+            params={{ id: primary.id }}
+            className="press font-mono text-xs tracking-widest uppercase"
+          >
+            Open circular page →
+          </Link>
+        ) : null}
+      </div>
+
       <div className="mt-4 flex flex-wrap gap-2">
         <RecordActions universityId={uni.id} circularId={primary?.id} />
         <button

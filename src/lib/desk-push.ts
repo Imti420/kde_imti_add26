@@ -6,6 +6,7 @@ import { todayISO } from "@/lib/dates";
 const ENABLED_KEY = "a26-desk-push";
 const SEEN_NEWS_KEY = "a26-seen-news";
 const SEEN_REG_KEY = "a26-seen-regs";
+const SEEN_CIRC_KEY = "a26-seen-circs";
 const PROMPTED_KEY = "a26-push-prompted";
 
 export type PushPermission = NotificationPermission | "unsupported";
@@ -103,6 +104,10 @@ function seedSeenBaseline() {
   writeList(
     SEEN_REG_KEY,
     openRegistrationAlerts(todayISO()).map((r) => r.id),
+  );
+  writeList(
+    SEEN_CIRC_KEY,
+    seedCirculars.filter((c) => c.pdfUrl).map((c) => c.id),
   );
 }
 
@@ -202,6 +207,20 @@ export async function runDeskAlertPass(opts?: { forceWelcome?: boolean }) {
 
   writeList(SEEN_NEWS_KEY, [...seenNews]);
   writeList(SEEN_REG_KEY, [...seenRegs]);
+
+  const seenCirc = new Set(readList(SEEN_CIRC_KEY));
+  const freshCirc = seedCirculars.filter((c) => c.pdfUrl && !seenCirc.has(c.id));
+  for (const circ of freshCirc.slice(0, 9)) {
+    const name = uniName(circ.universityId);
+    await showAlert({
+      title: `NEW CIRCULAR · ${name}`,
+      body: circ.title + (circ.pdfUrl ? " — PDF/portal on file." : ""),
+      url: `/circulars/${circ.id}`,
+      tag: `circ-${circ.id}`,
+    });
+    seenCirc.add(circ.id);
+  }
+  writeList(SEEN_CIRC_KEY, [...seenCirc]);
 }
 
 export function shouldSoftPrompt(): boolean {

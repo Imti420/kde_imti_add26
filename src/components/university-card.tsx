@@ -61,8 +61,8 @@ export function UniversityCard({
         {closes ? <span className={cn("uni-fact", hot && "uni-fact-hot")}>Closes {shortDay(closes)}</span> : null}
         {exam ? <span className="uni-fact">Exam {shortDay(exam)}</span> : null}
         <span className="uni-fact">{seats == null ? "Seats not on file" : `${seats.toLocaleString("en-BD")} seats`}</span>
-        {primary?.pdfUrl ? <span className="uni-fact uni-fact-hot">PDF ON FILE</span> : null}
-        {uni.admissionUrl ? <span className="uni-fact">OFFICIAL PORTAL</span> : null}
+        {primary?.pdfUrl ? <span className="uni-fact uni-fact-hot">CIRCULAR ✓</span> : <span className="uni-fact">NO CIRCULAR</span>}
+        {uni.admissionUrl ? <span className="uni-fact uni-fact-hot">PORTAL ✓</span> : <span className="uni-fact">NO PORTAL</span>}
       </span>
       <span className="uni-card-tease">
         <span className="uni-card-line">{campusVoice(uni.id)}</span>

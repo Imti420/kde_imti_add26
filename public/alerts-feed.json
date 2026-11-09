@@ -1,68 +1,33 @@
 {
-  "updated": "2026-11-10T00:10:00+06:00",
-  "cycle": "n0911-midnight",
-  "news": [
-    {
-      "id": "n0911-du-official-hold",
-      "heat": "NUKE",
-      "headline": "DU Pro-VC said it out loud: we are sticking to the old schedule. UGC asked to defer. DU said no.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n0911-ugc-january-floor",
-      "heat": "SYSTEM",
-      "headline": "UGC still sells January as the national start. Roughly 63,000 public first-year seats.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n0911-48hrs-to-portal",
-      "heat": "HOT",
-      "headline": "Under 48 hours to DU form open. If the submit button lights up at noon Wednesday, the war is operational.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n0911-retaker-math",
-      "heat": "STREET",
-      "headline": "Supplementary cohort was the whole point of UGC winter. DU December sprint mostly leaves them outside.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n0911-buet-silence",
-      "heat": "WAR",
-      "headline": "BUET last hard line 21 Nov / 16 Jan. After DU held, silence is a strategy.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n0911-medical-lane",
-      "heat": "SYSTEM",
-      "headline": "Medical still answers to health education. Mid-December MBBS/BDS can still run.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n0911-coaching-double-flip",
-      "heat": "MARKET",
-      "headline": "Morning season postponed. Evening DU still opens Wednesday. Batch SMS is a crime scene.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n0911-marks-eased",
-      "heat": "HOT",
-      "headline": "DU eased some test subject marks and HSC grade floors — not a general amnesty.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n0911-what-matters-now",
-      "heat": "HOT",
-      "headline": "1) DU portal noon Wednesday 2) BUET notice 3) Ministry pressure. Everything else is noise.",
-      "url": "/newswire"
-    }
-  ],
+  "updated": "2026-11-10T00:20:00+06:00",
+  "cycle": "circular-kuet-live",
+  "news": [],
   "registrations": [
+    {
+      "id": "reg-c-kuet-2026-11-10",
+      "title": "HEIII KUET REGISTRATION IS LIVE — HURRYY UPP",
+      "body": "KUET apps open 10 Nov 10:00 → 10 Dec 17:00. Portal admission.kuet.ac.bd · ~1105 seats · test 8 Jan 2027.",
+      "url": "/circulars/c-kuet"
+    },
     {
       "id": "reg-c-du-2026-11-11",
       "title": "HEIII DU REGISTRATION STARTS WEDNESDAY NOON — HURRYY UPP",
-      "body": "Dhaka University applications open 11 Nov 12:00 → 25 Nov 23:59. Portal: admission.eis.du.ac.bd",
+      "body": "DU applications open 11 Nov 12:00 → 25 Nov 23:59.",
       "url": "/circulars/c-du"
+    }
+  ],
+  "circulars": [
+    {
+      "id": "c-kuet",
+      "title": "NEW CIRCULAR · KUET",
+      "body": "KUET 2026–27 circular live on admission.kuet.ac.bd — 1105 seats, apps through 10 Dec, test 8 Jan 2027.",
+      "url": "/circulars/c-kuet"
+    },
+    {
+      "id": "c-mist",
+      "title": "NEW CIRCULAR · MIST",
+      "body": "MIST revised test map on file — Science 15 Jan, Engineering/Architecture 22 Jan 2027.",
+      "url": "/circulars/c-mist"
     }
   ]
 }
