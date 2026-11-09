@@ -17569,5 +17569,19 @@
     "shortName": "BUTEX",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://neu.ac.bd/bangla-notice",
+    "foundOn": "https://neu.ac.bd/feed",
+    "foundAt": "2026-11-09T07:52:16.364Z",
+    "title": "বাংলা বিভাগে ২০২২-’২৩ শিক্ষাবর্ষের শিক্ষার্থীদের ৩য় বর্ষে ভর্তি সংক্রান্ত বিজ্ঞপ্তি",
+    "kind": "page",
+    "score": 9,
+    "sameSite": true,
+    "id": "neu:https://neu.ac.bd/bangla-notice",
+    "universityId": "neu",
+    "shortName": "NeU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
