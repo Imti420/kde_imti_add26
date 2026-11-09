@@ -17527,5 +17527,47 @@
     "shortName": "BMU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.iu.ac.bd/public/images/notice/561d1a6a302ca6182b1e2b32f2afb5c0.pdf",
+    "foundOn": "https://www.iu.ac.bd/",
+    "foundAt": "2026-11-09T06:55:05.306Z",
+    "title": "ইসলামী বিশ্ববিদ্যালয়ের ৫ম সমাবর্তন-২০২৭ উপলক্ষে নিবন্ধন, ফি প্রদান ও অংশগ্রহণ সংক্রান্ত বিজ্ঞপ্তি · 09",
+    "kind": "pdf",
+    "score": 10,
+    "sameSite": true,
+    "id": "iu:https://www.iu.ac.bd/public/images/notice/561d1a6a302ca6182b1e2b32f2afb5c0.pdf",
+    "universityId": "iu",
+    "shortName": "IU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://jnu.ac.bd/assets/notice/c78844205014aab6010dfa5800840d44.pdf",
+    "foundOn": "https://www.jnu.ac.bd/",
+    "foundAt": "2026-11-09T06:55:06.905Z",
+    "title": "পদার্থবিজ্ঞান বিভাগের M.Sc. in Applied Physics and Electronics (Professional) Program এর Spring-2027 সেশনের বিজ্ঞপ্তি",
+    "kind": "pdf",
+    "score": 10,
+    "sameSite": true,
+    "id": "jnu:https://jnu.ac.bd/assets/notice/c78844205014aab6010dfa5800840d44.pdf",
+    "universityId": "jnu",
+    "shortName": "JnU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.butex.edu.bd/admission-announcement-for-pgd-tim-intake-06-batch-21-22-23-24",
+    "foundOn": "https://www.butex.edu.bd/feed",
+    "foundAt": "2026-11-09T06:56:44.749Z",
+    "title": "Admission Announcement for PGD-TIM Intake 06 (Batch- 21, 22, 23 &#038; 24)",
+    "kind": "page",
+    "score": 7,
+    "sameSite": true,
+    "id": "butex:https://www.butex.edu.bd/admission-announcement-for-pgd-tim-intake-06-batch-21-22-23-24",
+    "universityId": "butex",
+    "shortName": "BUTEX",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
