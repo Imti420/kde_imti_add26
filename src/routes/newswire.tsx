@@ -2,13 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState, type FormEvent, Fragment } from "react";
 import { PageHead, ExternalLink } from "@/components/marks";
 import { SPICE_CARDS } from "@/data/desk-spice";
-import { WireHeadline, ago, formatWireWhen } from "@/components/newswire";
+import { WireHeadline, ago, formatWireWhen, UgcNukeSuperHead } from "@/components/newswire";
 import { cn } from "@/lib/cn";
 import { parseFeedDate } from "@/lib/wire/text";
 import { nextWireAt, wireDeskStatus, type WireDeskStatus } from "@/lib/wire/gate";
 import type { WireItem, WireSourceState } from "@/lib/wire/types";
 import { useWire } from "@/lib/wire/use-wire";
-import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/newswire")({
   head: () => ({ meta: [{ title: "Newswire — ADMISSION//26" }] }),
@@ -66,7 +65,6 @@ function readDesk(): DeskItem[] {
 }
 
 function NewswirePage() {
-  const t = useT();
   const { live, phase, seenAt, arrivedAt, freshIds, reloadNote, reloading, reload } = useWire();
   const [now, setNow] = useState(() => new Date());
   const [filter, setFilter] = useState<Filter>("all");
@@ -158,8 +156,8 @@ function NewswirePage() {
     <div>
       <PageHead
         kicker="ADMISSION SEASON · 55-MINUTE CYCLE"
-        title={t("wire.title")}
-        lede="Nine desk briefings on top — ACS vs Udvash, Hulkenstein, HSC crash, coaching street fights, written spicy and sourced hard. Below that: the crawler feed. A news report is still not a circular."
+        title="Newswire"
+        lede="THE CALENDAR JUST DIED. UGC postponed every public university admission test. Applications from 1 January. Tests after 1 February. This is the shining moment of Admission 26. Nine fallout briefings below — then the crawler feed."
         aside={
           <button
             type="button"
@@ -198,16 +196,17 @@ function NewswirePage() {
         {arrivedAt ? <p className="mt-2 font-mono text-xs tracking-widest text-accent">NEW WIRE ARRIVED</p> : null}
       </div>
 
+      <UgcNukeSuperHead />
 
       <div className="mb-6">
-        <p className="mb-2 font-mono text-xs tracking-widest text-accent">DESK · NINE THAT MATTER</p>
+        <p className="mb-2 font-mono text-xs tracking-widest text-accent">DESK · NINE THAT MATTER · FALLOUT FROM THE NUKE</p>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {SPICE_CARDS.map((card) => (
             <article key={card.id} className="flex flex-col border-[3px] border-ink bg-panel p-4 shadow-[6px_6px_0_0_var(--color-ink)]">
               <div className="flex flex-wrap items-center gap-2">
                 <span
                   className={
-                    card.heat === "HOT" || card.heat === "WAR"
+                    card.heat === "HOT" || card.heat === "WAR" || card.heat === "NUKE"
                       ? "bg-accent px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-onaccent"
                       : card.heat === "MARKET" || card.heat === "SCAM"
                         ? "bg-yellow px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-onyellow"
