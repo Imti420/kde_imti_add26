@@ -115,7 +115,59 @@ const HEAT_CLASS: Record<string, string> = {
   WAR: "bg-accent text-onaccent",
   STREET: "bg-ink text-paper",
   SCAM: "bg-yellow text-onyellow",
+  NUKE: "bg-accent text-onaccent nuke-badge",
 };
+
+/** Massive breaking super-head for the UGC calendar nuke — the shining moment of Admission 26. */
+export function UgcNukeSuperHead() {
+  const lead = SPICE_CARDS.find((c) => c.id === "spice-ugc-nuke") ?? SPICE_CARDS[0];
+  return (
+    <section className="ugc-nuke-super relative mb-8 overflow-hidden border-[4px] border-ink bg-ink text-paper shadow-[12px_12px_0_0_var(--color-accent)]">
+      <div className="absolute inset-0 ugc-nuke-scanlines pointer-events-none" aria-hidden />
+      <div className="absolute -right-8 -top-8 h-40 w-40 rounded-full bg-accent/30 blur-3xl ugc-nuke-pulse" aria-hidden />
+      <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full bg-accent/20 blur-3xl ugc-nuke-pulse" style={{ animationDelay: "0.8s" }} aria-hidden />
+
+      <div className="relative px-4 py-6 md:px-8 md:py-10">
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="ugc-nuke-badge inline-flex items-center gap-2 bg-accent px-3 py-1.5 font-mono text-[11px] font-black tracking-[0.25em] text-onaccent">
+            <span className="inline-block h-2.5 w-2.5 animate-pulse rounded-full bg-paper" />
+            BREAKING · UGC NUKE · 9 NOV 2026
+          </span>
+          <span className="font-mono text-[11px] tracking-widest text-accent">THE SHINING MOMENT OF ADMISSION 26</span>
+        </div>
+
+        <p className="mt-4 font-mono text-xs font-bold tracking-[0.35em] text-accent md:text-sm">
+          THE WHOLE PUBLIC UNIVERSITY CALENDAR JUST DIED
+        </p>
+
+        <h1 className="ugc-nuke-title mt-3 font-display text-[2.6rem] font-black uppercase leading-[0.88] tracking-tight text-paper md:text-[4.2rem] lg:text-[5.2rem]">
+          UGC POSTPONES{" "}
+          <span className="text-accent">EVERY</span>{" "}
+          PUBLIC UNI ADMISSION TEST
+        </h1>
+
+        <p className="mt-5 max-w-4xl font-display text-xl font-bold uppercase leading-snug text-paper/95 md:text-2xl md:leading-tight">
+          Applications from 1 January 2027. Tests after 1 February. DU was opening{" "}
+          <span className="bg-accent px-1.5 text-onaccent">TOMORROW</span>. BUET on 21 Nov. Medical locked 18 Dec. The coaching war just lost its calendar.
+        </p>
+
+        <div className="mt-6 flex flex-col gap-4 border-t-2 border-accent/60 pt-5 md:flex-row md:items-end md:justify-between">
+          <p className="max-w-2xl text-sm leading-relaxed text-paper/85 md:text-base">
+            {lead.body.slice(0, 280)}…
+          </p>
+          <div className="shrink-0">
+            <p className="font-display text-lg font-black uppercase leading-none text-accent md:text-xl">
+              {lead.punch}
+            </p>
+            <p className="mt-2 font-mono text-[10px] tracking-wide text-mute">
+              <ExternalLink href={lead.sourceUrl}>{lead.sourceLabel}</ExternalLink>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function WireStrip() {
   const { live, phase, arrivedAt } = useWire();
@@ -126,6 +178,7 @@ export function WireStrip() {
 
   return (
     <section id="wire" className="window desk-anchor mt-8">
+      <UgcNukeSuperHead />
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-ink px-3 py-3">
         <div>
           <p className="font-mono text-xs tracking-widest text-accent">DESK BRIEFING · NOT A HEADLINE FEED</p>
