@@ -1,0 +1,79 @@
+{
+  "updated": "2026-11-09T23:45:00+06:00",
+  "news": [
+    {
+      "id": "spice-du-defies-ugc",
+      "heat": "HOT",
+      "headline": "DU just told UGC to sit down. Emergency admission committee kept 11–25 Nov apps and December unit tests — even after the commission ordered every public uni to wait until January.",
+      "url": "/newswire"
+    },
+    {
+      "id": "spice-ugc-vs-campus",
+      "heat": "NUKE",
+      "headline": "Commission said January. Dhaka University said November. The 2026–27 calendar is now a two-speed war.",
+      "url": "/newswire"
+    },
+    {
+      "id": "spice-retake-split",
+      "heat": "WAR",
+      "headline": "Retakers forced UGC to blink in the morning. DU's evening decision may slam the door on them again for the biggest campus.",
+      "url": "/newswire"
+    },
+    {
+      "id": "spice-buet-watch",
+      "heat": "SYSTEM",
+      "headline": "BUET spent days saying 21 Nov apps and 16 Jan test would not slip. UGC said wait. DU just held. BUET's silence is now the loudest room in the country.",
+      "url": "/newswire"
+    },
+    {
+      "id": "spice-medical-orphan",
+      "heat": "HOT",
+      "headline": "Medical is still a different regulator. Mid-December DGME dates can run while universities argue about January vs November.",
+      "url": "/newswire"
+    },
+    {
+      "id": "spice-coaching-whiplash",
+      "heat": "SYSTEM",
+      "headline": "Morning SMS: season postponed. Evening SMS: DU still opens Wednesday. The street is eating itself.",
+      "url": "/newswire"
+    },
+    {
+      "id": "spice-portal-clock",
+      "heat": "MARKET",
+      "headline": "admission.eis.du.ac.bd is no longer a ghost countdown. It is a live threat clock.",
+      "url": "/newswire"
+    },
+    {
+      "id": "spice-students-limbo",
+      "heat": "HOT",
+      "headline": "Morning they cancelled the bus. Evening Dhaka University put the bus back on the road and left everyone else at the stop.",
+      "url": "/newswire"
+    },
+    {
+      "id": "spice-what-next-night",
+      "heat": "STREET",
+      "headline": "1) Does the DU portal actually open 11 Nov. 2) Does BUET publish. 3) Does ministry lean on DU. That is the whole game.",
+      "url": "/newswire"
+    }
+  ],
+  "registrations": [
+    {
+      "id": "reg-c-du-2026-11-11",
+      "universityId": "du",
+      "opens": "2026-11-11",
+      "closes": "2026-11-25",
+      "title": "Registration window · DU",
+      "body": "Applications open 2026-11-11 → 2026-11-25",
+      "url": "/circulars/c-du"
+    },
+    {
+      "id": "reg-c-kuet-2026-11-10",
+      "universityId": "kuet",
+      "opens": "2026-11-10",
+      "closes": "2026-12-10",
+      "title": "Registration window · KUET",
+      "body": "Applications open 2026-11-10 → 2026-12-10",
+      "url": "/circulars/c-kuet"
+    }
+  ]
+}

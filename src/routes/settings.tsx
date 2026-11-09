@@ -9,6 +9,14 @@ import { blankCircular, blankUniversity, buildCatalog, useCatalog } from "@/lib/
 import { todayISO } from "@/lib/dates";
 import { parseBackup, personalSnapshot, usePersonal } from "@/lib/store";
 import { useT } from "@/lib/i18n";
+import {
+  disableDeskPush,
+  enableDeskPush,
+  getPushPermission,
+  isPushEnabled,
+  pushSupported,
+  type PushPermission,
+} from "@/lib/desk-push";
 
 export const Route = createFileRoute("/settings")({
   head: () => ({ meta: [{ title: "Settings — ADMISSION//26" }] }),
@@ -205,13 +213,83 @@ function SettingsPage() {
         </form>
       </section>
 
+      <DeskAlertsPanel />
+
       <Signature variant="about" />
 
       <SeedCount />
-    
+
       {/* Creator-only desk experiment — buried on purpose */}
       <DeskExperiment />
-</div>
+    </div>
+  );
+}
+
+function DeskAlertsPanel() {
+  const [enabled, setEnabled] = useState(false);
+  const [permission, setPermission] = useState<PushPermission>("default");
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState("");
+
+  useEffect(() => {
+    setEnabled(isPushEnabled());
+    setPermission(getPushPermission());
+  }, []);
+
+  const turnOn = async () => {
+    setBusy(true);
+    setNote("");
+    const result = await enableDeskPush();
+    setPermission(result.permission);
+    setEnabled(result.ok);
+    setBusy(false);
+    if (result.ok) {
+      setNote("Alerts on. You should get a welcome notification now. News + registration opens will ping this device.");
+    } else if (result.permission === "denied") {
+      setNote("Permission blocked. Open browser site settings and allow notifications for this origin.");
+    } else if (result.permission === "unsupported") {
+      setNote("This browser does not support notifications.");
+    } else {
+      setNote("Permission not granted yet.");
+    }
+  };
+
+  const turnOff = () => {
+    disableDeskPush();
+    setEnabled(false);
+    setNote("Alerts off on this device.");
+  };
+
+  return (
+    <section className="mt-8 border-[3px] border-ink bg-panel p-4 shadow-[4px_4px_0_0_var(--color-ink)]">
+      <p className="font-mono text-[10px] tracking-widest text-accent">PHONE / PC SHORTCUT · OS NOTIFICATIONS</p>
+      <h2 className="mt-1 font-display text-3xl font-bold uppercase leading-none">Desk alerts</h2>
+      <p className="mt-2 max-w-2xl text-sm text-pretty">
+        For people who installed ADMISSION//26 on the home screen or pinned it. When the news desk flips, you get{" "}
+        <strong>NEW NEWS · headline</strong>. When a registration window opens the same day, you get{" "}
+        <strong>HEIII DU REGISTRATION STARTED — HURRYY UPP</strong> style pings.
+      </p>
+      <p className="mt-2 font-mono text-[11px] text-mute">
+        Status: {pushSupported() ? `permission ${permission}` : "unsupported"} · {enabled ? "ENABLED" : "OFF"}
+      </p>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {!enabled ? (
+          <TextButton type="button" disabled={busy || !pushSupported()} onClick={() => void turnOn()}>
+            {busy ? "Asking…" : "Turn on desk alerts"}
+          </TextButton>
+        ) : (
+          <TextButton type="button" tone="ghost" onClick={turnOff}>
+            Turn off
+          </TextButton>
+        )}
+      </div>
+      {note ? <p className="mt-3 font-mono text-xs">{note}</p> : null}
+      <ul className="mt-4 space-y-1 font-mono text-[11px] text-mute">
+        <li>· Works best on installed / Add to Home Screen shortcuts.</li>
+        <li>· Checks on open, on focus, and every few minutes while the app is awake.</li>
+        <li>· Background peeks use the service worker when the OS allows it.</li>
+      </ul>
+    </section>
   );
 }
 

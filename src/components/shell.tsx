@@ -2,6 +2,7 @@ import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { Search, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from "react";
 import { NoticeBell } from "@/components/notifications";
+import { DeskPushBoot } from "@/components/desk-push-boot";
 import { IntroSequence } from "@/components/intro";
 import { Signature } from "@/components/signature";
 import { ChromeToggles, NaughtyBadge } from "@/components/theme";
@@ -116,6 +117,7 @@ export function Shell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-paper text-ink">
+      <DeskPushBoot />
       <IntroSequence />
       <div className="md:grid md:grid-cols-[272px_minmax(0,1fr)]">
         <aside className="sticky top-0 hidden h-screen flex-col border-r-[3px] border-ink bg-rail text-railfg md:flex">
