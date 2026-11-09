@@ -1293,6 +1293,42 @@ export const sourceManifest: SourceManifest = {
       "circularIds": [
         "c-dghs"
       ]
+    },
+    {
+      "id": "pdf-1oa2znp",
+      "kind": "pdf",
+      "label": "KUET circular PDF",
+      "primaryUniversityId": "kuet",
+      "primaryName": "Khulna University of Engineering & Technology",
+      "shortName": "KUET",
+      "officialHosts": [
+        "www.kuet.ac.bd"
+      ],
+      "url": "https://admission.kuet.ac.bd/",
+      "universityIds": [
+        "kuet"
+      ],
+      "circularIds": [
+        "c-kuet"
+      ]
+    },
+    {
+      "id": "pdf-1o388ei",
+      "kind": "pdf",
+      "label": "MIST circular PDF",
+      "primaryUniversityId": "mist",
+      "primaryName": "Military Institute of Science and Technology",
+      "shortName": "MIST",
+      "officialHosts": [
+        "mist.ac.bd"
+      ],
+      "url": "https://mist.ac.bd/study-with-us/menu/apply-online",
+      "universityIds": [
+        "mist"
+      ],
+      "circularIds": [
+        "c-mist"
+      ]
     }
   ],
   "facts": [
@@ -1331,9 +1367,9 @@ export const sourceManifest: SourceManifest = {
       "applicationCloses": "2026-12-10",
       "examDate": "2027-01-08",
       "admitCardOn": null,
-      "resultOn": null,
+      "resultOn": "2027-01-21",
       "classesBegin": null,
-      "feeBdt": null
+      "feeBdt": 1500
     },
     {
       "circularId": "c-cuet",
@@ -1368,7 +1404,7 @@ export const sourceManifest: SourceManifest = {
       "shortName": "MIST",
       "applicationOpens": null,
       "applicationCloses": null,
-      "examDate": "2026-12-18",
+      "examDate": "2027-01-15",
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
@@ -1385,7 +1421,7 @@ export const sourceManifest: SourceManifest = {
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
-      "feeBdt": 400
+      "feeBdt": null
     },
     {
       "circularId": "c-ru",
@@ -1470,7 +1506,7 @@ export const sourceManifest: SourceManifest = {
       "universityId": "dghs",
       "universityName": "Medical and Dental Admission — DGHS",
       "shortName": "DGHS",
-      "applicationOpens": null,
+      "applicationOpens": "2026-11-15",
       "applicationCloses": null,
       "examDate": "2026-12-18",
       "admitCardOn": null,
