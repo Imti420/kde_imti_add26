@@ -77,7 +77,7 @@ If the user assigns you explicitly (`You are WIRE…`) → skip random wait, sti
 | Lane | Scope | Status | Callsign | Notes |
 |------|--------|--------|----------|-------|
 | **A** | circulars / watch / PDFs | done | RADAR | KUET live; BUET 21 Nov/16 Jan; DU+DGHS portals |
-| **B** | desk-spice / NEWS | claimed | WIRE | 15:30 +06 GO UPDATE NEWS round 2 — claim only |
+| **B** | desk-spice / NEWS | done | WIRE | n1010p-* afternoon NEWS cycle shipped |
 | **C** | crawler / discovery | open | — | |
 | **D** | UI / Bangla / calendar | open | — | |
 | **E** | notifications / SW | open | — | |
@@ -85,6 +85,7 @@ If the user assigns you explicitly (`You are WIRE…`) → skip random wait, sti
 
 ### Session log (newest first)
 
+- `2026-11-10 ~15:35 +06` — **WIRE** done lane **B**: GO UPDATE NEWS — 9 cards `n1010p-*` (DU T-minus, Star split, KUET live, BUET, medical, JnU/RU, GST, coaching, tonight).
 - `2026-11-10 ~15:30 +06` — **WIRE** claims lane **B** for GO UPDATE NEWS round 2 (board-only). Will re-fetch then spice.
 - `2026-11-10 ~15:28 +06` — **ARCHIVIST** cleaned board + **ANTI-STAMPEDE** after Imti called the swarm messy. Next swarm: wait 4–12s → claim-only → re-pull → work.
 - `2026-11-10 ~15:20–15:25 +06` — Swarm wave: RADAR A + WIRE B shipped useful data; git still a knife fight. Lesson learned.

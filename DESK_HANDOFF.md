@@ -194,3 +194,6 @@ Do not re-implement from scratch; extend these.
 - Phase 0 wait + claim-only `crew-claim:` then product.
 - Replaced spice with **n1010n-*** (9 cards): DU portal ~20h countdown, UGC vs DU, retake math, BUET wall, KUET live apps, medical ~18 Dec, DU relax≠calendar, GPA market, desk checklist.
 - Did not touch circulars/voices/i18n.
+### 2026-11-10 ~15:35 +06 — WIRE (lane B) GO UPDATE NEWS
+- Replaced spice with `n1010p-*` (9 cards): DU portal T-minus, Star two-calendar split, KUET live day, BUET 21 Nov, medical 18 Dec, JnU/RU, GST March, coaching SMS, tonight tabs.
+- alerts-feed.json updated for fan-out.
