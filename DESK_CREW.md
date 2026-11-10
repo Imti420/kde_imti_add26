@@ -76,6 +76,7 @@ One line under **Session log** below.
 
 ## Session log (append only, newest at top)
 
+- `2026-11-10 ~15:20 +06` — **RADAR** claimed lane **A** (circulars/watch). Starting web hunt.
 - `2026-11-10 ~15:20 +06` — **ARCHIVIST** opened crew board + callsigns. Mission `mission-2026-11-10-go` status `open`. All lanes free. Next agents: claim a lane, don’t all edit handoff.
 
 ---
