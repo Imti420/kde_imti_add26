@@ -24,6 +24,12 @@ const TBS_DU: SourceRef = {
   published: "2026-11-05",
 };
 
+const TBS_DU_TOMORROW: SourceRef = {
+  label: "The Business Standard — DU applications open tomorrow (10 Nov)",
+  url: "https://www.tbsnews.net/bangladesh/education/du-undergraduate-admission-applications-open-tomorrow-1598041",
+  published: "2026-11-10",
+};
+
 const TBS_BUET: SourceRef = {
   label: "The Business Standard — BUET applications 21 Nov, test 16 Jan",
   url: "https://www.tbsnews.net/bangladesh/education/buet-admission-applications-open-21-nov-test-set-16-jan-1595726",
@@ -128,14 +134,14 @@ export const seedCirculars: Circular[] = [
     universityId: "du",
     title: "University of Dhaka undergraduate admission 2026–27",
     summary:
-      "DU evening emergency committee (9 Nov) kept the published schedule despite UGC’s morning national floor. Applications 11–25 Nov 2026. Unit tests 5–26 Dec. About 6,125 own seats. UGC still says public universities should wait until January for HSC retakers — DU is the first hard public holdout. Portal: admission.eis.du.ac.bd.",
+      "10 Nov: applications open tomorrow (11 Nov 12:00) through 25 Nov 23:59 — DU held the schedule after the 9 Nov evening committee rejected UGC’s January floor. Unit tests 5–26 Dec. ~6,125 seats. Re-eval candidates eligible if results land ~23 Nov. Portal: admission.eis.du.ac.bd.",
     system: "own",
     publication: "notice",
     confidence: "notice",
     confidenceNote:
       "Evening 9 Nov coverage (Jagonews / Star Bangla / TOB) reports DU general admission committee unanimously retained 11–25 Nov apps and December unit tests after UGC asked every public university to slip to January. Political conflict is live; operational line on this desk follows DU’s local notice until a further DU rewrite.",
-    sources: [STAR_DU, TBS_DU, DU_PORTAL, SEATS_COMP, STAR_CLASH],
-    updatedOn: "2026-11-09",
+    sources: [STAR_DU, TBS_DU, TBS_DU_TOMORROW, DU_PORTAL, SEATS_COMP, STAR_CLASH],
+    updatedOn: "2026-11-10",
     applicationOpens: "2026-11-11",
     opensAt: "12:00",
     applicationCloses: "2026-11-25",
@@ -602,7 +608,7 @@ export const seedCirculars: Circular[] = [
     confidence: "reported",
     confidenceNote: "18 Dec confirmed by DGME DG Prof Nazmul Hossain (Observer, Daily Sun, bdnews24, 7–8 Nov). Circular not yet on this desk. Application window still expected, not locked.",
     sources: [OBS_MED, BDNEWS_MED, SUN_MED, STAR_RETAKE, DAILYBD_MED],
-    updatedOn: "2026-11-09",
+    updatedOn: "2026-11-10",
     applicationOpens: "2026-11-15",
     applicationCloses: null,
     examDate: "2026-12-18",
@@ -619,7 +625,7 @@ export const seedCirculars: Circular[] = [
     notes: [
       "Originally targeted 4 Dec; slipped past HSC result delay and BCS written on 11 Dec.",
       "HSC retake starts 1 Dec; results hoped end-December — retakers are largely locked out of this cycle unless ministry intervenes.",
-      "Formal circular still pending as of 9 Nov desk pass.",
+      "Formal circular still pending as of 10 Nov RADAR pass — DGME has date, not yet the PDF.",
     ],
   }),
 ];
