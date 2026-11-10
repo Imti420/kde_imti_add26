@@ -16,7 +16,7 @@ If two agents claim the same lane, **later push rebases** — the first solid co
 
 | Lane | Owns (files) | Status |
 |------|----------------|--------|
-| `SPICE` | `src/data/desk-spice.ts` | **OPEN** |
+| `SPICE` | `src/data/desk-spice.ts` | **RAJU** |
 | `CIRCULARS` | `src/data/circulars.ts` | **OPEN** |
 | `WATCH` | `src/data/watch.ts` | **OPEN** |
 | `VOICES` | `src/data/voices.ts` | **OPEN** |
@@ -41,7 +41,12 @@ _Format:_
 - Commit: (hash when DONE)
 ```
 
-### (no active claims — board clear)
+### 2026-11-10 15:20 +06 — RAJU — SPICE
+- Status: WORKING
+- Scope: Replace spice cycle for DU portal T-minus hours + UGC standoff + medical lock
+- Commit: (pending)
+
+### (active claims above)
 
 ---
 
