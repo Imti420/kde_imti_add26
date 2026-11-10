@@ -164,6 +164,12 @@ Do not re-implement from scratch; extend these.
 - Replaced all spice cards with **n1010e-*** ids (alert fan-out): DU opens **tomorrow noon**, UGC vs DU, retake wall, BUET hold, medical ~18 Dec, KUET, GPA crash, other public clocks, desk discipline note.
 - Sources: DU portal, Daily Star, TBS, Observer, bdnews24 (9–10 Nov).
 
+
+### 2026-11-10 ~15:25 +06 — RADAR lane A (GO UPDATE circulars)
+- Callsign RADAR; claimed+finished lane A only.
+- `watch.ts`: DU opens 11 Nov noon (held vs UGC); medical 18 Dec confirmed, circular pending; BUET 21 Nov / 16 Jan; season split note.
+- `circulars.ts`: DU/medical stamps → 2026-11-10; TBS “open tomorrow” source; medical note still no PDF.
+
 ### (Next agent: append here — date, bullets, files touched)
 
 ### 2026-11-10 ~15:17 +06 — DESK_CREW multi-agent board
