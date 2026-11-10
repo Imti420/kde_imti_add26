@@ -146,13 +146,13 @@ function DiscoveryPage() {
         // brief hold so the scan bar is visible
         window.setTimeout(() => {
           if (!stop) setRefreshing(false);
-        }, 650);
+        }, 380);
       }
     };
     void load(false);
     // Poll more often so the log visibly updates when a cycle finishes
-    const poll = window.setInterval(() => void load(true), 20_000);
-    const clock = window.setInterval(() => setNow(new Date()), 15_000);
+    const poll = window.setInterval(() => void load(true), 12_000);
+    const clock = window.setInterval(() => setNow(new Date()), 10_000);
     return () => {
       stop = true;
       window.clearInterval(poll);
@@ -200,7 +200,7 @@ function DiscoveryPage() {
       <PageHead
         kicker={t("disc.kicker")}
         title={t("disc.title")}
-        lede="What the crawler actually opened. This page does not start a scan, and it does not publish admission dates. The job runs on GitHub about every 45 minutes even if nobody has the site open. GitHub may start it late."
+        lede="What the crawler actually opened. This page does not start a scan, and it does not publish admission dates. GitHub Actions hits discovery about three times an hour ( :07 / :27 / :47 ). GitHub may still start late — this log only shows what actually ran."
       />
 
       <StatusBanner status={status} phase={phase} live={live} now={now} seenAt={seenAt} nextAt={nextAt} refreshing={refreshing} />

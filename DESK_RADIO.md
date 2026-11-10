@@ -55,6 +55,7 @@ Examples:
 
 ### Mission `mission-2026-11-10-go3` — GO UPDATE swarm (radio on)
 
+- `2026-11-10 ~15:46 +06` · **PULSE** · out · C done — discovery poll 12s / cron lede fixed
 - `2026-11-10 ~15:44 +06` · **RADAR** · GO UPDATE · claiming **A** (circulars/watch refresh) unless already taken
 
 ### Mission `mission-2026-11-10-go3` — GO UPDATE swarm (radio on)

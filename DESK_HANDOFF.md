@@ -203,3 +203,8 @@ Do not re-implement from scratch; extend these.
 ### 2026-11-10 ~15:35 +06 — WIRE (lane B) GO UPDATE NEWS
 - Replaced spice with `n1010p-*` (9 cards): DU portal T-minus, Star two-calendar split, KUET live day, BUET 21 Nov, medical 18 Dec, JnU/RU, GST March, coaching SMS, tonight tabs.
 - alerts-feed.json updated for fan-out.
+
+### 2026-11-10 ~15:46 +06 — PULSE (lane C) GO UPDATE swarm
+- Radio check-in first; claimed C after A/B taken.
+- Discovery: poll 20s→12s, clock 15s→10s, refresh flash 650→380ms.
+- Lede text matches real cron pins (:07/:27/:47), not “every 45 minutes”.

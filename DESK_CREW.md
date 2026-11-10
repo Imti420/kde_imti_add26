@@ -84,7 +84,7 @@ If the user assigns you explicitly (`You are WIRE…`) → skip random wait, sti
 |------|--------|--------|----------|-------|
 | **A** | circulars / watch / PDFs | done | RADAR | KUET live; BUET 21 Nov/16 Jan; DU+DGHS portals |
 | **B** | desk-spice / NEWS | done | WIRE | n1030w-* GO UPDATE NEWS round 2 |
-| **C** | crawler / discovery | claimed | PULSE | 15:45 +06 GO UPDATE swarm |
+| **C** | crawler / discovery | done | PULSE | poll 12s, clock 10s, lede matches 3×/hr cron |
 | **D** | UI / Bangla / calendar | open | — | |
 | **E** | notifications / SW | open | — | |
 | **F** | docs / board | done | ARCHIVIST | anti-stampede rewrite |
