@@ -84,23 +84,28 @@ export function WireHeadline({
   return (
     <article
       className={cn(
-        "border-b border-ink px-3 py-2",
+        "border-b border-ink px-3 py-2.5 md:px-4",
         alert && "border-l-4 border-l-accent bg-panel",
         fresh && "wire-in",
       )}
     >
-      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <p className="font-mono text-xs text-mute">{item.publishedAt ? formatWireWhen(item.publishedAt) : "PUBLICATION TIME NOT ON THE SOURCE"}</p>
-        <p className={cn("font-mono text-xs tracking-widest", alert ? "text-accent" : "text-ink")}>
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+        <p className="font-mono text-[10px] tracking-wide text-mute md:text-xs">
+          {item.publishedAt ? formatWireWhen(item.publishedAt) : "NO PUB TIME"}
+        </p>
+        <span className="text-mute" aria-hidden>
+          ·
+        </span>
+        <p className={cn("font-mono text-[10px] tracking-widest md:text-xs", alert ? "text-accent" : "text-ink")}>
           {VERIFY[item.verification]} · {kindLabel(item)}
           {item.classifier === "ai" ? " · AI" : item.classifier === "heuristic" ? " · HEURISTIC" : ""}
         </p>
       </div>
-      <h3 className="mt-1 font-display text-xl font-bold uppercase leading-tight md:text-2xl">{item.headline}</h3>
-      {item.summary ? <p className="mt-1 max-w-4xl text-sm text-pretty">{item.summary}</p> : null}
-      <p className="mt-1 font-mono text-xs text-mute">
+      <h3 className="mt-1 font-display text-lg font-bold uppercase leading-[1.05] md:text-xl">{item.headline}</h3>
+      {item.summary ? <p className="mt-1 max-w-4xl text-[13px] leading-snug text-pretty text-ink/90 md:text-sm">{item.summary}</p> : null}
+      <p className="mt-1 font-mono text-[10px] tracking-wide text-mute">
         <ExternalLink href={item.sourceUrl}>{item.sourceName}</ExternalLink>
-        {" · FOUND "}
+        {" · "}
         {ago(item.discoveredAt, now)}
         {note ? ` · ${note}` : ""}
       </p>
@@ -122,42 +127,42 @@ const HEAT_CLASS: Record<string, string> = {
 export function UgcNukeSuperHead() {
   const lead = SPICE_CARDS.find((c) => c.id === "spice-du-defy") ?? SPICE_CARDS[0];
   return (
-    <section className="ugc-nuke-super relative mb-8 overflow-hidden border-[4px] border-ink bg-ink text-paper shadow-[12px_12px_0_0_var(--color-accent)]">
+    <section className="ugc-nuke-super relative mb-6 overflow-hidden border-[3px] border-ink bg-ink text-paper shadow-[8px_8px_0_0_var(--color-accent)] md:mb-8 md:border-[4px] md:shadow-[12px_12px_0_0_var(--color-accent)]">
       <div className="absolute inset-0 ugc-nuke-scanlines pointer-events-none" aria-hidden />
       <div className="absolute -right-8 -top-8 h-40 w-40 rounded-full bg-accent/30 blur-3xl ugc-nuke-pulse" aria-hidden />
       <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full bg-accent/20 blur-3xl ugc-nuke-pulse" style={{ animationDelay: "0.8s" }} aria-hidden />
 
-      <div className="relative px-4 py-6 md:px-8 md:py-10">
-        <div className="flex flex-wrap items-center gap-3">
-          <span className="ugc-nuke-badge inline-flex items-center gap-2 bg-accent px-3 py-1.5 font-mono text-[11px] font-black tracking-[0.25em] text-onaccent">
-            <span className="inline-block h-2.5 w-2.5 animate-pulse rounded-full bg-paper" />
+      <div className="relative px-3 py-5 sm:px-5 md:px-8 md:py-9">
+        <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+          <span className="ugc-nuke-badge inline-flex w-fit items-center gap-2 bg-accent px-2.5 py-1 font-mono text-[10px] font-black tracking-[0.2em] text-onaccent md:px-3 md:py-1.5 md:text-[11px] md:tracking-[0.25em]">
+            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-paper md:h-2.5 md:w-2.5" />
             BREAKING · DU DEFY · 10 NOV 2026
           </span>
-          <span className="font-mono text-[11px] tracking-widest text-accent">THE SHINING MOMENT OF ADMISSION 26</span>
+          <span className="font-mono text-[10px] tracking-widest text-accent md:text-[11px]">THE SHINING MOMENT OF ADMISSION 26</span>
         </div>
 
-        <p className="mt-4 font-mono text-xs font-bold tracking-[0.35em] text-accent md:text-sm">
+        <p className="mt-3 font-mono text-[11px] font-bold tracking-[0.28em] text-accent sm:mt-4 sm:text-xs md:text-sm md:tracking-[0.35em]">
           UGC SAID WAIT. DU SAID NO.
         </p>
 
-        <h1 className="ugc-nuke-title mt-3 font-display text-[2.6rem] font-black uppercase leading-[0.88] tracking-tight text-paper md:text-[4.2rem] lg:text-[5.2rem]">
+        <h1 className="ugc-nuke-title mt-2 font-display text-[2.1rem] font-black uppercase leading-[0.9] tracking-tight text-paper sm:text-[2.6rem] md:mt-3 md:text-[4.2rem] md:leading-[0.88] lg:text-[5.2rem]">
           DU DEFY: APPS OPEN{" "}
           <span className="text-accent">TOMORROW</span>
         </h1>
 
-        <p className="mt-5 max-w-4xl font-display text-xl font-bold uppercase leading-snug text-paper/95 md:text-2xl md:leading-tight">
+        <p className="mt-4 max-w-4xl font-display text-base font-bold uppercase leading-snug text-paper/95 sm:text-xl md:mt-5 md:text-2xl md:leading-tight">
           UGC ordered January/February. Dhaka University kept 11–25 Nov apps and December tests. Portal is live. The national calendar just split in half.
         </p>
 
-        <div className="mt-6 flex flex-col gap-4 border-t-2 border-accent/60 pt-5 md:flex-row md:items-end md:justify-between">
-          <p className="max-w-2xl text-sm leading-relaxed text-paper/85 md:text-base">
+        <div className="mt-5 flex flex-col gap-3 border-t-2 border-accent/60 pt-4 sm:gap-4 md:mt-6 md:flex-row md:items-end md:justify-between md:pt-5">
+          <p className="max-w-2xl text-[13px] leading-relaxed text-paper/85 md:text-base">
             {lead.body.slice(0, 280)}…
           </p>
-          <div className="shrink-0">
-            <p className="font-display text-lg font-black uppercase leading-none text-accent md:text-xl">
+          <div className="shrink-0 border-l-0 border-accent/40 pl-0 md:border-l-2 md:pl-4">
+            <p className="font-display text-base font-black uppercase leading-snug text-accent md:text-xl md:leading-none">
               {lead.punch}
             </p>
-            <p className="mt-2 font-mono text-[10px] tracking-wide text-mute">
+            <p className="mt-1.5 font-mono text-[10px] tracking-wide text-mute md:mt-2">
               <ExternalLink href={lead.sourceUrl}>{lead.sourceLabel}</ExternalLink>
             </p>
           </div>
@@ -201,30 +206,30 @@ export function WireStrip() {
         </p>
       </div>
 
-      <div className="grid gap-0 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-3">
         {SPICE_CARDS.map((card, i) => (
           <article
             key={card.id}
             className={cn(
-              "flex flex-col border-ink bg-panel p-4 md:p-5 border-b border-ink",
+              "flex flex-col border-b border-ink bg-panel p-4 md:p-5",
               (i + 1) % 2 !== 0 && "sm:border-r",
               (i + 1) % 3 !== 0 && "lg:border-r",
             )}
           >
             <div className="flex flex-wrap items-center gap-2">
-              <span className={cn("px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest", HEAT_CLASS[card.heat] ?? "bg-ink text-paper")}>
+              <span className={cn("shrink-0 px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest", HEAT_CLASS[card.heat] ?? "bg-ink text-paper")}>
                 {card.heat}
               </span>
-              <span className="font-mono text-[10px] tracking-widest text-mute">{card.kicker}</span>
+              <span className="min-w-0 font-mono text-[10px] leading-snug tracking-widest text-mute">{card.kicker}</span>
             </div>
-            <h3 className="mt-3 font-display text-2xl font-bold uppercase leading-[0.95] md:text-[1.65rem]">
+            <h3 className="mt-2.5 font-display text-xl font-bold uppercase leading-[0.95] md:mt-3 md:text-[1.55rem]">
               {card.headline}
             </h3>
-            <p className="mt-3 flex-1 text-sm leading-relaxed text-pretty">{card.body}</p>
-            <p className="mt-4 border-l-4 border-accent pl-3 font-display text-base font-bold uppercase leading-snug text-accent">
+            <p className="mt-2.5 flex-1 text-[13px] leading-relaxed text-pretty md:mt-3 md:text-sm">{card.body}</p>
+            <p className="mt-3 border-l-4 border-accent pl-3 font-display text-sm font-bold uppercase leading-snug text-accent md:mt-4 md:text-base">
               {card.punch}
             </p>
-            <p className="mt-4 font-mono text-[10px] tracking-wide text-mute">
+            <p className="mt-3 font-mono text-[10px] tracking-wide text-mute md:mt-4">
               <ExternalLink href={card.sourceUrl}>{card.sourceLabel}</ExternalLink>
               {" · "}
               {card.published}

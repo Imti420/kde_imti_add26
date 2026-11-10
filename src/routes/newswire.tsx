@@ -170,57 +170,83 @@ function NewswirePage() {
         }
       />
 
-      <div className="mb-4 border border-ink px-3 py-3">
-        <div className="flex flex-wrap items-center gap-3">
-          <span className={cn("inline-block h-3 w-3 border border-ink", pulsing ? "wire-live bg-accent" : "bg-transparent")} aria-hidden />
-          <p className={cn("font-display text-3xl font-bold uppercase leading-none", status === "failed" || status === "stale" || status === "late" ? "text-accent" : "")}>
+      <div className={cn("mb-5 border border-ink", (pulsing || reloading) && "log-updating")}>
+        <div className="flex flex-wrap items-center gap-3 border-b border-ink bg-panel px-3 py-2.5 md:px-4">
+          <span
+            className={cn("inline-block h-3 w-3 shrink-0 border border-ink", pulsing || reloading ? "wire-live bg-accent" : "bg-transparent")}
+            aria-hidden
+          />
+          <p
+            className={cn(
+              "font-display text-2xl font-bold uppercase leading-none tracking-tight md:text-3xl",
+              status === "failed" || status === "stale" || status === "late" ? "text-accent" : "",
+            )}
+          >
             {phase === "loading" ? "READING" : DESK[status]}
           </p>
+          {arrivedAt ? (
+            <span className="ml-auto font-mono text-[10px] tracking-widest text-accent md:text-xs">NEW WIRE ARRIVED</span>
+          ) : null}
         </div>
-        <p className="mt-2 font-mono text-xs leading-relaxed text-mute">
-          {live?.note ?? "No published note."}
-        </p>
-        <p className="mt-2 font-mono text-xs text-mute">
-          LAST CYCLE {live?.completedAt ? `${formatWireWhen(live.completedAt)} · ${ago(live.completedAt, now)}` : "NEVER"}
-          {" · "}
-          NEXT EXPECTED {next ? formatWireWhen(next.toISOString()) : "UNKNOWN"}
-          {seenAt ? ` · THIS DESK READ THE FILE ${ago(seenAt.toISOString(), now)}` : ""}
-        </p>
-        {status === "late" ? (
-          <p className="mt-2 font-mono text-xs tracking-widest text-accent">THE 55-MINUTE MARK HAS PASSED. NO NEWER FILE HAS BEEN PUBLISHED.</p>
-        ) : null}
-        {status === "stale" || status === "failed" ? (
-          <p className="mt-2 font-mono text-xs tracking-widest text-accent">THIS WIRE IS NOT CURRENT. FAILED OR LATE RUNS ARE NOT SHOWN AS A FRESH SCAN.</p>
-        ) : null}
-        {reloadNote ? <p className="mt-2 font-mono text-xs text-ink">{reloadNote}</p> : null}
-        {arrivedAt ? <p className="mt-2 font-mono text-xs tracking-widest text-accent">NEW WIRE ARRIVED</p> : null}
+        <div className="grid gap-2 px-3 py-3 md:grid-cols-[1fr_auto] md:items-start md:gap-6 md:px-4">
+          <div className="min-w-0 space-y-1.5">
+            <p className="font-mono text-[11px] leading-relaxed text-mute md:text-xs">{live?.note ?? "No published note."}</p>
+            {status === "late" ? (
+              <p className="font-mono text-[10px] tracking-widest text-accent md:text-xs">THE 55-MINUTE MARK HAS PASSED. NO NEWER FILE HAS BEEN PUBLISHED.</p>
+            ) : null}
+            {status === "stale" || status === "failed" ? (
+              <p className="font-mono text-[10px] tracking-widest text-accent md:text-xs">THIS WIRE IS NOT CURRENT. FAILED OR LATE RUNS ARE NOT SHOWN AS A FRESH SCAN.</p>
+            ) : null}
+            {reloadNote ? <p className="font-mono text-[11px] text-ink md:text-xs">{reloadNote}</p> : null}
+          </div>
+          <dl className="grid shrink-0 grid-cols-2 gap-x-4 gap-y-1 font-mono text-[10px] tracking-wide text-mute sm:grid-cols-3 md:text-xs">
+            <div>
+              <dt className="text-mute/80">LAST CYCLE</dt>
+              <dd className="text-ink">{live?.completedAt ? `${ago(live.completedAt, now)}` : "NEVER"}</dd>
+            </div>
+            <div>
+              <dt className="text-mute/80">NEXT</dt>
+              <dd className="text-ink">{next ? formatWireWhen(next.toISOString()) : "UNKNOWN"}</dd>
+            </div>
+            <div className="col-span-2 sm:col-span-1">
+              <dt className="text-mute/80">DESK READ</dt>
+              <dd className="text-ink">{seenAt ? ago(seenAt.toISOString(), now) : "—"}</dd>
+            </div>
+          </dl>
+        </div>
       </div>
 
       <UgcNukeSuperHead />
 
-      <div className="mb-6">
-        <p className="mb-2 font-mono text-xs tracking-widest text-accent">DESK · NINE THAT MATTER · FALLOUT FROM THE NUKE</p>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mb-8">
+        <div className="mb-3 flex flex-wrap items-end justify-between gap-2 border-b border-ink pb-2">
+          <p className="font-mono text-[10px] tracking-widest text-accent md:text-xs">DESK · NINE THAT MATTER · FALLOUT FROM THE NUKE</p>
+          <p className="font-mono text-[10px] tracking-widest text-mute">{SPICE_CARDS.length} CARDS</p>
+        </div>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {SPICE_CARDS.map((card) => (
-            <article key={card.id} className="flex flex-col border-[3px] border-ink bg-panel p-4 shadow-[6px_6px_0_0_var(--color-ink)]">
+            <article
+              key={card.id}
+              className="flex flex-col border-[2.5px] border-ink bg-panel p-3.5 shadow-[5px_5px_0_0_var(--color-ink)] sm:p-4 md:border-[3px] md:shadow-[6px_6px_0_0_var(--color-ink)]"
+            >
               <div className="flex flex-wrap items-center gap-2">
                 <span
                   className={
                     card.heat === "HOT" || card.heat === "WAR" || card.heat === "NUKE"
-                      ? "bg-accent px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-onaccent"
+                      ? "shrink-0 bg-accent px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-onaccent"
                       : card.heat === "MARKET" || card.heat === "SCAM"
-                        ? "bg-yellow px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-onyellow"
-                        : "bg-ink px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-paper"
+                        ? "shrink-0 bg-yellow px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-onyellow"
+                        : "shrink-0 bg-ink px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest text-paper"
                   }
                 >
                   {card.heat}
                 </span>
-                <span className="font-mono text-[10px] tracking-widest text-mute">{card.kicker}</span>
+                <span className="min-w-0 font-mono text-[10px] leading-snug tracking-widest text-mute">{card.kicker}</span>
               </div>
-              <h2 className="mt-3 font-display text-2xl font-bold uppercase leading-[0.95]">{card.headline}</h2>
-              <p className="mt-3 flex-1 text-sm leading-relaxed">{card.body}</p>
-              <p className="mt-3 border-l-4 border-accent pl-3 font-display text-sm font-bold uppercase text-accent">{card.punch}</p>
-              <p className="mt-3 font-mono text-[10px] text-mute">
+              <h2 className="mt-2.5 font-display text-xl font-bold uppercase leading-[0.95] md:mt-3 md:text-2xl">{card.headline}</h2>
+              <p className="mt-2.5 flex-1 text-[13px] leading-relaxed text-pretty md:mt-3 md:text-sm">{card.body}</p>
+              <p className="mt-3 border-l-4 border-accent pl-3 font-display text-sm font-bold uppercase leading-snug text-accent">{card.punch}</p>
+              <p className="mt-3 font-mono text-[10px] tracking-wide text-mute">
                 <ExternalLink href={card.sourceUrl}>{card.sourceLabel}</ExternalLink>
                 {" · "}
                 {card.published}
@@ -230,37 +256,40 @@ function NewswirePage() {
         </div>
       </div>
 
-      <div className="mb-4 flex flex-col gap-2 md:flex-row">
-        <label className="sr-only" htmlFor="wire-search">
-          Filter headlines
-        </label>
-        <input
-          id="wire-search"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="FILTER HEADLINES"
-          className="h-11 flex-1 border border-ink bg-paper px-3 font-mono text-xs uppercase tracking-widest outline-none placeholder:text-mute"
-        />
-        <div className="flex gap-2 overflow-x-auto" role="tablist" aria-label="Verification">
-          {FILTERS.map((item) => (
-            <button
-              key={item}
-              type="button"
-              role="tab"
-              aria-selected={filter === item}
-              className={cn(
-                "h-11 shrink-0 border border-ink px-3 font-mono text-xs tracking-widest",
-                filter === item ? "bg-ink text-paper" : "bg-paper",
-              )}
-              onClick={() => setFilter(item)}
-            >
-              {item.toUpperCase()}
-            </button>
-          ))}
+      <div className="mb-3 border border-ink bg-panel p-2 md:mb-4 md:p-3">
+        <p className="mb-2 font-mono text-[10px] tracking-widest text-mute md:text-xs">CRAWLER FEED · FILTER</p>
+        <div className="flex flex-col gap-2">
+          <label className="sr-only" htmlFor="wire-search">
+            Filter headlines
+          </label>
+          <input
+            id="wire-search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="FILTER HEADLINES"
+            className="h-10 w-full border border-ink bg-paper px-3 font-mono text-xs uppercase tracking-widest outline-none placeholder:text-mute md:h-11"
+          />
+          <div className="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1 [scrollbar-width:thin]" role="tablist" aria-label="Verification">
+            {FILTERS.map((item) => (
+              <button
+                key={item}
+                type="button"
+                role="tab"
+                aria-selected={filter === item}
+                className={cn(
+                  "h-9 shrink-0 border border-ink px-2.5 font-mono text-[10px] tracking-widest md:h-10 md:px-3 md:text-xs",
+                  filter === item ? "bg-ink text-paper" : "bg-paper",
+                )}
+                onClick={() => setFilter(item)}
+              >
+                {item.toUpperCase()}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div key={`${filter}|${query}`} className="filter-swap border border-ink">
+      <div key={`${filter}|${query}`} className="filter-swap border border-ink [&>article:last-child]:border-b-0">
         {phase === "loading" ? <p className="rule-wait px-3 py-4 font-mono text-xs tracking-widest text-mute">READING THE PUBLISHED WIRE.</p> : null}
         {phase !== "loading" && rows.length === 0 ? (
           <p className="px-3 py-4 font-mono text-xs tracking-widest text-mute">NOTHING IN THIS FILTER. THE WIRE WAS NOT FILLED IN.</p>
