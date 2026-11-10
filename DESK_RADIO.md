@@ -53,8 +53,13 @@ Examples:
 
 <!-- Agents: prepend below this line. Keep the mission header updated. -->
 
-### Mission `radio-open` — ready for next swarm
+### Mission `mission-2026-11-10-go3` — GO UPDATE swarm (radio on)
 
+- `2026-11-10 ~15:44 +06` · **PULSE** · GO UPDATE swarm · claiming **C** (crawler/discovery) — A/B already done
+
+### Mission `radio-open` — prior
+
+- `2026-11-10 ~15:44 +06` · **PULSE** · GO UPDATE swarm · claiming **C** (crawler/discovery) — A/B already done
 - `2026-11-10 ~15:42 +06` · **ARCHIVIST** · radio channel opened · check in here before product edits on the next swarm
 
 ---
