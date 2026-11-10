@@ -170,6 +170,11 @@ Do not re-implement from scratch; extend these.
 - `watch.ts`: DU opens 11 Nov noon (held vs UGC); medical 18 Dec confirmed, circular pending; BUET 21 Nov / 16 Jan; season split note.
 - `circulars.ts`: DU/medical stamps → 2026-11-10; TBS “open tomorrow” source; medical note still no PDF.
 
+
+### 2026-11-10 ~15:30 +06 — stampede post-mortem (ARCHIVIST)
+- Parallel `GO UPDATE` in 5 chats without wait → duplicate RADAR/lane A, noisy merges, overlapping circular+news.
+- `DESK_CREW.md` rewritten: **wait 5–15s → board-only claim commit → re-fetch → then product work**. Staggered Imti paste templates.
+
 ### (Next agent: append here — date, bullets, files touched)
 
 ### 2026-11-10 ~15:17 +06 — DESK_CREW multi-agent board
