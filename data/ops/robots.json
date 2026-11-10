@@ -133,12 +133,12 @@
     },
     {
       "origin": "https://www.nstu.edu.bd",
-      "fetchedAt": "2026-11-08T19:50:34.770Z",
+      "fetchedAt": "2026-11-10T01:41:45.364Z",
       "body": null
     },
     {
       "origin": "https://www.just.edu.bd",
-      "fetchedAt": "2026-11-08T20:23:53.101Z",
+      "fetchedAt": "2026-11-10T01:41:48.741Z",
       "body": null
     },
     {
@@ -198,7 +198,7 @@
     },
     {
       "origin": "https://www.bmu.ac.bd",
-      "fetchedAt": "2026-11-08T19:53:53.080Z",
+      "fetchedAt": "2026-11-10T01:42:26.438Z",
       "body": "User-agent: *\nallow: /\nsitemap: https://bmu.ac.bd/sitemap.xml\n"
     },
     {
@@ -233,7 +233,7 @@
     },
     {
       "origin": "https://www.iutoic-dhaka.edu",
-      "fetchedAt": "2026-11-08T20:24:59.071Z",
+      "fetchedAt": "2026-11-10T01:42:53.836Z",
       "body": "User-agent:*\nSitemap:https://www.iutoic-dhaka.edu/sitemap.xml"
     },
     {

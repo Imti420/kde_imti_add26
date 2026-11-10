@@ -6,7 +6,7 @@
     "sourceId": null,
     "url": null,
     "message": "Starting discovery cycle. No date will be published.",
-    "at": "2026-11-09T18:40:57.218Z"
+    "at": "2026-11-10T01:41:12.914Z"
   },
   {
     "level": "info",
@@ -15,7 +15,7 @@
     "sourceId": "home-du-https-www-du-ac-bd",
     "url": "https://www.du.ac.bd/",
     "message": "Connecting to University of Dhaka official homepage.",
-    "at": "2026-11-09T18:40:57.226Z"
+    "at": "2026-11-10T01:41:12.921Z"
   },
   {
     "level": "info",
@@ -24,7 +24,7 @@
     "sourceId": "home-ru-https-www-ru-ac-bd",
     "url": "https://www.ru.ac.bd/",
     "message": "Connecting to University of Rajshahi official homepage.",
-    "at": "2026-11-09T18:40:57.226Z"
+    "at": "2026-11-10T01:41:12.921Z"
   },
   {
     "level": "info",
@@ -33,79 +33,16 @@
     "sourceId": "home-cu-https-www-cu-ac-bd",
     "url": "https://www.cu.ac.bd/",
     "message": "Connecting to University of Chittagong official homepage.",
-    "at": "2026-11-09T18:40:57.226Z"
+    "at": "2026-11-10T01:41:12.922Z"
   },
   {
     "level": "info",
-    "type": "connect",
+    "type": "skip",
     "universityId": "ju",
     "sourceId": "home-ju-https-www-juniv-edu",
     "url": "https://www.juniv.edu/",
-    "message": "Connecting to Jahangirnagar University official homepage.",
-    "at": "2026-11-09T18:40:57.226Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "ju",
-    "sourceId": "home-ju-https-www-juniv-edu",
-    "url": "https://www.juniv.edu/",
-    "message": "JU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:40:59.585Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "du",
-    "sourceId": "home-du-https-www-du-ac-bd",
-    "url": "https://www.du.ac.bd/",
-    "message": "Retrieved DU homepage.",
-    "at": "2026-11-09T18:41:00.539Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "du",
-    "sourceId": "home-du-https-www-du-ac-bd",
-    "url": "https://www.du.ac.bd/",
-    "message": "No new documents on DU.",
-    "at": "2026-11-09T18:41:00.549Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "du",
-    "sourceId": "found-du-https-www-du-ac-bd-du-post-details-notice-29111",
-    "url": "https://www.du.ac.bd/du_post_details/notice/29111",
-    "message": "Opening linked page for DU: 08 Nov প্রফেশনাল মাস্টার অব পপুলেশন হেলথ (এমপিএইচ) প্রোগ্রাম (জানুয়ারি ২০২৭ সেমিস্টার) ভর্তি বিজ্ঞপ্তি 08 Nov, 2026",
-    "at": "2026-11-09T18:41:00.556Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "ju",
-    "sourceId": "found-ju-https-www-juniv-edu-discussion-18474",
-    "url": "https://www.juniv.edu/discussion/18474",
-    "message": "JU linked page is unchanged.",
-    "at": "2026-11-09T18:41:00.638Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "ru",
-    "sourceId": "home-ru-https-www-ru-ac-bd",
-    "url": "https://www.ru.ac.bd/",
-    "message": "RU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:41:01.104Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "ju",
-    "sourceId": "found-ju-https-www-juniv-edu-discussion-18473",
-    "url": "https://www.juniv.edu/discussion/18473",
-    "message": "JU linked page is unchanged.",
-    "at": "2026-11-09T18:41:01.698Z"
+    "message": "Skipping JU: last check is still inside its revisit window.",
+    "at": "2026-11-10T01:41:12.922Z"
   },
   {
     "level": "info",
@@ -114,25 +51,70 @@
     "sourceId": "home-iu-https-www-iu-ac-bd",
     "url": "https://www.iu.ac.bd/",
     "message": "Connecting to Islamic University, Bangladesh official homepage.",
-    "at": "2026-11-09T18:41:01.709Z"
+    "at": "2026-11-10T01:41:12.939Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "du",
+    "sourceId": "home-du-https-www-du-ac-bd",
+    "url": "https://www.du.ac.bd/",
+    "message": "DU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:14.973Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "ru",
+    "sourceId": "home-ru-https-www-ru-ac-bd",
+    "url": "https://www.ru.ac.bd/",
+    "message": "RU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:15.139Z"
+  },
+  {
+    "level": "info",
+    "type": "fetched",
+    "universityId": "iu",
+    "sourceId": "home-iu-https-www-iu-ac-bd",
+    "url": "https://www.iu.ac.bd/",
+    "message": "Retrieved IU homepage.",
+    "at": "2026-11-10T01:41:16.364Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "iu",
+    "sourceId": "home-iu-https-www-iu-ac-bd",
+    "url": "https://www.iu.ac.bd/",
+    "message": "No new documents on IU.",
+    "at": "2026-11-10T01:41:16.372Z"
   },
   {
     "level": "info",
     "type": "connect",
+    "universityId": "iu",
+    "sourceId": "found-iu-https-iu-ac-bd-index-php-site-notice-mg",
+    "url": "https://iu.ac.bd/index.php/site/notice/Mg==",
+    "message": "Opening linked page for IU: Download Admit Card",
+    "at": "2026-11-10T01:41:16.377Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
     "universityId": "du",
     "sourceId": "found-du-https-www-du-ac-bd-du-post-details-notice-29088",
     "url": "https://www.du.ac.bd/du_post_details/notice/29088",
-    "message": "Opening linked page for DU: 05 Nov ২০২৫-২০২৬ শিক্ষাবর্ষে এম.এস শ্রেণীর ভর্তি বিজ্ঞপ্তি 05 Nov, 2026",
-    "at": "2026-11-09T18:41:01.770Z"
+    "message": "DU linked page is unchanged.",
+    "at": "2026-11-10T01:41:16.428Z"
   },
   {
     "level": "info",
-    "type": "connect",
-    "universityId": "ku",
-    "sourceId": "home-ku-https-www-ku-ac-bd",
-    "url": "https://www.ku.ac.bd/",
-    "message": "Connecting to Khulna University official homepage.",
-    "at": "2026-11-09T18:41:03.270Z"
+    "type": "no_change",
+    "universityId": "cu",
+    "sourceId": "home-cu-https-www-cu-ac-bd",
+    "url": "https://www.cu.ac.bd/",
+    "message": "CU homepage is unchanged (304).",
+    "at": "2026-11-10T01:41:16.530Z"
   },
   {
     "level": "info",
@@ -141,16 +123,25 @@
     "sourceId": "found-ru-zed-by-department-of-statistics-and-data-science",
     "url": "https://www.ru.ac.bd/blog/notice/admission-going-on-statistical-computing-certificate-course-on-ms-excel-spss-and-research-methodology-organized-by-department-of-statistics-and-data-science",
     "message": "RU linked page is unchanged.",
-    "at": "2026-11-09T18:41:03.783Z"
+    "at": "2026-11-10T01:41:17.693Z"
   },
   {
     "level": "info",
-    "type": "no_change",
-    "universityId": "cu",
-    "sourceId": "home-cu-https-www-cu-ac-bd",
-    "url": "https://www.cu.ac.bd/",
-    "message": "CU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:41:04.367Z"
+    "type": "connect",
+    "universityId": "iu",
+    "sourceId": "found-iu-https-www-iu-ac-bd-index-php-pages-view-1-ndi",
+    "url": "https://www.iu.ac.bd/index.php/pages/view_1/NDI=",
+    "message": "Opening linked page for IU: ADMISSION TEST SCHEDULE/SEAT PLAN",
+    "at": "2026-11-10T01:41:18.075Z"
+  },
+  {
+    "level": "info",
+    "type": "connect",
+    "universityId": "ku",
+    "sourceId": "home-ku-https-www-ku-ac-bd",
+    "url": "https://www.ku.ac.bd/",
+    "message": "Connecting to Khulna University official homepage.",
+    "at": "2026-11-10T01:41:18.415Z"
   },
   {
     "level": "error",
@@ -159,7 +150,7 @@
     "sourceId": "home-ku-https-www-ku-ac-bd",
     "url": "https://www.ku.ac.bd/",
     "message": "KU homepage failed: HTTP 403. A response that is not a readable document is not a successful check.",
-    "at": "2026-11-09T18:41:04.960Z"
+    "at": "2026-11-10T01:41:19.175Z"
   },
   {
     "level": "info",
@@ -168,7 +159,7 @@
     "sourceId": "home-jnu-https-www-jnu-ac-bd",
     "url": "https://www.jnu.ac.bd/",
     "message": "Connecting to Jagannath University official homepage.",
-    "at": "2026-11-09T18:41:04.972Z"
+    "at": "2026-11-10T01:41:19.186Z"
   },
   {
     "level": "info",
@@ -177,43 +168,7 @@
     "sourceId": "found-ru--8d-e0-a6-af-e0-a7-87-e0-a6-86-e0-a6-97-e0-a6-be",
     "url": "https://www.ru.ac.bd/blog/notice/%e0%a6%a8%e0%a6%9c%e0%a6%b0%e0%a7%81%e0%a6%b2-%e0%a6%ac%e0%a6%b0%e0%a7%8d%e0%a6%b7-%e0%a6%89%e0%a6%aa%e0%a6%b2%e0%a6%95%e0%a7%8d%e0%a6%b7%e0%a7%8d%e0%a6%af%e0%a7%87-%e0%a6%86%e0%a6%97%e0%a6%be",
     "message": "RU linked page is unchanged.",
-    "at": "2026-11-09T18:41:05.636Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "iu",
-    "sourceId": "home-iu-https-www-iu-ac-bd",
-    "url": "https://www.iu.ac.bd/",
-    "message": "IU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:41:05.693Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "iu",
-    "sourceId": "found-iu-https-iu-ac-bd-index-php-site-notice-mg",
-    "url": "https://iu.ac.bd/index.php/site/notice/Mg==",
-    "message": "IU linked page is unchanged.",
-    "at": "2026-11-09T18:41:07.391Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "ru",
-    "sourceId": "found-ru-https-www-ru-ac-bd-feed",
-    "url": "https://www.ru.ac.bd/feed",
-    "message": "RU linked page is unchanged.",
-    "at": "2026-11-09T18:41:07.466Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "iu",
-    "sourceId": "found-iu-https-www-iu-ac-bd-index-php-pages-view-1-ndi",
-    "url": "https://www.iu.ac.bd/index.php/pages/view_1/NDI=",
-    "message": "IU linked page is unchanged.",
-    "at": "2026-11-09T18:41:07.733Z"
+    "at": "2026-11-10T01:41:19.480Z"
   },
   {
     "level": "info",
@@ -222,34 +177,7 @@
     "sourceId": "home-cou-https-www-cou-ac-bd",
     "url": "https://www.cou.ac.bd/",
     "message": "Connecting to Comilla University official homepage.",
-    "at": "2026-11-09T18:41:07.747Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "jnu",
-    "sourceId": "home-jnu-https-www-jnu-ac-bd",
-    "url": "https://www.jnu.ac.bd/",
-    "message": "Retrieved JnU homepage.",
-    "at": "2026-11-09T18:41:08.105Z"
-  },
-  {
-    "level": "info",
-    "type": "discover",
-    "universityId": "jnu",
-    "sourceId": "home-jnu-https-www-jnu-ac-bd",
-    "url": "https://jnu.ac.bd/assets/notice/eb68073b84b689a5eb326e6be01cf5b3.pdf",
-    "message": "New document link on JnU: ২০২৬-২০২৭ শিক্ষাবর্ষে PhD এবং MPhil প্রোগ্রামের ভর্তি সংক্রান্ত বিজ্ঞপ্তি. Not downloaded.",
-    "at": "2026-11-09T18:41:08.111Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "jnu",
-    "sourceId": "found-jnu-https-jnu-ac-bd-newsite-getdata-6001",
-    "url": "https://jnu.ac.bd/newsite/getdata/6001",
-    "message": "Opening linked page for JnU: Undergraduate Admission",
-    "at": "2026-11-09T18:41:08.114Z"
+    "at": "2026-11-10T01:41:19.495Z"
   },
   {
     "level": "info",
@@ -258,16 +186,16 @@
     "sourceId": "found-cu-https-cu-ac-bd-notice-board",
     "url": "https://cu.ac.bd/notice-board",
     "message": "CU linked page is unchanged.",
-    "at": "2026-11-09T18:41:08.550Z"
+    "at": "2026-11-10T01:41:20.247Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "ru",
-    "sourceId": "found-ru-https-www-ru-ac-bd-wp-sitemap-xml",
-    "url": "https://www.ru.ac.bd/wp-sitemap.xml",
-    "message": "RU linked page is unchanged.",
-    "at": "2026-11-09T18:41:08.695Z"
+    "universityId": "du",
+    "sourceId": "found-du-https-www-du-ac-bd-du-post-details-notice-29111",
+    "url": "https://www.du.ac.bd/du_post_details/notice/29111",
+    "message": "DU linked page is unchanged.",
+    "at": "2026-11-10T01:41:20.742Z"
   },
   {
     "level": "info",
@@ -276,16 +204,7 @@
     "sourceId": "home-jkkniu-https-www-jkkniu-edu-bd",
     "url": "https://www.jkkniu.edu.bd/",
     "message": "Connecting to Jatiya Kabi Kazi Nazrul Islam University official homepage.",
-    "at": "2026-11-09T18:41:08.706Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "jnu",
-    "sourceId": "found-jnu-https-jnu-ac-bd-newsite-noticeview-1",
-    "url": "https://jnu.ac.bd/newsite/noticeview/1",
-    "message": "Opening linked page for JnU: Notices",
-    "at": "2026-11-09T18:41:09.552Z"
+    "at": "2026-11-10T01:41:20.755Z"
   },
   {
     "level": "error",
@@ -294,7 +213,16 @@
     "sourceId": "found-cu-https-admission-cu-ac-bd",
     "url": "https://admission.cu.ac.bd/",
     "message": "CU linked page failed: HTTP 403. A response that is not a readable document is not a successful check.",
-    "at": "2026-11-09T18:41:09.631Z"
+    "at": "2026-11-10T01:41:20.958Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "jnu",
+    "sourceId": "home-jnu-https-www-jnu-ac-bd",
+    "url": "https://www.jnu.ac.bd/",
+    "message": "JnU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:20.979Z"
   },
   {
     "level": "info",
@@ -303,16 +231,25 @@
     "sourceId": "home-cou-https-www-cou-ac-bd",
     "url": "https://www.cou.ac.bd/",
     "message": "CoU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:41:11.598Z"
+    "at": "2026-11-10T01:41:21.925Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "cu",
-    "sourceId": "found-cu-https-cu-ac-bd-feed",
-    "url": "https://cu.ac.bd/feed",
-    "message": "CU linked page is unchanged.",
-    "at": "2026-11-09T18:41:12.072Z"
+    "universityId": "jnu",
+    "sourceId": "found-jnu-https-jnu-ac-bd-newsite-noticeview-1",
+    "url": "https://jnu.ac.bd/newsite/noticeview/1",
+    "message": "JnU linked page is unchanged.",
+    "at": "2026-11-10T01:41:22.488Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "jkkniu",
+    "sourceId": "home-jkkniu-https-www-jkkniu-edu-bd",
+    "url": "https://www.jkkniu.edu.bd/",
+    "message": "JKKNIU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:22.867Z"
   },
   {
     "level": "info",
@@ -321,34 +258,16 @@
     "sourceId": "home-brur-https-www-brur-ac-bd",
     "url": "https://www.brur.ac.bd/",
     "message": "Connecting to Begum Rokeya University, Rangpur official homepage.",
-    "at": "2026-11-09T18:41:12.498Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "jkkniu",
-    "sourceId": "home-jkkniu-https-www-jkkniu-edu-bd",
-    "url": "https://www.jkkniu.edu.bd/",
-    "message": "Retrieved JKKNIU homepage.",
-    "at": "2026-11-09T18:41:12.536Z"
+    "at": "2026-11-10T01:41:22.877Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "jkkniu",
-    "sourceId": "home-jkkniu-https-www-jkkniu-edu-bd",
-    "url": "https://www.jkkniu.edu.bd/",
-    "message": "No new documents on JKKNIU.",
-    "at": "2026-11-09T18:41:12.540Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "jkkniu",
-    "sourceId": "found-jkkniu-otice-weekend-mba-admission-notice-6ad204a022165",
-    "url": "https://www.jkkniu.edu.bd/notice/weekend-mba-admission-notice-6ad204a022165",
-    "message": "Opening linked page for JKKNIU: weekend MBA Admission Notice",
-    "at": "2026-11-09T18:41:12.544Z"
+    "universityId": "cu",
+    "sourceId": "found-cu-https-cu-ac-bd-feed",
+    "url": "https://cu.ac.bd/feed",
+    "message": "CU linked page is unchanged.",
+    "at": "2026-11-10T01:41:23.218Z"
   },
   {
     "level": "info",
@@ -357,25 +276,16 @@
     "sourceId": "found-cou-https-www-cou-ac-bd-news-events-notices-639",
     "url": "https://www.cou.ac.bd/news-events-notices/639",
     "message": "CoU linked page is unchanged.",
-    "at": "2026-11-09T18:41:13.028Z"
+    "at": "2026-11-10T01:41:23.387Z"
   },
   {
     "level": "info",
-    "type": "connect",
-    "universityId": "jkkniu",
-    "sourceId": "found-jkkniu-m-admission-notice-for-winter-2026-6ad0836f5df04",
-    "url": "https://www.jkkniu.edu.bd/notice/master-of-development-studiesmds-weekend-program-admission-notice-for-winter-2026-6ad0836f5df04",
-    "message": "Opening linked page for JKKNIU: Master of Development Studies(MDS) weekend Program Admission Notice for Winter-2026",
-    "at": "2026-11-09T18:41:13.963Z"
-  },
-  {
-    "level": "error",
-    "type": "fail",
-    "universityId": "cu",
-    "sourceId": "found-cu-https-cu-ac-bd-wp-sitemap-xml",
-    "url": "https://cu.ac.bd/wp-sitemap.xml",
-    "message": "CU linked page failed: HTTP 404. The registered URL looks broken.",
-    "at": "2026-11-09T18:41:14.365Z"
+    "type": "no_change",
+    "universityId": "jnu",
+    "sourceId": "found-jnu-https-jnu-ac-bd-sitemap-xml",
+    "url": "https://jnu.ac.bd/sitemap.xml",
+    "message": "JnU linked page is unchanged.",
+    "at": "2026-11-10T01:41:23.624Z"
   },
   {
     "level": "info",
@@ -384,7 +294,7 @@
     "sourceId": "home-bu-https-www-bu-ac-bd",
     "url": "https://www.bu.ac.bd/",
     "message": "Connecting to University of Barishal official homepage.",
-    "at": "2026-11-09T18:41:14.375Z"
+    "at": "2026-11-10T01:41:23.638Z"
   },
   {
     "level": "info",
@@ -393,7 +303,7 @@
     "sourceId": "found-cou-https-www-cou-ac-bd-news-events-notices-666",
     "url": "https://www.cou.ac.bd/news-events-notices/666",
     "message": "CoU linked page is unchanged.",
-    "at": "2026-11-09T18:41:14.591Z"
+    "at": "2026-11-10T01:41:24.803Z"
   },
   {
     "level": "info",
@@ -402,16 +312,7 @@
     "sourceId": "home-rub-https-www-rub-ac-bd",
     "url": "https://www.rub.ac.bd/",
     "message": "Connecting to Rabindra University, Bangladesh official homepage.",
-    "at": "2026-11-09T18:41:14.603Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "neu",
-    "sourceId": "home-neu-https-neu-ac-bd",
-    "url": "https://neu.ac.bd/",
-    "message": "Connecting to Netrokona University official homepage.",
-    "at": "2026-11-09T18:41:15.417Z"
+    "at": "2026-11-10T01:41:24.818Z"
   },
   {
     "level": "info",
@@ -420,25 +321,25 @@
     "sourceId": "home-brur-https-www-brur-ac-bd",
     "url": "https://www.brur.ac.bd/",
     "message": "BRUR homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:41:15.834Z"
+    "at": "2026-11-10T01:41:25.135Z"
   },
   {
     "level": "info",
-    "type": "no_change",
-    "universityId": "brur",
-    "sourceId": "found-brur-https-www-brur-ac-bd-admission-undergraduate",
-    "url": "https://www.brur.ac.bd/admission/undergraduate",
-    "message": "BRUR linked page is unchanged.",
-    "at": "2026-11-09T18:41:17.235Z"
+    "type": "connect",
+    "universityId": "neu",
+    "sourceId": "home-neu-https-neu-ac-bd",
+    "url": "https://neu.ac.bd/",
+    "message": "Connecting to Netrokona University official homepage.",
+    "at": "2026-11-10T01:41:25.148Z"
   },
   {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "brur",
-    "sourceId": "found-brur-https-www-brur-ac-bd-admission-postgraduate",
-    "url": "https://www.brur.ac.bd/admission/postgraduate",
-    "message": "BRUR linked page is unchanged.",
-    "at": "2026-11-09T18:41:18.630Z"
+    "level": "error",
+    "type": "fail",
+    "universityId": "cu",
+    "sourceId": "found-cu-https-cu-ac-bd-wp-sitemap-xml",
+    "url": "https://cu.ac.bd/wp-sitemap.xml",
+    "message": "CU linked page failed: HTTP 404. The registered URL looks broken.",
+    "at": "2026-11-10T01:41:25.277Z"
   },
   {
     "level": "info",
@@ -447,7 +348,16 @@
     "sourceId": "home-kiu-https-bsmru-ac-bd",
     "url": "https://bsmru.ac.bd/",
     "message": "Connecting to Kishoreganj University official homepage.",
-    "at": "2026-11-09T18:41:18.640Z"
+    "at": "2026-11-10T01:41:25.287Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "bu",
+    "sourceId": "home-bu-https-www-bu-ac-bd",
+    "url": "https://www.bu.ac.bd/",
+    "message": "BU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:26.149Z"
   },
   {
     "level": "info",
@@ -456,97 +366,7 @@
     "sourceId": "home-rub-https-www-rub-ac-bd",
     "url": "https://www.rub.ac.bd/",
     "message": "RUB homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:41:18.818Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "bu",
-    "sourceId": "home-bu-https-www-bu-ac-bd",
-    "url": "https://www.bu.ac.bd/",
-    "message": "Retrieved BU homepage.",
-    "at": "2026-11-09T18:41:19.263Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "bu",
-    "sourceId": "home-bu-https-www-bu-ac-bd",
-    "url": "https://www.bu.ac.bd/",
-    "message": "No new documents on BU.",
-    "at": "2026-11-09T18:41:19.268Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bu",
-    "sourceId": "found-bu-u-ac-bd-notice-20261108-1794212648-6af18328084d7",
-    "url": "https://www.bu.ac.bd/notice/20261108-1794212648-6af18328084d7",
-    "message": "Opening linked page for BU: বরিশাল বিশ্ববিদ্যালয়ের বিজ্ঞান অনুষদের ভূতত্ত্ব ও খনিবিদ্যা বিভাগের শিক্ষার্থীদের ২০২৪-২৫ শিক্ষাবর্ষে এমএস শ্রেণিতে ভর্তি নোটিশ",
-    "at": "2026-11-09T18:41:19.271Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "rub",
-    "sourceId": "found-rub-s-www-rub-ac-bd-assets-files-notice-269-2035-jpg",
-    "url": "https://www.rub.ac.bd/assets/files/notice/269_2035.jpg",
-    "message": "RUB linked page is unchanged.",
-    "at": "2026-11-09T18:41:19.985Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "neu",
-    "sourceId": "home-neu-https-neu-ac-bd",
-    "url": "https://neu.ac.bd/",
-    "message": "Retrieved NeU homepage.",
-    "at": "2026-11-09T18:41:20.370Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "neu",
-    "sourceId": "home-neu-https-neu-ac-bd",
-    "url": "https://neu.ac.bd/",
-    "message": "No new documents on NeU.",
-    "at": "2026-11-09T18:41:20.374Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "neu",
-    "sourceId": "found-neu-https-neu-ac-bd-category-admission-notice",
-    "url": "https://neu.ac.bd/category/admission-notice",
-    "message": "Opening linked page for NeU: Admission Notice",
-    "at": "2026-11-09T18:41:20.376Z"
-  },
-  {
-    "level": "info",
-    "type": "discover",
-    "universityId": "bu",
-    "sourceId": "found-bu-u-ac-bd-notice-20261108-1794212648-6af18328084d7",
-    "url": "https://www.bu.ac.bd/notice/20261108-1794212648-6af18328084d7",
-    "message": "Recorded linked page for BU: বরিশাল বিশ্ববিদ্যালয়ের বিজ্ঞান অনুষদের ভূতত্ত্ব ও খনিবিদ্যা বিভাগের শিক্ষার্থীদের ২০২৪-২৫ শিক্ষাবর্ষে এমএস শ্রেণিতে ভর্তি নোটিশ",
-    "at": "2026-11-09T18:41:20.701Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bu",
-    "sourceId": "found-bu-u-ac-bd-notice-20261108-1794212650-6af1832a18971",
-    "url": "https://www.bu.ac.bd/notice/20261108-1794212650-6af1832a18971",
-    "message": "Opening linked page for BU: বরিশাল বিশ্ববিদ্যালয়ের বিজ্ঞান অনুষদের ভূতত্ত্ব ও খনিবিদ্যা বিভাগের শিক্ষার্থীদের ২০২৪-২৫ শিক্ষাবর্ষে এমএস শ্রেণিতে ভর্তি নোটিশ",
-    "at": "2026-11-09T18:41:20.701Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "rub",
-    "sourceId": "found-rub--www-rub-ac-bd-assets-files-notice-255-2029-jpeg",
-    "url": "https://www.rub.ac.bd/assets/files/notice/255_2029.jpeg",
-    "message": "RUB linked page is unchanged.",
-    "at": "2026-11-09T18:41:21.157Z"
+    "at": "2026-11-10T01:41:26.767Z"
   },
   {
     "level": "warn",
@@ -555,7 +375,7 @@
     "sourceId": "missing-nau",
     "url": null,
     "message": "Naogaon University has no official website on file. Skipped. Not marked unchanged.",
-    "at": "2026-11-09T18:41:21.168Z"
+    "at": "2026-11-10T01:41:26.784Z"
   },
   {
     "level": "warn",
@@ -564,7 +384,7 @@
     "sourceId": "missing-meu",
     "url": null,
     "message": "Meherpur University has no official website on file. Skipped. Not marked unchanged.",
-    "at": "2026-11-09T18:41:21.178Z"
+    "at": "2026-11-10T01:41:26.793Z"
   },
   {
     "level": "warn",
@@ -573,7 +393,7 @@
     "sourceId": "missing-thu",
     "url": null,
     "message": "Thakurgaon University has no official website on file. Skipped. Not marked unchanged.",
-    "at": "2026-11-09T18:41:21.189Z"
+    "at": "2026-11-10T01:41:26.803Z"
   },
   {
     "level": "info",
@@ -582,25 +402,7 @@
     "sourceId": "home-ub-https-www-ub-ac-bd",
     "url": "https://www.ub.ac.bd/",
     "message": "Connecting to University of Bogura official homepage.",
-    "at": "2026-11-09T18:41:21.199Z"
-  },
-  {
-    "level": "info",
-    "type": "discover",
-    "universityId": "bu",
-    "sourceId": "found-bu-u-ac-bd-notice-20261108-1794212650-6af1832a18971",
-    "url": "https://www.bu.ac.bd/notice/20261108-1794212650-6af1832a18971",
-    "message": "Recorded linked page for BU: বরিশাল বিশ্ববিদ্যালয়ের বিজ্ঞান অনুষদের ভূতত্ত্ব ও খনিবিদ্যা বিভাগের শিক্ষার্থীদের ২০২৪-২৫ শিক্ষাবর্ষে এমএস শ্রেণিতে ভর্তি নোটিশ",
-    "at": "2026-11-09T18:41:22.280Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "dcu",
-    "sourceId": "home-dcu-https-dcu-ac-bd",
-    "url": "https://dcu.ac.bd/",
-    "message": "Connecting to Dhaka Central University official homepage.",
-    "at": "2026-11-09T18:41:22.290Z"
+    "at": "2026-11-10T01:41:26.813Z"
   },
   {
     "level": "error",
@@ -609,7 +411,79 @@
     "sourceId": "home-ub-https-www-ub-ac-bd",
     "url": "https://www.ub.ac.bd/",
     "message": "UB homepage failed: HTTP 304 without a stored fingerprint. Not treated as unchanged.",
-    "at": "2026-11-09T18:41:22.697Z"
+    "at": "2026-11-10T01:41:27.741Z"
+  },
+  {
+    "level": "info",
+    "type": "connect",
+    "universityId": "dcu",
+    "sourceId": "home-dcu-https-dcu-ac-bd",
+    "url": "https://dcu.ac.bd/",
+    "message": "Connecting to Dhaka Central University official homepage.",
+    "at": "2026-11-10T01:41:27.750Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "neu",
+    "sourceId": "home-neu-https-neu-ac-bd",
+    "url": "https://neu.ac.bd/",
+    "message": "NeU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:27.897Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "bu",
+    "sourceId": "found-bu-u-ac-bd-notice-20261104-1793866324-6aec3a5443de9",
+    "url": "https://www.bu.ac.bd/notice/20261104-1793866324-6aec3a5443de9",
+    "message": "BU linked page is unchanged.",
+    "at": "2026-11-10T01:41:27.996Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "dcu",
+    "sourceId": "home-dcu-https-dcu-ac-bd",
+    "url": "https://dcu.ac.bd/",
+    "message": "DCU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:29.371Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "bu",
+    "sourceId": "found-bu-u-ac-bd-notice-20261015-1792924352-6adddac09b526",
+    "url": "https://www.bu.ac.bd/notice/20261015-1792924352-6adddac09b526",
+    "message": "BU linked page is unchanged.",
+    "at": "2026-11-10T01:41:29.405Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "neu",
+    "sourceId": "found-neu-https-neu-ac-bd-feed",
+    "url": "https://neu.ac.bd/feed",
+    "message": "NeU linked page is unchanged.",
+    "at": "2026-11-10T01:41:29.782Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "dcu",
+    "sourceId": "found-dcu-https-dcu-ac-bd-notice",
+    "url": "https://dcu.ac.bd/notice",
+    "message": "DCU linked page is unchanged.",
+    "at": "2026-11-10T01:41:30.335Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "bu",
+    "sourceId": "found-bu-u-ac-bd-notice-20261108-1794212648-6af18328084d7",
+    "url": "https://www.bu.ac.bd/notice/20261108-1794212648-6af18328084d7",
+    "message": "BU linked page is unchanged.",
+    "at": "2026-11-10T01:41:31.047Z"
   },
   {
     "level": "info",
@@ -618,52 +492,16 @@
     "sourceId": "home-buet-https-www-buet-ac-bd",
     "url": "https://www.buet.ac.bd/",
     "message": "Connecting to Bangladesh University of Engineering & Technology official homepage.",
-    "at": "2026-11-09T18:41:22.708Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "dcu",
-    "sourceId": "home-dcu-https-dcu-ac-bd",
-    "url": "https://dcu.ac.bd/",
-    "message": "Retrieved DCU homepage.",
-    "at": "2026-11-09T18:41:24.582Z"
+    "at": "2026-11-10T01:41:31.324Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "dcu",
-    "sourceId": "home-dcu-https-dcu-ac-bd",
-    "url": "https://dcu.ac.bd/",
-    "message": "No new documents on DCU.",
-    "at": "2026-11-09T18:41:24.583Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "dcu",
-    "sourceId": "found-dcu-https-dcu-ac-bd-notice",
-    "url": "https://dcu.ac.bd/notice",
-    "message": "Opening linked page for DCU: Notice",
-    "at": "2026-11-09T18:41:24.584Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
     "universityId": "neu",
-    "sourceId": "found-neu-https-neu-ac-bd-admission-2025-2026",
-    "url": "https://neu.ac.bd/admission-2025-2026",
-    "message": "Opening linked page for NeU: Undergraduate Admission",
-    "at": "2026-11-09T18:41:24.992Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "buet",
-    "sourceId": "home-buet-https-www-buet-ac-bd",
-    "url": "https://www.buet.ac.bd/",
-    "message": "BUET homepage is unchanged (304).",
-    "at": "2026-11-09T18:41:25.966Z"
+    "sourceId": "found-neu-https-neu-ac-bd-sitemap-index-xml",
+    "url": "https://neu.ac.bd/sitemap_index.xml",
+    "message": "NeU linked page is unchanged.",
+    "at": "2026-11-10T01:41:31.792Z"
   },
   {
     "level": "info",
@@ -672,7 +510,16 @@
     "sourceId": "home-cuet-https-www-cuet-ac-bd",
     "url": "https://www.cuet.ac.bd/",
     "message": "Connecting to Chittagong University of Engineering & Technology official homepage.",
-    "at": "2026-11-09T18:41:25.976Z"
+    "at": "2026-11-10T01:41:31.803Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "bu",
+    "sourceId": "found-bu-u-ac-bd-notice-20261108-1794212650-6af1832a18971",
+    "url": "https://www.bu.ac.bd/notice/20261108-1794212650-6af1832a18971",
+    "message": "BU linked page is unchanged.",
+    "at": "2026-11-10T01:41:32.490Z"
   },
   {
     "level": "info",
@@ -681,34 +528,16 @@
     "sourceId": "home-kuet-https-www-kuet-ac-bd",
     "url": "https://www.kuet.ac.bd/",
     "message": "Connecting to Khulna University of Engineering & Technology official homepage.",
-    "at": "2026-11-09T18:41:27.144Z"
+    "at": "2026-11-10T01:41:32.500Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "cuet",
-    "sourceId": "home-cuet-https-www-cuet-ac-bd",
-    "url": "https://www.cuet.ac.bd/",
-    "message": "CUET homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:41:29.706Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "cuet",
-    "sourceId": "found-cuet-https-cuet-ac-bd-admission",
-    "url": "https://cuet.ac.bd/admission",
-    "message": "CUET linked page is unchanged.",
-    "at": "2026-11-09T18:41:30.043Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "cuet",
-    "sourceId": "found-cuet-https-cuet-ac-bd-notices-noc",
-    "url": "https://cuet.ac.bd/notices/noc",
-    "message": "CUET linked page is unchanged.",
-    "at": "2026-11-09T18:41:31.274Z"
+    "universityId": "buet",
+    "sourceId": "home-buet-https-www-buet-ac-bd",
+    "url": "https://www.buet.ac.bd/",
+    "message": "BUET homepage is unchanged (304).",
+    "at": "2026-11-10T01:41:33.603Z"
   },
   {
     "level": "info",
@@ -717,16 +546,34 @@
     "sourceId": "home-ruet-https-www-ruet-ac-bd",
     "url": "https://www.ruet.ac.bd/",
     "message": "Connecting to Rajshahi University of Engineering & Technology official homepage.",
-    "at": "2026-11-09T18:41:31.284Z"
+    "at": "2026-11-10T01:41:33.613Z"
   },
   {
     "level": "info",
-    "type": "discover",
-    "universityId": "neu",
-    "sourceId": "found-neu-https-neu-ac-bd-feed",
-    "url": "https://neu.ac.bd/biplob-o-songhoti",
-    "message": "Feed listed a page for NeU: জাতীয় বিপ্লব ও সংহতি দিবস উপলক্ষ্যে আলোচনা সভায় অংশগ্রহণ সংক্রান্ত বিজ্ঞপ্তি. Not downloaded.",
-    "at": "2026-11-09T18:41:31.949Z"
+    "type": "no_change",
+    "universityId": "cuet",
+    "sourceId": "home-cuet-https-www-cuet-ac-bd",
+    "url": "https://www.cuet.ac.bd/",
+    "message": "CUET homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:33.694Z"
+  },
+  {
+    "level": "error",
+    "type": "fail",
+    "universityId": "cuet",
+    "sourceId": "found-cuet-https-cuet-ac-bd-admission",
+    "url": "https://cuet.ac.bd/admission",
+    "message": "CUET linked page failed: HTTP 500. A response that is not a readable document is not a successful check.",
+    "at": "2026-11-10T01:41:33.892Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "cuet",
+    "sourceId": "found-cuet-https-cuet-ac-bd-notices-noc",
+    "url": "https://cuet.ac.bd/notices/noc",
+    "message": "CUET linked page is unchanged.",
+    "at": "2026-11-10T01:41:35.098Z"
   },
   {
     "level": "info",
@@ -735,16 +582,7 @@
     "sourceId": "home-duet-https-www-duet-ac-bd",
     "url": "https://www.duet.ac.bd/",
     "message": "Connecting to Dhaka University of Engineering & Technology official homepage.",
-    "at": "2026-11-09T18:41:33.959Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "ruet",
-    "sourceId": "home-ruet-https-www-ruet-ac-bd",
-    "url": "https://www.ruet.ac.bd/",
-    "message": "Retrieved RUET homepage.",
-    "at": "2026-11-09T18:41:35.169Z"
+    "at": "2026-11-10T01:41:35.109Z"
   },
   {
     "level": "info",
@@ -752,44 +590,8 @@
     "universityId": "ruet",
     "sourceId": "home-ruet-https-www-ruet-ac-bd",
     "url": "https://www.ruet.ac.bd/",
-    "message": "No new documents on RUET.",
-    "at": "2026-11-09T18:41:35.175Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "ruet",
-    "sourceId": "found-ruet--notice-for-phd-msc-engg-m-engg-and-pgd-programs",
-    "url": "https://www.ruet.ac.bd/notice/admission-notice-for-phd-msc-engg-m-engg-and-pgd-programs",
-    "message": "Opening linked page for RUET: Admission Notice for Ph.D., M.Sc. Engg., M. Engg., and PGD Programs.",
-    "at": "2026-11-09T18:41:35.179Z"
-  },
-  {
-    "level": "error",
-    "type": "fail",
-    "universityId": "kuet",
-    "sourceId": "home-kuet-https-www-kuet-ac-bd",
-    "url": "https://www.kuet.ac.bd/",
-    "message": "KUET homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:41:36.096Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "sust",
-    "sourceId": "home-sust-https-www-sust-edu",
-    "url": "https://www.sust.edu/",
-    "message": "Connecting to Shahjalal University of Science & Technology official homepage.",
-    "at": "2026-11-09T18:41:36.106Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "ruet",
-    "sourceId": "found-ruet-ls-of-postgraduate-programs-of-2026-2027-session",
-    "url": "https://www.ruet.ac.bd/notice/admission-notice-for-foreign-nationals-of-postgraduate-programs-of-2026-2027-session",
-    "message": "Opening linked page for RUET: Admission Notice for Foreign Nationals of Postgraduate Programs of 2026-2027 session.",
-    "at": "2026-11-09T18:41:36.591Z"
+    "message": "RUET homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:35.650Z"
   },
   {
     "level": "info",
@@ -798,34 +600,16 @@
     "sourceId": "home-duet-https-www-duet-ac-bd",
     "url": "https://www.duet.ac.bd/",
     "message": "DUET homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:41:36.883Z"
+    "at": "2026-11-10T01:41:36.422Z"
   },
   {
     "level": "info",
-    "type": "connect",
-    "universityId": "hstu",
-    "sourceId": "home-hstu-https-www-hstu-ac-bd",
-    "url": "https://www.hstu.ac.bd/",
-    "message": "Connecting to Hajee Mohammad Danesh Science & Technology University official homepage.",
-    "at": "2026-11-09T18:41:37.992Z"
-  },
-  {
-    "level": "error",
-    "type": "fail",
-    "universityId": "sust",
-    "sourceId": "home-sust-https-www-sust-edu",
-    "url": "https://www.sust.edu/",
-    "message": "SUST homepage failed: HTTP 403. A response that is not a readable document is not a successful check.",
-    "at": "2026-11-09T18:41:38.440Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "mbstu",
-    "sourceId": "home-mbstu-https-www-mbstu-ac-bd",
-    "url": "https://www.mbstu.ac.bd/",
-    "message": "Connecting to Mawlana Bhashani Science & Technology University official homepage.",
-    "at": "2026-11-09T18:41:38.451Z"
+    "type": "no_change",
+    "universityId": "ruet",
+    "sourceId": "found-ruet-ls-of-postgraduate-programs-of-2026-2027-session",
+    "url": "https://www.ruet.ac.bd/notice/admission-notice-for-foreign-nationals-of-postgraduate-programs-of-2026-2027-session",
+    "message": "RUET linked page is unchanged.",
+    "at": "2026-11-10T01:41:37.229Z"
   },
   {
     "level": "info",
@@ -834,7 +618,25 @@
     "sourceId": "found-duet-https-www-duet-ac-bd-notice-admission-notices",
     "url": "https://www.duet.ac.bd/notice/admission-notices",
     "message": "DUET linked page is unchanged.",
-    "at": "2026-11-09T18:41:38.652Z"
+    "at": "2026-11-10T01:41:38.173Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "ruet",
+    "sourceId": "found-ruet--notice-for-phd-msc-engg-m-engg-and-pgd-programs",
+    "url": "https://www.ruet.ac.bd/notice/admission-notice-for-phd-msc-engg-m-engg-and-pgd-programs",
+    "message": "RUET linked page is unchanged.",
+    "at": "2026-11-10T01:41:38.632Z"
+  },
+  {
+    "level": "info",
+    "type": "connect",
+    "universityId": "sust",
+    "sourceId": "home-sust-https-www-sust-edu",
+    "url": "https://www.sust.edu/",
+    "message": "Connecting to Shahjalal University of Science & Technology official homepage.",
+    "at": "2026-11-10T01:41:38.642Z"
   },
   {
     "level": "info",
@@ -843,7 +645,52 @@
     "sourceId": "found-duet-w-duet-ac-bd-admission-undergraduate-at-a-glance",
     "url": "https://www.duet.ac.bd/admission/undergraduate/at-a-glance",
     "message": "DUET linked page is unchanged.",
-    "at": "2026-11-09T18:41:40.090Z"
+    "at": "2026-11-10T01:41:39.547Z"
+  },
+  {
+    "level": "info",
+    "type": "connect",
+    "universityId": "hstu",
+    "sourceId": "home-hstu-https-www-hstu-ac-bd",
+    "url": "https://www.hstu.ac.bd/",
+    "message": "Connecting to Hajee Mohammad Danesh Science & Technology University official homepage.",
+    "at": "2026-11-10T01:41:39.558Z"
+  },
+  {
+    "level": "error",
+    "type": "fail",
+    "universityId": "kuet",
+    "sourceId": "home-kuet-https-www-kuet-ac-bd",
+    "url": "https://www.kuet.ac.bd/",
+    "message": "KUET homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
+    "at": "2026-11-10T01:41:40.809Z"
+  },
+  {
+    "level": "info",
+    "type": "connect",
+    "universityId": "mbstu",
+    "sourceId": "home-mbstu-https-www-mbstu-ac-bd",
+    "url": "https://www.mbstu.ac.bd/",
+    "message": "Connecting to Mawlana Bhashani Science & Technology University official homepage.",
+    "at": "2026-11-10T01:41:40.820Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "hstu",
+    "sourceId": "home-hstu-https-www-hstu-ac-bd",
+    "url": "https://www.hstu.ac.bd/",
+    "message": "HSTU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:41.323Z"
+  },
+  {
+    "level": "error",
+    "type": "fail",
+    "universityId": "sust",
+    "sourceId": "home-sust-https-www-sust-edu",
+    "url": "https://www.sust.edu/",
+    "message": "SUST homepage failed: HTTP 403. A response that is not a readable document is not a successful check.",
+    "at": "2026-11-10T01:41:41.777Z"
   },
   {
     "level": "info",
@@ -852,34 +699,7 @@
     "sourceId": "home-pstu-https-www-pstu-ac-bd",
     "url": "https://www.pstu.ac.bd/",
     "message": "Connecting to Patuakhali Science and Technology University official homepage.",
-    "at": "2026-11-09T18:41:40.099Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "hstu",
-    "sourceId": "home-hstu-https-www-hstu-ac-bd",
-    "url": "https://www.hstu.ac.bd/",
-    "message": "Retrieved HSTU homepage.",
-    "at": "2026-11-09T18:41:41.661Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "hstu",
-    "sourceId": "home-hstu-https-www-hstu-ac-bd",
-    "url": "https://www.hstu.ac.bd/",
-    "message": "No new documents on HSTU.",
-    "at": "2026-11-09T18:41:41.670Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "hstu",
-    "sourceId": "found-hstu-http-hstu-ac-bd-admission-postgraduat",
-    "url": "http://hstu.ac.bd/admission/postgraduat",
-    "message": "Opening linked page for HSTU: MBA (Evening) Program, May-2017 Admission Circular has been announced (click here to see details)",
-    "at": "2026-11-09T18:41:41.676Z"
+    "at": "2026-11-10T01:41:41.787Z"
   },
   {
     "level": "error",
@@ -887,26 +707,8 @@
     "universityId": "hstu",
     "sourceId": "found-hstu-http-hstu-ac-bd-admission-postgraduat",
     "url": "http://hstu.ac.bd/admission/postgraduat",
-    "message": "Linked page failed for HSTU: empty body. Not treated as unchanged.",
-    "at": "2026-11-09T18:41:42.630Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "hstu",
-    "sourceId": "found-hstu-https-hstu-ac-bd-page-events-details-id-194",
-    "url": "https://hstu.ac.bd/page/events_details/id/194",
-    "message": "Opening linked page for HSTU: সুষ্ঠু ও উৎসবমুখর পরিবেশে হাবিপ্রবি’র ২০২৬ শিক্ষাবর্ষের ভর্তি পরীক্ষা সম্পন্ন হওয়ায় ভাইস-চ্যান্সেলর প্রফেসর ড. মো. এনামউল্যা’র পক্ষ থেকে কৃতজ্ঞতা ও ধন্যবাদ জ্ঞাপন View Details",
-    "at": "2026-11-09T18:41:42.630Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "pstu",
-    "sourceId": "home-pstu-https-www-pstu-ac-bd",
-    "url": "https://www.pstu.ac.bd/",
-    "message": "Retrieved PSTU homepage.",
-    "at": "2026-11-09T18:41:42.692Z"
+    "message": "HSTU linked page failed: empty body. Not treated as unchanged.",
+    "at": "2026-11-10T01:41:42.450Z"
   },
   {
     "level": "info",
@@ -914,26 +716,17 @@
     "universityId": "pstu",
     "sourceId": "home-pstu-https-www-pstu-ac-bd",
     "url": "https://www.pstu.ac.bd/",
-    "message": "No new documents on PSTU.",
-    "at": "2026-11-09T18:41:42.696Z"
+    "message": "PSTU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:43.214Z"
   },
   {
     "level": "info",
-    "type": "connect",
-    "universityId": "pstu",
-    "sourceId": "found-pstu--www-pstu-ac-bd-page-view-phd-admission-circular",
-    "url": "https://www.pstu.ac.bd/page-view/phd-admission-circular",
-    "message": "Opening linked page for PSTU: PhD Admission Circular",
-    "at": "2026-11-09T18:41:42.699Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "pstu",
-    "sourceId": "found-pstu-w-pstu-ac-bd-page-view-pmbaemba-admission-notice",
-    "url": "https://www.pstu.ac.bd/page-view/pmbaemba-admission-notice",
-    "message": "Opening linked page for PSTU: PMBA/EMBA Admission Notice",
-    "at": "2026-11-09T18:41:44.324Z"
+    "type": "no_change",
+    "universityId": "hstu",
+    "sourceId": "found-hstu-https-hstu-ac-bd-page-events-details-id-194",
+    "url": "https://hstu.ac.bd/page/events_details/id/194",
+    "message": "HSTU linked page is unchanged.",
+    "at": "2026-11-10T01:41:44.615Z"
   },
   {
     "level": "info",
@@ -942,7 +735,34 @@
     "sourceId": "home-nstu-https-www-nstu-edu-bd",
     "url": "https://www.nstu.edu.bd/",
     "message": "Connecting to Noakhali Science and Technology University official homepage.",
-    "at": "2026-11-09T18:41:45.462Z"
+    "at": "2026-11-10T01:41:44.627Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "pstu",
+    "sourceId": "found-pstu--www-pstu-ac-bd-page-view-phd-admission-circular",
+    "url": "https://www.pstu.ac.bd/page-view/phd-admission-circular",
+    "message": "PSTU linked page is unchanged.",
+    "at": "2026-11-10T01:41:44.717Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "pstu",
+    "sourceId": "found-pstu-it-preekshar-flafl-oo-moukhik-preekshar-smysuuci",
+    "url": "https://www.pstu.ac.bd/notices/ofis-shkaree-kam-kmpiutar-taipist-nars-helth-keyar-sentar-oo-ofis-shayk-trejarar-karzaly-pde-grrihit-likhit-preekshar-flafl-oo-moukhik-preekshar-smysuuci",
+    "message": "PSTU linked page is unchanged.",
+    "at": "2026-11-10T01:41:46.118Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "nstu",
+    "sourceId": "home-nstu-https-www-nstu-edu-bd",
+    "url": "https://www.nstu.edu.bd/",
+    "message": "NSTU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:46.894Z"
   },
   {
     "level": "info",
@@ -951,25 +771,16 @@
     "sourceId": "home-just-https-www-just-edu-bd",
     "url": "https://www.just.edu.bd/",
     "message": "Connecting to Jessore University of Science & Technology official homepage.",
-    "at": "2026-11-09T18:41:45.782Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "nstu",
-    "sourceId": "home-nstu-https-www-nstu-edu-bd",
-    "url": "https://www.nstu.edu.bd/",
-    "message": "Retrieved NSTU homepage.",
-    "at": "2026-11-09T18:41:47.230Z"
+    "at": "2026-11-10T01:41:46.907Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "nstu",
-    "sourceId": "home-nstu-https-www-nstu-edu-bd",
-    "url": "https://www.nstu.edu.bd/",
-    "message": "No new documents on NSTU.",
-    "at": "2026-11-09T18:41:47.232Z"
+    "universityId": "pstu",
+    "sourceId": "found-pstu-w-pstu-ac-bd-page-view-pmbaemba-admission-notice",
+    "url": "https://www.pstu.ac.bd/page-view/pmbaemba-admission-notice",
+    "message": "PSTU linked page is unchanged.",
+    "at": "2026-11-10T01:41:47.534Z"
   },
   {
     "level": "info",
@@ -978,7 +789,7 @@
     "sourceId": "home-pust-https-www-pust-ac-bd",
     "url": "https://www.pust.ac.bd/",
     "message": "Connecting to Pabna University of Science and Technology official homepage.",
-    "at": "2026-11-09T18:41:47.244Z"
+    "at": "2026-11-10T01:41:47.544Z"
   },
   {
     "level": "info",
@@ -987,7 +798,7 @@
     "sourceId": "home-just-https-www-just-edu-bd",
     "url": "https://www.just.edu.bd/",
     "message": "JUST homepage is unchanged (304).",
-    "at": "2026-11-09T18:41:48.367Z"
+    "at": "2026-11-10T01:41:49.987Z"
   },
   {
     "level": "info",
@@ -996,7 +807,7 @@
     "sourceId": "found-just-https-www-just-edu-bd-notices-tag-job",
     "url": "https://www.just.edu.bd/notices?tag=job",
     "message": "JUST linked page is unchanged.",
-    "at": "2026-11-09T18:41:49.659Z"
+    "at": "2026-11-10T01:41:51.256Z"
   },
   {
     "level": "error",
@@ -1005,7 +816,7 @@
     "sourceId": "home-mbstu-https-www-mbstu-ac-bd",
     "url": "https://www.mbstu.ac.bd/",
     "message": "MBSTU homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:41:49.990Z"
+    "at": "2026-11-10T01:41:53.121Z"
   },
   {
     "level": "info",
@@ -1014,25 +825,7 @@
     "sourceId": "home-gstu-https-www-gstu-edu-bd",
     "url": "https://www.gstu.edu.bd/",
     "message": "Connecting to Gopalganj Science & Technology University official homepage.",
-    "at": "2026-11-09T18:41:50.001Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "just",
-    "sourceId": "found-just-https-www-just-edu-bd-offices-jsc-notice",
-    "url": "https://www.just.edu.bd/offices/jsc/notice",
-    "message": "JUST linked page is unchanged.",
-    "at": "2026-11-09T18:41:51.500Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "rmstu",
-    "sourceId": "home-rmstu-https-www-rmstu-edu-bd",
-    "url": "https://www.rmstu.edu.bd/",
-    "message": "Connecting to Rangamati Science and Technology University official homepage.",
-    "at": "2026-11-09T18:41:51.510Z"
+    "at": "2026-11-10T01:41:53.130Z"
   },
   {
     "level": "info",
@@ -1041,25 +834,7 @@
     "sourceId": "home-pust-https-www-pust-ac-bd",
     "url": "https://www.pust.ac.bd/",
     "message": "PUST homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:41:53.126Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "pust",
-    "sourceId": "found-pust-https-pust-ac-bd-admission",
-    "url": "https://pust.ac.bd/admission",
-    "message": "PUST linked page is unchanged.",
-    "at": "2026-11-09T18:41:53.434Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "gstu",
-    "sourceId": "home-gstu-https-www-gstu-edu-bd",
-    "url": "https://www.gstu.edu.bd/",
-    "message": "GSTU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:41:54.466Z"
+    "at": "2026-11-10T01:41:54.835Z"
   },
   {
     "level": "error",
@@ -1068,7 +843,25 @@
     "sourceId": "found-pust-0circular-20-20under-20the-20-20prime-20minister",
     "url": "https://pust.ac.bd/includes/images/notices/PhD%20Fellowship%202025%20circular%20%20under%20the%20%20Prime%20Minister&",
     "message": "PUST linked page failed: HTTP 404. The registered URL looks broken.",
-    "at": "2026-11-09T18:41:54.626Z"
+    "at": "2026-11-10T01:41:55.099Z"
+  },
+  {
+    "level": "info",
+    "type": "connect",
+    "universityId": "rmstu",
+    "sourceId": "home-rmstu-https-www-rmstu-edu-bd",
+    "url": "https://www.rmstu.edu.bd/",
+    "message": "Connecting to Rangamati Science and Technology University official homepage.",
+    "at": "2026-11-10T01:41:55.111Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "just",
+    "sourceId": "found-just-https-www-just-edu-bd-offices-jsc-notice",
+    "url": "https://www.just.edu.bd/offices/jsc/notice",
+    "message": "JUST linked page is unchanged.",
+    "at": "2026-11-10T01:41:55.357Z"
   },
   {
     "level": "info",
@@ -1077,25 +870,16 @@
     "sourceId": "home-jstu-https-bsfmstu-ac-bd",
     "url": "https://bsfmstu.ac.bd/",
     "message": "Connecting to Jamalpur Science and Technology University official homepage.",
-    "at": "2026-11-09T18:41:54.637Z"
+    "at": "2026-11-10T01:41:55.371Z"
   },
   {
     "level": "info",
     "type": "no_change",
     "universityId": "gstu",
-    "sourceId": "found-gstu-https-www-gstu-edu-bd-admission",
-    "url": "https://www.gstu.edu.bd/admission",
-    "message": "GSTU linked page is unchanged.",
-    "at": "2026-11-09T18:41:56.712Z"
-  },
-  {
-    "level": "error",
-    "type": "fail",
-    "universityId": "rmstu",
-    "sourceId": "home-rmstu-https-www-rmstu-edu-bd",
-    "url": "https://www.rmstu.edu.bd/",
-    "message": "RMSTU homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:41:57.276Z"
+    "sourceId": "home-gstu-https-www-gstu-edu-bd",
+    "url": "https://www.gstu.edu.bd/",
+    "message": "GSTU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:41:56.716Z"
   },
   {
     "level": "info",
@@ -1104,16 +888,7 @@
     "sourceId": "home-cstu-https-www-cstu-ac-bd",
     "url": "https://www.cstu.ac.bd/",
     "message": "Connecting to Chandpur Science and Technology University official homepage.",
-    "at": "2026-11-09T18:41:57.288Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "gstu",
-    "sourceId": "found-gstu-https-gstu-edu-bd-admission",
-    "url": "https://gstu.edu.bd/admission",
-    "message": "GSTU linked page is unchanged.",
-    "at": "2026-11-09T18:41:58.084Z"
+    "at": "2026-11-10T01:41:56.727Z"
   },
   {
     "level": "info",
@@ -1122,7 +897,7 @@
     "sourceId": "home-jstu-https-bsfmstu-ac-bd",
     "url": "https://bsfmstu.ac.bd/",
     "message": "JSTU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:41:58.442Z"
+    "at": "2026-11-10T01:41:58.027Z"
   },
   {
     "level": "info",
@@ -1131,34 +906,7 @@
     "sourceId": "home-sstu-https-www-sstu-ac-bd",
     "url": "https://www.sstu.ac.bd/",
     "message": "Connecting to Sunamganj Science and Technology University official homepage.",
-    "at": "2026-11-09T18:41:58.453Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "gstu",
-    "sourceId": "found-gstu-https-gstu-edu-bd-s-habijabi-habijabi-xml",
-    "url": "https://gstu.edu.bd/s/habijabi/habijabi.xml",
-    "message": "GSTU linked page is unchanged.",
-    "at": "2026-11-09T18:41:59.255Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "prstu",
-    "sourceId": "home-prstu-https-www-prstu-ac-bd",
-    "url": "https://www.prstu.ac.bd/",
-    "message": "Connecting to Pirojpur Science & Technology University official homepage.",
-    "at": "2026-11-09T18:41:59.265Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "prstu",
-    "sourceId": "home-prstu-https-www-prstu-ac-bd",
-    "url": "https://www.prstu.ac.bd/",
-    "message": "PRSTU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:42:00.535Z"
+    "at": "2026-11-10T01:41:58.037Z"
   },
   {
     "level": "info",
@@ -1167,43 +915,7 @@
     "sourceId": "home-cstu-https-www-cstu-ac-bd",
     "url": "https://www.cstu.ac.bd/",
     "message": "CSTU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:42:00.733Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "prstu",
-    "sourceId": "found-prstu-ps-prstu-ac-bd-studentuser-career-id-4-xyz-ftrwt",
-    "url": "https://prstu.ac.bd/Studentuser/career?id=4&xyz=ftrwt",
-    "message": "PRSTU linked page is unchanged.",
-    "at": "2026-11-09T18:42:00.735Z"
-  },
-  {
-    "level": "warn",
-    "type": "skip",
-    "universityId": "lstu",
-    "sourceId": "missing-lstu",
-    "url": null,
-    "message": "Lakshmipur Science & Technology University has no official website on file. Skipped. Not marked unchanged.",
-    "at": "2026-11-09T18:42:00.745Z"
-  },
-  {
-    "level": "warn",
-    "type": "skip",
-    "universityId": "nrstu",
-    "sourceId": "missing-nrstu",
-    "url": null,
-    "message": "Narayanganj Science and Technology University has no official website on file. Skipped. Not marked unchanged.",
-    "at": "2026-11-09T18:42:00.755Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "uftb",
-    "sourceId": "home-uftb-https-www-uftb-ac-bd",
-    "url": "https://www.uftb.ac.bd/",
-    "message": "Connecting to University of Frontier Technology, Bangladesh official homepage.",
-    "at": "2026-11-09T18:42:00.765Z"
+    "at": "2026-11-10T01:42:03.672Z"
   },
   {
     "level": "info",
@@ -1212,16 +924,61 @@
     "sourceId": "home-sstu-https-www-sstu-ac-bd",
     "url": "https://www.sstu.ac.bd/",
     "message": "SSTU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:42:01.291Z"
+    "at": "2026-11-10T01:42:03.834Z"
+  },
+  {
+    "level": "info",
+    "type": "connect",
+    "universityId": "prstu",
+    "sourceId": "home-prstu-https-www-prstu-ac-bd",
+    "url": "https://www.prstu.ac.bd/",
+    "message": "Connecting to Pirojpur Science & Technology University official homepage.",
+    "at": "2026-11-10T01:42:03.847Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "sstu",
-    "sourceId": "found-sstu-https-www-sstu-ac-bd-notice-all",
-    "url": "https://www.sstu.ac.bd/notice/all",
-    "message": "SSTU linked page is unchanged.",
-    "at": "2026-11-09T18:42:02.460Z"
+    "universityId": "prstu",
+    "sourceId": "home-prstu-https-www-prstu-ac-bd",
+    "url": "https://www.prstu.ac.bd/",
+    "message": "PRSTU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:42:04.821Z"
+  },
+  {
+    "level": "warn",
+    "type": "skip",
+    "universityId": "lstu",
+    "sourceId": "missing-lstu",
+    "url": null,
+    "message": "Lakshmipur Science & Technology University has no official website on file. Skipped. Not marked unchanged.",
+    "at": "2026-11-10T01:42:04.832Z"
+  },
+  {
+    "level": "warn",
+    "type": "skip",
+    "universityId": "nrstu",
+    "sourceId": "missing-nrstu",
+    "url": null,
+    "message": "Narayanganj Science and Technology University has no official website on file. Skipped. Not marked unchanged.",
+    "at": "2026-11-10T01:42:04.843Z"
+  },
+  {
+    "level": "info",
+    "type": "connect",
+    "universityId": "uftb",
+    "sourceId": "home-uftb-https-www-uftb-ac-bd",
+    "url": "https://www.uftb.ac.bd/",
+    "message": "Connecting to University of Frontier Technology, Bangladesh official homepage.",
+    "at": "2026-11-10T01:42:04.853Z"
+  },
+  {
+    "level": "error",
+    "type": "fail",
+    "universityId": "rmstu",
+    "sourceId": "home-rmstu-https-www-rmstu-edu-bd",
+    "url": "https://www.rmstu.edu.bd/",
+    "message": "RMSTU homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
+    "at": "2026-11-10T01:42:05.730Z"
   },
   {
     "level": "info",
@@ -1230,7 +987,7 @@
     "sourceId": "home-bau-https-www-bau-edu-bd",
     "url": "https://www.bau.edu.bd/",
     "message": "Connecting to Bangladesh Agricultural University official homepage.",
-    "at": "2026-11-09T18:42:02.470Z"
+    "at": "2026-11-10T01:42:05.740Z"
   },
   {
     "level": "error",
@@ -1239,16 +996,7 @@
     "sourceId": "found-cstu-https-admission-cstu-ac-bd-notice-list",
     "url": "https://admission.cstu.ac.bd/notice/list",
     "message": "CSTU linked page failed: HTTP 502. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:42:04.495Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "cstu",
-    "sourceId": "found-cstu-https-www-cstu-ac-bd-notices",
-    "url": "https://www.cstu.ac.bd/notices",
-    "message": "CSTU linked page is unchanged.",
-    "at": "2026-11-09T18:42:05.424Z"
+    "at": "2026-11-10T01:42:07.476Z"
   },
   {
     "level": "info",
@@ -1257,16 +1005,7 @@
     "sourceId": "home-gau-https-gau-edu-bd",
     "url": "https://gau.edu.bd/",
     "message": "Connecting to Gazipur Agricultural University official homepage.",
-    "at": "2026-11-09T18:42:05.434Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "gau",
-    "sourceId": "home-gau-https-gau-edu-bd",
-    "url": "https://gau.edu.bd/",
-    "message": "GAU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:42:12.558Z"
+    "at": "2026-11-10T01:42:07.488Z"
   },
   {
     "level": "info",
@@ -1275,7 +1014,7 @@
     "sourceId": "home-bau-https-www-bau-edu-bd",
     "url": "https://www.bau.edu.bd/",
     "message": "BAU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:42:13.140Z"
+    "at": "2026-11-10T01:42:08.484Z"
   },
   {
     "level": "info",
@@ -1284,7 +1023,7 @@
     "sourceId": "found-bau-https-www-bau-edu-bd-notice-board-type-notices",
     "url": "https://www.bau.edu.bd/notice-board?type=notices",
     "message": "BAU linked page is unchanged.",
-    "at": "2026-11-09T18:42:15.162Z"
+    "at": "2026-11-10T01:42:10.383Z"
   },
   {
     "level": "info",
@@ -1293,16 +1032,16 @@
     "sourceId": "home-sau-https-www-sau-edu-bd",
     "url": "https://www.sau.edu.bd/",
     "message": "Connecting to Sher-e-Bangla Agricultural University official homepage.",
-    "at": "2026-11-09T18:42:15.174Z"
+    "at": "2026-11-10T01:42:10.394Z"
   },
   {
-    "level": "error",
-    "type": "fail",
-    "universityId": "uftb",
-    "sourceId": "home-uftb-https-www-uftb-ac-bd",
-    "url": "https://www.uftb.ac.bd/",
-    "message": "UFTB homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:42:17.386Z"
+    "level": "info",
+    "type": "no_change",
+    "universityId": "sau",
+    "sourceId": "home-sau-https-www-sau-edu-bd",
+    "url": "https://www.sau.edu.bd/",
+    "message": "SAU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:42:12.762Z"
   },
   {
     "level": "info",
@@ -1311,61 +1050,16 @@
     "sourceId": "home-sylau-https-www-sau-ac-bd",
     "url": "https://www.sau.ac.bd/",
     "message": "Connecting to Sylhet Agricultural University official homepage.",
-    "at": "2026-11-09T18:42:17.396Z"
+    "at": "2026-11-10T01:42:12.772Z"
   },
   {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "gau",
-    "sourceId": "found-gau-https-gau-edu-bd-admission",
-    "url": "https://gau.edu.bd/admission",
-    "message": "GAU linked page is unchanged.",
-    "at": "2026-11-09T18:42:17.583Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "sau",
-    "sourceId": "home-sau-https-www-sau-edu-bd",
-    "url": "https://www.sau.edu.bd/",
-    "message": "Retrieved SAU homepage.",
-    "at": "2026-11-09T18:42:18.911Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "sau",
-    "sourceId": "home-sau-https-www-sau-edu-bd",
-    "url": "https://www.sau.edu.bd/",
-    "message": "No new documents on SAU.",
-    "at": "2026-11-09T18:42:18.916Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "sau",
-    "sourceId": "found-sau-https-www-sau-edu-bd-home-notice-detail-1090",
-    "url": "https://www.sau.edu.bd/home/notice-detail/1090",
-    "message": "Opening linked page for SAU: শেকৃবির কৃষি অনুষদের Level-3 Semester-II/2024 এর Makeup প্রাপ্ত সকল ছাত্র-ছাত্রী ও সংশ্লিষ্টগণের অবগতির নিমিত্তে বিজ্ঞপ্তি",
-    "at": "2026-11-09T18:42:18.920Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "sau",
-    "sourceId": "found-sau-https-www-sau-edu-bd-home-notice-detail-1089",
-    "url": "https://www.sau.edu.bd/home/notice-detail/1089",
-    "message": "Opening linked page for SAU: শেকৃবির এগ্রিবিজনেস ম্যানেজমেন্ট অনুষদের B.Sc. Agricultural Economics (Hons.) প্রোগ্রামের Level-2 Semester-I, 2026 এর শিক্ষার্থী ও সংশ্লিষ্টগণের অবগতির নিমিত্তে Academic Calendar ও Class Routine সংক্রান্ত বিজ্ঞপ্তি",
-    "at": "2026-11-09T18:42:20.301Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "sylau",
-    "sourceId": "home-sylau-https-www-sau-ac-bd",
-    "url": "https://www.sau.ac.bd/",
-    "message": "SylAU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:42:20.468Z"
+    "level": "error",
+    "type": "fail",
+    "universityId": "uftb",
+    "sourceId": "home-uftb-https-www-uftb-ac-bd",
+    "url": "https://www.uftb.ac.bd/",
+    "message": "UFTB homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
+    "at": "2026-11-10T01:42:14.108Z"
   },
   {
     "level": "info",
@@ -1374,25 +1068,25 @@
     "sourceId": "home-kau-https-www-kau-edu-bd",
     "url": "https://www.kau.edu.bd/",
     "message": "Connecting to Khulna Agricultural University official homepage.",
-    "at": "2026-11-09T18:42:21.682Z"
+    "at": "2026-11-10T01:42:14.117Z"
   },
   {
     "level": "info",
     "type": "no_change",
     "universityId": "sylau",
-    "sourceId": "found-sylau-https-www-sau-ac-bd-notice-view-all-circular",
-    "url": "https://www.sau.ac.bd/notice/view_all/circular",
-    "message": "SylAU linked page is unchanged.",
-    "at": "2026-11-09T18:42:21.690Z"
+    "sourceId": "home-sylau-https-www-sau-ac-bd",
+    "url": "https://www.sau.ac.bd/",
+    "message": "SylAU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:42:14.706Z"
   },
   {
-    "level": "error",
-    "type": "fail",
-    "universityId": "kiu",
-    "sourceId": "home-kiu-https-bsmru-ac-bd",
-    "url": "https://bsmru.ac.bd/",
-    "message": "KiU homepage failed: timeout. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:42:21.916Z"
+    "level": "info",
+    "type": "no_change",
+    "universityId": "gau",
+    "sourceId": "home-gau-https-gau-edu-bd",
+    "url": "https://gau.edu.bd/",
+    "message": "GAU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:42:14.827Z"
   },
   {
     "level": "info",
@@ -1401,16 +1095,7 @@
     "sourceId": "home-hau-https-www-hau-ac-bd",
     "url": "https://www.hau.ac.bd/",
     "message": "Connecting to Hobiganj Agricultural University official homepage.",
-    "at": "2026-11-09T18:42:21.927Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "gau",
-    "sourceId": "found-gau-tps-gau-edu-bd-admission-undergraduate-admission",
-    "url": "https://gau.edu.bd/admission/undergraduate-admission",
-    "message": "GAU linked page is unchanged.",
-    "at": "2026-11-09T18:42:23.627Z"
+    "at": "2026-11-10T01:42:14.841Z"
   },
   {
     "level": "info",
@@ -1419,7 +1104,7 @@
     "sourceId": "found-sylau-https-sau-ac-bd-notice-view-all-notice",
     "url": "https://sau.ac.bd/notice/view_all/notice",
     "message": "SylAU linked page is unchanged.",
-    "at": "2026-11-09T18:42:28.759Z"
+    "at": "2026-11-10T01:42:15.724Z"
   },
   {
     "level": "info",
@@ -1428,43 +1113,7 @@
     "sourceId": "home-kurau-https-www-kuriau-edu-bd",
     "url": "https://www.kuriau.edu.bd/",
     "message": "Connecting to Kurigram Agricultural University official homepage.",
-    "at": "2026-11-09T18:42:28.770Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "gau",
-    "sourceId": "found-gau-https-gau-edu-bd-feed",
-    "url": "https://gau.edu.bd/feed",
-    "message": "GAU linked page is unchanged.",
-    "at": "2026-11-09T18:42:28.830Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "gau",
-    "sourceId": "found-gau-https-gau-edu-bd-wp-sitemap-xml",
-    "url": "https://gau.edu.bd/wp-sitemap.xml",
-    "message": "GAU linked page is unchanged.",
-    "at": "2026-11-09T18:42:31.633Z"
-  },
-  {
-    "level": "warn",
-    "type": "skip",
-    "universityId": "shau",
-    "sourceId": "missing-shau",
-    "url": null,
-    "message": "Shariatpur Agricultural University has no official website on file. Skipped. Not marked unchanged.",
-    "at": "2026-11-09T18:42:31.644Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "cvasu",
-    "sourceId": "home-cvasu-https-www-cvasu-ac-bd",
-    "url": "https://www.cvasu.ac.bd/",
-    "message": "Connecting to Chittagong Veterinary and Animal Sciences University official homepage.",
-    "at": "2026-11-09T18:42:31.654Z"
+    "at": "2026-11-10T01:42:15.735Z"
   },
   {
     "level": "info",
@@ -1473,52 +1122,34 @@
     "sourceId": "home-hau-https-www-hau-ac-bd",
     "url": "https://www.hau.ac.bd/",
     "message": "HAU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:42:34.010Z"
+    "at": "2026-11-10T01:42:17.049Z"
+  },
+  {
+    "level": "warn",
+    "type": "skip",
+    "universityId": "shau",
+    "sourceId": "missing-shau",
+    "url": null,
+    "message": "Shariatpur Agricultural University has no official website on file. Skipped. Not marked unchanged.",
+    "at": "2026-11-10T01:42:17.060Z"
   },
   {
     "level": "info",
-    "type": "no_change",
-    "universityId": "kurau",
-    "sourceId": "home-kurau-https-www-kuriau-edu-bd",
-    "url": "https://www.kuriau.edu.bd/",
-    "message": "KurAU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:42:34.281Z"
+    "type": "connect",
+    "universityId": "cvasu",
+    "sourceId": "home-cvasu-https-www-cvasu-ac-bd",
+    "url": "https://www.cvasu.ac.bd/",
+    "message": "Connecting to Chittagong Veterinary and Animal Sciences University official homepage.",
+    "at": "2026-11-10T01:42:17.069Z"
   },
   {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "kurau",
-    "sourceId": "found-kurau-https-www-kuriau-edu-bd-notice-and-announcements",
-    "url": "https://www.kuriau.edu.bd/notice-and-announcements",
-    "message": "KurAU linked page is unchanged.",
-    "at": "2026-11-09T18:42:35.840Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "kurau",
-    "sourceId": "found-kurau-edu-bd-news-ebd47827-8ac0-43a8-8d48-5f880979c491",
-    "url": "https://www.kuriau.edu.bd/news/ebd47827-8ac0-43a8-8d48-5f880979c491",
-    "message": "KurAU linked page is unchanged.",
-    "at": "2026-11-09T18:42:37.159Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "hau",
-    "sourceId": "found-hau-sreneete-vrtir-nimitt-prkasit-vrti-bijngpti-show",
-    "url": "https://hau.ac.bd/notice/20260608113844-10-06-2026-tarikh-hte-11-06-2026-tarikh-prznt-hbignj-krrishi-biswbidzalyer-jnz-nirwacit-prartheederkrrishigucch-vrti-preeksha-2025-2026-sikshabrsh-bivinn-onushde-snatk-level-1semistar-1-sreneete-vrtir-nimitt-prkasit-vrti-bijngpti/show",
-    "message": "HAU linked page is unchanged.",
-    "at": "2026-11-09T18:42:39.484Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "kurau",
-    "sourceId": "found-kurau-https-kuriau-edu-bd-sitemap-xml",
-    "url": "https://kuriau.edu.bd/sitemap.xml",
-    "message": "KurAU linked page is unchanged.",
-    "at": "2026-11-09T18:42:39.830Z"
+    "level": "error",
+    "type": "fail",
+    "universityId": "kiu",
+    "sourceId": "home-kiu-https-bsmru-ac-bd",
+    "url": "https://bsmru.ac.bd/",
+    "message": "KiU homepage failed: timeout. Will try again next cycle. This is not an unchanged page.",
+    "at": "2026-11-10T01:42:25.419Z"
   },
   {
     "level": "info",
@@ -1527,16 +1158,61 @@
     "sourceId": "home-bmu-med-https-www-bmu-ac-bd",
     "url": "https://www.bmu.ac.bd/",
     "message": "Connecting to Bangladesh Medical University official homepage.",
-    "at": "2026-11-09T18:42:39.842Z"
+    "at": "2026-11-10T01:42:25.431Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "hau",
-    "sourceId": "found-hau-oza-chatr-chatreeder-vrti-sngkrant-bijngpti-show",
-    "url": "https://hau.ac.bd/notice/20250615083124-agamee-18-tarikhe-2y-dhape-2024-25-sikshabrshe-snatk-level-1-semistar-1-sreneete-hbignj-krrishi-biswbidzalze-suzog-paooza-chatr-chatreeder-vrti-sngkrant-bijngpti/show",
-    "message": "HAU linked page is unchanged.",
-    "at": "2026-11-09T18:42:41.421Z"
+    "universityId": "kurau",
+    "sourceId": "home-kurau-https-www-kuriau-edu-bd",
+    "url": "https://www.kuriau.edu.bd/",
+    "message": "KurAU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:42:26.651Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "kurau",
+    "sourceId": "found-kurau-https-www-kuriau-edu-bd-notice-and-announcements",
+    "url": "https://www.kuriau.edu.bd/notice-and-announcements",
+    "message": "KurAU linked page is unchanged.",
+    "at": "2026-11-10T01:42:28.195Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "bmu-med",
+    "sourceId": "home-bmu-med-https-www-bmu-ac-bd",
+    "url": "https://www.bmu.ac.bd/",
+    "message": "BMU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:42:28.660Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "kurau",
+    "sourceId": "found-kurau-edu-bd-news-ebd47827-8ac0-43a8-8d48-5f880979c491",
+    "url": "https://www.kuriau.edu.bd/news/ebd47827-8ac0-43a8-8d48-5f880979c491",
+    "message": "KurAU linked page is unchanged.",
+    "at": "2026-11-10T01:42:29.427Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "bmu-med",
+    "sourceId": "found-bmu-med--bd-bmu-residency-2027-local-admission-index-php",
+    "url": "https://forms.bmu.ac.bd/bmu_residency_2027/local/admission/index.php",
+    "message": "BMU linked page is unchanged.",
+    "at": "2026-11-10T01:42:30.302Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "kurau",
+    "sourceId": "found-kurau-https-kuriau-edu-bd-sitemap-xml",
+    "url": "https://kuriau.edu.bd/sitemap.xml",
+    "message": "KurAU linked page is unchanged.",
+    "at": "2026-11-10T01:42:30.996Z"
   },
   {
     "level": "info",
@@ -1545,34 +1221,16 @@
     "sourceId": "home-cmu-https-www-cmu-edu-bd",
     "url": "https://www.cmu.edu.bd/",
     "message": "Connecting to Chittagong Medical University official homepage.",
-    "at": "2026-11-09T18:42:41.431Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "bmu-med",
-    "sourceId": "home-bmu-med-https-www-bmu-ac-bd",
-    "url": "https://www.bmu.ac.bd/",
-    "message": "Retrieved BMU homepage.",
-    "at": "2026-11-09T18:42:41.577Z"
+    "at": "2026-11-10T01:42:31.007Z"
   },
   {
     "level": "info",
     "type": "no_change",
     "universityId": "bmu-med",
-    "sourceId": "home-bmu-med-https-www-bmu-ac-bd",
-    "url": "https://www.bmu.ac.bd/",
-    "message": "No new documents on BMU.",
-    "at": "2026-11-09T18:42:41.582Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bmu-med",
-    "sourceId": "found-bmu-med-https-www-bmu-ac-bd-notice-1996-from-all",
-    "url": "https://www.bmu.ac.bd/notice/1996?from=all",
-    "message": "Opening linked page for BMU: 06 Nov 2026 Residency Program (MD &amp; MS Phase-A) Admission Test Result - March 2027 NEW",
-    "at": "2026-11-09T18:42:41.585Z"
+    "sourceId": "found-bmu-med-https-www-bmu-ac-bd-notice-1993-from-all",
+    "url": "https://www.bmu.ac.bd/notice/1993?from=all",
+    "message": "BMU linked page is unchanged.",
+    "at": "2026-11-10T01:42:31.600Z"
   },
   {
     "level": "error",
@@ -1581,7 +1239,7 @@
     "sourceId": "home-cvasu-https-www-cvasu-ac-bd",
     "url": "https://www.cvasu.ac.bd/",
     "message": "CVASU homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:42:46.089Z"
+    "at": "2026-11-10T01:42:32.268Z"
   },
   {
     "level": "info",
@@ -1590,16 +1248,7 @@
     "sourceId": "home-rmu-https-www-rmu-ac-bd",
     "url": "https://www.rmu.ac.bd/",
     "message": "Connecting to Rajshahi Medical University official homepage.",
-    "at": "2026-11-09T18:42:46.099Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bmu-med",
-    "sourceId": "found-bmu-med-https-www-bmu-ac-bd-notice-1993-from-all",
-    "url": "https://www.bmu.ac.bd/notice/1993?from=all",
-    "message": "Opening linked page for BMU: 03 Nov 2026 Room Wise Seat Plan for MD, MS Phase-A Residency Program Admission Test March 2027 NEW",
-    "at": "2026-11-09T18:42:46.830Z"
+    "at": "2026-11-10T01:42:32.278Z"
   },
   {
     "level": "info",
@@ -1608,16 +1257,7 @@
     "sourceId": "home-cmu-https-www-cmu-edu-bd",
     "url": "https://www.cmu.edu.bd/",
     "message": "CMU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:42:48.248Z"
-  },
-  {
-    "level": "error",
-    "type": "fail",
-    "universityId": "kau",
-    "sourceId": "home-kau-https-www-kau-edu-bd",
-    "url": "https://www.kau.edu.bd/",
-    "message": "KAU homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:42:49.167Z"
+    "at": "2026-11-10T01:42:33.090Z"
   },
   {
     "level": "info",
@@ -1626,25 +1266,25 @@
     "sourceId": "home-smu-https-www-bsfmmu-edu-bd",
     "url": "https://www.bsfmmu.edu.bd/",
     "message": "Connecting to Sylhet Medical University official homepage.",
-    "at": "2026-11-09T18:42:49.179Z"
+    "at": "2026-11-10T01:42:33.100Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "cmu",
-    "sourceId": "found-cmu-https-www-cmu-edu-bd-news-events-notices-350",
-    "url": "https://www.cmu.edu.bd/news-events-notices/350",
-    "message": "CMU linked page is unchanged.",
-    "at": "2026-11-09T18:42:49.700Z"
+    "universityId": "bmu-med",
+    "sourceId": "found-bmu-med-https-bmu-ac-bd-sitemap-xml",
+    "url": "https://bmu.ac.bd/sitemap.xml",
+    "message": "BMU linked page is unchanged.",
+    "at": "2026-11-10T01:42:33.795Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "cmu",
-    "sourceId": "found-cmu-https-www-cmu-edu-bd-news-events-notices-252",
-    "url": "https://www.cmu.edu.bd/news-events-notices/252",
-    "message": "CMU linked page is unchanged.",
-    "at": "2026-11-09T18:42:51.367Z"
+    "universityId": "bmu-med",
+    "sourceId": "found-bmu-med-https-www-bmu-ac-bd-notice-1996-from-all",
+    "url": "https://www.bmu.ac.bd/notice/1996?from=all",
+    "message": "BMU linked page is unchanged.",
+    "at": "2026-11-10T01:42:35.081Z"
   },
   {
     "level": "info",
@@ -1653,16 +1293,7 @@
     "sourceId": "home-kmu-https-www-shmu-ac-bd",
     "url": "https://www.shmu.ac.bd/",
     "message": "Connecting to Khulna Medical University official homepage.",
-    "at": "2026-11-09T18:42:51.378Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bup",
-    "sourceId": "home-bup-https-www-bup-edu-bd",
-    "url": "https://www.bup.edu.bd/",
-    "message": "Connecting to Bangladesh University of Professionals official homepage.",
-    "at": "2026-11-09T18:42:52.503Z"
+    "at": "2026-11-10T01:42:35.092Z"
   },
   {
     "level": "info",
@@ -1671,7 +1302,7 @@
     "sourceId": "home-rmu-https-www-rmu-ac-bd",
     "url": "https://www.rmu.ac.bd/",
     "message": "RMU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:42:54.794Z"
+    "at": "2026-11-10T01:42:36.828Z"
   },
   {
     "level": "error",
@@ -1680,52 +1311,16 @@
     "sourceId": "home-smu-https-www-bsfmmu-edu-bd",
     "url": "https://www.bsfmmu.edu.bd/",
     "message": "SMU homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:42:55.471Z"
+    "at": "2026-11-10T01:42:38.445Z"
   },
   {
     "level": "info",
     "type": "connect",
-    "universityId": "mist",
-    "sourceId": "home-mist-https-mist-ac-bd",
-    "url": "https://mist.ac.bd/",
-    "message": "Connecting to Military Institute of Science and Technology official homepage.",
-    "at": "2026-11-09T18:42:55.482Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
     "universityId": "bup",
     "sourceId": "home-bup-https-www-bup-edu-bd",
     "url": "https://www.bup.edu.bd/",
-    "message": "Retrieved BUP homepage.",
-    "at": "2026-11-09T18:42:56.402Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "bup",
-    "sourceId": "home-bup-https-www-bup-edu-bd",
-    "url": "https://www.bup.edu.bd/",
-    "message": "No new documents on BUP.",
-    "at": "2026-11-09T18:42:56.407Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bup",
-    "sourceId": "found-bup-https-www-bup-edu-bd-academics-admission-1",
-    "url": "https://www.bup.edu.bd/academics/admission/1",
-    "message": "Opening linked page for BUP: Undergraduate Program",
-    "at": "2026-11-09T18:42:56.412Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bup",
-    "sourceId": "found-bup-https-www-bup-edu-bd-academics-admission-2",
-    "url": "https://www.bup.edu.bd/academics/admission/2",
-    "message": "Opening linked page for BUP: Graduate Program",
-    "at": "2026-11-09T18:42:58.356Z"
+    "message": "Connecting to Bangladesh University of Professionals official homepage.",
+    "at": "2026-11-10T01:42:38.456Z"
   },
   {
     "level": "info",
@@ -1734,16 +1329,43 @@
     "sourceId": "found-rmu-https-rmu-ac-bd-notice",
     "url": "https://rmu.ac.bd/notice",
     "message": "RMU linked page is unchanged.",
-    "at": "2026-11-09T18:42:58.723Z"
+    "at": "2026-11-10T01:42:40.741Z"
+  },
+  {
+    "level": "error",
+    "type": "fail",
+    "universityId": "kau",
+    "sourceId": "home-kau-https-www-kau-edu-bd",
+    "url": "https://www.kau.edu.bd/",
+    "message": "KAU homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
+    "at": "2026-11-10T01:42:41.204Z"
   },
   {
     "level": "info",
     "type": "connect",
-    "universityId": "butex",
-    "sourceId": "home-butex-https-www-butex-edu-bd",
-    "url": "https://www.butex.edu.bd/",
-    "message": "Connecting to Bangladesh University of Textiles official homepage.",
-    "at": "2026-11-09T18:43:00.211Z"
+    "universityId": "mist",
+    "sourceId": "home-mist-https-mist-ac-bd",
+    "url": "https://mist.ac.bd/",
+    "message": "Connecting to Military Institute of Science and Technology official homepage.",
+    "at": "2026-11-10T01:42:41.215Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "bup",
+    "sourceId": "home-bup-https-www-bup-edu-bd",
+    "url": "https://www.bup.edu.bd/",
+    "message": "BUP homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:42:41.899Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "bup",
+    "sourceId": "found-bup-https-www-bup-edu-bd-academics-admission-1",
+    "url": "https://www.bup.edu.bd/academics/admission/1",
+    "message": "BUP linked page is unchanged.",
+    "at": "2026-11-10T01:42:43.168Z"
   },
   {
     "level": "info",
@@ -1752,7 +1374,25 @@
     "sourceId": "found-rmu-https-rmu-ac-bd-feed",
     "url": "https://rmu.ac.bd/feed",
     "message": "RMU linked page is unchanged.",
-    "at": "2026-11-09T18:43:01.714Z"
+    "at": "2026-11-10T01:42:43.470Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "bup",
+    "sourceId": "found-bup-https-www-bup-edu-bd-academics-admission-2",
+    "url": "https://www.bup.edu.bd/academics/admission/2",
+    "message": "BUP linked page is unchanged.",
+    "at": "2026-11-10T01:42:45.044Z"
+  },
+  {
+    "level": "info",
+    "type": "connect",
+    "universityId": "butex",
+    "sourceId": "home-butex-https-www-butex-edu-bd",
+    "url": "https://www.butex.edu.bd/",
+    "message": "Connecting to Bangladesh University of Textiles official homepage.",
+    "at": "2026-11-10T01:42:45.056Z"
   },
   {
     "level": "info",
@@ -1761,7 +1401,7 @@
     "sourceId": "found-rmu-https-rmu-ac-bd-sitemap-index-xml",
     "url": "https://rmu.ac.bd/sitemap_index.xml",
     "message": "RMU linked page is unchanged.",
-    "at": "2026-11-09T18:43:03.587Z"
+    "at": "2026-11-10T01:42:46.224Z"
   },
   {
     "level": "info",
@@ -1770,25 +1410,7 @@
     "sourceId": "home-maru-https-bmu-edu-bd",
     "url": "https://bmu.edu.bd/",
     "message": "Connecting to Bangladesh Maritime University official homepage.",
-    "at": "2026-11-09T18:43:03.598Z"
-  },
-  {
-    "level": "error",
-    "type": "fail",
-    "universityId": "mist",
-    "sourceId": "home-mist-https-mist-ac-bd",
-    "url": "https://mist.ac.bd/",
-    "message": "MIST homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:43:05.009Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "aaub",
-    "sourceId": "home-aaub-https-www-aaub-edu-bd",
-    "url": "https://www.aaub.edu.bd/",
-    "message": "Connecting to Aviation and Aerospace University, Bangladesh official homepage.",
-    "at": "2026-11-09T18:43:05.019Z"
+    "at": "2026-11-10T01:42:46.234Z"
   },
   {
     "level": "info",
@@ -1797,7 +1419,7 @@
     "sourceId": "home-maru-https-bmu-edu-bd",
     "url": "https://bmu.edu.bd/",
     "message": "MarU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:43:07.481Z"
+    "at": "2026-11-10T01:42:48.096Z"
   },
   {
     "level": "info",
@@ -1806,61 +1428,25 @@
     "sourceId": "found-maru-https-bmu-edu-bd-admission-admission-notice",
     "url": "https://bmu.edu.bd/admission/admission-notice",
     "message": "MarU linked page is unchanged.",
-    "at": "2026-11-09T18:43:08.669Z"
+    "at": "2026-11-10T01:42:49.255Z"
   },
   {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "maru",
-    "sourceId": "found-maru-https-bmu-edu-bd-admission",
-    "url": "https://bmu.edu.bd/admission",
-    "message": "MarU linked page is unchanged.",
-    "at": "2026-11-09T18:43:09.877Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "iut",
-    "sourceId": "home-iut-https-www-iutoic-dhaka-edu",
-    "url": "https://www.iutoic-dhaka.edu/",
-    "message": "Connecting to Islamic University of Technology official homepage.",
-    "at": "2026-11-09T18:43:11.642Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "iut",
-    "sourceId": "home-iut-https-www-iutoic-dhaka-edu",
-    "url": "https://www.iutoic-dhaka.edu/",
-    "message": "IUT homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:43:13.679Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "aaub",
-    "sourceId": "home-aaub-https-www-aaub-edu-bd",
-    "url": "https://www.aaub.edu.bd/",
-    "message": "Retrieved AAUB homepage.",
-    "at": "2026-11-09T18:43:14.393Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "aaub",
-    "sourceId": "home-aaub-https-www-aaub-edu-bd",
-    "url": "https://www.aaub.edu.bd/",
-    "message": "No new documents on AAUB.",
-    "at": "2026-11-09T18:43:14.395Z"
+    "level": "error",
+    "type": "fail",
+    "universityId": "mist",
+    "sourceId": "home-mist-https-mist-ac-bd",
+    "url": "https://mist.ac.bd/",
+    "message": "MIST homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
+    "at": "2026-11-10T01:42:49.427Z"
   },
   {
     "level": "info",
     "type": "connect",
     "universityId": "aaub",
-    "sourceId": "found-aaub-der-ooriyentesn-klase-ongsgrhn-sngkrant-bijngpti",
-    "url": "https://aaub.edu.bd/notice-details/2025-26-sikshabrshe-snatk-srenite-vrtikrrit-sikshartheeder-ooriyentesn-klase-ongsgrhn-sngkrant-bijngpti",
-    "message": "Opening linked page for AAUB: NEW --> ২০২৫-২৬ শিক্ষাবর্ষে স্নাতক শ্রেণিতে ভর্তিকৃত শিক্ষার্থীদের ওরিয়েন্টেশন ক্লাসে অংশগ্রহণ সংক্রান্ত বিজ্ঞপ্তি --> <!--",
-    "at": "2026-11-09T18:43:14.396Z"
+    "sourceId": "home-aaub-https-www-aaub-edu-bd",
+    "url": "https://www.aaub.edu.bd/",
+    "message": "Connecting to Aviation and Aerospace University, Bangladesh official homepage.",
+    "at": "2026-11-10T01:42:49.439Z"
   },
   {
     "level": "info",
@@ -1869,16 +1455,61 @@
     "sourceId": "home-butex-https-www-butex-edu-bd",
     "url": "https://www.butex.edu.bd/",
     "message": "BUTEX homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:43:15.870Z"
+    "at": "2026-11-10T01:42:50.114Z"
   },
   {
     "level": "info",
     "type": "no_change",
+    "universityId": "maru",
+    "sourceId": "found-maru-https-bmu-edu-bd-admission",
+    "url": "https://bmu.edu.bd/admission",
+    "message": "MarU linked page is unchanged.",
+    "at": "2026-11-10T01:42:50.411Z"
+  },
+  {
+    "level": "info",
+    "type": "fetched",
+    "universityId": "aaub",
+    "sourceId": "home-aaub-https-www-aaub-edu-bd",
+    "url": "https://www.aaub.edu.bd/",
+    "message": "Retrieved AAUB homepage.",
+    "at": "2026-11-10T01:42:51.305Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "aaub",
+    "sourceId": "home-aaub-https-www-aaub-edu-bd",
+    "url": "https://www.aaub.edu.bd/",
+    "message": "No new documents on AAUB.",
+    "at": "2026-11-10T01:42:51.307Z"
+  },
+  {
+    "level": "info",
+    "type": "connect",
+    "universityId": "aaub",
+    "sourceId": "found-aaub-der-ooriyentesn-klase-ongsgrhn-sngkrant-bijngpti",
+    "url": "https://aaub.edu.bd/notice-details/2025-26-sikshabrshe-snatk-srenite-vrtikrrit-sikshartheeder-ooriyentesn-klase-ongsgrhn-sngkrant-bijngpti",
+    "message": "Opening linked page for AAUB: NEW --> ২০২৫-২৬ শিক্ষাবর্ষে স্নাতক শ্রেণিতে ভর্তিকৃত শিক্ষার্থীদের ওরিয়েন্টেশন ক্লাসে অংশগ্রহণ সংক্রান্ত বিজ্ঞপ্তি --> <!--",
+    "at": "2026-11-10T01:42:51.309Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "maru",
+    "sourceId": "found-maru-https-bmu-edu-bd-sitemap-xml",
+    "url": "https://bmu.edu.bd/sitemap.xml",
+    "message": "MarU linked page is unchanged.",
+    "at": "2026-11-10T01:42:52.044Z"
+  },
+  {
+    "level": "info",
+    "type": "connect",
     "universityId": "iut",
-    "sourceId": "found-iut-ttp-admission-iutoic-dhaka-edu-admission-roadmap",
-    "url": "http://admission.iutoic-dhaka.edu/admission-roadmap",
-    "message": "IUT linked page is unchanged.",
-    "at": "2026-11-09T18:43:16.241Z"
+    "sourceId": "home-iut-https-www-iutoic-dhaka-edu",
+    "url": "https://www.iutoic-dhaka.edu/",
+    "message": "Connecting to Islamic University of Technology official homepage.",
+    "at": "2026-11-10T01:42:52.054Z"
   },
   {
     "level": "info",
@@ -1887,7 +1518,7 @@
     "sourceId": "found-aaub-https-aaub-edu-bd-content-admission-info",
     "url": "https://aaub.edu.bd/content/admission-info",
     "message": "Opening linked page for AAUB: Apply Now",
-    "at": "2026-11-09T18:43:16.464Z"
+    "at": "2026-11-10T01:42:52.291Z"
   },
   {
     "level": "info",
@@ -1896,16 +1527,7 @@
     "sourceId": "home-nu-https-www-nu-edu-bd",
     "url": "https://www.nu.edu.bd/",
     "message": "Connecting to National University official homepage.",
-    "at": "2026-11-09T18:43:17.982Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "iut",
-    "sourceId": "found-iut-http-iutoic-dhaka-edu-admission",
-    "url": "http://iutoic-dhaka.edu/admission",
-    "message": "IUT linked page is unchanged.",
-    "at": "2026-11-09T18:43:18.161Z"
+    "at": "2026-11-10T01:42:53.691Z"
   },
   {
     "level": "info",
@@ -1914,7 +1536,16 @@
     "sourceId": "found-butex-11-batch-wpe-tem-dept-msc-in-textile-engineering",
     "url": "https://www.butex.edu.bd/admission-notice-of-11-batch-wpe-tem-dept-msc-in-textile-engineering",
     "message": "BUTEX linked page is unchanged.",
-    "at": "2026-11-09T18:43:19.455Z"
+    "at": "2026-11-10T01:42:53.852Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "iut",
+    "sourceId": "home-iut-https-www-iutoic-dhaka-edu",
+    "url": "https://www.iutoic-dhaka.edu/",
+    "message": "IUT homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:42:55.264Z"
   },
   {
     "level": "info",
@@ -1923,7 +1554,16 @@
     "sourceId": "found-butex-https-www-butex-edu-bd-admissions",
     "url": "https://www.butex.edu.bd/admissions",
     "message": "BUTEX linked page is unchanged.",
-    "at": "2026-11-09T18:43:22.546Z"
+    "at": "2026-11-10T01:42:56.503Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "iut",
+    "sourceId": "found-iut-ttp-admission-iutoic-dhaka-edu-admission-roadmap",
+    "url": "http://admission.iutoic-dhaka.edu/admission-roadmap",
+    "message": "IUT linked page is unchanged.",
+    "at": "2026-11-10T01:42:57.464Z"
   },
   {
     "level": "info",
@@ -1932,7 +1572,7 @@
     "sourceId": "found-butex-https-www-butex-edu-bd-feed",
     "url": "https://www.butex.edu.bd/feed",
     "message": "BUTEX linked page is unchanged.",
-    "at": "2026-11-09T18:43:24.338Z"
+    "at": "2026-11-10T01:42:58.189Z"
   },
   {
     "level": "info",
@@ -1941,7 +1581,34 @@
     "sourceId": "home-bou-https-www-bou-ac-bd",
     "url": "https://www.bou.ac.bd/",
     "message": "Connecting to Bangladesh Open University official homepage.",
-    "at": "2026-11-09T18:43:24.349Z"
+    "at": "2026-11-10T01:42:58.199Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "bou",
+    "sourceId": "home-bou-https-www-bou-ac-bd",
+    "url": "https://www.bou.ac.bd/",
+    "message": "BOU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:43:05.713Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "iut",
+    "sourceId": "found-iut-http-iutoic-dhaka-edu-admission",
+    "url": "http://iutoic-dhaka.edu/admission",
+    "message": "IUT linked page is unchanged.",
+    "at": "2026-11-10T01:43:05.731Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "bou",
+    "sourceId": "found-bou-https-www-bou-ac-bd-noticeboard-admission",
+    "url": "https://www.bou.ac.bd/NoticeBoard/Admission",
+    "message": "BOU linked page is unchanged.",
+    "at": "2026-11-10T01:43:07.007Z"
   },
   {
     "level": "info",
@@ -1950,7 +1617,7 @@
     "sourceId": "found-iut-https-www-iutoic-dhaka-edu-sitemap-xml",
     "url": "https://www.iutoic-dhaka.edu/sitemap.xml",
     "message": "IUT linked page is unchanged.",
-    "at": "2026-11-09T18:43:24.659Z"
+    "at": "2026-11-10T01:43:15.632Z"
   },
   {
     "level": "info",
@@ -1959,43 +1626,7 @@
     "sourceId": "home-iau-https-www-iau-edu-bd",
     "url": "https://www.iau.edu.bd/",
     "message": "Connecting to Islamic Arabic University official homepage.",
-    "at": "2026-11-09T18:43:24.671Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "bou",
-    "sourceId": "home-bou-https-www-bou-ac-bd",
-    "url": "https://www.bou.ac.bd/",
-    "message": "Retrieved BOU homepage.",
-    "at": "2026-11-09T18:43:31.763Z"
-  },
-  {
-    "level": "info",
-    "type": "discover",
-    "universityId": "bou",
-    "sourceId": "home-bou-https-www-bou-ac-bd",
-    "url": "https://www.bou.ac.bd/upload/notice/admission/1881373551080934.pdf",
-    "message": "New document link on BOU: Extended Admission Time of CALP Program, 261 Term (January - June, 2026) 2026-11-09. Not downloaded.",
-    "at": "2026-11-09T18:43:31.771Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bou",
-    "sourceId": "found-bou-https-www-bou-ac-bd-noticeboard-admission",
-    "url": "https://www.bou.ac.bd/NoticeBoard/Admission",
-    "message": "Opening linked page for BOU: Admission",
-    "at": "2026-11-09T18:43:31.775Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bou",
-    "sourceId": "found-bou-https-www-bou-ac-bd-bou-admission",
-    "url": "https://www.bou.ac.bd/BOU/Admission",
-    "message": "Opening linked page for BOU: Online Admission",
-    "at": "2026-11-09T18:43:33.135Z"
+    "at": "2026-11-10T01:43:15.644Z"
   },
   {
     "level": "error",
@@ -2003,8 +1634,8 @@
     "universityId": "kmu",
     "sourceId": "home-kmu-https-www-shmu-ac-bd",
     "url": "https://www.shmu.ac.bd/",
-    "message": "KMU homepage failed: timeout. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:43:55.883Z"
+    "message": "KMU homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
+    "at": "2026-11-10T01:43:36.844Z"
   },
   {
     "level": "info",
@@ -2013,25 +1644,7 @@
     "sourceId": "home-nsu-https-www-northsouth-edu",
     "url": "https://www.northsouth.edu/",
     "message": "Connecting to North South University official homepage.",
-    "at": "2026-11-09T18:43:55.895Z"
-  },
-  {
-    "level": "error",
-    "type": "fail",
-    "universityId": "iau",
-    "sourceId": "home-iau-https-www-iau-edu-bd",
-    "url": "https://www.iau.edu.bd/",
-    "message": "IAU homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:43:56.261Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bracu",
-    "sourceId": "home-bracu-https-www-bracu-ac-bd",
-    "url": "https://www.bracu.ac.bd/",
-    "message": "Connecting to BRAC University official homepage.",
-    "at": "2026-11-09T18:43:56.271Z"
+    "at": "2026-11-10T01:43:36.855Z"
   },
   {
     "level": "error",
@@ -2040,7 +1653,25 @@
     "sourceId": "home-nsu-https-www-northsouth-edu",
     "url": "https://www.northsouth.edu/",
     "message": "NSU homepage failed: HTTP 403. A response that is not a readable document is not a successful check.",
-    "at": "2026-11-09T18:44:00.602Z"
+    "at": "2026-11-10T01:43:39.273Z"
+  },
+  {
+    "level": "info",
+    "type": "connect",
+    "universityId": "bracu",
+    "sourceId": "home-bracu-https-www-bracu-ac-bd",
+    "url": "https://www.bracu.ac.bd/",
+    "message": "Connecting to BRAC University official homepage.",
+    "at": "2026-11-10T01:43:39.285Z"
+  },
+  {
+    "level": "error",
+    "type": "fail",
+    "universityId": "bou",
+    "sourceId": "found-bou-https-www-bou-ac-bd-bou-admission",
+    "url": "https://www.bou.ac.bd/BOU/Admission",
+    "message": "BOU linked page failed: timeout. Will try again next cycle. This is not an unchanged page.",
+    "at": "2026-11-10T01:43:39.709Z"
   },
   {
     "level": "info",
@@ -2049,43 +1680,16 @@
     "sourceId": "home-iub-https-www-iub-edu-bd",
     "url": "https://www.iub.edu.bd/",
     "message": "Connecting to Independent University, Bangladesh official homepage.",
-    "at": "2026-11-09T18:44:00.614Z"
+    "at": "2026-11-10T01:43:39.721Z"
   },
   {
-    "level": "info",
-    "type": "fetched",
+    "level": "error",
+    "type": "fail",
     "universityId": "bracu",
     "sourceId": "home-bracu-https-www-bracu-ac-bd",
     "url": "https://www.bracu.ac.bd/",
-    "message": "Retrieved BRACU homepage.",
-    "at": "2026-11-09T18:44:00.957Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "bracu",
-    "sourceId": "home-bracu-https-www-bracu-ac-bd",
-    "url": "https://www.bracu.ac.bd/",
-    "message": "No new documents on BRACU.",
-    "at": "2026-11-09T18:44:00.959Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bracu",
-    "sourceId": "found-bracu-https-www-bracu-ac-bd-admissions-undergraduate",
-    "url": "https://www.bracu.ac.bd/admissions/undergraduate",
-    "message": "Opening linked page for BRACU: Undergraduate Admission",
-    "at": "2026-11-09T18:44:00.962Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bracu",
-    "sourceId": "found-bracu-st-certificate-courses-be-held-30th-october-2026",
-    "url": "https://www.bracu.ac.bd/admission-test-certificate-courses-be-held-30th-october-2026",
-    "message": "Opening linked page for BRACU: 28 Oct Admission Test for the Certificate Courses- to be held on 30th October 2026",
-    "at": "2026-11-09T18:44:03.008Z"
+    "message": "BRACU homepage failed: HTTP 403. A response that is not a readable document is not a successful check.",
+    "at": "2026-11-10T01:43:40.039Z"
   },
   {
     "level": "info",
@@ -2094,16 +1698,16 @@
     "sourceId": "home-aust-https-www-aust-edu",
     "url": "https://www.aust.edu/",
     "message": "Connecting to Ahsanullah University of Science and Technology official homepage.",
-    "at": "2026-11-09T18:44:04.429Z"
+    "at": "2026-11-10T01:43:40.051Z"
   },
   {
     "level": "error",
     "type": "fail",
-    "universityId": "bou",
-    "sourceId": "found-bou-https-www-bou-ac-bd-bou-admission",
-    "url": "https://www.bou.ac.bd/BOU/Admission",
-    "message": "Linked page failed for BOU: timeout. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:44:05.834Z"
+    "universityId": "iau",
+    "sourceId": "home-iau-https-www-iau-edu-bd",
+    "url": "https://www.iau.edu.bd/",
+    "message": "IAU homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
+    "at": "2026-11-10T01:43:41.112Z"
   },
   {
     "level": "info",
@@ -2112,16 +1716,7 @@
     "sourceId": "home-aiub-https-www-aiub-edu",
     "url": "https://www.aiub.edu/",
     "message": "Connecting to American International University-Bangladesh official homepage.",
-    "at": "2026-11-09T18:44:05.845Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "aust",
-    "sourceId": "home-aust-https-www-aust-edu",
-    "url": "https://www.aust.edu/",
-    "message": "Retrieved AUST homepage.",
-    "at": "2026-11-09T18:44:07.804Z"
+    "at": "2026-11-10T01:43:41.123Z"
   },
   {
     "level": "info",
@@ -2129,26 +1724,8 @@
     "universityId": "aust",
     "sourceId": "home-aust-https-www-aust-edu",
     "url": "https://www.aust.edu/",
-    "message": "No new documents on AUST.",
-    "at": "2026-11-09T18:44:07.808Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "aust",
-    "sourceId": "found-aust-us-of-undergraduate-admission-test-for-fall-2022",
-    "url": "http://admission.aust.edu/syllabus-of-undergraduate-admission-test-for-fall-2022",
-    "message": "Opening linked page for AUST: Syllabus for UG (ENGG./ARCH.) Admission Test, Fall 2022",
-    "at": "2026-11-09T18:44:07.811Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "aiub",
-    "sourceId": "home-aiub-https-www-aiub-edu",
-    "url": "https://www.aiub.edu/",
-    "message": "Retrieved AIUB homepage.",
-    "at": "2026-11-09T18:44:08.918Z"
+    "message": "AUST homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:43:42.417Z"
   },
   {
     "level": "info",
@@ -2156,44 +1733,8 @@
     "universityId": "aiub",
     "sourceId": "home-aiub-https-www-aiub-edu",
     "url": "https://www.aiub.edu/",
-    "message": "No new documents on AIUB.",
-    "at": "2026-11-09T18:44:08.925Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "aiub",
-    "sourceId": "found-aiub-https-www-aiub-edu-admission",
-    "url": "https://www.aiub.edu/admission",
-    "message": "Opening linked page for AIUB: Admission",
-    "at": "2026-11-09T18:44:08.929Z"
-  },
-  {
-    "level": "error",
-    "type": "fail",
-    "universityId": "aust",
-    "sourceId": "found-aust-us-of-undergraduate-admission-test-for-fall-2022",
-    "url": "http://admission.aust.edu/syllabus-of-undergraduate-admission-test-for-fall-2022",
-    "message": "Linked page failed for AUST: HTTP 404. The registered URL looks broken.",
-    "at": "2026-11-09T18:44:09.220Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "aust",
-    "sourceId": "found-aust-https-www-aust-edu-notice-3458",
-    "url": "https://www.aust.edu/notice/3458",
-    "message": "Opening linked page for AUST: বিজ্ঞপ্তি - আহ্ছানউল্লা বিজ্ঞান ও প্রযুক্তি বিশ্বব...",
-    "at": "2026-11-09T18:44:09.220Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "aiub",
-    "sourceId": "found-aiub-https-www-aiub-edu-admission-scholarships",
-    "url": "https://www.aiub.edu/admission/scholarships",
-    "message": "Opening linked page for AIUB: Scholarship Opportunities",
-    "at": "2026-11-09T18:44:10.543Z"
+    "message": "AIUB homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:43:43.043Z"
   },
   {
     "level": "info",
@@ -2202,7 +1743,25 @@
     "sourceId": "home-ewu-https-www-ewubd-edu",
     "url": "https://www.ewubd.edu/",
     "message": "Connecting to East West University official homepage.",
-    "at": "2026-11-09T18:44:11.788Z"
+    "at": "2026-11-10T01:43:43.055Z"
+  },
+  {
+    "level": "error",
+    "type": "fail",
+    "universityId": "aust",
+    "sourceId": "found-aust-us-of-undergraduate-admission-test-for-fall-2022",
+    "url": "http://admission.aust.edu/syllabus-of-undergraduate-admission-test-for-fall-2022",
+    "message": "AUST linked page failed: HTTP 404. The registered URL looks broken.",
+    "at": "2026-11-10T01:43:43.711Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "aust",
+    "sourceId": "found-aust-https-www-aust-edu-notice-3458",
+    "url": "https://www.aust.edu/notice/3458",
+    "message": "AUST linked page is unchanged.",
+    "at": "2026-11-10T01:43:44.677Z"
   },
   {
     "level": "info",
@@ -2211,34 +1770,7 @@
     "sourceId": "home-uiu-https-www-uiu-ac-bd",
     "url": "https://www.uiu.ac.bd/",
     "message": "Connecting to United International University official homepage.",
-    "at": "2026-11-09T18:44:12.164Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "uiu",
-    "sourceId": "home-uiu-https-www-uiu-ac-bd",
-    "url": "https://www.uiu.ac.bd/",
-    "message": "Retrieved UIU homepage.",
-    "at": "2026-11-09T18:44:15.412Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "uiu",
-    "sourceId": "home-uiu-https-www-uiu-ac-bd",
-    "url": "https://www.uiu.ac.bd/",
-    "message": "No new documents on UIU.",
-    "at": "2026-11-09T18:44:15.417Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "uiu",
-    "sourceId": "found-uiu-https-www-uiu-ac-bd-admission-admission-notice",
-    "url": "https://www.uiu.ac.bd/admission/admission-notice",
-    "message": "Opening linked page for UIU: Date of Admission Test",
-    "at": "2026-11-09T18:44:15.420Z"
+    "at": "2026-11-10T01:43:44.687Z"
   },
   {
     "level": "info",
@@ -2247,124 +1779,16 @@
     "sourceId": "home-ewu-https-www-ewubd-edu",
     "url": "https://www.ewubd.edu/",
     "message": "EWU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:44:15.925Z"
+    "at": "2026-11-10T01:43:45.591Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "ewu",
-    "sourceId": "found-ewu-https-www-ewubd-edu-admission-test-result",
-    "url": "https://www.ewubd.edu/admission-test-result",
-    "message": "EWU linked page is unchanged.",
-    "at": "2026-11-09T18:44:17.891Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "ewu",
-    "sourceId": "found-ewu-https-result-ewubd-edu",
-    "url": "https://result.ewubd.edu/",
-    "message": "EWU linked page is unchanged.",
-    "at": "2026-11-09T18:44:18.202Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "diu",
-    "sourceId": "home-diu-https-daffodilvarsity-edu-bd",
-    "url": "https://daffodilvarsity.edu.bd/",
-    "message": "Connecting to Daffodil International University official homepage.",
-    "at": "2026-11-09T18:44:18.213Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
     "universityId": "uiu",
-    "sourceId": "found-uiu-www-uiu-ac-bd-admission-admission-test-procedure",
-    "url": "https://www.uiu.ac.bd/admission/admission-test-procedure",
-    "message": "Opening linked page for UIU: Admission Test Procedure",
-    "at": "2026-11-09T18:44:18.584Z"
-  },
-  {
-    "level": "error",
-    "type": "fail",
-    "universityId": "nu",
-    "sourceId": "home-nu-https-www-nu-edu-bd",
-    "url": "https://www.nu.edu.bd/",
-    "message": "NU homepage failed: timeout. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:44:20.103Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "uap",
-    "sourceId": "home-uap-https-www-uap-bd-edu",
-    "url": "https://www.uap-bd.edu/",
-    "message": "Connecting to University of Asia Pacific official homepage.",
-    "at": "2026-11-09T18:44:20.114Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "diu",
-    "sourceId": "home-diu-https-daffodilvarsity-edu-bd",
-    "url": "https://daffodilvarsity.edu.bd/",
-    "message": "DIU homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:44:20.393Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "uap",
-    "sourceId": "home-uap-https-www-uap-bd-edu",
-    "url": "https://www.uap-bd.edu/",
-    "message": "UAP homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:44:21.253Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "diu",
-    "sourceId": "found-diu-https-daffodilvarsity-edu-bd-admission-contact",
-    "url": "https://daffodilvarsity.edu.bd/admission-contact",
-    "message": "DIU linked page is unchanged.",
-    "at": "2026-11-09T18:44:21.549Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "uap",
-    "sourceId": "found-uap--bd-edu-admissiondir-images-admission-notice-jpg",
-    "url": "https://www.uap-bd.edu/admissiondir/images/admission_notice.jpg",
-    "message": "UAP linked page is unchanged.",
-    "at": "2026-11-09T18:44:22.182Z"
-  },
-  {
-    "level": "info",
-    "type": "discover",
-    "universityId": "uap",
-    "sourceId": "found-uap-https-www-uap-bd-edu-admission-test-results-php",
-    "url": "https://www.uap-bd.edu/admission-test-results/mpharmtech_f26_09112026.pdf",
-    "message": "New document link on UAP: M. Pharm M. Pharm in Pharmaceutical Technology NEW. Not downloaded.",
-    "at": "2026-11-09T18:44:23.119Z"
-  },
-  {
-    "level": "info",
-    "type": "discover",
-    "universityId": "uap",
-    "sourceId": "found-uap-https-www-uap-bd-edu-admission-test-results-php",
-    "url": "https://www.uap-bd.edu/admission-test-results/clinicalpharm_f26_09112026.pdf",
-    "message": "New document link on UAP: M. Pharm M. Pharm in Clinical Pharmacy NEW. Not downloaded.",
-    "at": "2026-11-09T18:44:23.119Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "ulab",
-    "sourceId": "home-ulab-https-ulab-edu-bd",
-    "url": "https://ulab.edu.bd/",
-    "message": "Connecting to University of Liberal Arts Bangladesh official homepage.",
-    "at": "2026-11-09T18:44:23.130Z"
+    "sourceId": "home-uiu-https-www-uiu-ac-bd",
+    "url": "https://www.uiu.ac.bd/",
+    "message": "UIU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:43:46.860Z"
   },
   {
     "level": "info",
@@ -2373,16 +1797,25 @@
     "sourceId": "found-diu-https-daffodilvarsity-edu-bd-sitemap-xml",
     "url": "https://daffodilvarsity.edu.bd/sitemap.xml",
     "message": "DIU linked page is unchanged.",
-    "at": "2026-11-09T18:44:23.195Z"
+    "at": "2026-11-10T01:43:46.906Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "uap",
+    "sourceId": "found-uap-https-www-uap-bd-edu-admission-test-results-php",
+    "url": "https://www.uap-bd.edu/admission_test_results.php",
+    "message": "UAP linked page is unchanged.",
+    "at": "2026-11-10T01:43:47.344Z"
   },
   {
     "level": "info",
     "type": "connect",
-    "universityId": "iubat",
-    "sourceId": "home-iubat-https-www-iubat-edu",
-    "url": "https://www.iubat.edu/",
-    "message": "Connecting to International University of Business Agriculture and Technology official homepage.",
-    "at": "2026-11-09T18:44:23.206Z"
+    "universityId": "ulab",
+    "sourceId": "home-ulab-https-ulab-edu-bd",
+    "url": "https://ulab.edu.bd/",
+    "message": "Connecting to University of Liberal Arts Bangladesh official homepage.",
+    "at": "2026-11-10T01:43:47.353Z"
   },
   {
     "level": "info",
@@ -2391,43 +1824,34 @@
     "sourceId": "home-ulab-https-ulab-edu-bd",
     "url": "https://ulab.edu.bd/",
     "message": "ULAB homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:44:24.810Z"
+    "at": "2026-11-10T01:43:48.028Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "ulab",
-    "sourceId": "found-ulab--admission-test-result-spring-2027-undergraduate",
-    "url": "https://ulab.edu.bd/2026/10/30/admission-test-result-spring-2027-undergraduate",
-    "message": "ULAB linked page is unchanged.",
-    "at": "2026-11-09T18:44:25.991Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "ulab",
-    "sourceId": "found-ulab-https-ulab-edu-bd-notice-board",
-    "url": "https://ulab.edu.bd/notice-board",
-    "message": "ULAB linked page is unchanged.",
-    "at": "2026-11-09T18:44:27.310Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "bubt",
-    "sourceId": "home-bubt-https-www-bubt-edu-bd",
-    "url": "https://www.bubt.edu.bd/",
-    "message": "Connecting to Bangladesh University of Business and Technology official homepage.",
-    "at": "2026-11-09T18:44:27.320Z"
+    "universityId": "uiu",
+    "sourceId": "found-uiu-https-www-uiu-ac-bd-feed",
+    "url": "https://www.uiu.ac.bd/feed",
+    "message": "UIU linked page is unchanged.",
+    "at": "2026-11-10T01:43:48.938Z"
   },
   {
     "level": "info",
     "type": "no_change",
     "universityId": "iubat",
-    "sourceId": "home-iubat-https-www-iubat-edu",
-    "url": "https://www.iubat.edu/",
-    "message": "IUBAT homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:44:28.128Z"
+    "sourceId": "found-iubat-https-iubat-edu-feed",
+    "url": "https://iubat.edu/feed",
+    "message": "IUBAT linked page is unchanged.",
+    "at": "2026-11-10T01:43:49.618Z"
+  },
+  {
+    "level": "info",
+    "type": "skip",
+    "universityId": "bubt",
+    "sourceId": "home-bubt-https-www-bubt-edu-bd",
+    "url": "https://www.bubt.edu.bd/",
+    "message": "Skipping BUBT: last check is still inside its revisit window.",
+    "at": "2026-11-10T01:43:49.630Z"
   },
   {
     "level": "info",
@@ -2436,79 +1860,16 @@
     "sourceId": "home-green-https-green-edu-bd",
     "url": "https://green.edu.bd/",
     "message": "Connecting to Green University of Bangladesh official homepage.",
-    "at": "2026-11-09T18:44:28.439Z"
+    "at": "2026-11-10T01:43:49.642Z"
   },
   {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "iubat",
-    "sourceId": "found-iubat-https-iubat-edu-admission",
-    "url": "https://iubat.edu/admission",
-    "message": "IUBAT linked page is unchanged.",
-    "at": "2026-11-09T18:44:29.436Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "bubt",
-    "sourceId": "home-bubt-https-www-bubt-edu-bd",
-    "url": "https://www.bubt.edu.bd/",
-    "message": "BUBT homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:44:31.429Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "iubat",
-    "sourceId": "found-iubat-https-iubat-edu-notice",
-    "url": "https://iubat.edu/notice",
-    "message": "IUBAT linked page is unchanged.",
-    "at": "2026-11-09T18:44:31.956Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "green",
-    "sourceId": "home-green-https-green-edu-bd",
-    "url": "https://green.edu.bd/",
-    "message": "GUB homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:44:31.995Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "green",
-    "sourceId": "found-green-https-green-edu-bd-admission-notice",
-    "url": "https://green.edu.bd/admission-notice",
-    "message": "GUB linked page is unchanged.",
-    "at": "2026-11-09T18:44:33.357Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "bubt",
-    "sourceId": "found-bubt-https-www-bubt-edu-bd-admission",
-    "url": "https://www.bubt.edu.bd/admission",
-    "message": "BUBT linked page is unchanged.",
-    "at": "2026-11-09T18:44:33.834Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "green",
-    "sourceId": "found-green-https-green-edu-bd-admission-test-result",
-    "url": "https://green.edu.bd/admission-test-result",
-    "message": "GUB linked page is unchanged.",
-    "at": "2026-11-09T18:44:34.722Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "iubat",
-    "sourceId": "found-iubat-https-iubat-edu-wp-sitemap-xml",
-    "url": "https://iubat.edu/wp-sitemap.xml",
-    "message": "IUBAT linked page is unchanged.",
-    "at": "2026-11-09T18:44:35.083Z"
+    "level": "error",
+    "type": "fail",
+    "universityId": "nu",
+    "sourceId": "home-nu-https-www-nu-edu-bd",
+    "url": "https://www.nu.edu.bd/",
+    "message": "NU homepage failed: fetch failed. Will try again next cycle. This is not an unchanged page.",
+    "at": "2026-11-10T01:43:50.888Z"
   },
   {
     "level": "info",
@@ -2517,34 +1878,16 @@
     "sourceId": "home-seu-https-www-seu-edu-bd",
     "url": "https://www.seu.edu.bd/",
     "message": "Connecting to Southeast University official homepage.",
-    "at": "2026-11-09T18:44:35.093Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "iiuc",
-    "sourceId": "home-iiuc-https-www-iiuc-ac-bd",
-    "url": "https://www.iiuc.ac.bd/",
-    "message": "Connecting to International Islamic University Chittagong official homepage.",
-    "at": "2026-11-09T18:44:36.050Z"
+    "at": "2026-11-10T01:43:50.899Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "bubt",
-    "sourceId": "found-bubt-https-bubt-edu-bd-admission",
-    "url": "https://bubt.edu.bd/admission",
-    "message": "BUBT linked page is unchanged.",
-    "at": "2026-11-09T18:44:36.354Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "uits",
-    "sourceId": "home-uits-https-www-uits-edu-bd",
-    "url": "https://www.uits.edu.bd/",
-    "message": "Connecting to University of Information Technology and Sciences official homepage.",
-    "at": "2026-11-09T18:44:36.365Z"
+    "universityId": "green",
+    "sourceId": "home-green-https-green-edu-bd",
+    "url": "https://green.edu.bd/",
+    "message": "GUB homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:43:51.068Z"
   },
   {
     "level": "error",
@@ -2553,25 +1896,25 @@
     "sourceId": "home-seu-https-www-seu-edu-bd",
     "url": "https://www.seu.edu.bd/",
     "message": "SEU homepage failed: HTTP 403. A response that is not a readable document is not a successful check.",
-    "at": "2026-11-09T18:44:37.759Z"
+    "at": "2026-11-10T01:43:51.836Z"
   },
   {
     "level": "info",
     "type": "connect",
-    "universityId": "puc",
-    "sourceId": "home-puc-https-www-puc-ac-bd",
-    "url": "https://www.puc.ac.bd/",
-    "message": "Connecting to Premier University official homepage.",
-    "at": "2026-11-09T18:44:37.772Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
     "universityId": "uits",
     "sourceId": "home-uits-https-www-uits-edu-bd",
     "url": "https://www.uits.edu.bd/",
-    "message": "UITS homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:44:38.160Z"
+    "message": "Connecting to University of Information Technology and Sciences official homepage.",
+    "at": "2026-11-10T01:43:52.369Z"
+  },
+  {
+    "level": "info",
+    "type": "skip",
+    "universityId": "puc",
+    "sourceId": "home-puc-https-www-puc-ac-bd",
+    "url": "https://www.puc.ac.bd/",
+    "message": "Skipping PUC: last check is still inside its revisit window.",
+    "at": "2026-11-10T01:43:52.801Z"
   },
   {
     "level": "info",
@@ -2580,16 +1923,7 @@
     "sourceId": "home-lus-https-www-lus-ac-bd",
     "url": "https://www.lus.ac.bd/",
     "message": "Connecting to Leading University official homepage.",
-    "at": "2026-11-09T18:44:38.170Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "iiuc",
-    "sourceId": "home-iiuc-https-www-iiuc-ac-bd",
-    "url": "https://www.iiuc.ac.bd/",
-    "message": "IIUC homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:44:39.913Z"
+    "at": "2026-11-10T01:43:52.812Z"
   },
   {
     "level": "info",
@@ -2598,25 +1932,7 @@
     "sourceId": "found-iiuc-https-web-iiuc-ac-bd-home-test-result",
     "url": "https://web.iiuc.ac.bd/home/test-result",
     "message": "IIUC linked page is unchanged.",
-    "at": "2026-11-09T18:44:41.249Z"
-  },
-  {
-    "level": "error",
-    "type": "fail",
-    "universityId": "lus",
-    "sourceId": "home-lus-https-www-lus-ac-bd",
-    "url": "https://www.lus.ac.bd/",
-    "message": "LUS homepage failed: HTTP 403. A response that is not a readable document is not a successful check.",
-    "at": "2026-11-09T18:44:41.471Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "eastern",
-    "sourceId": "home-eastern-https-www-easternuni-edu-bd",
-    "url": "https://www.easternuni.edu.bd/",
-    "message": "Connecting to Eastern University official homepage.",
-    "at": "2026-11-09T18:44:41.482Z"
+    "at": "2026-11-10T01:43:52.845Z"
   },
   {
     "level": "error",
@@ -2625,25 +1941,25 @@
     "sourceId": "found-iiuc-https-www-iiuc-ac-bd-home-notice-1149",
     "url": "https://www.iiuc.ac.bd/home/notice/1149",
     "message": "IIUC linked page failed: HTTP 404. The registered URL looks broken.",
-    "at": "2026-11-09T18:44:41.709Z"
+    "at": "2026-11-10T01:43:54.003Z"
   },
   {
     "level": "info",
-    "type": "no_change",
-    "universityId": "puc",
-    "sourceId": "home-puc-https-www-puc-ac-bd",
-    "url": "https://www.puc.ac.bd/",
-    "message": "PUC homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:44:41.974Z"
+    "type": "connect",
+    "universityId": "eastern",
+    "sourceId": "home-eastern-https-www-easternuni-edu-bd",
+    "url": "https://www.easternuni.edu.bd/",
+    "message": "Connecting to Eastern University official homepage.",
+    "at": "2026-11-10T01:43:54.016Z"
   },
   {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "iiuc",
-    "sourceId": "found-iiuc-https-iiuc-ac-bd-sitemap-xml",
-    "url": "https://iiuc.ac.bd/sitemap.xml",
-    "message": "IIUC linked page is unchanged.",
-    "at": "2026-11-09T18:44:42.744Z"
+    "level": "error",
+    "type": "fail",
+    "universityId": "lus",
+    "sourceId": "home-lus-https-www-lus-ac-bd",
+    "url": "https://www.lus.ac.bd/",
+    "message": "LUS homepage failed: HTTP 403. A response that is not a readable document is not a successful check.",
+    "at": "2026-11-10T01:43:54.914Z"
   },
   {
     "level": "info",
@@ -2652,34 +1968,7 @@
     "sourceId": "home-baust-https-www-baust-edu-bd",
     "url": "https://www.baust.edu.bd/",
     "message": "Connecting to Bangladesh Army University of Science and Technology official homepage.",
-    "at": "2026-11-09T18:44:42.756Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "puc",
-    "sourceId": "found-puc-on-spring-2026-date-of-admission-test-17-08-2026",
-    "url": "https://www.puc.ac.bd/Home/Events/admission-test-result-and-admission-notice-for-b--sc---engineering--in-cse-program-batch---50th--session--spring--2026--date-of-admission-test-17-08-2026",
-    "message": "PUC linked page is unchanged.",
-    "at": "2026-11-09T18:44:43.264Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "puc",
-    "sourceId": "found-puc--puc-ac-bd-home-content-alias-admission-circular",
-    "url": "https://www.puc.ac.bd/Home/Content?Alias=admission-circular",
-    "message": "PUC linked page is unchanged.",
-    "at": "2026-11-09T18:44:44.540Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "stamford",
-    "sourceId": "home-stamford-https-www-stamforduniversity-edu-bd",
-    "url": "https://www.stamforduniversity.edu.bd/",
-    "message": "Connecting to Stamford University Bangladesh official homepage.",
-    "at": "2026-11-09T18:44:44.550Z"
+    "at": "2026-11-10T01:43:54.927Z"
   },
   {
     "level": "info",
@@ -2688,7 +1977,7 @@
     "sourceId": "home-baust-https-www-baust-edu-bd",
     "url": "https://baust.edu.bd/",
     "message": "Retrieved BAUST homepage.",
-    "at": "2026-11-09T18:44:44.734Z"
+    "at": "2026-11-10T01:43:56.168Z"
   },
   {
     "level": "info",
@@ -2697,7 +1986,7 @@
     "sourceId": "home-baust-https-www-baust-edu-bd",
     "url": "https://www.baust.edu.bd/",
     "message": "No new documents on BAUST.",
-    "at": "2026-11-09T18:44:44.737Z"
+    "at": "2026-11-10T01:43:56.171Z"
   },
   {
     "level": "info",
@@ -2706,16 +1995,7 @@
     "sourceId": "found-baust--bd-archive-notices-admission-notice-winter-2027",
     "url": "https://baust.edu.bd/archive/notices/admission-notice-winter-2027",
     "message": "Opening linked page for BAUST: Admission Notice: Winter 2027",
-    "at": "2026-11-09T18:44:44.740Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "eastern",
-    "sourceId": "home-eastern-https-www-easternuni-edu-bd",
-    "url": "https://www.easternuni.edu.bd/",
-    "message": "Retrieved EU homepage.",
-    "at": "2026-11-09T18:44:44.878Z"
+    "at": "2026-11-10T01:43:56.174Z"
   },
   {
     "level": "info",
@@ -2723,17 +2003,8 @@
     "universityId": "eastern",
     "sourceId": "home-eastern-https-www-easternuni-edu-bd",
     "url": "https://www.easternuni.edu.bd/",
-    "message": "No new documents on EU.",
-    "at": "2026-11-09T18:44:44.882Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "eastern",
-    "sourceId": "found-eastern-https-www-easternuni-edu-bd-notices",
-    "url": "https://www.easternuni.edu.bd/notices",
-    "message": "Opening linked page for EU: Notice Board",
-    "at": "2026-11-09T18:44:44.885Z"
+    "message": "EU homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:43:56.261Z"
   },
   {
     "level": "info",
@@ -2742,7 +2013,25 @@
     "sourceId": "found-baust-ion-test-result-of-summer-semester-20262nd-phase",
     "url": "https://baust.edu.bd/archive/notices/admission-test-result-of-summer-semester-20262nd-phase",
     "message": "Opening linked page for BAUST: Admission Test Result of Summer Semester 2026(2nd Phase)",
-    "at": "2026-11-09T18:44:44.981Z"
+    "at": "2026-11-10T01:43:56.442Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
+    "universityId": "uits",
+    "sourceId": "home-uits-https-www-uits-edu-bd",
+    "url": "https://www.uits.edu.bd/",
+    "message": "UITS homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:43:57.272Z"
+  },
+  {
+    "level": "info",
+    "type": "skip",
+    "universityId": "stamford",
+    "sourceId": "home-stamford-https-www-stamforduniversity-edu-bd",
+    "url": "https://www.stamforduniversity.edu.bd/",
+    "message": "Skipping SUB: last check is still inside its revisit window.",
+    "at": "2026-11-10T01:43:57.288Z"
   },
   {
     "level": "warn",
@@ -2751,7 +2040,7 @@
     "sourceId": "missing-gst",
     "url": null,
     "message": "GST Cluster — General, Science and Technology has no official website on file. Skipped. Not marked unchanged.",
-    "at": "2026-11-09T18:44:46.112Z"
+    "at": "2026-11-10T01:43:57.300Z"
   },
   {
     "level": "info",
@@ -2760,16 +2049,7 @@
     "sourceId": "home-agri-https-www-sau-edu-bd",
     "url": "https://www.sau.edu.bd/",
     "message": "Connecting to Agricultural Cluster — nine universities official homepage.",
-    "at": "2026-11-09T18:44:46.121Z"
-  },
-  {
-    "level": "info",
-    "type": "fetched",
-    "universityId": "agri",
-    "sourceId": "home-agri-https-www-sau-edu-bd",
-    "url": "https://www.sau.edu.bd/",
-    "message": "Retrieved AGRI homepage.",
-    "at": "2026-11-09T18:44:46.121Z"
+    "at": "2026-11-10T01:43:57.314Z"
   },
   {
     "level": "info",
@@ -2777,26 +2057,8 @@
     "universityId": "agri",
     "sourceId": "home-agri-https-www-sau-edu-bd",
     "url": "https://www.sau.edu.bd/",
-    "message": "No new documents on AGRI.",
-    "at": "2026-11-09T18:44:46.127Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "agri",
-    "sourceId": "found-agri-https-www-sau-edu-bd-home-notice-detail-1090",
-    "url": "https://www.sau.edu.bd/home/notice-detail/1090",
-    "message": "Opening linked page for AGRI: শেকৃবির কৃষি অনুষদের Level-3 Semester-II/2024 এর Makeup প্রাপ্ত সকল ছাত্র-ছাত্রী ও সংশ্লিষ্টগণের অবগতির নিমিত্তে বিজ্ঞপ্তি",
-    "at": "2026-11-09T18:44:46.132Z"
-  },
-  {
-    "level": "info",
-    "type": "connect",
-    "universityId": "agri",
-    "sourceId": "found-agri-https-www-sau-edu-bd-home-notice-detail-1089",
-    "url": "https://www.sau.edu.bd/home/notice-detail/1089",
-    "message": "Opening linked page for AGRI: শেকৃবির এগ্রিবিজনেস ম্যানেজমেন্ট অনুষদের B.Sc. Agricultural Economics (Hons.) প্রোগ্রামের Level-2 Semester-I, 2026 এর শিক্ষার্থী ও সংশ্লিষ্টগণের অবগতির নিমিত্তে Academic Calendar ও Class Routine সংক্রান্ত বিজ্ঞপ্তি",
-    "at": "2026-11-09T18:44:46.134Z"
+    "message": "AGRI homepage matches the stored link fingerprint.",
+    "at": "2026-11-10T01:43:57.314Z"
   },
   {
     "level": "info",
@@ -2805,43 +2067,34 @@
     "sourceId": "home-dghs-https-www-dghs-gov-bd",
     "url": "https://www.dghs.gov.bd/",
     "message": "Connecting to Medical and Dental Admission — DGHS official homepage.",
-    "at": "2026-11-09T18:44:46.148Z"
+    "at": "2026-11-10T01:43:57.327Z"
   },
   {
     "level": "info",
-    "type": "connect",
+    "type": "no_change",
+    "universityId": "eastern",
+    "sourceId": "found-eastern-https-www-easternuni-edu-bd-notices",
+    "url": "https://www.easternuni.edu.bd/notices",
+    "message": "EU linked page is unchanged.",
+    "at": "2026-11-10T01:43:58.151Z"
+  },
+  {
+    "level": "info",
+    "type": "no_change",
     "universityId": "eastern",
     "sourceId": "found-eastern-https-www-easternuni-edu-bd-admission",
     "url": "https://www.easternuni.edu.bd/admission",
-    "message": "Opening linked page for EU: Admission Information",
-    "at": "2026-11-09T18:44:46.810Z"
+    "message": "EU linked page is unchanged.",
+    "at": "2026-11-10T01:44:00.277Z"
   },
   {
     "level": "info",
     "type": "no_change",
-    "universityId": "stamford",
-    "sourceId": "home-stamford-https-www-stamforduniversity-edu-bd",
-    "url": "https://www.stamforduniversity.edu.bd/",
-    "message": "SUB homepage matches the stored link fingerprint.",
-    "at": "2026-11-09T18:44:47.245Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "stamford",
-    "sourceId": "found-stamford-ersity-edu-bd-index-php-stamford-details-view-66",
-    "url": "https://www.stamforduniversity.edu.bd/index.php/stamford/details_view/66",
-    "message": "SUB linked page is unchanged.",
-    "at": "2026-11-09T18:44:48.662Z"
-  },
-  {
-    "level": "info",
-    "type": "no_change",
-    "universityId": "stamford",
-    "sourceId": "found-stamford-ersity-edu-bd-index-php-stamford-details-view-27",
-    "url": "https://www.stamforduniversity.edu.bd/index.php/stamford/details_view/27",
-    "message": "SUB linked page is unchanged.",
-    "at": "2026-11-09T18:44:50.072Z"
+    "universityId": "eastern",
+    "sourceId": "found-eastern-https-www-easternuni-edu-bd-sitemap-xml",
+    "url": "https://www.easternuni.edu.bd/sitemap.xml",
+    "message": "EU linked page is unchanged.",
+    "at": "2026-11-10T01:44:01.430Z"
   },
   {
     "level": "error",
@@ -2850,7 +2103,7 @@
     "sourceId": "home-iub-https-www-iub-edu-bd",
     "url": "https://www.iub.edu.bd/",
     "message": "IUB homepage failed: timeout. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:45:05.119Z"
+    "at": "2026-11-10T01:44:44.226Z"
   },
   {
     "level": "error",
@@ -2859,7 +2112,7 @@
     "sourceId": "home-dghs-https-www-dghs-gov-bd",
     "url": "https://www.dghs.gov.bd/",
     "message": "DGHS homepage failed: timeout. Will try again next cycle. This is not an unchanged page.",
-    "at": "2026-11-09T18:45:50.655Z"
+    "at": "2026-11-10T01:45:01.830Z"
   },
   {
     "level": "info",
@@ -2868,6 +2121,6 @@
     "sourceId": null,
     "url": null,
     "message": "Discovery cycle finished. Checked 222, reached 191, failed 31. No admission date was published.",
-    "at": "2026-11-09T18:45:50.667Z"
+    "at": "2026-11-10T01:45:01.841Z"
   }
 ]
