@@ -146,13 +146,13 @@ function DiscoveryPage() {
         // brief hold so the scan bar is visible
         window.setTimeout(() => {
           if (!stop) setRefreshing(false);
-        }, 380);
+        }, 650);
       }
     };
     void load(false);
     // Poll more often so the log visibly updates when a cycle finishes
-    const poll = window.setInterval(() => void load(true), 12_000);
-    const clock = window.setInterval(() => setNow(new Date()), 10_000);
+    const poll = window.setInterval(() => void load(true), 20_000);
+    const clock = window.setInterval(() => setNow(new Date()), 15_000);
     return () => {
       stop = true;
       window.clearInterval(poll);
@@ -193,14 +193,22 @@ function DiscoveryPage() {
       .filter((row) => row.value > 0);
   }, [live]);
 
-  const nextAt = live?.completedAt ? new Date(Date.parse(live.completedAt) + 45 * 60_000) : null;
+  const nextAt = (() => {
+    // GitHub Actions pins ~ :07 / :27 / :47 UTC each hour (best-effort).
+    const pins = [7, 27, 47];
+    for (let i = 1; i <= 180; i++) {
+      const d = new Date(now.getTime() + i * 60_000);
+      if (pins.includes(d.getUTCMinutes())) return d;
+    }
+    return live?.completedAt ? new Date(Date.parse(live.completedAt) + 45 * 60_000) : null;
+  })();
 
   return (
     <div>
       <PageHead
         kicker={t("disc.kicker")}
         title={t("disc.title")}
-        lede="What the crawler actually opened. This page does not start a scan, and it does not publish admission dates. GitHub Actions hits discovery about three times an hour ( :07 / :27 / :47 ). GitHub may still start late — this log only shows what actually ran."
+        lede="What the crawler actually opened. This page does not start a scan and does not publish admission dates. GitHub Actions aims for about every 20 minutes (pins near :07, :27, :47) — schedules drift; treat NEXT EXPECTED as a hint."
       />
 
       <StatusBanner status={status} phase={phase} live={live} now={now} seenAt={seenAt} nextAt={nextAt} refreshing={refreshing} />
@@ -404,7 +412,7 @@ function StatusBanner({
         </p>
         {liveNow ? <p className="font-mono text-xs tracking-widest text-accent">LIVE · CRAWLING</p> : null}
         {refreshing && !liveNow ? <p className="font-mono text-xs tracking-widest">REFRESHING LOG</p> : null}
-        <p className="font-mono text-xs tracking-widest">TARGET EVERY 45 MIN · GITHUB SCHEDULE MAY LAG</p>
+        <p className="font-mono text-xs tracking-widest">TARGET ~20 MIN (:07/:27/:47) · GITHUB MAY LAG</p>
       </div>
       {phase === "loading" ? <p className="mt-3 font-mono text-xs rule-wait">Reading the last published cycle…</p> : null}
       {phase === "missing" ? <p className="mt-3 font-mono text-xs">NO DISCOVERY FILE. NOTHING ON THIS PAGE IS A SCAN.</p> : null}
