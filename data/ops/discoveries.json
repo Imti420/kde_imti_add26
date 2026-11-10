@@ -17849,5 +17849,61 @@
     "shortName": "BOU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://cu.ac.bd/wp-content/uploads/2026/11/Notice_Proctor-Office_10.11.26.pdf",
+    "foundOn": "https://cu.ac.bd/",
+    "foundAt": "2026-11-10T17:20:37.881Z",
+    "title": "বিস্তারিত দেখুন",
+    "kind": "pdf",
+    "score": 10,
+    "sameSite": true,
+    "id": "cu:https://cu.ac.bd/wp-content/uploads/2026/11/Notice_Proctor-Office_10.11.26.pdf",
+    "universityId": "cu",
+    "shortName": "CU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://cu.ac.bd/wp-content/uploads/2026/11/Transport-Notice_Corrected_09.11.26-1.pdf",
+    "foundOn": "https://cu.ac.bd/",
+    "foundAt": "2026-11-10T17:20:37.881Z",
+    "title": "বিস্তারিত দেখুন",
+    "kind": "pdf",
+    "score": 11,
+    "sameSite": true,
+    "id": "cu:https://cu.ac.bd/wp-content/uploads/2026/11/Transport-Notice_Corrected_09.11.26-1.pdf",
+    "universityId": "cu",
+    "shortName": "CU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://bou.ac.bd/upload/notice/flashnews/1881463599102099.pdf",
+    "foundOn": "https://www.bou.ac.bd/",
+    "foundAt": "2026-11-10T17:22:21.195Z",
+    "title": "বাংলাদেশ উন্মুক্ত বিশ্ববিদ্যালয় (বাউবি)-এর ৬ষ্ঠ সমাবর্তন – ২০২৭ অংশগ্রহণের জন্য রেজিস্ট্রেশন সংক্রান্ত বিজ্ঞপ্তি",
+    "kind": "pdf",
+    "score": 10,
+    "sameSite": true,
+    "id": "bou:https://bou.ac.bd/upload/notice/flashnews/1881463599102099.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.uap-bd.edu/admission-test-results/bpharm_f26_10112026.pdf",
+    "foundOn": "https://www.uap-bd.edu/admission_test_results.php",
+    "foundAt": "2026-11-10T17:23:03.467Z",
+    "title": "Pharmacy Bachelor of Pharmacy (B. Pharm Hons.) NEW",
+    "kind": "pdf",
+    "score": 9,
+    "sameSite": true,
+    "id": "uap:https://www.uap-bd.edu/admission-test-results/bpharm_f26_10112026.pdf",
+    "universityId": "uap",
+    "shortName": "UAP",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
