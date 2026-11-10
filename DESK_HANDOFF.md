@@ -154,6 +154,11 @@ Do not re-implement from scratch; extend these.
 - Parallel `GO UPDATE`: each agent claims one lane on the board before editing product files.
 - Still one product brain: this handoff file + board; no five competing handoffs.
 
+
+### 2026-11-10 ~15:20 +06 — crew board (ARCHIVIST)
+- Added/refreshed `DESK_CREW.md`: callsigns, lanes A–F, claim protocol for parallel `GO UPDATE`.
+- Handoff points at crew board so agents split work instead of cloning the same doc pass.
+
 ### (Next agent: append here — date, bullets, files touched)
 
 ### 2026-11-10 ~15:17 +06 — DESK_CREW multi-agent board
