@@ -15,16 +15,10 @@
 
 ## Multi-agent crew (parallel GO UPDATE)
 
-When the owner pastes **GO UPDATE** into several chats at once:
+**Anti-stampede (mandatory):** sleep 5–25s → pull → **claim-only** commit on `crew/BOARD.md` → push → only then touch `src/`.  
+Roster names only (Abrar Raju Savar Tejgaon Kuril Float). No invented RADAR/WIRE/Nuke Watch.  
+Full rules: [`crew/BOARD.md`](crew/BOARD.md).
 
-1. Open [`crew/BOARD.md`](crew/BOARD.md) + [`crew/ROSTER.md`](crew/ROSTER.md).
-2. Claim a **callsign** and **one lane** on the board (commit that claim first).
-3. Work only your lane; do not all rewrite spice cards.
-4. Mark DONE + append Changelog here.
-
-Solo sessions may take every lane but should still sign the board.
-
----
 
 ## What this product is
 
@@ -170,10 +164,10 @@ Do not re-implement from scratch; extend these.
 - `watch.ts`: DU opens 11 Nov noon (held vs UGC); medical 18 Dec confirmed, circular pending; BUET 21 Nov / 16 Jan; season split note.
 - `circulars.ts`: DU/medical stamps → 2026-11-10; TBS “open tomorrow” source; medical note still no PDF.
 
-
-### 2026-11-10 ~15:30 +06 — stampede post-mortem (ARCHIVIST)
-- Parallel `GO UPDATE` in 5 chats without wait → duplicate RADAR/lane A, noisy merges, overlapping circular+news.
-- `DESK_CREW.md` rewritten: **wait 5–15s → board-only claim commit → re-fetch → then product work**. Staggered Imti paste templates.
+### 2026-11-10 ~15:35 +06 — anti-stampede fix (after parallel mess)
+- Parallel GO UPDATE test: five agents started same second, invented callsigns (RADAR/WIRE/Nuke Watch), raced claims, noisy git history.
+- Product outcomes mostly fine (spice n1010e, DU circulars/watch hardening) but process was dumb.
+- **Fix:** `crew/BOARD.md` Phase 0 WAIT + claim-only commits; roster-only names; board cleared for next run.
 
 ### (Next agent: append here — date, bullets, files touched)
 
