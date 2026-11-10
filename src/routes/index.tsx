@@ -20,7 +20,18 @@ export const Route = createFileRoute("/")({
   component: Overview,
 });
 
-const PANEL_IDS = ["universe", "wire", "urgent", "exams", "fresh", "picture", "seats", "ops"] as const;
+const PANEL_IDS = ["wire", "watch", "counts", "urgent", "universe", "fresh", "picture", "ops"] as const;
+
+const PANEL_LABEL: Record<(typeof PANEL_IDS)[number], string> = {
+  wire: "Newswire",
+  watch: "Watch",
+  counts: "Counts",
+  urgent: "Deadlines",
+  universe: "Universities",
+  fresh: "Circulars",
+  picture: "Picture",
+  ops: "Discovery",
+};
 
 const TRACKS = ["all", ...Object.keys(TRACK_LABEL)] as const;
 const LEAD = ["gst", "agri", "dghs", "du", "buet", "ru", "cu", "ju", "sust", "kuet", "ruet", "cuet", "nsu", "bracu", "bup", "ku", "mist", "bau", "nu"];
@@ -156,38 +167,196 @@ function Overview() {
   }, [universities, circulars, track, gridQuery, leadRank, now]);
 
   return (
-    <div>
+    <div className="pb-8">
       <header className="rise">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <p className="font-mono text-xs tracking-widest text-mute">VOL. 01 · DHAKA DESK · {formatDay(today)}</p>
           <p className="sticker">HSC 2026–27</p>
         </div>
-        <h1 className="mt-3 max-w-5xl font-display text-6xl font-bold uppercase leading-[0.82] tracking-tight text-balance sm:text-7xl md:text-8xl">
+        <h1 className="mt-3 max-w-5xl font-display text-5xl font-bold uppercase leading-[0.86] tracking-tight text-balance sm:text-6xl md:text-7xl lg:text-8xl">
           Admission<span className="text-accent">//</span>26
         </h1>
-        <p className="mt-4 max-w-xl font-display text-2xl uppercase leading-none md:text-4xl">
+        <p className="mt-3 max-w-xl font-display text-xl uppercase leading-none md:text-3xl">
           The university universe, on one desk.
         </p>
-        <p className="mt-3 max-w-2xl text-base text-pretty">
+        <p className="mt-2 max-w-2xl text-sm text-pretty md:text-base">
           Big cards, real circulars, and blanks where the archive does not know. Not a portal. A season catalogue.
         </p>
       </header>
 
-      <nav className="mt-6 flex gap-2 overflow-x-auto pb-2" aria-label="Desk sections">
+      <nav className="mt-5 flex gap-2 overflow-x-auto pb-2" aria-label="Desk sections">
         {PANEL_IDS.map((id) => (
           <a key={id} href={`#${id}`} className="press shrink-0">
-            {t(`home.panel.${id}`)}
+            {PANEL_LABEL[id]}
           </a>
         ))}
       </nav>
 
-      <section id="universe" className="desk-anchor mt-8">
-        <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+      {/* ── WIRE: what's live now ── */}
+      <section id="wire" className="desk-anchor mt-8">
+        <div className="mb-3 flex flex-wrap items-end justify-between gap-3 border-b-[3px] border-ink pb-2">
+          <div>
+            <p className="font-mono text-xs tracking-widest text-accent">02 · THE WIRE</p>
+            <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none md:text-5xl">
+              Three that matter
+            </h2>
+          </div>
+          <Link to="/newswire" className="press shrink-0">
+            Full newswire
+          </Link>
+        </div>
+        <p className="mb-4 max-w-2xl text-sm text-pretty text-mute">
+          Desk cards — heat, system pressure, market noise. Not a scraped headline dump.
+        </p>
+        <WireStrip />
+      </section>
+
+      {/* ── WATCH: desk intelligence ── */}
+      <section id="watch" className="desk-anchor mt-10">
+        <div className="mb-3 flex flex-wrap items-end justify-between gap-3 border-b-[3px] border-ink pb-2">
+          <div>
+            <p className="font-mono text-xs tracking-widest text-accent">03 · WATCH BOARD</p>
+            <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none md:text-5xl">
+              On the board
+            </h2>
+          </div>
+          <p className="font-mono text-xs tracking-widest text-mute">NOT A CONFIRMED CIRCULAR</p>
+        </div>
+        <div className="border border-ink border-l-4 border-l-accent bg-panel/40 p-4 md:p-5">
+          {watchItems.length === 0 ? (
+            <p className="font-mono text-xs tracking-widest text-mute">NO WATCH ITEMS ON THE DESK.</p>
+          ) : (
+            <div className="grid gap-6 md:gap-8">
+              {watchItems.map((item) => (
+                <article key={item.id}>
+                  <h3 className="font-display text-3xl font-bold uppercase leading-none md:text-4xl">{item.title}</h3>
+                  <p className="mt-3 max-w-4xl text-sm text-pretty">{item.body}</p>
+                  <p className="mt-3 font-mono text-xs">
+                    <ExternalLink href={item.sourceUrl}>{item.sourceLabel}</ExternalLink>
+                  </p>
+                </article>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── COUNTS: season meter ── */}
+      <section id="counts" className="desk-anchor mt-10" aria-label="Season counts">
+        <div className="mb-3 border-b-[3px] border-ink pb-2">
+          <p className="font-mono text-xs tracking-widest text-accent">04 · SEASON METER</p>
+          <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none md:text-5xl">
+            What the file holds
+          </h2>
+        </div>
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3 xl:grid-cols-6">
+          {stats.map((stat, index) => (
+            <Reveal key={stat.k} index={index} className="window">
+              <div className="window-bar">
+                <span>{stat.k}</span>
+              </div>
+              <div className="window-body">
+                <p className="font-display text-3xl font-bold leading-none sm:text-4xl">
+                  <CountUp value={stat.value} />
+                </p>
+                <h3 className="mt-2 font-display text-base font-semibold uppercase leading-tight sm:text-lg">{stat.label}</h3>
+                <p className="mt-2 font-mono text-[10px] leading-snug text-mute sm:text-xs">{stat.hint}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ── URGENT + EXAMS ── */}
+      <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.85fr)] lg:gap-10">
+        <section id="urgent" className="desk-anchor min-w-0">
+          <div className="mb-4 flex items-end justify-between gap-3 border-b-[3px] border-ink pb-2">
+            <SectionLabel index="05">
+              {urgentDeadlines.length ? "Deadlines approaching" : deadlineRows.length ? "Nearest deadlines" : "Nearest marks"}
+            </SectionLabel>
+            <Link to="/radar" className="shrink-0 font-mono text-xs tracking-widest underline underline-offset-4">
+              FULL RADAR
+            </Link>
+          </div>
+          {radar.length === 0 ? (
+            <p className="border border-dashed border-ink p-4 font-mono text-xs tracking-widest text-mute">NO FUTURE DATE IS ON FILE.</p>
+          ) : (
+            <ol>
+              {radar.map((event, index) => {
+                const uni = byId.get(event.universityId);
+                const hot = isUrgent(event, now);
+                return (
+                  <li key={event.id} className="rise border-b border-ink" style={{ animationDelay: `${index * 40}ms` }}>
+                    <Link
+                      to="/circulars/$id"
+                      params={{ id: event.circularId }}
+                      className="grid grid-cols-[auto_1fr] gap-3 py-3 hover:bg-panel sm:gap-4 md:grid-cols-[4.5rem_8rem_1fr_auto]"
+                    >
+                      <span className="font-mono text-xs text-mute">{String(index + 1).padStart(2, "0")}</span>
+                      <span className={`font-mono text-xs ${hot ? "text-accent" : "text-ink"}`}>
+                        {formatDay(event.day)}
+                        <span className="mt-1 block">{relativeDay(event.day, now)}</span>
+                      </span>
+                      <span className="min-w-0">
+                        <span className="font-display text-2xl font-bold uppercase leading-none sm:text-3xl">{uni?.shortName}</span>
+                        <span className="mt-1 block text-sm">{event.label}</span>
+                      </span>
+                      <span className={`font-mono text-xs ${hot ? "text-accent" : "text-mute"}`}>{hot ? "URGENT" : "ON FILE"}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ol>
+          )}
+          <p className="mt-2 font-mono text-xs text-mute">
+            {urgentDeadlines.length
+              ? "RED MEANS A CLOSE INSIDE 14 DAYS, OR AN OPENING INSIDE 7."
+              : deadlineRows.length
+                ? "NO OPENING OR CLOSE IS INSIDE THE URGENT WINDOW. THESE ARE THE NEXT APPLICATION WINDOWS ON FILE."
+                : "NO APPLICATION WINDOW IS DATED. THESE ARE THE NEXT MARKS ON FILE."}
+          </p>
+        </section>
+
+        <section id="exams" className="desk-anchor min-w-0">
+          <div className="mb-4 flex items-end justify-between gap-3 border-b-[3px] border-ink pb-2">
+            <SectionLabel index="06">{t("home.examinations")}</SectionLabel>
+            <Link to="/calendar" className="shrink-0 font-mono text-xs tracking-widest underline underline-offset-4">
+              CALENDAR
+            </Link>
+          </div>
+          {examRows.length === 0 ? (
+            <p className="border border-dashed border-ink p-4 font-mono text-xs text-mute">NO UPCOMING EXAM DATE IS ON FILE.</p>
+          ) : (
+            <ol className="border-t border-ink">
+              {examRows.map((event) => {
+                const uni = byId.get(event.universityId);
+                const hot = isUrgent(event, now);
+                return (
+                  <li key={event.id} className="border-b border-ink">
+                    <Link to="/circulars/$id" params={{ id: event.circularId }} className="block py-3 hover:bg-panel">
+                      <div className="flex items-baseline justify-between gap-3">
+                        <span className="font-display text-2xl font-bold uppercase leading-none sm:text-3xl">{uni?.shortName}</span>
+                        <span className={`shrink-0 font-mono text-xs ${hot ? "text-accent" : "text-mute"}`}>{relativeDay(event.day, now)}</span>
+                      </div>
+                      <p className="mt-1 text-sm">{event.label}</p>
+                      <p className="mt-1 font-mono text-xs">{formatDay(event.day)}</p>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ol>
+          )}
+        </section>
+      </div>
+
+      {/* ── UNIVERSE grid ── */}
+      <section id="universe" className="desk-anchor mt-12">
+        <div className="mb-4 flex flex-wrap items-end justify-between gap-3 border-b-[3px] border-ink pb-2">
           <div>
             <p className="font-mono text-xs tracking-widest text-accent">01 · THE DIRECTORY</p>
-            <h2 className="mt-1 font-display text-5xl font-bold uppercase leading-none md:text-6xl">{t("home.panel.universe")}</h2>
+            <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none md:text-5xl lg:text-6xl">{t("home.panel.universe")}</h2>
           </div>
-          <Link to="/universities" className="press">
+          <Link to="/universities" className="press shrink-0">
             Full directory
           </Link>
         </div>
@@ -234,119 +403,21 @@ function Overview() {
         )}
       </section>
 
-      <section className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6" aria-label="Season counts">
-        {stats.map((stat, index) => (
-          <Reveal key={stat.k} index={index} className="window">
-            <div className="window-bar">
-              <span>{stat.k}</span>
-            </div>
-            <div className="window-body">
-              <p className="font-display text-4xl font-bold leading-none">
-                <CountUp value={stat.value} />
-              </p>
-              <h2 className="mt-2 font-display text-lg font-semibold uppercase leading-none">{stat.label}</h2>
-              <p className="mt-2 font-mono text-xs text-mute">{stat.hint}</p>
-            </div>
-          </Reveal>
-        ))}
-      </section>
-
-      <WireStrip />
-
-      <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.8fr)]">
-        <section id="urgent" className="desk-anchor">
-          <div className="mb-4 flex items-end justify-between gap-3 border-b border-ink pb-2">
-            <SectionLabel index="07">{urgentDeadlines.length ? "Deadlines approaching" : deadlineRows.length ? "Nearest deadlines" : "Nearest marks"}</SectionLabel>
-            <Link to="/radar" className="font-mono text-xs tracking-widest underline underline-offset-4">
-              FULL RADAR
-            </Link>
-          </div>
-          {radar.length === 0 ? (
-            <p className="border border-dashed border-ink p-4 font-mono text-xs tracking-widest text-mute">NO FUTURE DATE IS ON FILE.</p>
-          ) : (
-            <ol>
-              {radar.map((event, index) => {
-                const uni = byId.get(event.universityId);
-                const hot = isUrgent(event, now);
-                return (
-                  <li key={event.id} className="rise border-b border-ink" style={{ animationDelay: `${index * 40}ms` }}>
-                    <Link
-                      to="/circulars/$id"
-                      params={{ id: event.circularId }}
-                      className="grid grid-cols-[auto_1fr] gap-4 py-3 hover:bg-panel md:grid-cols-[4.5rem_8rem_1fr_auto]"
-                    >
-                      <span className="font-mono text-xs text-mute">{String(index + 1).padStart(2, "0")}</span>
-                      <span className={`font-mono text-xs ${hot ? "text-accent" : "text-ink"}`}>
-                        {formatDay(event.day)}
-                        <span className="mt-1 block">{relativeDay(event.day, now)}</span>
-                      </span>
-                      <span>
-                        <span className="font-display text-3xl font-bold uppercase leading-none">{uni?.shortName}</span>
-                        <span className="mt-1 block text-sm">{event.label}</span>
-                      </span>
-                      <span className={`font-mono text-xs ${hot ? "text-accent" : "text-mute"}`}>{hot ? "URGENT" : "ON FILE"}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ol>
-          )}
-          <p className="mt-2 font-mono text-xs text-mute">
-            {urgentDeadlines.length
-              ? "RED MEANS A CLOSE INSIDE 14 DAYS, OR AN OPENING INSIDE 7."
-              : deadlineRows.length
-                ? "NO OPENING OR CLOSE IS INSIDE THE URGENT WINDOW. THESE ARE THE NEXT APPLICATION WINDOWS ON FILE."
-                : "NO APPLICATION WINDOW IS DATED. THESE ARE THE NEXT MARKS ON FILE."}
-          </p>
-        </section>
-
-        <section id="exams" className="desk-anchor">
-          <div className="mb-4 flex items-end justify-between gap-3 border-b border-ink pb-2">
-            <SectionLabel index="08">{t("home.examinations")}</SectionLabel>
-            <Link to="/calendar" className="font-mono text-xs tracking-widest underline underline-offset-4">
-              CALENDAR
-            </Link>
-          </div>
-          {examRows.length === 0 ? (
-            <p className="border border-dashed border-ink p-4 font-mono text-xs text-mute">NO UPCOMING EXAM DATE IS ON FILE.</p>
-          ) : (
-            <ol className="border-t border-ink">
-              {examRows.map((event) => {
-                const uni = byId.get(event.universityId);
-                const hot = isUrgent(event, now);
-                return (
-                  <li key={event.id} className="border-b border-ink">
-                    <Link to="/circulars/$id" params={{ id: event.circularId }} className="block py-3 hover:bg-panel">
-                      <div className="flex items-baseline justify-between gap-3">
-                        <span className="font-display text-3xl font-bold uppercase leading-none">{uni?.shortName}</span>
-                        <span className={`font-mono text-xs ${hot ? "text-accent" : "text-mute"}`}>{relativeDay(event.day, now)}</span>
-                      </div>
-                      <p className="mt-1 text-sm">{event.label}</p>
-                      <p className="mt-1 font-mono text-xs">{formatDay(event.day)}</p>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ol>
-          )}
-        </section>
-      </div>
-
-      <section id="fresh" className="desk-anchor mt-10">
-        <div className="mb-4 flex items-end justify-between gap-3 border-b border-ink pb-2">
+      <section id="fresh" className="desk-anchor mt-12">
+        <div className="mb-4 flex items-end justify-between gap-3 border-b-[3px] border-ink pb-2">
           <SectionLabel index="09">{t("home.recentlyCited")}</SectionLabel>
-          <Link to="/circulars" className="font-mono text-xs tracking-widest underline underline-offset-4">
+          <Link to="/circulars" className="shrink-0 font-mono text-xs tracking-widest underline underline-offset-4">
             ARCHIVE
           </Link>
         </div>
-        <ol className="grid gap-px bg-ink md:grid-cols-2">
+        <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {latest.map((item, index) => {
             const uni = byId.get(item.universityId);
             return (
-              <li key={item.id} className="rise bg-paper" style={{ animationDelay: `${index * 50}ms` }}>
+              <li key={item.id} className="rise border border-ink" style={{ animationDelay: `${index * 40}ms` }}>
                 <Link to="/circulars/$id" params={{ id: item.id }} className="block p-4 hover:bg-panel">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-display text-3xl font-bold uppercase leading-none">{uni?.shortName}</span>
+                    <span className="font-display text-2xl font-bold uppercase leading-none">{uni?.shortName}</span>
                     <StatusPill status={deriveStatus(item, now)} />
                     {item.updatedOn >= recentCutISO ? <span className="font-mono text-xs text-accent">REVISED</span> : null}
                   </div>
@@ -359,7 +430,7 @@ function Overview() {
         </ol>
       </section>
 
-      <section id="picture" className="desk-anchor mt-10">
+      <section id="picture" className="desk-anchor mt-12">
         <SectionLabel index="10">Picture of the file</SectionLabel>
         <p className="mt-2 max-w-3xl text-sm">
           Counts from the directory and the circulars already stored. Bars are headcounts, not seat estimates.
@@ -414,7 +485,7 @@ function Overview() {
         </div>
       </section>
 
-      <section id="ops" className="desk-anchor mt-10 border border-ink p-4 md:p-5">
+      <section id="ops" className="desk-anchor mt-12 border border-ink p-4 md:p-5">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="font-mono text-xs tracking-widest text-mute">11 · DISCOVERY</p>
@@ -479,22 +550,9 @@ function Overview() {
         ) : null}
       </section>
 
-      <section className="mt-10 border border-ink border-l-4 border-l-accent p-4 md:p-6">
-        <p className="font-mono text-xs tracking-widest text-accent">WATCH ITEM · NOT A CONFIRMED CIRCULAR</p>
-        {watchItems.map((item) => (
-          <article key={item.id} className="mt-2">
-            <h2 className="font-display text-4xl font-bold uppercase leading-none">{item.title}</h2>
-            <p className="mt-3 max-w-4xl text-sm text-pretty">{item.body}</p>
-            <p className="mt-3 font-mono text-xs">
-              <ExternalLink href={item.sourceUrl}>{item.sourceLabel}</ExternalLink>
-            </p>
-          </article>
-        ))}
-      </section>
-
-      <section className="mt-10">
+      <section className="mt-12">
         <SectionLabel index="12">Systems on the desk</SectionLabel>
-        <div className="mt-4 grid gap-px bg-ink md:grid-cols-3">
+        <div className="mt-4 grid gap-px bg-ink sm:grid-cols-2 md:grid-cols-3">
           {universities
             .filter((item) => item.kind === "system")
             .map((item, index) => {
@@ -508,7 +566,7 @@ function Overview() {
                   style={{ animationDelay: `${index * 60}ms` }}
                 >
                   <p className="font-mono text-xs text-mute">{TRACK_LABEL[item.track]}</p>
-                  <h3 className="mt-2 font-display text-4xl font-bold uppercase leading-none">{item.shortName}</h3>
+                  <h3 className="mt-2 font-display text-3xl font-bold uppercase leading-none sm:text-4xl">{item.shortName}</h3>
                   <p className="mt-2 text-sm">{item.name}</p>
                   {circular ? (
                     <div className="mt-4 flex flex-wrap items-center gap-2">
@@ -524,6 +582,7 @@ function Overview() {
     </div>
   );
 }
+
 
 function countEvents(events: CrawlEvent[]) {
   const totals = new Map<CrawlEvent["type"], number>();
