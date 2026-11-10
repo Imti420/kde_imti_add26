@@ -1,6 +1,7 @@
 /**
  * Desk-written spicy briefings — not crawler headlines.
- * 10 Nov 2026 evening: IMTI KUET APPROVED desk blast + DU DEFY still lead.
+ * Night cycle 10 Nov 2026 ~22:15 +06 — GO UPDATE NEWS.
+ * New ids force alert fan-out.
  */
 export interface SpiceCard {
   id: string;
@@ -16,110 +17,119 @@ export interface SpiceCard {
 
 export const SPICE_CARDS: SpiceCard[] = [
   {
-    id: "imti-kuet-approved-2030",
+    id: "n1022-du-tminus",
     heat: "NUKE",
-    kicker: "IMTI · KUET · APPLICATION APPROVED",
-    headline: "IMTI KUET APPLICATION APPROVED.",
+    kicker: "DU · HOURS LEFT · NOON TOMORROW",
+    headline:
+      "Dhaka University applications open in hours — 11 November 12:00. Close 25 November 23:59. Portal is counting. UGC is not.",
     body:
-      "Desk is firing this on purpose. KUET application status: APPROVED. Open the circular, open the portal, screenshot the confirmation, keep the payment receipt. Do not trust a single refresh — save the page.",
-    punch: "Approved is not a rumor. Treat it like a receipt.",
-    sourceLabel: "Desk alert · Imti · 10 Nov 2026 evening",
+      "admission.eis.du.ac.bd still runs the official clock. IBA 5 Dec · Science 12 · Arts/Law/Social 19 · Fine Arts 22 · Business 26. Pro-VC Alfasane: schedule holds; re-eval results 23 Nov still fit inside the close. Some subject bars were eased on 9 Nov. The calendar was not. If you are aiming at DU, the national January speech is noise.",
+    punch: "Tonight is prep. Noon is the form.",
+    sourceLabel: "DU portal · TBS · Observer · bdnews24 · 9–10 Nov 2026",
+    sourceUrl: "https://admission.eis.du.ac.bd/",
+    published: "2026-11-10",
+  },
+  {
+    id: "n1022-ugc-vs-du",
+    heat: "WAR",
+    kicker: "UGC · JAN APPS · FEB TESTS · DU SAID NO",
+    headline:
+      "UGC + VCs sold January applications and February tests. DU’s committee met the same day and kept December. Both stories are still live at night.",
+    body:
+      "Chairman Mamun Ahmed: wait for HSC re-eval + supplementary by 31 Dec; then public university apps; tests after 1 Feb. DU VC was not in that room. Hours later the flagship refused. National equity vs session discipline — the season is split until other campuses pick a side.",
+    punch: "A commission floor the flagship ignores is a press line.",
+    sourceLabel: "bdnews24 · Daily Campus · UGC briefing · 9–10 Nov 2026",
+    sourceUrl: "https://bdnews24.com/campus/qf1q223ws4",
+    published: "2026-11-10",
+  },
+  {
+    id: "n1022-dgme-18",
+    heat: "HOT",
+    kicker: "DGME · MEDICAL TEST 18 DEC · CIRCULAR DAYS AWAY",
+    headline:
+      "DGME locked medical/dental admission test for 18 December. Circular expected within days. Apps likely mid-November.",
+    body:
+      "DG Md Nazmul Hossain to The Daily Campus (10 Nov): 18 Dec finalised; policy in one or two days; online applications likely 15–18 Nov. Earlier 4 Dec and 11 Dec slots died on HSC delay and BCS clash. Medical is not inside the UGC January fight — different ministry, different clock, same stressed cohort.",
+    punch: "Health education does not wait for the commission’s winter.",
+    sourceLabel: "The Daily Campus · DGME · 10 Nov 2026",
+    sourceUrl: "https://english.thedailycampus.com/university-admission/3888",
+    published: "2026-11-10",
+  },
+  {
+    id: "n1022-kuet-live",
+    heat: "HOT",
+    kicker: "KUET · APPS LIVE · TEST 8 JAN · 1105 SEATS",
+    headline:
+      "KUET application window is already open — 10 Nov morning to 10 Dec 17:00. Written test 8 January in Khulna, Dhaka, Rajshahi.",
+    body:
+      "Circular on file: ~1,105 seats across 17 departments. Eligible list 20 Dec. Merit 21 Jan. Fees differ by centre. Engineering did not wait for UGC’s February dream. Screenshot the fee page before the site melts.",
+    punch: "Open portals beat deferred narratives.",
+    sourceLabel: "KUET circular · admission guides · 3–10 Nov 2026",
     sourceUrl: "https://admission.kuet.ac.bd/",
     published: "2026-11-10",
   },
   {
-    id: "spice-du-defy",
-    heat: "NUKE",
-    kicker: "DU DEFY · 10 NOV · APPS OPEN TOMORROW",
-    headline: "DU told UGC to get lost. Applications open 11 Nov at noon. Tests still December. The national calendar just split in half.",
-    body:
-      "UGC + VCs on Monday: every public university waits until January. Same afternoon, Dhaka University’s General Admission Committee met and said no. Pro-VC Mohammed Almujaddade Alfasane on the record: schedule holds. Portal still counts down to 11 November 12:00. Close 25 Nov 23:59. Unit tests 5–26 December. Re-evaluation results due 23 Nov — those students get two days inside the window. UGC’s floor is still on the books for everyone else. DU just became the exception that breaks the rule.",
-    punch: "One university ignored the commission. The season now has two calendars.",
-    sourceLabel: "TBS · Daily Campus · bdnews24 · Observer · Prothom Alo · DU portal, 9–10 Nov 2026",
-    sourceUrl: "https://admission.eis.du.ac.bd/",
-    published: "2026-11-10",
-  },
-  {
-    id: "spice-ugc-floor-cracked",
-    heat: "WAR",
-    kicker: "UGC · NATIONAL FLOOR · DAY-ONE CRACK",
-    headline: "The commission sold January/February. DU bought December. Who follows whom is the rest of the week.",
-    body:
-      "Official UGC line remains: applications from 1 January 2027, tests after 1 February, so re-evaluation and supplementary cohorts are not locked out. That was unanimous in the VC room — except DU’s VC was not in the room. Hours later DU published defiance. Every other public university now has to choose: obey the commission or follow the biggest brand on the map. The feud is no longer theoretical.",
-    punch: "A national floor that the flagship ignores is just a suggestion with better PR.",
-    sourceLabel: "bdnews24 · Daily Star · UGC briefing · desk, 9–10 Nov 2026",
-    sourceUrl: "https://bdnews24.com/education/5ntai555o0",
-    published: "2026-11-10",
-  },
-  {
-    id: "spice-portal-live",
-    heat: "HOT",
-    kicker: "PORTAL · COUNTDOWN · 11 NOV NOON",
-    headline: "The DU admission portal is not bluffing. Clock is real. Window is real. Submit button arrives tomorrow.",
-    body:
-      "https://admission.eis.du.ac.bd/ still shows application start 11 November 12:00 and end 25 November 23:59. IBA 5 Dec, Science 12 Dec, Arts/Law/Social 19 Dec, Fine Arts 22 Dec, Business 26 Dec. Some subject and GPA bars were relaxed for selected departments at the same committee meeting that rejected the UGC delay. Students who waited for a national postponement just got told the train did not stop.",
-    punch: "If you are aiming at DU, the debate is over. The form is the debate.",
-    sourceLabel: "DU portal · Observer · TBS, 9–10 Nov 2026",
-    sourceUrl: "https://admission.eis.du.ac.bd/",
-    published: "2026-11-10",
-  },
-  {
-    id: "spice-buet-silent",
+    id: "n1022-buet-wall",
     heat: "SYSTEM",
-    kicker: "BUET · NO NEW NOTICE · OLD LINE STANDS",
-    headline: "BUET has not spoken since UGC. Last public line: 21 Nov apps, 16 Jan test, GPA wall intact.",
+    kicker: "BUET · 21 NOV APPS · 16 JAN TEST · GPA WALL",
+    headline:
+      "BUET’s last hard public line still stands: applications from 21 November, written test 16 January, A+ wall intact.",
     body:
-      "Committee chair Kamrul Hasan’s 7–8 November statements still govern the archive: applications from 21 November, written test 16 January 2027, about 10,000 examinees, hard A+ in Physics/Chem/Higher Math. No post-UGC circular found on 10 November. DU’s defiance raises the odds BUET holds too — both have autonomy culture and both already said they would not wait for retakers. Silence is not confirmation. It is also not a postponement.",
-    punch: "Until BUET posts, treat 21 Nov as live and watch the notices board like a hawk.",
-    sourceLabel: "TBS · Prothom Alo · bdnews24, 7–8 Nov 2026 · desk pass 10 Nov",
+      "Kamrul Hasan (7–8 Nov): prior circular remains; ~10k sit; GPA-5 HSC with A+ Physics/Chem/Higher Math; SSC science ≥ 4. No post-UGC rewrite found by night of 10 Nov. DU’s defiance raises the odds BUET holds — silence is not a postponement.",
+    punch: "Until a new notice posts, treat 21 Nov as live.",
+    sourceLabel: "TBS · bdnews24 · Prothom Alo · 7–10 Nov 2026",
     sourceUrl: "https://www.tbsnews.net/bangladesh/education/buet-admission-applications-open-21-nov-test-set-16-jan-1595726",
     published: "2026-11-10",
   },
   {
-    id: "spice-reeval-two-days",
+    id: "n1022-clash-grid",
     heat: "SYSTEM",
-    kicker: "RE-EVAL · RESULTS 23 NOV · WINDOW CLOSES 25 NOV",
-    headline: "DU’s answer to the retake problem: two days. Re-eval results 23 Nov, apps close 25 Nov.",
+    kicker: "EIGHT CAMPUSES · DATE CLASHES ON PAPER",
+    headline:
+      "Daily Star maps eight institutions with overlapping December–January tests. Your clash table is the product.",
     body:
-      "UGC wanted the whole calendar shifted so supplementary and re-evaluation students could breathe. DU’s compromise is narrower: students whose HSC results improve on 23 November still have 24–25 November to hit submit. Failed students who need the December supplementary exams are still outside. The university is protecting its December test block and March class start. The 4.23 lakh retake cohort is not DU’s problem under this design.",
-    punch: "A two-day mercy window is not a second chance for everyone who failed a subject.",
-    sourceLabel: "TBS · Prothom Alo · DU committee line, 9–10 Nov 2026",
+      "DU, JnU, RU, CU, KU, KUET, MIST, RUET already published pieces of a grid that does not share one national day. KU 17–18 Dec sits on medical’s 18 Dec. RU B / JnU E / KUET share 8 Jan. UGC asked for coordination. The PDFs did not wait.",
+    punch: "Coordination is a press conference. Your calendar is the exam hall.",
+    sourceLabel: "Daily Star · multi-campus grids · 10 Nov 2026",
+    sourceUrl: "https://online.thedailystar.net/news/education/news/university-admission-tests-2026-27-date-clashes-emerge-8-institutions-announce-schedules-4260196",
+    published: "2026-11-10",
+  },
+  {
+    id: "n1022-retake-math",
+    heat: "STREET",
+    kicker: "SUPPLEMENTARY · OUTSIDE THE SPRINT",
+    headline:
+      "UGC moved the public calendar for retakers. DU’s November gate and BUET’s GPA wall mostly leave them outside this sprint.",
+    body:
+      "Re-eval results due 23 Nov — DU gives them two days before close. Supplementary exams aimed at early December with results by year-end do not unlock a Wednesday DU form or a hard BUET A+ wall. Medical’s 18 Dec is also before many retake sheets land. Second chance is real for the board. It is not automatic for every elite gate.",
+    punch: "A second chance that misses the gate is not a seat.",
+    sourceLabel: "UGC · TBS · DU committee · 9–10 Nov 2026",
     sourceUrl: "https://www.tbsnews.net/bangladesh/education/du-undergraduate-admission-applications-open-tomorrow-1598041",
     published: "2026-11-10",
   },
   {
-    id: "spice-medical-orphan",
-    heat: "SYSTEM",
-    kicker: "MEDICAL · DGME · 18 DEC STILL ON THE BOARD",
-    headline: "Medical is not in the UGC fight. DGME still points at 18 December. Formal circular still thin.",
+    id: "n1022-coaching",
+    heat: "MARKET",
+    kicker: "COACHING · TWO MAPS · ONE INBOX",
+    headline:
+      "Batch SMS still arguing: season postponed vs DU opens tomorrow vs KUET already taking money.",
     body:
-      "MBBS/BDS sits under health education, not the University Grants Commission. While public universities argue about January versus December, medical remains on the mid-December track reported earlier. Applications window was expected mid-November. Retakers who win a January university door may still find the medical door shut. Two systems, two clocks, same stressed cohort.",
-    punch: "Winning the UGC argument does not automatically open a medical seat.",
-    sourceLabel: "Observer · Daily Sun · bdnews24 · DGME file, 7–10 Nov 2026",
-    sourceUrl: "https://observerbd.com/news/604606",
-    published: "2026-11-10",
-  },
-  {
-    id: "spice-coaching-whiplash",
-    heat: "STREET",
-    kicker: "COACHING · SOLD THE OLD CALENDAR · NOW WHAT",
-    headline: "Batch plans built on a quiet December just hit a DU-shaped truck. Street is rewriting flyers in real time.",
-    body:
-      "For two weeks the big houses sold certainty: DU window, unit order, test denseness in December. UGC’s Monday bomb looked like a two-month holiday. DU’s Monday-night defiance put the original density back on the table for the flagship. ACS, Udvash, Hulkenstein and the neighbourhood rooms now run split messaging — DU track hot, other public unis maybe cold. Panic products love uncertainty. This week is product.",
-    punch: "The coaching economy does not need a winner. It needs a moving target.",
-    sourceLabel: "desk synthesis · portal clocks · street observation, 10 Nov 2026",
+      "Model tests timed to a quiet December, then UGC wiped the map, then DU and the engineering campuses put half the map back. Refund fights and re-orientation calls are the product. Certainty was recalled twice before the flagship form opens. Screenshot every fee receipt.",
+    punch: "You cannot invoice a seat on a date that flips twice before dinner.",
+    sourceLabel: "Desk synthesis · street + national wire · 10 Nov 2026",
     sourceUrl: "https://admission.eis.du.ac.bd/",
     published: "2026-11-10",
   },
   {
-    id: "spice-what-students-do",
+    id: "n1022-tonight",
     heat: "STREET",
-    kicker: "STUDENTS · TWO CLOCKS · ONE BRAIN",
-    headline: "If DU is your first choice, apply. If you need the retake result, read the fine print. If you need medical, ignore the uni fight.",
+    kicker: "DESK · TONIGHT’S ONLY LIST",
+    headline:
+      "1) DU portal at noon. 2) Medical circular any hour. 3) BUET prospectus before the 21st. Everything else is panel noise.",
     body:
-      "Practical split: DU applicants treat 11–25 November as real. BUET applicants treat 21 November as real until a notice says otherwise. Medical aspirants watch DGME, not UGC. Everyone else waits for their university’s own PDF. The national story is chaos. Your story is whichever portal actually opens for your name. Screenshot every circular. Do not trust a secondary headline when the primary form is live.",
-    punch: "The desk can track five calendars. You only need the one that prints your admit card.",
-    sourceLabel: "desk · portal · committee lines, 10 Nov 2026",
+      "If DU takes money at noon, the UGC floor is optional for the flagship. If DGME posts the PDF, medical apps become real mid-month. If BUET only repeats the old line, engineering still has a date but not a complete fee path. The desk fires alerts when those three move.",
+    punch: "Watch the submit button. Ignore the talk show.",
+    sourceLabel: "Desk standing order · night of 10 Nov 2026",
     sourceUrl: "https://admission.eis.du.ac.bd/",
     published: "2026-11-10",
   },
