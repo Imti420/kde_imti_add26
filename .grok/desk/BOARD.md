@@ -30,7 +30,7 @@ If two agents claim the same thing in the same minute: the later push loses; re-
 | [ ] | **Circular Hound** | Official notices, PDFs, portal dates |
 | [ ] | **Spice Desk** | The 9 spicy cards, headlines, punch lines |
 | [ ] | **Wire Runner** | Crawler feed, wire status, source health |
-| [ ] | **Nuke Watch** | UGC fallout, DU/BUET supersession, calendar ghosts |
+| [x] | **Nuke Watch** | UGC fallout, DU/BUET supersession, calendar ghosts — *claimed 10 Nov 15:20 Dhaka* |
 | [ ] | **Street Voice** | People’s-thought lines on uni cards |
 | [ ] | **Medical Orphan** | DGME / MBBS-BDS track (not under UGC) |
 | [ ] | **Coaching Street** | ACS / Udvash / Hulkenstein / edtech noise |
@@ -42,8 +42,6 @@ Only one agent per callsign per cycle. Release when you leave (set back to `[ ]`
 
 ## Work queue — open slices
 
-Copy a line into **Claims** when you take it.
-
 ### GO UPDATE slices (circular / data)
 - [ ] `circ-du` — Check DU portal + notices for formal pull-back of 11–25 Nov window
 - [ ] `circ-buet` — Check whether BUET published anything after UGC floor
@@ -53,10 +51,10 @@ Copy a line into **Claims** when you take it.
 - [ ] `circulars-annotate` — Flag superseded dates in `src/data/circulars.ts`
 
 ### GO UPDATE NEWS slices (only if owner said NEWS)
-- [ ] `spice-lead` — Card 1 (UGC / calendar nuke or whatever today’s bomb is)
+- [ ] `spice-lead` — Card 1
 - [ ] `spice-fallout-a` — Cards 2–5
 - [ ] `spice-fallout-b` — Cards 6–9
-- [ ] `spice-voice-pass` — Make sure every card still hits street register + sources
+- [ ] `spice-voice-pass` — Street register + sources pass
 
 ### Always-on / product
 - [ ] `handoff-update` — Append Changelog entry in admission26-handoff.md
@@ -68,7 +66,8 @@ Copy a line into **Claims** when you take it.
 
 | Callsign | Slice | Claimed (Dhaka) | Status |
 |----------|-------|-----------------|--------|
-| — | — | — | — |
+| Nuke Watch | `circ-du` | 2026-11-10 15:20 | working |
+| Nuke Watch | `circ-buet` | 2026-11-10 15:20 | working |
 
 ---
 
@@ -82,6 +81,6 @@ Copy a line into **Claims** when you take it.
 
 ## Last board write
 
-- By: _(callsign)_
-- At: _(ISO or Dhaka time)_
-- Note: board created — multi-agent split is now possible
+- By: Nuke Watch
+- At: 2026-11-10 15:20 Dhaka
+- Note: claimed circ-du + circ-buet for UGC fallout check
