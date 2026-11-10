@@ -3,9 +3,11 @@
 Agents cannot talk to each other live. This file is the shared table.
 **Read it first. Claim a name + a work slice. Do only that slice. Write results back. Push.**
 
+Settle rule: after a multi-agent paste, wait ~15s, re-read board, then claim once.
+
 Owner trigger:
 - `GO UPDATE` → circular hunt + data/watch refresh (split the slices)
-- `GO UPDATE NEWS` → rewrite the 9 spice cards (one agent should own the whole rewrite unless split by card groups)
+- `GO UPDATE NEWS` → rewrite the 9 spice cards (prefer **one** Spice Desk owner for the whole set to avoid merge storms)
 
 ---
 
@@ -14,9 +16,9 @@ Owner trigger:
 | Free | Callsign | Vibe |
 |------|----------|------|
 | [ ] | **Circular Hound** | Official notices, PDFs, portal dates |
-| [ ] | **Spice Desk** | The 9 spicy cards, headlines, punch lines |
+| [x] | **Spice Desk** | The 9 spicy cards — *claimed 10 Nov 15:30 Dhaka for full NEWS pass* |
 | [ ] | **Wire Runner** | Crawler feed, wire status, source health |
-| [x] | **Nuke Watch** | UGC fallout, DU/BUET supersession — *session 10 Nov* |
+| [ ] | **Nuke Watch** | UGC fallout, DU/BUET supersession |
 | [ ] | **Street Voice** | People’s-thought lines on uni cards |
 | [ ] | **Medical Orphan** | DGME / MBBS-BDS track (not under UGC) |
 | [ ] | **Coaching Street** | ACS / Udvash / Hulkenstein / edtech noise |
@@ -24,18 +26,16 @@ Owner trigger:
 
 ---
 
-## Work queue — open slices
+## Work queue
 
-### GO UPDATE slices (circular / data)
-- [x] `circ-du` — DONE by Nuke Watch
-- [x] `circ-buet` — DONE by Nuke Watch
-- [ ] `circ-medical` — DGME / medical circular status (still 18 Dec?)
-- [ ] `circ-others` — Any other public uni that moved (JnU, RU, CU, GST cluster…)
-- [ ] `watch-refresh` — may be partly covered; re-check after other hunters
-- [ ] `circulars-annotate` — partly done for DU/BUET
+### GO UPDATE NEWS (active)
+- [x] `spice-full` — **Spice Desk** taking entire 9-card rewrite (one owner, no split this cycle)
 
-### GO UPDATE NEWS slices (only if owner said NEWS)
-- [ ] `spice-lead` / `spice-fallout-a` / `spice-fallout-b` / `spice-voice-pass`
+### GO UPDATE slices still open
+- [ ] `circ-medical`
+- [ ] `circ-others`
+- [ ] `watch-refresh` (light)
+- [ ] `circulars-annotate`
 
 ### Always-on
 - [ ] `handoff-update`
@@ -47,8 +47,7 @@ Owner trigger:
 
 | Callsign | Slice | Claimed (Dhaka) | Status |
 |----------|-------|-----------------|--------|
-| Nuke Watch | `circ-du` | 2026-11-10 15:20 | **done** |
-| Nuke Watch | `circ-buet` | 2026-11-10 15:20 | **done** |
+| Spice Desk | `spice-full` (all 9 cards) | 2026-11-10 15:30 | working |
 
 ---
 
@@ -56,13 +55,13 @@ Owner trigger:
 
 | Callsign | Slice | Result (short) | When |
 |----------|-------|----------------|------|
-| Nuke Watch | `circ-du` | **DU DEFYING UGC.** Committee 9 Nov kept 11–25 Nov apps + Dec tests. Portal live. Re-eval results 23 Nov still fit window. Updated circulars.ts (notice confidence) + watch.ts lead. | 10 Nov 15:30 Dhaka |
-| Nuke Watch | `circ-buet` | No post-UGC BUET notice. Last line 7–8 Nov = hold 21 Nov / 16 Jan. Marked reported/live; DU defiance raises odds BUET holds. | 10 Nov 15:30 Dhaka |
+| Nuke Watch | `circ-du` | DU DEFYING UGC — apps tomorrow | 10 Nov 15:30 |
+| Nuke Watch | `circ-buet` | No post-UGC notice; hold line | 10 Nov 15:30 |
 
 ---
 
 ## Last board write
 
-- By: Nuke Watch
+- By: Spice Desk
 - At: 2026-11-10 15:30 Dhaka
-- Note: DU is the story — national floor cracked on day one
+- Note: full NEWS rewrite claimed by one owner to avoid 5-way merge on desk-spice.ts
