@@ -357,12 +357,12 @@ function DeskExperiment() {
         aria-expanded={open}
       >
         <span>desk experiment · local only</span>
-        <span>{open ? "−" : "+"}</span>
+        <span aria-hidden>{open ? "−" : "+"}</span>
       </button>
       {open ? (
         <div className="mt-3 border-t border-ink pt-3">
           <p className="mb-3 text-xs text-mute">
-            Browser-only skin. Not synced. Not in the public product. Flip it if you know what you are doing.
+            Creator skin. This browser only. Not in the public product. Not synced. Flip if you know.
           </p>
           <label className="flex cursor-pointer items-center gap-3">
             <input
@@ -377,7 +377,7 @@ function DeskExperiment() {
           </label>
           {on ? (
             <p className="mt-2 font-mono text-[10px] tracking-widest text-accent">
-              palette hot · badge throbbing · this machine only
+              palette molten · badge throbbing · this machine only
             </p>
           ) : null}
         </div>

@@ -37,7 +37,7 @@ export function applyTheme(dark: boolean) {
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) {
     const naughty = document.documentElement.classList.contains("naughty");
-    if (naughty) meta.setAttribute("content", dark ? "#1a0510" : "#ff4d8a");
+    if (naughty) meta.setAttribute("content", dark ? "#14030c" : "#ff0066");
     else meta.setAttribute("content", dark ? "#171513" : "#141414");
   }
 }
@@ -53,7 +53,7 @@ export function applyNaughty(on: boolean) {
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) {
     const dark = document.documentElement.classList.contains("dark");
-    if (on) meta.setAttribute("content", dark ? "#1a0510" : "#ff4d8a");
+    if (on) meta.setAttribute("content", dark ? "#14030c" : "#ff0066");
     else meta.setAttribute("content", dark ? "#171513" : "#141414");
   }
 }

@@ -83,10 +83,10 @@ html {
     line-height: 1;
     text-transform: uppercase;
     transition:
-      transform 90ms cubic-bezier(0.16, 1, 0.3, 1),
-      box-shadow 90ms cubic-bezier(0.16, 1, 0.3, 1),
-      background-color 90ms ease,
-      color 90ms ease;
+      transform 70ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 70ms cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 80ms ease,
+      color 80ms ease;
   }
 
   .press:hover {
@@ -95,8 +95,8 @@ html {
   }
 
   .press:active {
-    transform: translate(3px, 3px);
-    box-shadow: 0 0 0 var(--color-ink);
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 0 var(--color-ink);
   }
 
   .press[aria-pressed="true"],
@@ -197,8 +197,8 @@ html {
     padding: 1.15rem 2.15rem 1.05rem 1.15rem;
     box-shadow: 7px 7px 0 0 var(--color-accent);
     transition:
-      transform 110ms cubic-bezier(0.16, 1, 0.3, 1),
-      box-shadow 110ms cubic-bezier(0.16, 1, 0.3, 1);
+      transform 85ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 85ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .uni-card::before {
@@ -543,37 +543,37 @@ html {
 }
 
 .wire-live {
-  animation: crawl-pulse 1.1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: crawl-pulse 0.95s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .wire-in {
-  animation: wire-in 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: wire-in 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .crawl-live {
   animation:
-    crawl-pulse 0.85s cubic-bezier(0.4, 0, 0.2, 1) infinite,
-    crawl-pulse-ring 1.1s ease-out infinite;
+    crawl-pulse 0.9s cubic-bezier(0.4, 0, 0.2, 1) infinite,
+    crawl-pulse-ring 1.15s ease-out infinite;
 }
 
 .rise {
-  animation: rise 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: rise 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .page-enter {
-  animation: page-enter 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: page-enter 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .log-in {
-  animation: log-in 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: log-in 190ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .filter-swap {
-  animation: filter-swap 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: filter-swap 140ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .rule-wait {
-  animation: rule-pulse 1.05s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: rule-pulse 0.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 /* Active update strip under status / log header */
@@ -590,7 +590,7 @@ html {
   height: 2px;
   width: 40%;
   background: var(--color-accent);
-  animation: log-scan 0.75s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: log-scan 0.85s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .status-live-bar {
@@ -604,14 +604,14 @@ html {
     transparent 100%
   );
   background-size: 200% 100%;
-  animation: status-shimmer 1.05s linear infinite;
+  animation: status-shimmer 1.15s linear infinite;
 }
 
 .card-doc {
   transition:
-    background-color 110ms ease,
-    box-shadow 110ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 110ms cubic-bezier(0.16, 1, 0.3, 1);
+    background-color 90ms ease,
+    box-shadow 90ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 90ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-doc:hover,
@@ -670,7 +670,7 @@ html {
 html.naughty {
   --color-paper: #fff0f6;
   --color-ink: #2a0614;
-  --color-accent: #ff1a6c;
+  --color-accent: #ff0066;
   --color-mute: #9a4a68;
   --color-panel: #ffe4ef;
   --color-signal: #ff4d9a;
@@ -679,36 +679,38 @@ html.naughty {
   --color-onaccent: #fff5f9;
   --color-rail: #1a0510;
   --color-railfg: #ffd6e8;
-  --naughty-glow: 0 0 28px rgba(255, 26, 108, 0.55);
-  --naughty-pulse: 0 0 40px rgba(255, 77, 154, 0.7);
+  --naughty-glow: 0 0 36px rgba(255, 0, 102, 0.65);
+  --naughty-pulse: 0 0 48px rgba(255, 77, 154, 0.85);
 }
 
 html.dark.naughty {
-  --color-paper: #1a0510;
+  --color-paper: #14030c;
   --color-ink: #ffe4ef;
-  --color-accent: #ff4d9a;
+  --color-accent: #ff3d9a;
   --color-mute: #d48aa8;
-  --color-panel: #2d0a1a;
+  --color-panel: #2a0818;
   --color-signal: #ff7ab8;
   --color-yellow: #ff9ec8;
-  --color-onyellow: #1a0510;
-  --color-onaccent: #1a0510;
-  --color-rail: #0d0208;
+  --color-onyellow: #14030c;
+  --color-onaccent: #14030c;
+  --color-rail: #0a0106;
   --color-railfg: #ffd6e8;
-  --naughty-glow: 0 0 36px rgba(255, 77, 154, 0.65);
-  --naughty-pulse: 0 0 52px rgba(255, 105, 180, 0.8);
+  --naughty-glow: 0 0 42px rgba(255, 61, 154, 0.75);
+  --naughty-pulse: 0 0 60px rgba(255, 105, 180, 0.9);
 }
 
 html.naughty body {
   background-image:
-    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(255, 26, 108, 0.18), transparent 55%),
-    radial-gradient(ellipse 80% 50% at 100% 100%, rgba(255, 77, 154, 0.12), transparent 45%);
+    radial-gradient(ellipse 130% 90% at 50% -25%, rgba(255, 0, 102, 0.28), transparent 55%),
+    radial-gradient(ellipse 90% 55% at 100% 100%, rgba(255, 77, 154, 0.18), transparent 45%),
+    radial-gradient(ellipse 50% 40% at 0% 80%, rgba(255, 26, 108, 0.1), transparent 50%);
 }
 
 html.dark.naughty body {
   background-image:
-    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(255, 77, 154, 0.22), transparent 55%),
-    radial-gradient(ellipse 80% 50% at 100% 100%, rgba(255, 26, 108, 0.15), transparent 45%);
+    radial-gradient(ellipse 130% 90% at 50% -25%, rgba(255, 61, 154, 0.32), transparent 55%),
+    radial-gradient(ellipse 90% 55% at 100% 100%, rgba(255, 0, 102, 0.2), transparent 45%),
+    radial-gradient(ellipse 50% 40% at 0% 80%, rgba(255, 77, 154, 0.12), transparent 50%);
 }
 
 html.naughty ::selection {
@@ -729,20 +731,20 @@ html.naughty a:hover {
   text-shadow: 0 0 12px rgba(255, 26, 108, 0.5);
 }
 
-/* throbbing badge + heart */
+/* throbbing badge + heart — snappier, hotter */
 @keyframes naughty-throb {
   0%,
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 26, 108, 0.55);
+    box-shadow: 0 0 0 0 rgba(255, 0, 102, 0.65);
   }
-  40% {
-    transform: scale(1.08);
-    box-shadow: 0 0 22px 6px rgba(255, 26, 108, 0.35);
+  35% {
+    transform: scale(1.1);
+    box-shadow: 0 0 28px 8px rgba(255, 0, 102, 0.45);
   }
-  70% {
-    transform: scale(0.97);
-    box-shadow: 0 0 8px 2px rgba(255, 77, 154, 0.4);
+  65% {
+    transform: scale(0.96);
+    box-shadow: 0 0 10px 3px rgba(255, 77, 154, 0.5);
   }
 }
 
@@ -750,20 +752,20 @@ html.naughty a:hover {
   0%,
   100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 2px rgba(255, 26, 108, 0.6));
+    filter: drop-shadow(0 0 3px rgba(255, 0, 102, 0.7));
   }
-  15% {
-    transform: scale(1.35);
-    filter: drop-shadow(0 0 10px rgba(255, 26, 108, 0.95));
+  12% {
+    transform: scale(1.42);
+    filter: drop-shadow(0 0 14px rgba(255, 0, 102, 1));
   }
-  30% {
+  24% {
     transform: scale(1.05);
   }
-  45% {
-    transform: scale(1.28);
-    filter: drop-shadow(0 0 14px rgba(255, 77, 154, 1));
+  38% {
+    transform: scale(1.32);
+    filter: drop-shadow(0 0 18px rgba(255, 77, 154, 1));
   }
-  60% {
+  55% {
     transform: scale(1);
   }
 }
@@ -775,33 +777,35 @@ html.naughty a:hover {
     letter-spacing: 0.06em;
   }
   50% {
-    opacity: 0.85;
-    letter-spacing: 0.14em;
+    opacity: 0.8;
+    letter-spacing: 0.16em;
   }
 }
 
 .naughty-badge {
-  animation: naughty-throb 1.4s ease-in-out infinite;
+  animation: naughty-throb 1.05s ease-in-out infinite;
   cursor: default;
   user-select: none;
 }
 
 .naughty-heart {
   display: inline-block;
-  animation: naughty-heart-beat 1.1s ease-in-out infinite;
+  animation: naughty-heart-beat 0.85s ease-in-out infinite;
   color: #fff;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.95);
 }
 
 .naughty-label {
-  animation: naughty-label-pulse 2.2s ease-in-out infinite;
+  animation: naughty-label-pulse 1.6s ease-in-out infinite;
 }
 
 /* soft body heat when mode is on */
 html.naughty .window,
 html.naughty .uni-card,
 html.naughty header {
-  box-shadow: 0 0 0 1px rgba(255, 26, 108, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(255, 0, 102, 0.12),
+    0 0 24px rgba(255, 0, 102, 0.08);
 }
 
 html.naughty .border-accent,
@@ -812,13 +816,19 @@ html.naughty [class*="border-accent"] {
 /* settings secret panel — barely visible until expanded */
 .desk-experiment {
   border-style: dashed;
-  opacity: 0.55;
-  transition: opacity 160ms ease, border-color 160ms ease;
+  opacity: 0.48;
+  transition:
+    opacity 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease;
 }
 .desk-experiment:hover,
 .desk-experiment[data-open="true"] {
   opacity: 1;
   border-color: var(--color-accent);
+}
+.desk-experiment[data-open="true"] {
+  box-shadow: 4px 4px 0 0 var(--color-ink);
 }
 
 html.naughty .desk-experiment {
@@ -848,7 +858,7 @@ html.naughty .desk-experiment {
 }
 
 .ugc-nuke-badge {
-  animation: ugc-nuke-badge-flash 2.4s ease-in-out infinite;
+  animation: ugc-nuke-badge-flash 1.6s ease-in-out infinite;
   box-shadow: 0 0 0 0 rgba(225, 6, 0, 0.55);
 }
 
@@ -865,7 +875,7 @@ html.naughty .desk-experiment {
 }
 
 .ugc-nuke-pulse {
-  animation: ugc-nuke-glow 3.2s ease-in-out infinite;
+  animation: ugc-nuke-glow 2.4s ease-in-out infinite;
 }
 
 @keyframes ugc-nuke-glow {
