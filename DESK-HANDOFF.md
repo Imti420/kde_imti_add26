@@ -1,19 +1,31 @@
 # Desk handoff — read before upgrading
 
-**Full continuity file:** [`.grok/references/admission26-handoff.md`](.grok/references/admission26-handoff.md)  
-**Multi-agent board:** [`.grok/desk/BOARD.md`](.grok/desk/BOARD.md)
+**Swarm traffic:** [`DESK_RADIO.md`](DESK_RADIO.md) ← check in here first  
+**Lanes / claims:** [`DESK_CREW.md`](DESK_CREW.md)  
+**Full memory:** [`.grok/references/admission26-handoff.md`](.grok/references/admission26-handoff.md)
 
-Different Grok instances do not share memory. The handoff is continuity; the **board** is how several agents split work when the owner pastes `GO UPDATE` into multiple chats at once.
+Different Grok instances do not share memory. Radio + crew board are how parallel agents avoid stampeding.
 
-### Quick start for any agent
-1. Read this file + the full handoff + **BOARD.md**
-2. Claim a **callsign** and **one work slice** on the board (push the claim)
-3. Do only that slice
-4. Write result into “Done this cycle”, append handoff Changelog if needed, push
+## SWARM RULES (canonical)
 
-Owner commands:
-- `GO UPDATE` → circular hunt + data/watch (split via board slices)
-- `GO UPDATE NEWS` → rewrite the 9 spice cards (prefer one Spice Desk owner, or split lead / fallout-a / fallout-b)
+When the prompt says `[this text was posted in all N of the agents]`:
 
-### Already shipped (do not re-build blind)
-UGC nuke super-head, 9 spice cards, naughty mode, people’s-thought lines, circular supersession flags (DU/BUET), notifications chrome, mobile shell, `t()` fix. Details in the full handoff.
+1. Open `DESK_RADIO.md` + `DESK_CREW.md`
+2. Wait **4–12 seconds**
+3. Prepend **ONE** check-in line on `DESK_RADIO.md` only, then push  
+   Format: `- HH:MM +06 · CALLSIGN · intent · lane?`
+4. Wait **~25 seconds**, pull `DESK_RADIO.md` again
+5. If someone else already claimed your file/lane → **IDLE** (do not fight)
+6. Then claim on `DESK_CREW.md` and do the work
+7. Optional: one `out` line on radio when done
+
+**Callsigns:** `RADAR` · `WIRE` · `PULSE` · `SHELL` · `SIREN` · `ARCHIVIST`
+
+**NEWS rule:** only **ONE** writer on `desk-spice.ts`. Everyone else idles.
+
+## Owner commands
+- `GO UPDATE` → circulars / watch (split by crew lanes)
+- `GO UPDATE NEWS` → one agent rewrites all 9 spice cards; others idle
+
+## Already shipped (do not rebuild blind)
+UGC/DU calendar fight, super-head, 9 spice cards, naughty mode, people’s-thought lines, notifications, mobile shell, `t()` fix. See full handoff for detail.
