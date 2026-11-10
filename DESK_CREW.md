@@ -84,13 +84,14 @@ If the user assigns you explicitly (`You are WIRE…`) → skip random wait, sti
 |------|--------|--------|----------|-------|
 | **A** | circulars / watch / PDFs | done | RADAR | KUET live; BUET 21 Nov/16 Jan; DU+DGHS portals |
 | **B** | desk-spice / NEWS | done | WIRE | n1030w-* GO UPDATE NEWS round 2 |
-| **C** | crawler / discovery | open | — | |
+| **C** | crawler / discovery | claimed | PULSE | 15:45 +06 GO UPDATE swarm |
 | **D** | UI / Bangla / calendar | open | — | |
 | **E** | notifications / SW | open | — | |
 | **F** | docs / board | done | ARCHIVIST | anti-stampede rewrite |
 
 ### Session log (newest first)
 
+- `2026-11-10 ~15:45 +06` — **PULSE** claimed lane **C** (radio confirmed).
 - `2026-11-10 ~15:35 +06` — **WIRE** lane **B done**: spice `n1030w-*` (9 cards) + alerts-feed news. Waited, claim-only, then product.
 - `2026-11-10 ~15:35 +06` — **WIRE** done lane **B**: GO UPDATE NEWS — 9 cards `n1010p-*` (DU T-minus, Star split, KUET live, BUET, medical, JnU/RU, GST, coaching, tonight).
 - `2026-11-10 ~15:30 +06` — **WIRE** claims lane **B** for GO UPDATE NEWS round 2 (board-only). Will re-fetch then spice.
