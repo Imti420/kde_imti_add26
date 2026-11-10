@@ -1,5 +1,23 @@
 [
   {
+    "id": "ea5419ef34223e5b",
+    "headline": "চিকিৎসা শেষে ছাড়া পেলেন ৫৩ জন, এখনো ভর্তি ৩৫ জন",
+    "summary": null,
+    "sourceId": "prothom-alo",
+    "sourceName": "Prothom Alo",
+    "sourceUrl": "https://www.prothomalo.com/bangladesh/25icc841uz",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-10T17:53:19.000Z",
+    "discoveredAt": "2026-11-10T18:15:38.023Z",
+    "contentHash": "ea5419ef34223e5b4179f49cc6019bc06a56d5cf0f5fcf0a5de5bc347d6d406a",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "0d484cb5254976b2",
     "headline": "ফতুল্লায় মাদ্রাসায় অগ্নিকাণ্ড: বার্ন ইনস্টিটিউটে ভর্তি ৬৩",
     "summary": null,
