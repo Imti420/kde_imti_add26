@@ -1,33 +1,27 @@
 {
-  "updated": "2026-11-10T20:30:00+06:00",
-  "cycle": "imti-kuet-approved-2030",
+  "updated": "2026-11-10T22:15:00+06:00",
+  "cycle": "n1022-night-news",
   "news": [
     {
-      "id": "imti-kuet-approved-2030",
-      "title": "IMTI · KUET APPLICATION APPROVED",
-      "body": "Desk alert: KUET application marked APPROVED. Open the circular / portal and screenshot everything.",
+      "id": "n1022-du-tminus",
+      "title": "DU apps open in HOURS — 11 Nov 12:00",
+      "body": "Portal admission.eis.du.ac.bd. Close 25 Nov 23:59. UGC said wait. DU said no.",
+      "url": "/newswire"
+    },
+    {
+      "id": "n1022-dgme-18",
+      "title": "DGME: medical/dental test 18 Dec — circular days away",
+      "body": "Apps likely 15–18 Nov. Not inside UGC January fight.",
+      "url": "/newswire"
+    },
+    {
+      "id": "n1022-kuet-live",
+      "title": "KUET apps LIVE → 10 Dec · test 8 Jan",
+      "body": "~1105 seats. Portal admission.kuet.ac.bd",
       "url": "/circulars/c-kuet"
-    },
-    {
-      "id": "n1030w-du-noon",
-      "title": "DU apps open TOMORROW noon — 11 Nov 12:00",
-      "body": "Portal admission.eis.du.ac.bd. UGC said wait. DU said no.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n1030w-ugc-jan",
-      "title": "UGC still selling January apps / February tests",
-      "body": "National floor vs DU December sprint — both live.",
-      "url": "/newswire"
     }
   ],
   "registrations": [
-    {
-      "id": "reg-imti-kuet-approved-2030",
-      "title": "IMTI · KUET APPLICATION APPROVED",
-      "body": "KUET application APPROVED. Check portal · keep the receipt · don’t refresh-panic.",
-      "url": "/circulars/c-kuet"
-    },
     {
       "id": "reg-c-kuet-2026-11-10",
       "title": "KUEEEET ADMISSION REGISTRATION AHHHHHHHH>>>>!!!!!!",
@@ -36,12 +30,5 @@
     }
   ],
   "circulars": [],
-  "frantic": [
-    {
-      "id": "imti-kuet-approved-frantic-2030",
-      "title": "IMTI · KUET APPLICATION APPROVED",
-      "body": "Approved. Screenshot. Portal. Done.",
-      "url": "/circulars/c-kuet"
-    }
-  ]
+  "frantic": []
 }
