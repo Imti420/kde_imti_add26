@@ -1,7 +1,13 @@
 {
-  "updated": "2026-11-10T15:35:00+06:00",
-  "cycle": "n1030w-wire-news",
+  "updated": "2026-11-10T20:30:00+06:00",
+  "cycle": "imti-kuet-approved-2030",
   "news": [
+    {
+      "id": "imti-kuet-approved-2030",
+      "title": "IMTI · KUET APPLICATION APPROVED",
+      "body": "Desk alert: KUET application marked APPROVED. Open the circular / portal and screenshot everything.",
+      "url": "/circulars/c-kuet"
+    },
     {
       "id": "n1030w-du-noon",
       "title": "DU apps open TOMORROW noon — 11 Nov 12:00",
@@ -13,28 +19,28 @@
       "title": "UGC still selling January apps / February tests",
       "body": "National floor vs DU December sprint — both live.",
       "url": "/newswire"
-    },
-    {
-      "id": "n1030w-medical-18",
-      "title": "Medical/dental test locked 18 Dec — circular pending",
-      "body": "DGME date set; PDF still missing.",
-      "url": "/newswire"
     }
   ],
   "registrations": [
     {
+      "id": "reg-imti-kuet-approved-2030",
+      "title": "IMTI · KUET APPLICATION APPROVED",
+      "body": "KUET application APPROVED. Check portal · keep the receipt · don’t refresh-panic.",
+      "url": "/circulars/c-kuet"
+    },
+    {
       "id": "reg-c-kuet-2026-11-10",
       "title": "KUEEEET ADMISSION REGISTRATION AHHHHHHHH>>>>!!!!!!",
-      "body": "KUET forms OPEN TODAY → 10 Dec. Portal admission.kuet.ac.bd",
+      "body": "KUET forms OPEN → 10 Dec. Portal admission.kuet.ac.bd",
       "url": "/circulars/c-kuet"
     }
   ],
   "circulars": [],
   "frantic": [
     {
-      "id": "open-c-kuet-2026-11-10",
-      "title": "KUEEEET ADMISSION REGISTRATION AHHHHHHHH>>>>!!!!!!",
-      "body": "Forms are OPEN TODAY. Stop scrolling.",
+      "id": "imti-kuet-approved-frantic-2030",
+      "title": "IMTI · KUET APPLICATION APPROVED",
+      "body": "Approved. Screenshot. Portal. Done.",
       "url": "/circulars/c-kuet"
     }
   ]
