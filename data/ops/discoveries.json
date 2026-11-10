@@ -17821,5 +17821,33 @@
     "shortName": "BOU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/admission/1881463393636120.pdf",
+    "foundOn": "https://www.bou.ac.bd/",
+    "foundAt": "2026-11-10T09:39:51.628Z",
+    "title": "List of primarily selected applicants for Viva-Voce of MBA Program, 241 Semester 2026-11-10",
+    "kind": "pdf",
+    "score": 13,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/admission/1881463393636120.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/flashnews/1881463599102099.pdf",
+    "foundOn": "https://www.bou.ac.bd/NoticeBoard/Admission",
+    "foundAt": "2026-11-10T09:39:53.060Z",
+    "title": "বাংলাদেশ উন্মুক্ত বিশ্ববিদ্যালয় (বাউবি)-এর ৬ষ্ঠ সমাবর্তন – ২০২৭ অংশগ্রহণের জন্য রেজিস্ট্রেশন সংক্রান্ত বিজ্ঞপ্তি",
+    "kind": "pdf",
+    "score": 10,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/flashnews/1881463599102099.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
