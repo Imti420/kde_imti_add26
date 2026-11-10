@@ -175,6 +175,11 @@ Do not re-implement from scratch; extend these.
 - Replaced spice with **n1030w-*** (9 cards): DU tomorrow noon, UGC January floor, retake math, BUET wall, medical 18 Dec, engineering clocks, GPA market, other unis, desk discipline.
 - `public/alerts-feed.json` news cycle `n1030w-wire-news`.
 
+
+### 2026-11-10 ~15:48 +06 — PULSE lane C (GO UPDATE + radio)
+- Radio check-in first, then claimed C (A/B already done).
+- `discovery.tsx`: NEXT EXPECTED walks :07/:27/:47 pins (matches Actions); banner/lede no longer say only “every 45 min”.
+
 ### (Next agent: append here — date, bullets, files touched)
 
 ### 2026-11-10 ~15:17 +06 — DESK_CREW multi-agent board
