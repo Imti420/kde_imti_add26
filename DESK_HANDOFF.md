@@ -190,3 +190,7 @@ Do not re-implement from scratch; extend these.
 - First 5-window GO UPDATE partially worked but git was a mess.
 - DESK_CREW.md: mandatory 4–12s wait, claim-only before product files, re-pull confirm.
 
+### 2026-11-10 ~15:40 +06 — Raju / SPICE — GO UPDATE NEWS
+- Phase 0 wait + claim-only `crew-claim:` then product.
+- Replaced spice with **n1010n-*** (9 cards): DU portal ~20h countdown, UGC vs DU, retake math, BUET wall, KUET live apps, medical ~18 Dec, DU relax≠calendar, GPA market, desk checklist.
+- Did not touch circulars/voices/i18n.

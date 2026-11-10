@@ -38,7 +38,7 @@ When the owner pastes the **same** prompt into several chats at once:
 
 | Lane | Owns | Status |
 |------|------|--------|
-| `SPICE` | `src/data/desk-spice.ts` | **RAJU** |
+| `SPICE` | `src/data/desk-spice.ts` | **OPEN** |
 | `CIRCULARS` | `src/data/circulars.ts` | **OPEN** |
 | `WATCH` | `src/data/watch.ts` | **OPEN** |
 | `VOICES` | `src/data/voices.ts` | **OPEN** |
@@ -55,14 +55,15 @@ When the owner pastes the **same** prompt into several chats at once:
 ## Active claims
 
 ### 2026-11-10 15:30 +06 — RAJU — SPICE
-- Status: CLAIMED
-- Scope: GO UPDATE NEWS — replace spice cycle (DU T-hours, UGC war, retake wall)
-- Commit: (claim only)
+- Status: DONE
+- Scope: GO UPDATE NEWS — n1010n-* nine cards (DU ~20h portal, UGC war, retake math, BUET, KUET live, medical, relax≠calendar, market, desk)
+- Commit: (product push)
 
 
 ---
 
 ## Recent DONE
 
-- **2026-11-10 Raju / SPICE** — `n1010e-*` spice cycle (DU noon 11 Nov) @ `6647dcf`
+- **2026-11-10 Raju / SPICE** — `n1010n-*` GO UPDATE NEWS (DU ~20h) 
+- **2026-11-10 Raju / SPICE** — `n1010e-*` spice cycle @ `6647dcf`
 - **2026-11-10 (swarm)** — circulars/watch also updated under ad-hoc names RADAR / Nuke Watch / WIRE (protocol broken; product mostly OK). Next time: roster + stagger only.
