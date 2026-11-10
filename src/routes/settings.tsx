@@ -15,6 +15,7 @@ import {
   getPushPermission,
   isPushEnabled,
   pushSupported,
+  screamNow,
   type PushPermission,
 } from "@/lib/desk-push";
 
