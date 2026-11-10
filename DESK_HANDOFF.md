@@ -213,3 +213,8 @@ Do not re-implement from scratch; extend these.
 - Radio check-in first; claimed C after A/B taken.
 - Discovery: poll 20s→12s, clock 15s→10s, refresh flash 650→380ms.
 - Lede text matches real cron pins (:07/:27/:47), not “every 45 minutes”.
+### 2026-11-10 ~15:48 +06 — PULSE / C (discovery)
+- Radio check-in → claimed C → product.
+- Discovery poll 20s→12s, refresh hold 650→380ms, log remount on generatedAt.
+- CSS: faster log-scan / crawl-pulse / shimmer.
+- discover-admissions.yml cron denser (4 pins/hour).

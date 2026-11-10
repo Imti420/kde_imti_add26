@@ -146,13 +146,13 @@ function DiscoveryPage() {
         // brief hold so the scan bar is visible
         window.setTimeout(() => {
           if (!stop) setRefreshing(false);
-        }, 650);
+        }, 380);
       }
     };
     void load(false);
     // Poll more often so the log visibly updates when a cycle finishes
-    const poll = window.setInterval(() => void load(true), 20_000);
-    const clock = window.setInterval(() => setNow(new Date()), 15_000);
+    const poll = window.setInterval(() => void load(true), 12_000);
+    const clock = window.setInterval(() => setNow(new Date()), 10_000);
     return () => {
       stop = true;
       window.clearInterval(poll);
@@ -291,7 +291,7 @@ function DiscoveryPage() {
             </button>
           ))}
         </div>
-        <ol key={eventFilter} className={cn("log-feed filter-swap mt-4 max-h-[32rem] overflow-y-auto border border-ink", refreshing && "log-updating")}>
+        <ol key={`${live?.generatedAt ?? "none"}|${eventFilter}`} className={cn("log-feed filter-swap mt-4 max-h-[32rem] overflow-y-auto border border-ink", refreshing && "log-updating")}>
           {phase === "loading" ? <li className="p-4 font-mono text-xs tracking-widest text-mute rule-wait">WAITING FOR THE PUBLISHED LOG.</li> : null}
           {phase !== "loading" && (live?.events.length ?? 0) === 0 ? (
             <li className="p-4 font-mono text-xs tracking-widest text-mute">NO EVENTS HAVE BEEN RECORDED.</li>
