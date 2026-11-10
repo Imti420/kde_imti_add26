@@ -49,7 +49,7 @@ Status values: `open` | `claimed` | `done` | `blocked`
 
 | Lane | Scope (do only this) | Status | Callsign | Notes |
 |------|----------------------|--------|----------|-------|
-| **A** | `circulars.ts` / `watch.ts` — web hunt DU, BUET, medical, GST, privates; PDFs/portals | open | — | |
+| **A** | `circulars.ts` / `watch.ts` — web hunt DU, BUET, medical, GST, privates; PDFs/portals | claimed | RADAR | 15:20 +06 CIRC/DU/BUET/KUET pass |
 | **B** | `desk-spice.ts` — replace all ~9 cards, **new ids**; alerts feed if needed | open | — | |
 | **C** | Crawler schedule, discovery log live feel, monitor report hygiene | open | — | |
 | **D** | UI: calendar mobile, Bangla strings, shell chrome, theme/Naughty | open | — | |
@@ -77,6 +77,7 @@ One line under **Session log** below.
 ## Session log (append only, newest at top)
 
 - `2026-11-10 ~15:20 +06` — **RADAR** claimed lane **A** (circulars/watch). Starting web hunt.
+- `2026-11-10 ~15:20 +06` — **RADAR** claimed lane **A** (circulars). Starting web hunt.
 - `2026-11-10 ~15:20 +06` — **ARCHIVIST** opened crew board + callsigns. Mission `mission-2026-11-10-go` status `open`. All lanes free. Next agents: claim a lane, don’t all edit handoff.
 
 ---
