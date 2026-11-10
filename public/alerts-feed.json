@@ -1,75 +1,41 @@
 {
   "updated": "2026-11-10T15:35:00+06:00",
-  "cycle": "n1010p-wire-news",
+  "cycle": "n1030w-wire-news",
   "news": [
     {
-      "id": "n1010p-du-tminus",
-      "heat": "HOT",
-      "headline": "Tomorrow noon the DU form either takes money or the defiance story collapses.",
+      "id": "n1030w-du-noon",
+      "title": "DU apps open TOMORROW noon — 11 Nov 12:00",
+      "body": "Portal admission.eis.du.ac.bd. UGC said wait. DU said no.",
       "url": "/newswire"
     },
     {
-      "id": "n1010p-star-split",
-      "heat": "HOT",
-      "headline": "Star still sells January apps; same page admits DU is sprinting December.",
+      "id": "n1030w-ugc-jan",
+      "title": "UGC still selling January apps / February tests",
+      "body": "National floor vs DU December sprint — both live.",
       "url": "/newswire"
     },
     {
-      "id": "n1010p-kuet-live-day",
-      "heat": "HOT",
-      "headline": "KUET forms are open right now through 10 December.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n1010p-buet-21",
-      "heat": "HOT",
-      "headline": "BUET still on 21 Nov apps / 16 Jan test, GPA wall intact.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n1010p-medical-18",
-      "heat": "HOT",
-      "headline": "Medical test locked 18 December; circular still missing.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n1010p-jnu-ru",
-      "heat": "HOT",
-      "headline": "JnU and RU still on autumn boards — not everyone copied UGC.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n1010p-gst-march",
-      "heat": "HOT",
-      "headline": "GST still pointing at March 2027; apps not out.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n1010p-coaching-sms",
-      "heat": "HOT",
-      "headline": "Coaching SMS selling two maps in one inbox.",
-      "url": "/newswire"
-    },
-    {
-      "id": "n1010p-tonight",
-      "heat": "HOT",
-      "headline": "Tonight: DU clock, KUET ID, BUET notice. Tabs not threads.",
+      "id": "n1030w-medical-18",
+      "title": "Medical/dental test locked 18 Dec — circular pending",
+      "body": "DGME date set; PDF still missing.",
       "url": "/newswire"
     }
   ],
   "registrations": [
     {
       "id": "reg-c-kuet-2026-11-10",
-      "title": "KUEEEET REGISTRATION IS LIVE AHHHHHHHH>>>>!!!!!!",
-      "body": "KUET apps open TODAY → 10 Dec. admission.kuet.ac.bd",
+      "title": "KUEEEET ADMISSION REGISTRATION AHHHHHHHH>>>>!!!!!!",
+      "body": "KUET forms OPEN TODAY → 10 Dec. Portal admission.kuet.ac.bd",
       "url": "/circulars/c-kuet"
-    },
-    {
-      "id": "reg-c-du-2026-11-11",
-      "title": "HEIII DU REGISTRATION TOMORROW NOON — HURRYY UPP",
-      "body": "DU apps 11 Nov 12:00 → 25 Nov 23:59",
-      "url": "/circulars/c-du"
     }
   ],
-  "circulars": []
+  "circulars": [],
+  "frantic": [
+    {
+      "id": "open-c-kuet-2026-11-10",
+      "title": "KUEEEET ADMISSION REGISTRATION AHHHHHHHH>>>>!!!!!!",
+      "body": "Forms are OPEN TODAY. Stop scrolling.",
+      "url": "/circulars/c-kuet"
+    }
+  ]
 }
