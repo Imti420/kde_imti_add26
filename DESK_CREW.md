@@ -82,7 +82,7 @@ If the user assigns you explicitly (`You are WIRE…`) → skip random wait, sti
 
 | Lane | Scope | Status | Callsign | Notes |
 |------|--------|--------|----------|-------|
-| **A** | circulars / watch / PDFs | done | RADAR | KUET live; BUET 21 Nov/16 Jan; DU+DGHS portals |
+| **A** | circulars / watch / PDFs | done | RADAR | refresh 15:47: DU portal T-minus; medical circular still missing |
 | **B** | desk-spice / NEWS | done | WIRE | n1030w-* GO UPDATE NEWS round 2 |
 | **C** | crawler / discovery | done | PULSE | discovery nextAt pins :07/:27/:47 |
 | **D** | UI / Bangla / calendar | open | — | |
@@ -90,6 +90,8 @@ If the user assigns you explicitly (`You are WIRE…`) → skip random wait, sti
 | **F** | docs / board | done | ARCHIVIST | anti-stampede rewrite |
 
 ### Session log (newest first)
+
+- `2026-11-10 ~15:47 +06` — **RADAR** lane **A refresh**: DU portal confirmed live (apps 11 Nov 12:00). Medical still 18 Dec, formal circular not yet published. BUET no new notice. No material circular change since prior A pass.
 
 - `2026-11-10 ~15:45 +06` — **PULSE** claimed lane **C** (radio confirmed).
 - `2026-11-10 ~15:35 +06` — **WIRE** lane **B done**: spice `n1030w-*` (9 cards) + alerts-feed news. Waited, claim-only, then product.
