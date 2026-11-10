@@ -260,14 +260,36 @@ function DeskAlertsPanel() {
     setNote("Alerts off on this device.");
   };
 
+  const fireScream = async () => {
+    setBusy(true);
+    setNote("Firing frantic stack…");
+    try {
+      const result = await screamNow();
+      setEnabled(true);
+      setPermission(getPushPermission());
+      if (result.fired > 0) {
+        setNote(
+          `Fired ${result.fired} notification(s). Device date ${result.today}. Moments: ${result.moments.join(", ") || "—"}. Check Windows notification center / Focus assist.`,
+        );
+      } else {
+        setNote(
+          `Fired 0. Date ${result.today}. Errors: ${result.errors.join(", ") || "unknown"}. Check browser site settings → Notifications, and Windows Focus assist.`,
+        );
+      }
+    } catch (e) {
+      setNote(`Scream failed: ${e instanceof Error ? e.message : "unknown"}`);
+    }
+    setBusy(false);
+  };
+
   return (
     <section className="mt-8 border-[3px] border-ink bg-panel p-4 shadow-[4px_4px_0_0_var(--color-ink)]">
       <p className="font-mono text-[10px] tracking-widest text-accent">PHONE / PC SHORTCUT · OS NOTIFICATIONS</p>
       <h2 className="mt-1 font-display text-3xl font-bold uppercase leading-none">Desk alerts</h2>
       <p className="mt-2 max-w-2xl text-sm text-pretty">
         For people who installed ADMISSION//26 on the home screen or pinned it. When the news desk flips, you get{" "}
-        <strong>NEW NEWS · headline</strong>. When a registration window opens the same day, you get{" "}
-        <strong>HEIII DU REGISTRATION STARTED — HURRYY UPP</strong> style pings.
+        <strong>NEW NEWS · headline</strong>. On registration / exam / close days you get a{" "}
+        <strong>4–5 ping frantic stack</strong> (e.g. KUEEEET ADMISSION REGISTRATION AHHHHHHHH&gt;&gt;&gt;&gt;!!!!!!).
       </p>
       <p className="mt-2 font-mono text-[11px] text-mute">
         Status: {pushSupported() ? `permission ${permission}` : "unsupported"} · {enabled ? "ENABLED" : "OFF"}
@@ -282,13 +304,17 @@ function DeskAlertsPanel() {
             Turn off
           </TextButton>
         )}
+        <TextButton type="button" disabled={busy || !pushSupported() || permission !== "granted"} onClick={() => void fireScream()}>
+          {busy ? "Screaming…" : "SCREAM NOW (test KUET stack)"}
+        </TextButton>
       </div>
-      {note ? <p className="mt-3 font-mono text-xs">{note}</p> : null}
+      {note ? <p className="mt-3 font-mono text-xs text-pretty">{note}</p> : null}
       <ul className="mt-4 space-y-1 font-mono text-[11px] text-mute">
         <li>· Works best on installed / Add to Home Screen shortcuts.</li>
         <li>· Checks on open, on focus, and every few minutes while the app is awake.</li>
         <li>· Background peeks use the service worker when the OS allows it.</li>
         <li>· On registration / exam / close days the desk fires 4–5 frantic pings (yes, on purpose).</li>
+        <li>· If the tray is empty: press SCREAM NOW. If still empty, Windows Focus assist / site notification block is the culprit.</li>
       </ul>
     </section>
   );
