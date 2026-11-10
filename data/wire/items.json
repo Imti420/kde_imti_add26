@@ -1,5 +1,23 @@
 [
   {
+    "id": "0d484cb5254976b2",
+    "headline": "ফতুল্লায় মাদ্রাসায় অগ্নিকাণ্ড: বার্ন ইনস্টিটিউটে ভর্তি ৬৩",
+    "summary": null,
+    "sourceId": "prothom-alo",
+    "sourceName": "Prothom Alo",
+    "sourceUrl": "https://www.prothomalo.com/video/bangladesh/bcumjs6j2k",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-10T16:32:01.000Z",
+    "discoveredAt": "2026-11-10T17:43:10.336Z",
+    "contentHash": "0d484cb5254976b2c28bf31ac45e80b247c966a6837f05b47c6ba27948d1e8fa",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "9023f577ca595656",
     "headline": "DU undergraduate admission applications open tomorrow",
     "summary": "Applications will remain open until 11:59pm on 25 November.",
