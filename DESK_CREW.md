@@ -1,111 +1,131 @@
-# ADMISSION//26 — Desk Crew (multi-agent playground)
+# ADMISSION//26 — Crew board (multi-agent coordination)
 
-**Purpose:** When Imti says `GO UPDATE` in **several chats at once**, agents do **not** all do the same job.  
-They **coordinate through this file** (git is the radio). Names are mandatory. Claims are mandatory. Overlap is a foul.
+**This is the fun place.** Multiple Grok agents cannot share one brain, but they **can** share this file on `main`. When Imti says **GO UPDATE** (or the same prompt) in several chats at once, each agent:
 
-This is the fun place. Be a character. Still ship real code.
+1. Reads **this file first** (after `DESK_HANDOFF.md`)
+2. Picks a **free lane** (or the lane matching their **callsign**)
+3. **Claims** it by editing this file + pushing
+4. Does **only** that lane’s work
+5. Marks the lane **done**, appends a one-liner here and a full note in `DESK_HANDOFF.md` Changelog
 
----
+No claim → no work on that lane. Two agents in the same lane = wasted motion.
 
-## The crew (pick one name per session — sticky for that chat)
-
-| Callsign | Color vibe | Default lane (when splitting a full GO UPDATE) |
-|----------|------------|--------------------------------------------------|
-| **WIRE** | newsprint yellow | `desk-spice.ts` — spicy news only. Research + replace cards. Alerts feed news ids. |
-| **CIRC** | stamp red | `circulars.ts` + uni portals/PDFs. New circulars, seats, dates. NEW CIRCULAR notify. |
-| **SIGNAL** | radio green | `desk-push.ts` / `sw.js` / Settings alerts / frantic / SCREAM NOW. Notification path only. |
-| **SHELL** | terminal cyan | UI routes/components: calendar `useT`, uni CTA bar, Bangla strings, Naughty, mobile shell. |
-| **SCOUT** | field khaki | Research only — no code. Writes findings into `DESK_CREW.md` → **Scout drop** for CIRC/WIRE. |
-
-If only **one** agent is in the room: ignore lanes, do the full job, sign the changelog as **SOLO**.
-
-If **two+** agents get the same `GO UPDATE`: each must **claim a free lane** before editing product files.
+Live: https://kdeimtiadd26.vercel.app  
+Repo: https://github.com/Imti420/kde_imti_add26
 
 ---
 
-## How to coordinate (the protocol)
+## Callsigns (you have names now)
 
-### 1. On wake (every agent, every GO UPDATE)
+Pick one when you claim. If taken, pick another. Stay that name for the session.
 
-1. `git pull` (or fresh clone of `main`).
-2. Read `DESK_HANDOFF.md` (product law).
-3. Read **this file** — active claims + scout drops.
-4. Pick a **callsign** not currently claimed for this wave.
-5. **Commit a claim** before heavy work (see template).
+| Callsign | Vibe | Best lanes |
+|----------|------|------------|
+| **RADAR** | Circular hunter | A — circulars / watch / PDFs |
+| **WIRE** | Desk journalist | B — spice cards / GO UPDATE NEWS |
+| **PULSE** | Crawl & discovery | C — workflows / discovery UX / monitor |
+| **SHELL** | UI / mobile / Bangla | D — calendar, shell, i18n, theme |
+| **SIREN** | Alerts & PWA | E — notifications, SW, SCREAM NOW |
+| **ARCHIVIST** | Docs & continuity | F — DESK_HANDOFF / this board only |
 
-### 2. Claim template (append under Active wave)
+Imti can assign: e.g. `GO UPDATE — you are RADAR` in one chat, `you are WIRE` in another.
+
+---
+
+## Active mission
+
+**Mission id:** `mission-2026-11-10-go`  
+**Opened by:** Imti (multi-window GO UPDATE experiment)  
+**Status:** `open`  
+**Objective:** Parallel desk upgrade without five agents rewriting the same handoff.
+
+When the mission is finished, set status to `closed` and clear claims (or start a new mission id).
+
+---
+
+## Lanes (claim → work → done)
+
+Status values: `open` | `claimed` | `done` | `blocked`
+
+| Lane | Scope (do only this) | Status | Callsign | Notes |
+|------|----------------------|--------|----------|-------|
+| **A** | `circulars.ts` / `watch.ts` — web hunt DU, BUET, medical, GST, privates; PDFs/portals | open | — | |
+| **B** | `desk-spice.ts` — replace all ~9 cards, **new ids**; alerts feed if needed | open | — | |
+| **C** | Crawler schedule, discovery log live feel, monitor report hygiene | open | — | |
+| **D** | UI: calendar mobile, Bangla strings, shell chrome, theme/Naughty | open | — | |
+| **E** | Notifications, frantic day-of, SCREAM NOW, SW reliability | open | — | |
+| **F** | Handoff/crew docs only — no product code unless fixing this protocol | open | — | |
+
+### How to claim (copy pattern)
 
 ```markdown
-### Claim · <CALLSIGN> · <YYYY-MM-DD HH:MM +06>
-- Wave id: <user phrase or date-time, e.g. GO-UPDATE-2026-11-10-1517>
-- Lane: WIRE | CIRC | SIGNAL | SHELL | SCOUT
-- Intent: one line
-- Status: claimed
+| **A** | … | claimed | RADAR | 15:20 +06 starting DU/BUET pass |
 ```
 
-Push that claim **alone** first if others might be racing. Then do the work.
+Push that edit **before** large data edits so another agent sees the claim.
 
-### 3. While working
-
-- **Touch only your lane’s files** unless SCOUT left you a drop.
-- If you need a file another lane owns → note it under **Handoffs**, don’t silent-edit.
-- Prefer small commits: `crew(<CALLSIGN>): …`
-
-### 4. When done
-
-Append:
+### How to finish
 
 ```markdown
-### Done · <CALLSIGN> · <time>
-- Wave id: …
-- Shipped: 3–6 bullets
-- Commit: <hash>
-- Status: done
+| **A** | … | done | RADAR | DU window confirmed; watch updated |
 ```
 
-And append the usual block to `DESK_HANDOFF.md` Changelog (mention your callsign).
-
-### 5. Conflicts
-
-- Two claims, same lane, same wave → **later claim switches lane** or waits.
-- Merge conflict on this file → keep **both** claim/done blocks; don’t delete another agent’s name.
-- Never force-push `main`.
+One line under **Session log** below.
 
 ---
 
-## Active wave
+## Session log (append only, newest at top)
 
-_Wave id: (none — next multi-agent GO UPDATE starts a wave)_
-
-<!-- agents append Claim / Done blocks below -->
+- `2026-11-10 ~15:20 +06` — **ARCHIVIST** opened crew board + callsigns. Mission `mission-2026-11-10-go` status `open`. All lanes free. Next agents: claim a lane, don’t all edit handoff.
 
 ---
 
-## Scout drops (research → builders)
+## Protocol (short)
 
-_SCOUT pastes findings here. CIRC/WIRE consume and clear or mark used._
+```
+GO UPDATE in N chats
+  → each agent: HANDOFF → CREW board
+  → claim free lane (or assigned callsign’s lane)
+  → work only that scope
+  → mark done + session log + DESK_HANDOFF changelog
+  → if blocked, status=blocked + note, pick another open lane
+```
 
-<!-- example
-### Drop · SCOUT · 2026-11-10
-- KUET: apps open … source URL
-- Used by: —
--->
-
----
-
-## Handoffs / sticky notes
-
-- Notifications delivery = `registration.showNotification` from page (see handoff). Don’t reintroduce postMessage-only.
-- KUET open day frantic copy pattern is sacred to Imti’s humor — keep the AHHHHHHHH energy.
-- Naughty mode stays.
+**Do not:** five agents rewrite `DESK_HANDOFF.md` with the same essay.  
+**Do:** one line in Changelog per real upgrade; board holds the parallel state.
 
 ---
 
-## Why this works (honest physics)
+## Fun rules
 
-Agents do **not** share live brain cells.  
-They **do** share git.  
-So the repo is the group chat. Claims prevent five WIREs rewriting spice at once. Names make the log readable. Fun is allowed; collisions are not.
+1. Callsigns stick for the session.
+2. Stealing a `claimed` lane is a desk crime (unless stuck >30 min / `blocked`).
+3. `SCREAM NOW` still works; SIREN owns that maze.
+4. If you only see docs work left, you are ARCHIVIST — improve the board, then stop.
+5. Winning = more lanes `done`, not more words about coordination.
 
-When Imti opens five windows and yells **GO UPDATE** everywhere:  
-**WIRE / CIRC / SIGNAL / SHELL / SCOUT** — pick a seat, claim it, ship your lane.
+---
+
+## Imti one-liners (paste per window)
+
+```text
+You are RADAR. Read DESK_HANDOFF.md + DESK_CREW.md. Claim lane A. GO UPDATE circulars only.
+```
+
+```text
+You are WIRE. Read DESK_HANDOFF.md + DESK_CREW.md. Claim lane B. GO UPDATE NEWS only.
+```
+
+```text
+You are PULSE. Read DESK_HANDOFF.md + DESK_CREW.md. Claim lane C. Discovery/crawler only.
+```
+
+```text
+You are SHELL. Read DESK_HANDOFF.md + DESK_CREW.md. Claim lane D. UI/Bangla/calendar only.
+```
+
+```text
+You are SIREN. Read DESK_HANDOFF.md + DESK_CREW.md. Claim lane E. Notifications only.
+```
+
+Same prompt in all five without names → everyone must still **self-claim different lanes** using this board. First push wins the claim.
