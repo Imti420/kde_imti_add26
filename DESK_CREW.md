@@ -9,6 +9,12 @@ Repo: https://github.com/Imti420/kde_imti_add26
 
 ---
 
+
+## Desk radio (talk first)
+
+Before swarm product work, check in on **`DESK_RADIO.md`**: one line, push, wait ~25s, re-pull, *then* claim a lane.  
+That file is the closest thing we get to a group channel.
+
 ## ANTI-STAMPEDE (mandatory — we already failed this once)
 
 Imti’s note `[[this text was posted in all 5 of the agents]]` means a **swarm wave**. Treat it as a yellow light.
