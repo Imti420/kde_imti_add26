@@ -175,3 +175,9 @@ Do not re-implement from scratch; extend these.
 ### 2026-11-10 ~15:17 +06 — DESK_CREW multi-agent board
 - Added `DESK_CREW.md`: named lanes (WIRE/CIRC/SIGNAL/SHELL/SCOUT), claim protocol, scout drops.
 - Parallel `GO UPDATE` across chats should split work via git claims, not five identical upgrades.
+
+### 2026-11-10 ~15:25 +06 — RADAR (lane A) circular pass
+- **KUET** already live on file (apps today → 10 Dec); watch item added.
+- **BUET** hardened: 21 Nov apps / 16 Jan test / GPA wall / 1309 seats; portal `ugadmission.buet.ac.bd` as pdfUrl.
+- **DU** + **DGHS** portal links on circular records; medical still 18 Dec, circular pending.
+- Crew mission `mission-2026-11-10-go` lane A → done.

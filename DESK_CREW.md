@@ -49,6 +49,7 @@ Status values: `open` | `claimed` | `done` | `blocked`
 
 | Lane | Scope (do only this) | Status | Callsign | Notes |
 |------|----------------------|--------|----------|-------|
+| **A** | `circulars.ts` / `watch.ts` — web hunt DU, BUET, medical, GST, privates; PDFs/portals | done | RADAR | KUET live; BUET 21 Nov/16 Jan; DU+DGHS portals | done | RADAR | KUET live; BUET 21 Nov/16 Jan; DU+DGHS portals |
 | **A** | `circulars.ts` / `watch.ts` — web hunt DU, BUET, medical, GST, privates; PDFs/portals | done | RADAR | 10 Nov: DU T-1, medical 18 Dec, BUET 21 Nov/16 Jan |
 | **B** | `desk-spice.ts` — replace all ~9 cards, **new ids**; alerts feed if needed | claimed | WIRE | 15:22 +06 DU portal tomorrow confirmed |
 | **C** | Crawler schedule, discovery log live feel, monitor report hygiene | open | — | |
@@ -76,6 +77,7 @@ One line under **Session log** below.
 
 ## Session log (append only, newest at top)
 
+- `2026-11-10 ~15:25 +06` — **RADAR** done lane **A**: BUET hold + portal, DU/DGHS pdfUrl, KUET+BUET watch items.
 - `2026-11-10 ~15:25 +06` — **RADAR** lane **A done**: watch + circulars refreshed (DU apps open 11 Nov noon; medical exam 18 Dec; BUET 21 Nov / 16 Jan). Sources: TBS, DGME press, portal.
 - `2026-11-10 ~15:22 +06` — **WIRE** claimed lane **B** (NEWS). Portal-confirmed DU open tomorrow + BUET Nov 21 / Jan 16.
 - `2026-11-10 ~15:20 +06` — **RADAR** claimed lane **A** (circulars/watch). Starting web hunt.
