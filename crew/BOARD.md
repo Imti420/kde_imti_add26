@@ -38,7 +38,7 @@ When the owner pastes the **same** prompt into several chats at once:
 
 | Lane | Owns | Status |
 |------|------|--------|
-| `SPICE` | `src/data/desk-spice.ts` | **OPEN** |
+| `SPICE` | `src/data/desk-spice.ts` | **RAJU** |
 | `CIRCULARS` | `src/data/circulars.ts` | **OPEN** |
 | `WATCH` | `src/data/watch.ts` | **OPEN** |
 | `VOICES` | `src/data/voices.ts` | **OPEN** |
@@ -54,7 +54,11 @@ When the owner pastes the **same** prompt into several chats at once:
 
 ## Active claims
 
-_None — board cleared after 10 Nov stampede. Next parallel run uses Phase 0–3 above._
+### 2026-11-10 15:30 +06 — RAJU — SPICE
+- Status: CLAIMED
+- Scope: GO UPDATE NEWS — replace spice cycle (DU T-hours, UGC war, retake wall)
+- Commit: (claim only)
+
 
 ---
 
