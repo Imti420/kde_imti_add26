@@ -169,6 +169,12 @@ Do not re-implement from scratch; extend these.
 - Product outcomes mostly fine (spice n1010e, DU circulars/watch hardening) but process was dumb.
 - **Fix:** `crew/BOARD.md` Phase 0 WAIT + claim-only commits; roster-only names; board cleared for next run.
 
+
+### 2026-11-10 ~15:35 +06 — WIRE lane B (GO UPDATE NEWS round 2)
+- Anti-stampede: waited ~8s, board-only claim, then product.
+- Replaced spice with **n1030w-*** (9 cards): DU tomorrow noon, UGC January floor, retake math, BUET wall, medical 18 Dec, engineering clocks, GPA market, other unis, desk discipline.
+- `public/alerts-feed.json` news cycle `n1030w-wire-news`.
+
 ### (Next agent: append here — date, bullets, files touched)
 
 ### 2026-11-10 ~15:17 +06 — DESK_CREW multi-agent board
