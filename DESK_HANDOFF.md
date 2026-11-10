@@ -2,18 +2,40 @@
 
 **Repo:** https://github.com/Imti420/kde_imti_add26  
 **Live:** https://kdeimtiadd26.vercel.app  
-**Owner / product voice:** Imti — Grok agents are the *brain*; the crawler is dumb. Prefer researched desk copy over raw crawl noise.  
-**Standing command:** User says `GO UPDATE` → research admissions/edtech, fix data, push. User will reuse this chat pattern across agents.
+**Owner / product voice:** Imti — Grok agents are the *brain*; the crawler is dumb. Prefer researched desk copy over raw crawl noise.
 
-**MANDATORY:** After **every** code or data upgrade, append a short entry under **Changelog (append only)** at the bottom *in the same commit* (or immediately after). Keep this file accurate so the next agent is not amnesiac. If you ship without a Changelog line, you broke the continuity contract.
+**Standing commands the user reuses across agents:**
+- `GO UPDATE` → hunt web for new/changed circulars (DU, BUET, medical, GST, privates…), update `circulars` / `watch` / desk notes, push if anything moved.
+- `GO UPDATE NEWS` → fresh research on that day’s admission + edtech mess, **replace all 9 spicy cards** with new desk pieces, push.
+- After every upgrade: **append Changelog** at the bottom of **this file** so the next bot is not amnesiac.
 
 ---
 
 ## What this product is
 
-Bangladesh public-university admission desk for session **2026–27**: universities, circulars (dates/seats/eligibility), calendar, discovery/crawl log, newswire (editorial spice cards, not sad headline grid), settings, PWA install + desk alerts.
+Bangladesh public-university admission desk for session **2026–27**: universities, circulars (dates/seats/eligibility), calendar, discovery/crawl log, newswire (editorial spice cards), settings, desk alerts / OS notifications, Bangla mode, Naughty mode.
 
 Stack: TanStack Start / Vite / Tailwind, data in `src/data/*`, client personal state in localStorage, GitHub Actions crawlers, Vercel deploy from `main`.
+
+---
+
+## Critical paths (do not wander blind)
+
+| Area | Path |
+|------|------|
+| Spice / newswire cards | `src/data/desk-spice.ts` (`SPICE_CARDS`, ~9 cards) |
+| Circulars | `src/data/circulars.ts` |
+| Watch / desk notes | `src/data/watch.ts` |
+| Universities seed | `src/data/universities.ts` (or catalog builders under `src/lib/catalog`) |
+| i18n EN/BN | `src/lib/i18n.tsx` — `useT()`, `LangProvider`, `LangToggle` |
+| Theme + Naughty + Chrome toggles | `src/components/theme.tsx` — `ChromeToggles` = বাংলা + Day/Night |
+| Shell / nav | `src/components/shell.tsx` |
+| Calendar | `src/routes/calendar.tsx` |
+| Discovery log UI | `src/routes/discovery.tsx` |
+| Notifications / frantic alerts | settings + SW / `desk-push` style modules (see recent commits) |
+| Crawler schedule | `.github/workflows/discover-admissions.yml` — **cron every 45 min** (`*/45 * * * *`) |
+| Newswire crawl | `.github/workflows/crawl-newswire.yml` |
+| Global motion / CSS | `src/styles.css`, `src/components/motion.tsx` |
 
 ---
 
@@ -21,150 +43,88 @@ Stack: TanStack Start / Vite / Tailwind, data in `src/data/*`, client personal s
 
 | Decision | Detail |
 |----------|--------|
-| **Desk > crawler** | Spicy news is authored in `src/data/desk-spice.ts` (`SPICE_CARDS`). Crawler feeds discovery/monitor; it does not own the newswire voice. |
-| **3–9 spice cards** | Newswire is editorial cards with heat tags (`HOT` / `NUKE` / `WAR` / etc.), not a sad grid of headlines. |
-| **Circular truth** | Seats, subjects, GPA bars, fees live on circular records in `src/data/circulars.ts`. Prefer `confidence` + `confidenceNote` over inventing certainty. |
-| **University profile CTAs** | Uni detail must show **Official portal**, **Circular / PDF**, **Open circular page**. Grid badges: `CIRCULAR ✓` / `PORTAL ✓`. |
-| **Bangla is whole-site** | `src/lib/i18n.tsx` + `useT()` — expand dictionary; do not leave half-translated pages. |
-| **Calendar crash** | `EventDetail` / `EventForm` / any component using `t(...)` **must** call `const t = useT()`. Past production bug: `ReferenceError: t is not defined` on `/calendar`. |
-| **Naughty mode** | Settings secret toggle → `html.naughty` pink/horny theme via theme components. User asked for it; keep it. |
-| **Desk alerts** | OS notifications for news, new circular PDFs, and **frantic day-of** open/close/exam stacks. Settings: enable + **SCREAM NOW** test. |
-| **Honest about push limits** | No central push server / VAPID store yet. Alerts fire when the installed app/tab runs the checker (open, focus, SW). Do not claim SMS blast to all phones. |
-| **Phone-first chrome** | Mobile: bottom dock (Home / Wire / Dates / Unis / More), slim header, search expands on demand, safe-area padding. Desktop keeps left rail. See `src/components/shell.tsx`. |
-| **Install icon** | Real PNG icons in `public/icons/` + `public/manifest.webmanifest`. Do not rely on blank `__grok/icon-180.png` for Chrome install. |
-| **Agent handoff** | Update **this file** after every upgrade. |
+| **Desk > crawler** | Spicy news is authored in `desk-spice.ts`. Crawler feeds discovery/monitor; it does not own the newswire voice. |
+| **~9 spice cards** | Editorial cards with heat tags (`HOT` / `SYSTEM` / `MARKET` / `WAR` / `STREET` / `SCAM` / etc.), not a sad headline grid. Rotate **ids** when replacing so alert fan-out treats them as new. |
+| **Circular truth** | Seats, subjects, GPA, fees on circular records. Prefer `confidence` + `confidenceNote` over inventing certainty. |
+| **University CTAs** | Uni detail: **Official portal**, **Circular / PDF**, **Open circular page**. Grid badges when portal/PDF on file. |
+| **Bangla is whole-site** | Expand `i18n.tsx` dictionary; do not leave half-translated chrome. Toggle lives in header via `ChromeToggles`. |
+| **Calendar / i18n crash** | Any component using `t(...)` **must** `const t = useT()`. Past production break: `t is not defined`. Never write `setError("{t(\"…\")}")` or `confirm("t(\"…\")")` — call `t()` as a function. |
+| **Naughty / horny mode** | Settings secret → `html.naughty` pink theme. User asked for it; keep it. Theme color + badge in `theme.tsx`. |
+| **Desk alerts** | OS notifications for news, new circular PDFs, **frantic day-of** open/close/exam stacks (several pings). Settings: enable + **SCREAM NOW** test. |
+| **Honest push limits** | No central VAPID push server yet. Alerts when installed app/tab runs the checker. Do not claim SMS / guaranteed background push. |
+| **Mobile calendar** | Phone-first: sticky dock, count badges on month cells, snap week cards, sheet-style day panel. |
+| **Discovery feels alive** | Snappier motion, poll ~20s, live/refresh bars, stronger ACTIVE pulse, crawler **every 45 minutes** (not 3h). |
+| **Security** | User has pasted GitHub PATs in chat before — treat as compromised; never echo tokens; prefer rotating. |
 
 ---
 
-## Critical files
+## Features already shipped (multi-agent history)
 
-| Path | Role |
-|------|------|
-| `src/data/desk-spice.ts` | Editorial news cards. **New `id`s** = treated as NEW NEWS for alerted devices. |
-| `src/data/circulars.ts` | Circulars; set `pdfUrl`, dates, seats, eligibility. |
-| `src/data/universities.ts` | `U()` seeds; always set `admissionUrl` when known. |
-| `src/lib/desk-push.ts` | Alerts: news, circular PDF, frantic stacks, `screamNow()`. |
-| `src/components/desk-push-boot.tsx` | Mounts alert loop in shell. |
-| `public/sw.js` | Service worker; prefers `registration.showNotification`. |
-| `public/alerts-feed.json` | Feed for SW background peek. |
-| `public/icons/*` + `public/manifest.webmanifest` | PWA / Chrome install icons. |
-| `src/components/shell.tsx` | Desktop rail + mobile dock + search. |
-| `src/routes/universities/$id.tsx` | Portal + PDF CTA bar. |
-| `src/routes/settings.tsx` | Desk alerts panel + SCREAM NOW + Naughty. |
-| `src/lib/i18n.tsx` | en/bn strings. |
-| `src/routes/calendar.tsx` | Must keep `useT()` in every `t()` consumer. |
-| `DESK_HANDOFF.md` | **This file** — update after every upgrade. |
+Do not re-implement from scratch; extend these.
 
-### Portals worth keeping (bookmark list)
+### From early / parallel agents
+- **Notifications** — reliable `registration.showNotification`; Settings **SCREAM NOW**; frantic 4–5 stacks on reg open / close / exam days.
+- **Big news / spice cycles** — rotating `SPICE_CARDS` (e.g. `n0911-*` and later cycles); new ids force alert fan-out.
+- **Circular PDF / portal on profiles** — `pdfUrl`, admission URLs, CTA bar, `CIRCULAR ✓` / `PORTAL ✓` style badges.
+- **Naughty (horny) mode** — `a26-naughty` localStorage, `html.naughty`, pink theme-color, “Soaked” badge.
+- **`t()` not found fix** — calendar `EventDetail` and form paths must call `useT()`.
+- **Phone capabilities** — mobile calendar redesign; press/snap polish in CSS.
 
-| Institution | Portal |
-|-------------|--------|
-| DU | https://admission.eis.du.ac.bd/ |
-| JU | https://juadmission.tech/ |
-| RU | https://admission.ru.ac.bd/ (or ru.ac.bd) |
-| CU | https://admission.cu.ac.bd/ |
-| KU | https://admission.ku.ac.bd/ |
-| KUET | https://admission.kuet.ac.bd/ |
-| BUET | https://ugadmission.buet.ac.bd/ |
-| SUST | https://admission.sust.edu.bd/ |
-| MIST | https://mist.ac.bd/study-with-us/menu/apply-online |
-| BUP | https://bup.edu.bd/ |
-| GST | https://gstadmission.ac.bd/ |
-| Agri cluster | https://sau.edu.bd/ |
+### From this thread’s agents (Nov 8–10 2026)
+- **Crawler schedule** aligned to **45 min** in Actions + UI copy (`INTERVAL_MINUTES = 45`).
+- **Snappier global animations** — shorter durations, sharper easing, faster CountUp, tighter log-in stagger.
+- **Discovery log** — faster poll, scan bar while refreshing, `LIVE · CRAWLING` / `REFRESHING LOG` labels.
+- **Desk data cycles** — DU apps 11–25 Nov 2026; BUET apps ~21 Nov / test 16 Jan 2027 hard GPA wall; medical ~18 Dec (circular often still pending); HSC retake pressure documented in `watch.ts`.
+- **Bangla mode** — `src/lib/i18n.tsx`, `LANG_BOOT`, Noto Sans Bengali, header **বাংলা / EN** beside Day/Night via **`ChromeToggles`** (must ship as one group or production tree-shakes `LangToggle`).
+- **Calendar mobile UI** — sticky controls, larger targets, agenda/week/month polish.
 
 ---
 
-## Alert system (how it actually works)
+## Season snapshot (verify before rewriting)
 
-1. User: Settings → **Turn on desk alerts** → browser permission **granted**.
-2. `enableDeskPush()` registers `/sw.js`, seeds news/circular baselines, clears **frantic** day keys, runs pass.
-3. `runDeskAlertPass()`:
-   - New `SPICE_CARDS` ids → `NEW NEWS · {heat}`
-   - Circulars with new `pdfUrl` → `NEW CIRCULAR · {UNI}`
-   - Calendar moments for **today** (`applicationOpens` / closes / exam / admit / result) → **4–5 frantic pings**
-4. Delivery: **`ServiceWorkerRegistration.showNotification` from the page** (not postMessage-only). Unique tags. Windows was silent when we only postMessaged the worker.
-5. **SCREAM NOW** (`screamNow()`): clears frantic seen, forces today's open/close/exam stacks. Use when debugging empty tray.
-6. Standing rule: **whenever you add a circular with `pdfUrl`, treat it as notify-worthy** (new id or updated pdf).
-7. To re-alert the same story theme, **rotate spice card `id`s** (e.g. `n0911-*` → `n1011-*`). Seen sets are keyed by id in localStorage.
-
-### Frantic open-day copy pattern
-
-`KUEEEET ADMISSION REGISTRATION AHHHHHHHH>>>>!!!!!!`  
-(+ wake up / hurry / still not applied / last call)
-
----
-
-## Data highlights (verify against sources before changing)
-
-- **KUET (`c-kuet`)**: Circular live. Apps **2026-11-10 10:00 → 2026-12-10 17:00**, test **2027-01-08**, ~**1105** seats, portal PDF link, HSC combined GPA Math+Phy+Chem+Eng **≥ 16.00** (lowered from 18).
-- **DU**: Apps **11–25 Nov 2026** (held after evening committee vs UGC January floor). PVC on record. Portal noon 11 Nov is the operational test. Units: IBA 5 Dec · Science 12 · Arts/Law/Social 19 · Fine Arts 22 · Business 26.
-- **UGC floor (9 Nov)**: National line was apps from January / tests after Feb — **DU diverged**. Season is split; do not silently “fix” DU to January without a new primary source.
-- **JnU / RU**: Mid-November app windows on campus wires (JnU ~15 Nov; RU primary ~12–27 Nov) — confirm before hardening into circulars.
-- **BUET**: Portal on file; formal circular still thin — do not invent a PDF.
-- **MIST**: Revised test map mid/late Jan 2027 in archive; app window may still be pending formal circular.
-- **SUST**: Tests 17–18 Jan 2027 (reschedule); app window thin.
-
-**Current spice cycle:** `n1011-*` (day cycle 10 Nov 2026) — nine cards. Prior: `n0911-*` (midnight 9→10 Nov).
-
----
-
-## UX / chrome already shipped (do not regress)
-
-- **Mobile dock** in `shell.tsx`: Home, Wire, Dates, Unis, More (+ full menu sheet).
-- **Mobile header**: A//26 mark, search icon expands input (16px text to avoid iOS zoom), lang/theme, compact notice bell.
-- **PWA icons**: `public/icons/icon-{180,192,512}.png`, maskable 512, site `manifest.webmanifest`; root head points at these.
-- **Discovery**: snappier animations, live crawl pulse / scan bar, regular crawl cadence (Actions + UI polling).
-- **Animations**: snappier global easing in styles / motion components.
+- **DU 2026–27:** Apps **11–25 Nov 2026**; tests Dec 5–26 (IBA → Science → Arts → Fine Arts → Business); classes ~28 Mar 2027. Portal: `admission.eis.du.ac.bd`.
+- **BUET:** Apps from **~21 Nov**; test **16 Jan 2027**; strict GPA-5 + A+ Phy/Chem/Higher Math; ~10k sit.
+- **Medical/dental:** Test messaging **~18 Dec 2026**; circular/application window often still thin; retake cohort at risk.
+- **GST / clusters:** Fragmentation — some unis prefer own tests; engineering cluster already independent in places.
+- Do **not** silently move DU to January without a new primary source.
 
 ---
 
 ## Known footguns
 
-- **Vercel chunk cache**: users may see `Failed to fetch dynamically imported module` or stale `t is not defined` after deploys — hard refresh; calendar was fixed in source while production lagged.
-- **`t is not defined`**: missing `useT()` in a component that calls `t`.
-- **universities.ts corruption**: once wiped mid-session; restore from git history if U() seeds vanish.
-- **Concurrent GitHub Actions** git push races: use existing `git-publish.sh` rebase loop if touching crawler publish.
-- **Alert “enabled” but empty tray**: old postMessage path, Focus assist, or frantic keys already marked seen — use SCREAM NOW + `registration.showNotification`.
-- **Do not** claim central push to all users without a real subscription backend.
-- **Telegram bot token** was once pasted in chat — treat as burned; never commit tokens; cold mass-DM is not allowed by Telegram.
-- **Do not overwrite** platform paths `public/__grok/`, `scripts/grok-pwa-*`, `server/middleware/grok-pwa.ts` unless you know the Grok deploy contract.
+- **Vercel build red** → live stays on last green deploy. Always fix syntax before assuming “user can’t see feature.”
+- **Tree-shaking** → isolated `LangToggle` import was dropped from prod bundle; keep language control inside `ChromeToggles` with ThemeToggle.
+- **Broken i18n stringification** → `setError("{t(\"key\")}")` breaks parse/build; use `setError(t("key"))`.
+- **Vercel chunk cache** → `Failed to fetch dynamically imported module` after deploys; hard refresh.
+- **universities.ts wipe** → restore from git history if seeds vanish.
+- **Actions git races** → use existing publish/rebase patterns when crawlers push.
+- **Alert enabled but quiet** → Focus Assist, frantic keys already seen, or SW not running — use SCREAM NOW.
 
 ---
 
-## Upgrade checklist (for the next agent)
+## Upgrade checklist (mandatory)
 
-1. Read **this file** end-to-end (and latest Changelog entries).
-2. `git pull` / open `main`; skim `desk-spice.ts`, `circulars.ts`, `desk-push.ts`, `shell.tsx`.
-3. Research only what the user asked; do not mass-rewrite stable circulars without sources.
-4. If adding news: **new spice `id`s**, update `public/alerts-feed.json` if SW feed should see them.
-5. If adding circular PDF/portal: set `pdfUrl` + uni `admissionUrl`; expect NEW CIRCULAR alerts.
-6. If touching calendar/i18n/settings: keep `useT`, Naughty, SCREAM NOW.
-7. If touching mobile chrome: keep dock + safe-area; do not restore desktop-only header on phone.
-8. `npm run typecheck` / build when practical; push `main`.
-9. **Append Changelog** below with date, what changed, key paths, and anything the next bot must not undo.
+1. **Read this file** (especially Changelog + Non-negotiables).
+2. Work on `main` of `Imti420/kde_imti_add26`; confirm live hash after push.
+3. Research only what the user asked; cite sources on circular/spice claims.
+4. News cycle → **new spice `id`s**; wire feed/SW if alerts should see them.
+5. Circular PDF/portal → set URLs; expect NEW CIRCULAR alerts.
+6. Touch calendar / i18n / settings → keep `useT`, Naughty, SCREAM NOW, ChromeToggles.
+7. Prefer typecheck/build when possible; **do not leave `main` red on Vercel**.
+8. **Append Changelog** below: date, what changed, files, footguns for the next agent.
 
 ---
 
 ## Changelog (append only)
 
 ### 2026-11-10 ~15:10 +06 — agent continuity + notification reliability
-- Added / expanded `DESK_HANDOFF.md` so agents share memory across sessions.
-- Notifications: page-side `registration.showNotification`; Settings **SCREAM NOW**; frantic 4–5 stacks on open/close/exam days.
-- KUET circular live on profiles; uni CTA bar (portal + PDF); desk spice `n0911-*` cycle (DU vs UGC, portal countdown, etc.).
-- Prior session baggage still in force: Naughty mode, full Bangla push, calendar `useT` fix, discovery snappy crawl UI, Grok-as-brain over dumb crawler.
+- Added `DESK_HANDOFF.md` so agents share memory across sessions.
+- Notifications: page-side `registration.showNotification`; Settings **SCREAM NOW**; frantic stacks on open/close/exam days.
+- KUET / portal+PDF CTAs; desk spice cycles; Naughty, Bangla, calendar `useT` fix still in force.
 
-### 2026-11-10 ~11:50 +06 — n1011 day desk cycle (news + alerts)
-- Replaced all nine `SPICE_CARDS` with **`n1011-*`** ids and `published: 2026-11-10` so devices that saw `n0911-*` get NEW NEWS again.
-- Themes: DU portal **tomorrow** (11 Nov noon); UGC Jan/Feb floor vs DU hold; KUET window; JnU/RU mid-Nov wave; ~4.23L retaker math; BUET silence; eight-campus clash risk; coaching double-map; 24h trigger list.
-- Sources: Daily Star, TBS, Prothom Alo, bdnews24, Samakal, Jagonews, campus wires — cite in cards, do not invent PDFs.
-- Path: `src/data/desk-spice.ts` only for that pass.
+### 2026-11-10 ~15:15 +06 — expand handoff (this message)
+- User asked every agent to leave context after upgrades; this file is that contract.
+- Documented multi-agent feature set: notifications, big news, circular PDFs, Naughty mode, `t()` fix, phone calendar, discovery 45‑min crawl, Bangla `ChromeToggles`, animation polish.
+- Recorded production footguns: Vercel red builds, LangToggle tree-shake, broken `t()` stringification.
 
-### 2026-11-09 / prior agents (still in force — do not regress)
-- **Calendar:** `useT()` in CalendarPage / EventDetail / EventForm — fixed `t is not defined`.
-- **Phone:** bottom dock, compact header, search sheet, safe-area — `shell.tsx`, NoticeBell compact label.
-- **PWA icons:** `public/icons/*`, `manifest.webmanifest`, root head links.
-- **Naughty / horny mode:** settings secret + theme classes.
-- **Discovery:** crawl pulse, snappier animations, regular Actions crawl.
-- **Marketing context (non-code):** user exploring Telegram bot / group posts; bot must not cold-DM; site + install shortcut is the product.
-
-### (Next agent: append here)
+### (Next agent: append here — date, bullets, files touched)
