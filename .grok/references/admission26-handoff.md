@@ -6,7 +6,8 @@ dated entry under **Changelog** and update the **Current state** section.
 
 Repo: https://github.com/Imti420/kde_imti_add26  
 Live: https://kdeimtiadd26.vercel.app  
-Owner protocol: plain `GO UPDATE` = hunt circulars + refresh data/watch/notes.  
+**Multi-agent board:** `.grok/desk/BOARD.md` — claim a callsign + one work slice when several agents get the same prompt.  
+Owner protocol: plain `GO UPDATE` = hunt circulars + refresh data/watch/notes (split on the board).  
 `GO UPDATE NEWS` = rewrite all 9 desk-spice cards for that day’s news.
 
 ---
@@ -73,6 +74,12 @@ Spicy, desk-written, Bangladesh admission-season register. Negative street voice
 
 ## Changelog (append only)
 
+### 2026-11-10 — Multi-agent desk board
+- Added `.grok/desk/BOARD.md`: callsigns + claimable work slices so several agents can split a `GO UPDATE` instead of all doing the same job.
+- Callsigns: Circular Hound, Spice Desk, Wire Runner, Nuke Watch, Street Voice, Medical Orphan, Coaching Street, Shell Boss.
+- Root `DESK-HANDOFF.md` now points at the board; protocol is claim → work → done → push.
+- Files: `.grok/desk/BOARD.md`, `DESK-HANDOFF.md`, this handoff.
+
 ### 2026-11-09 / 2026-11-10 — UGC Nuke + Super-Head
 - UGC postponed all public uni admissions (apps 1 Jan 2027, tests after 1 Feb). Integrated as lead.
 - Added `UgcNukeSuperHead` (massive breaking banner) + NUKE heat class + scanline/pulse CSS.
@@ -93,8 +100,9 @@ Spicy, desk-written, Bangladesh admission-season register. Negative street voice
 
 ## Protocol for the next agent
 
-1. Read this file fully.
-2. Do the requested upgrade.
-3. If the change is user-visible or changes data contracts, **append a dated Changelog entry** and refresh **Current state** if needed.
-4. Push the handoff file in the same batch as the code.
-5. One-line summary back to the user is enough; the detail lives here for the next instance.
+1. Read this file + `DESK-HANDOFF.md` + **`.grok/desk/BOARD.md`**.
+2. If other agents may be live on the same prompt: **claim a callsign and one slice on the board**, push the claim, then work.
+3. Do the requested upgrade (only your slice if coordinated).
+4. Write results to board “Done this cycle”; append a Changelog entry here if user-visible.
+5. Push board + handoff + code together.
+6. Short summary to the user; detail stays in these files.
