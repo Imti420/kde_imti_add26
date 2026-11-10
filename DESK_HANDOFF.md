@@ -13,6 +13,19 @@
 
 ---
 
+## Multi-agent crew (parallel GO UPDATE)
+
+When the owner pastes **GO UPDATE** into several chats at once:
+
+1. Open [`crew/BOARD.md`](crew/BOARD.md) + [`crew/ROSTER.md`](crew/ROSTER.md).
+2. Claim a **callsign** and **one lane** on the board (commit that claim first).
+3. Work only your lane; do not all rewrite spice cards.
+4. Mark DONE + append Changelog here.
+
+Solo sessions may take every lane but should still sign the board.
+
+---
+
 ## What this product is
 
 Bangladesh public-university admission desk for session **2026–27**: universities, circulars (dates/seats/eligibility), calendar, discovery/crawl log, newswire (editorial spice cards), settings, desk alerts / OS notifications, Bangla mode, Naughty mode.
@@ -134,6 +147,12 @@ Do not re-implement from scratch; extend these.
 - Confirmed `DESK_HANDOFF.md` already exists and is the contract — do not fork a second handoff file.
 - This session: no product code change; verified feature map still matches tree (voices, desk-spice n1011 cycle, desk-push + SCREAM NOW, pdfUrl, i18n `t()`, Naughty/horny experiment, university-card campusVoice).
 - Next agent: read Changelog + Non-negotiables first; on **GO UPDATE** refresh research + spice/circulars; always append here.
+
+### 2026-11-10 ~15:25 +06 — crew board (parallel agents)
+- Added `crew/ROSTER.md` (callsigns: Abrar, Raju, Savar, Tejgaon, Kuril, Float).
+- Added `crew/BOARD.md` (lanes + claim protocol).
+- Parallel `GO UPDATE`: each agent claims one lane on the board before editing product files.
+- Still one product brain: this handoff file + board; no five competing handoffs.
 
 ### (Next agent: append here — date, bullets, files touched)
 
