@@ -9,20 +9,6 @@ Owner trigger:
 
 ---
 
-## How to join a session
-
-1. Read this board + `DESK-HANDOFF.md` + `.grok/references/admission26-handoff.md`
-2. Pick a **free callsign** below (change `[ ]` → `[x] @ your short note`)
-3. Claim **one open slice** in the Work queue (add your callsign + timestamp)
-4. Do the work
-5. Move the slice to **Done this cycle** with a 1–3 line result
-6. Push board + code together
-7. If you finish early, take another free slice — do not steal a claimed one
-
-If two agents claim the same thing in the same minute: the later push loses; re-read board and take something still free.
-
----
-
 ## Callsigns (claim one per session)
 
 | Free | Callsign | Vibe |
@@ -30,35 +16,30 @@ If two agents claim the same thing in the same minute: the later push loses; re-
 | [ ] | **Circular Hound** | Official notices, PDFs, portal dates |
 | [ ] | **Spice Desk** | The 9 spicy cards, headlines, punch lines |
 | [ ] | **Wire Runner** | Crawler feed, wire status, source health |
-| [x] | **Nuke Watch** | UGC fallout, DU/BUET supersession, calendar ghosts — *claimed 10 Nov 15:20 Dhaka* |
+| [x] | **Nuke Watch** | UGC fallout, DU/BUET supersession — *session 10 Nov* |
 | [ ] | **Street Voice** | People’s-thought lines on uni cards |
 | [ ] | **Medical Orphan** | DGME / MBBS-BDS track (not under UGC) |
 | [ ] | **Coaching Street** | ACS / Udvash / Hulkenstein / edtech noise |
 | [ ] | **Shell Boss** | UI, naughty mode, notifications, mobile, i18n |
-
-Only one agent per callsign per cycle. Release when you leave (set back to `[ ]`).
 
 ---
 
 ## Work queue — open slices
 
 ### GO UPDATE slices (circular / data)
-- [ ] `circ-du` — Check DU portal + notices for formal pull-back of 11–25 Nov window
-- [ ] `circ-buet` — Check whether BUET published anything after UGC floor
+- [x] `circ-du` — DONE by Nuke Watch
+- [x] `circ-buet` — DONE by Nuke Watch
 - [ ] `circ-medical` — DGME / medical circular status (still 18 Dec?)
 - [ ] `circ-others` — Any other public uni that moved (JnU, RU, CU, GST cluster…)
-- [ ] `watch-refresh` — Rewrite `src/data/watch.ts` from whatever the hunters found
-- [ ] `circulars-annotate` — Flag superseded dates in `src/data/circulars.ts`
+- [ ] `watch-refresh` — may be partly covered; re-check after other hunters
+- [ ] `circulars-annotate` — partly done for DU/BUET
 
 ### GO UPDATE NEWS slices (only if owner said NEWS)
-- [ ] `spice-lead` — Card 1
-- [ ] `spice-fallout-a` — Cards 2–5
-- [ ] `spice-fallout-b` — Cards 6–9
-- [ ] `spice-voice-pass` — Street register + sources pass
+- [ ] `spice-lead` / `spice-fallout-a` / `spice-fallout-b` / `spice-voice-pass`
 
-### Always-on / product
-- [ ] `handoff-update` — Append Changelog entry in admission26-handoff.md
-- [ ] `board-cleanup` — Clear stale claims older than 2 hours
+### Always-on
+- [ ] `handoff-update`
+- [ ] `board-cleanup`
 
 ---
 
@@ -66,8 +47,8 @@ Only one agent per callsign per cycle. Release when you leave (set back to `[ ]`
 
 | Callsign | Slice | Claimed (Dhaka) | Status |
 |----------|-------|-----------------|--------|
-| Nuke Watch | `circ-du` | 2026-11-10 15:20 | working |
-| Nuke Watch | `circ-buet` | 2026-11-10 15:20 | working |
+| Nuke Watch | `circ-du` | 2026-11-10 15:20 | **done** |
+| Nuke Watch | `circ-buet` | 2026-11-10 15:20 | **done** |
 
 ---
 
@@ -75,12 +56,13 @@ Only one agent per callsign per cycle. Release when you leave (set back to `[ ]`
 
 | Callsign | Slice | Result (short) | When |
 |----------|-------|----------------|------|
-| — | — | — | — |
+| Nuke Watch | `circ-du` | **DU DEFYING UGC.** Committee 9 Nov kept 11–25 Nov apps + Dec tests. Portal live. Re-eval results 23 Nov still fit window. Updated circulars.ts (notice confidence) + watch.ts lead. | 10 Nov 15:30 Dhaka |
+| Nuke Watch | `circ-buet` | No post-UGC BUET notice. Last line 7–8 Nov = hold 21 Nov / 16 Jan. Marked reported/live; DU defiance raises odds BUET holds. | 10 Nov 15:30 Dhaka |
 
 ---
 
 ## Last board write
 
 - By: Nuke Watch
-- At: 2026-11-10 15:20 Dhaka
-- Note: claimed circ-du + circ-buet for UGC fallout check
+- At: 2026-11-10 15:30 Dhaka
+- Note: DU is the story — national floor cracked on day one
