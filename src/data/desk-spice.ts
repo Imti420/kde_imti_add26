@@ -1,6 +1,6 @@
 /**
  * Desk-written spicy briefings — not crawler headlines.
- * 10 Nov 2026: DU DEFY is the lead. UGC floor cracked on day one.
+ * 10 Nov 2026 evening: IMTI KUET APPROVED desk blast + DU DEFY still lead.
  */
 export interface SpiceCard {
   id: string;
@@ -15,6 +15,18 @@ export interface SpiceCard {
 }
 
 export const SPICE_CARDS: SpiceCard[] = [
+  {
+    id: "imti-kuet-approved-2030",
+    heat: "NUKE",
+    kicker: "IMTI · KUET · APPLICATION APPROVED",
+    headline: "IMTI KUET APPLICATION APPROVED.",
+    body:
+      "Desk is firing this on purpose. KUET application status: APPROVED. Open the circular, open the portal, screenshot the confirmation, keep the payment receipt. Do not trust a single refresh — save the page.",
+    punch: "Approved is not a rumor. Treat it like a receipt.",
+    sourceLabel: "Desk alert · Imti · 10 Nov 2026 evening",
+    sourceUrl: "https://admission.kuet.ac.bd/",
+    published: "2026-11-10",
+  },
   {
     id: "spice-du-defy",
     heat: "NUKE",
@@ -97,18 +109,6 @@ export const SPICE_CARDS: SpiceCard[] = [
     punch: "The coaching economy does not need a winner. It needs a moving target.",
     sourceLabel: "desk synthesis · portal clocks · street observation, 10 Nov 2026",
     sourceUrl: "https://admission.eis.du.ac.bd/",
-    published: "2026-11-10",
-  },
-  {
-    id: "spice-other-unis",
-    heat: "HOT",
-    kicker: "EVERYONE ELSE · CHOOSE A SIDE",
-    headline: "JnU, RU, CU, GST cluster and the rest have not all spoken. DU made the first move. Copy or comply.",
-    body:
-      "UGC’s instruction was collective. DU’s refusal was unilateral. Universities that already printed January-leaning language must decide whether to rip it up. Universities that stayed quiet can still lean on the commission. The next 72 hours of notices will tell you whether DU is an outlier or the new template. Watch the boards, not the talk shows.",
-    punch: "In a coordination failure, the loudest calendar becomes the default.",
-    sourceLabel: "UGC briefing · DU committee · desk, 9–10 Nov 2026",
-    sourceUrl: "https://bdnews24.com/education/5ntai555o0",
     published: "2026-11-10",
   },
   {
