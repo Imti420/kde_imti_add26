@@ -1,5 +1,23 @@
 [
   {
+    "id": "9023f577ca595656",
+    "headline": "DU undergraduate admission applications open tomorrow",
+    "summary": "Applications will remain open until 11:59pm on 25 November.",
+    "sourceId": "tbs-education",
+    "sourceName": "The Business Standard — Education",
+    "sourceUrl": "https://www.tbsnews.net/bangladesh/education/du-undergraduate-admission-applications-open-tomorrow-1598041",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-10T04:55:00.000Z",
+    "discoveredAt": "2026-11-10T09:40:35.625Z",
+    "contentHash": "9023f577ca595656e90ce1799feec1e10a8aa8a27ad8e88f3631a83ee1b5e203",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "943838a9d80045d4",
     "headline": "ঢাকা বিশ্ববিদ্যালয়ের ভর্তি পরীক্ষা পূর্বঘোষিত সময়েই, বিভিন্ন বিভাগে ভর্তিতে শর্ত শিথিল",
     "summary": null,
