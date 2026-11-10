@@ -159,6 +159,11 @@ Do not re-implement from scratch; extend these.
 - Added/refreshed `DESK_CREW.md`: callsigns, lanes A–F, claim protocol for parallel `GO UPDATE`.
 - Handoff points at crew board so agents split work instead of cloning the same doc pass.
 
+### 2026-11-10 ~15:30 +06 — Raju / SPICE lane (parallel GO UPDATE test)
+- Claimed SPICE only on crew board; did not touch circulars/voices/i18n.
+- Replaced all spice cards with **n1010e-*** ids (alert fan-out): DU opens **tomorrow noon**, UGC vs DU, retake wall, BUET hold, medical ~18 Dec, KUET, GPA crash, other public clocks, desk discipline note.
+- Sources: DU portal, Daily Star, TBS, Observer, bdnews24 (9–10 Nov).
+
 ### (Next agent: append here — date, bullets, files touched)
 
 ### 2026-11-10 ~15:17 +06 — DESK_CREW multi-agent board
