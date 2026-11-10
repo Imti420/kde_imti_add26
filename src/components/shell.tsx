@@ -119,12 +119,12 @@ export function Shell({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-paper text-ink">
       <DeskPushBoot />
       <IntroSequence />
-      <div className="md:grid md:grid-cols-[272px_minmax(0,1fr)]">
+      <div className="md:grid md:grid-cols-[280px_minmax(0,1fr)]">
         <aside className="sticky top-0 hidden h-screen flex-col border-r-[3px] border-ink bg-rail text-railfg md:flex">
           <Brand />
           <Nav path={path} shortlist={shortlist} review={review} />
-          <div className="mt-auto border-t border-railfg/25">
-            <p className="px-4 pt-4 font-mono text-xs leading-relaxed text-railfg/70">
+          <div className="mt-auto border-t-[3px] border-railfg/30">
+            <p className="px-4 pt-3 font-mono text-[0.65rem] uppercase leading-relaxed tracking-widest text-railfg/65">
               {t("chrome.session")}
               <br />
               {t("chrome.localDesk")}
@@ -137,7 +137,7 @@ export function Shell({ children }: { children: ReactNode }) {
 
         <div className="min-w-0 pb-[calc(4.6rem+env(safe-area-inset-bottom))] md:pb-0">
           <header className="sticky top-0 z-30 border-b-[3px] border-ink bg-paper/95 backdrop-blur-md">
-            <div className="flex items-center gap-2 px-3 py-2 md:hidden">
+            <div className="flex items-center gap-1.5 px-2.5 py-2 md:hidden">
               {searchOpen ? (
                 <div className="relative min-w-0 flex-1">
                   <SearchBox
@@ -152,26 +152,41 @@ export function Shell({ children }: { children: ReactNode }) {
                   />
                 </div>
               ) : (
-                <Link to="/" className="font-display text-[2rem] font-bold uppercase leading-none tracking-tight">
+                <Link
+                  to="/"
+                  className="shrink-0 font-display text-[1.85rem] font-bold uppercase leading-none tracking-tight"
+                >
                   A<span className="text-accent">//</span>26
                 </Link>
               )}
               {searchOpen ? (
-                <button type="button" className="press h-11 w-11 shrink-0 px-0" onClick={() => setSearchOpen(false)} aria-label={t("chrome.close")}>
+                <button
+                  type="button"
+                  className="press h-11 w-11 shrink-0 px-0"
+                  onClick={() => setSearchOpen(false)}
+                  aria-label={t("chrome.close")}
+                >
                   <X className="size-4" aria-hidden />
                 </button>
               ) : (
-                <div className="ml-auto flex items-center gap-1.5">
-                  <button type="button" className="press h-11 w-11 px-0" onClick={openSearch} aria-label={t("chrome.searchLabel")}>
+                <div className="ml-auto flex max-w-[62%] items-center justify-end gap-1">
+                  <button
+                    type="button"
+                    className="press h-11 w-11 shrink-0 px-0"
+                    onClick={openSearch}
+                    aria-label={t("chrome.searchLabel")}
+                  >
                     <Search className="size-4" aria-hidden />
                   </button>
-                  <ChromeToggles />
+                  <div className="flex shrink-0 items-center gap-0.5">
+                    <ChromeToggles />
+                  </div>
                   <NoticeBell compact />
                 </div>
               )}
             </div>
 
-            <div className="hidden items-center gap-3 px-6 py-3 md:flex">
+            <div className="hidden items-center gap-3 px-5 py-3 md:flex lg:px-6">
               <div className="relative min-w-0 flex-1">
                 <SearchBox
                   inputRef={inputRef}
@@ -183,10 +198,14 @@ export function Shell({ children }: { children: ReactNode }) {
                   t={t}
                 />
               </div>
-              <ChromeToggles />
-              <NaughtyBadge />
-              <NoticeBell />
-              <p className="hidden font-mono text-xs tracking-widest text-mute xl:block">{t("chrome.session")}</p>
+              <div className="flex shrink-0 items-center gap-2 border-l-[3px] border-ink pl-3">
+                <ChromeToggles />
+                <NaughtyBadge />
+                <NoticeBell />
+              </div>
+              <p className="hidden max-w-[9rem] font-mono text-[0.65rem] uppercase leading-snug tracking-widest text-mute xl:block">
+                {t("chrome.session")}
+              </p>
             </div>
           </header>
           {phase !== "loading" && (phase !== "ready" || isMonitorStale(generatedAt)) ? (
@@ -215,7 +234,7 @@ export function Shell({ children }: { children: ReactNode }) {
       </div>
 
       <nav
-        className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t-[3px] border-ink bg-paper md:hidden"
+        className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t-[3px] border-ink bg-paper/98 backdrop-blur-md md:hidden"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         aria-label="Primary"
       >
@@ -227,11 +246,11 @@ export function Shell({ children }: { children: ReactNode }) {
               to={item.href}
               aria-current={on ? "page" : undefined}
               className={cn(
-                "flex min-h-14 flex-col items-center justify-center gap-0.5 font-display text-[0.95rem] font-bold uppercase leading-none tracking-wide",
-                on ? "bg-yellow text-onyellow" : "text-ink",
+                "flex min-h-[3.5rem] flex-col items-center justify-center gap-1 border-r border-ink/15 font-display text-[0.8rem] font-bold uppercase leading-none tracking-wide last:border-r-0 sm:text-[0.9rem]",
+                on ? "bg-yellow text-onyellow" : "text-ink active:bg-panel",
               )}
             >
-              <span className={cn("h-1 w-5 rounded-full", on ? "bg-accent" : "bg-transparent")} aria-hidden />
+              <span className={cn("h-1 w-6 rounded-full", on ? "bg-accent" : "bg-ink/15")} aria-hidden />
               {lang === "bn" ? item.bn : item.en}
             </Link>
           );
@@ -239,27 +258,32 @@ export function Shell({ children }: { children: ReactNode }) {
         <button
           type="button"
           className={cn(
-            "flex min-h-14 flex-col items-center justify-center gap-0.5 font-display text-[0.95rem] font-bold uppercase leading-none tracking-wide",
-            !docked || menu ? "bg-ink text-paper" : "text-ink",
+            "flex min-h-[3.5rem] flex-col items-center justify-center gap-1 font-display text-[0.8rem] font-bold uppercase leading-none tracking-wide sm:text-[0.9rem]",
+            !docked || menu ? "bg-ink text-paper" : "text-ink active:bg-panel",
           )}
           onClick={() => setMenu(true)}
+          aria-expanded={menu}
+          aria-label={lang === "bn" ? "আরও" : "More"}
         >
-          <span className={cn("h-1 w-5 rounded-full", menu ? "bg-accent" : "bg-transparent")} aria-hidden />
+          <span className={cn("h-1 w-6 rounded-full", menu || !docked ? "bg-accent" : "bg-ink/15")} aria-hidden />
           {lang === "bn" ? "আরও" : "More"}
         </button>
       </nav>
 
       {menu ? (
         <div className="fixed inset-0 z-50 flex flex-col bg-rail text-railfg md:hidden">
-          <div className="flex items-center justify-between border-b border-railfg/25 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))]">
+          <div className="flex items-center justify-between border-b-[3px] border-railfg/30 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))]">
             <Brand compact />
-            <button type="button" className="press press-ink" onClick={() => setMenu(false)}>
+            <button type="button" className="press press-ink min-h-11 px-4" onClick={() => setMenu(false)}>
               {t("chrome.close")}
             </button>
           </div>
-          <Nav path={path} shortlist={shortlist} review={review} onNavigate={() => setMenu(false)} />
-          <div className="border-t border-railfg/25 px-4 py-3">
+          <div className="min-h-0 flex-1 overflow-y-auto">
+            <Nav path={path} shortlist={shortlist} review={review} onNavigate={() => setMenu(false)} />
+          </div>
+          <div className="flex items-center justify-between gap-3 border-t-[3px] border-railfg/30 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
             <NaughtyBadge />
+            <ChromeToggles />
           </div>
           <Signature variant="rail" />
         </div>
@@ -361,14 +385,19 @@ function SearchBox({
 function Brand({ compact = false }: { compact?: boolean }) {
   const t = useT();
   return (
-    <Link to="/" className={cn("block px-4 py-5", compact && "px-0 py-0")}>
-      <span className="font-display text-5xl font-bold uppercase leading-none tracking-tight">
+    <Link to="/" className={cn("block border-b border-railfg/25 px-4 py-4", compact && "border-0 px-0 py-0")}>
+      <span className="font-display text-4xl font-bold uppercase leading-none tracking-tight md:text-5xl">
         A<span className="text-accent">//</span>26
       </span>
-      <span className="mt-1 block font-mono text-xs tracking-widest text-railfg/70">{t("chrome.archive")}</span>
+      <span className="mt-1.5 block font-mono text-[0.65rem] uppercase tracking-[0.18em] text-railfg/65">
+        {t("chrome.archive")}
+      </span>
     </Link>
   );
 }
+
+const NAV_PRIMARY = NAV.slice(0, 6);
+const NAV_TOOLS = NAV.slice(6);
 
 function Nav({
   path,
@@ -382,29 +411,41 @@ function Nav({
   onNavigate?: () => void;
 }) {
   const t = useT();
+  const renderItem = (item: (typeof NAV)[number]) => {
+    const on = active(path, item.href);
+    const count = item.href === "/shortlist" ? shortlist : item.href === "/monitor" ? review : 0;
+    return (
+      <Link
+        key={item.href}
+        to={item.href}
+        onClick={onNavigate}
+        aria-current={on ? "page" : undefined}
+        className={cn(
+          "flex min-h-11 items-center justify-between gap-3 border-[3px] px-3 py-2 font-display text-base font-semibold uppercase leading-none tracking-wide transition-[transform,box-shadow] duration-150",
+          on
+            ? "translate-x-0.5 border-ink bg-yellow text-onyellow shadow-[3px_3px_0_0_var(--color-accent)]"
+            : "border-transparent text-railfg hover:border-railfg/25 hover:bg-railfg/8 active:bg-railfg/12",
+        )}
+      >
+        <span className="truncate">{t(item.key)}</span>
+        {count > 0 ? (
+          <span className="shrink-0 border border-current/40 px-1.5 py-0.5 font-mono text-[0.65rem] tracking-widest">
+            {String(count).padStart(2, "0")}
+          </span>
+        ) : null}
+      </Link>
+    );
+  };
   return (
-    <nav className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto px-2 py-2">
-      {NAV.map((item) => {
-        const on = active(path, item.href);
-        const count = item.href === "/shortlist" ? shortlist : item.href === "/monitor" ? review : 0;
-        return (
-          <Link
-            key={item.href}
-            to={item.href}
-            onClick={onNavigate}
-            aria-current={on ? "page" : undefined}
-            className={cn(
-              "flex min-h-12 items-center justify-between gap-3 rounded-xl border-[3px] px-3 py-2 font-display text-lg font-semibold uppercase leading-none tracking-wide",
-              on
-                ? "border-ink bg-yellow text-onyellow shadow-[3px_3px_0_0_var(--color-accent)]"
-                : "border-transparent text-railfg active:bg-railfg/10",
-            )}
-          >
-            {t(item.key)}
-            {count > 0 ? <span className="font-mono text-xs">{String(count).padStart(2, "0")}</span> : null}
-          </Link>
-        );
-      })}
+    <nav className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto px-2 py-3">
+      <div className="flex flex-col gap-1">
+        <p className="px-3 pb-1 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-railfg/50">Desk</p>
+        {NAV_PRIMARY.map(renderItem)}
+      </div>
+      <div className="flex flex-col gap-1 border-t border-railfg/20 pt-3">
+        <p className="px-3 pb-1 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-railfg/50">Tools</p>
+        {NAV_TOOLS.map(renderItem)}
+      </div>
     </nav>
   );
 }

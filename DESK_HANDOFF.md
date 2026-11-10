@@ -218,3 +218,6 @@ Do not re-implement from scratch; extend these.
 - Discovery poll 20s→12s, refresh hold 650→380ms, log remount on generatedAt.
 - CSS: faster log-scan / crawl-pulse / shimmer.
 - discover-admissions.yml cron denser (4 pins/hour).
+
+### 2026-11-10 ~16:00 +06 — SHELL chrome polish
+- `src/components/shell.tsx` only: nav Desk/Tools sections, clearer active state, mobile top bar cluster, dock labels, more-drawer chrome toggles.
