@@ -127,4 +127,10 @@ Do not re-implement from scratch; extend these.
 - Documented multi-agent feature set: notifications, big news, circular PDFs, Naughty mode, `t()` fix, phone calendar, discovery 45‑min crawl, Bangla `ChromeToggles`, animation polish.
 - Recorded production footguns: Vercel red builds, LangToggle tree-shake, broken `t()` stringification.
 
+### 2026-11-10 ~15:20 +06 — continuity confirmed (this agent)
+- User reported notifications OK; asked that **every** agent leave a small context pack for the next bot.
+- Confirmed `DESK_HANDOFF.md` already exists and is the contract — do not fork a second handoff file.
+- This session: no product code change; verified feature map still matches tree (voices, desk-spice n1011 cycle, desk-push + SCREAM NOW, pdfUrl, i18n `t()`, Naughty/horny experiment, university-card campusVoice).
+- Next agent: read Changelog + Non-negotiables first; on **GO UPDATE** refresh research + spice/circulars; always append here.
+
 ### (Next agent: append here — date, bullets, files touched)
