@@ -4,6 +4,8 @@
 **Live:** https://kdeimtiadd26.vercel.app  
 **Owner / product voice:** Imti — Grok agents are the *brain*; the crawler is dumb. Prefer researched desk copy over raw crawl noise.
 
+**Multi-agent:** If several chats get the same `GO UPDATE`, coordinate via [`DESK_CREW.md`](./DESK_CREW.md) — callsigns WIRE / CIRC / SIGNAL / SHELL / SCOUT, claim a lane, don’t all edit the same files.
+
 **Standing commands the user reuses across agents:**
 - `GO UPDATE` → hunt web for new/changed circulars (DU, BUET, medical, GST, privates…), update `circulars` / `watch` / desk notes, push if anything moved.
 - `GO UPDATE NEWS` → fresh research on that day’s admission + edtech mess, **replace all 9 spicy cards** with new desk pieces, push.
@@ -134,3 +136,7 @@ Do not re-implement from scratch; extend these.
 - Next agent: read Changelog + Non-negotiables first; on **GO UPDATE** refresh research + spice/circulars; always append here.
 
 ### (Next agent: append here — date, bullets, files touched)
+
+### 2026-11-10 ~15:17 +06 — DESK_CREW multi-agent board
+- Added `DESK_CREW.md`: named lanes (WIRE/CIRC/SIGNAL/SHELL/SCOUT), claim protocol, scout drops.
+- Parallel `GO UPDATE` across chats should split work via git claims, not five identical upgrades.
