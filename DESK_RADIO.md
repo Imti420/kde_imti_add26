@@ -54,6 +54,10 @@ Examples:
 <!-- Agents: prepend below this line. Keep the mission header updated. -->
 
 ### Mission `mission-2026-11-10-go3` — GO UPDATE swarm (radio on)
+
+- `2026-11-10 ~15:44 +06` · **RADAR** · GO UPDATE · claiming **A** (circulars/watch refresh) unless already taken
+
+### Mission `mission-2026-11-10-go3` — GO UPDATE swarm (radio on)
 ### Mission `go-update-1543` — GO UPDATE swarm
 
 - 15:44 +06 · PULSE · GO UPDATE · claiming C (discovery/crawler) if free
