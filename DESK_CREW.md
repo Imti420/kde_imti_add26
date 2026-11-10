@@ -1,95 +1,122 @@
-# ADMISSION//26 — Crew board (multi-agent coordination)
+# ADMISSION//26 — Crew board
 
-**Repo:** https://github.com/Imti420/kde_imti_add26  
-**Live:** https://kdeimtiadd26.vercel.app  
+**Repo radio for parallel Grok agents.** Not a brain share — a traffic light.
 
-Multiple Groks do **not** share a brain. This file is the only shared state. If you ignore it, you will collide — as on **2026-11-10 ~15:20** when five windows got the same `GO UPDATE` and several stampeded lane A.
+When Imti pastes the **same** prompt in N windows (and says it was posted in all of them): **do not stampede.**
+
+Live: https://kdeimtiadd26.vercel.app  
+Repo: https://github.com/Imti420/kde_imti_add26
 
 ---
 
-## ANTI-STAMPEDE (read before any GO UPDATE)
+## ANTI-STAMPEDE (mandatory — we already failed this once)
 
-When the user posts the **same** prompt in multiple chats (look for `[this text was posted in all N of the agents]`):
+Imti’s note `[[this text was posted in all 5 of the agents]]` means a **swarm wave**. Treat it as a yellow light.
 
-1. **Stop. Do not edit product files yet.**
-2. **Wait 5–15 seconds** (stagger by callsign if assigned; otherwise by whim).
-3. **Fetch this file from `main` again** (`DESK_CREW.md`).
-4. **Claim exactly one free lane** with a commit whose **only** change is this board (message like `crew: WIRE claims B`).
-5. **Re-fetch the board.** If two claims landed on the same lane, the **later** agent **aborts** that lane and takes another `open` one — or stops.
-6. **Only then** touch product files in your lane.
-7. Finish → mark `done` + one session-log line + short `DESK_HANDOFF.md` changelog.
+### Before ANY product edit
 
-**Never** start researching + rewriting `circulars.ts` / `desk-spice.ts` before a successful claim push.
+1. `git pull` (or fresh clone `main`).
+2. Read `DESK_HANDOFF.md` + **this file**.
+3. **WAIT** — sleep a random **4–12 seconds** (use chat index / clock seconds if you have no RNG).  
+   Purpose: let the first writers land claims so you don’t all edit the same lines at T+0.
+4. `git pull` **again**.
+5. Look at **Lanes**. Pick a lane that is still `open` (prefer A→B→C→D→E→F by callsign if free).
+6. **Claim-only commit**: edit **only** this file (one lane row + one session-log line). Push.
+7. If push rejects → pull, **do not force**. If your lane was taken, take another `open` lane or stop.
+8. `git pull` once more. Confirm **your callsign is still on that lane**.
+9. **Only then** edit product files for that lane.
+10. When finished: mark lane `done`, session log, one Changelog line in `DESK_HANDOFF.md`, push (pull-rebase if needed — never force-push `main`).
 
-**Never** have five agents rewrite the handoff essay. One line of changelog each is enough.
+### Hard rules
+
+| Rule | Why |
+|------|-----|
+| No product files until claim is on `origin/main` | Stops five parallel `desk-spice.ts` rewrites |
+| One lane per agent per wave | Overlap = mess |
+| Claim commit = board only | Small, mergeable |
+| Random 4–12s wait on swarm prompts | First-mover without total collision |
+| If 3+ agents already `done`/`claimed` and nothing open | You are **idle** — say so, don’t invent work |
+| Don’t rewrite the whole board | Append; fix one broken row max |
+
+### Swarm detection
+
+If the user message contains any of:
+
+- `posted in all`
+- `all 5 of the agents`
+- `all of the agents`
+- same `GO UPDATE` with no assigned callsign
+
+→ run the full anti-stampede sequence above.
+
+If the user assigns you explicitly (`You are WIRE…`) → skip random wait, still claim before product work.
 
 ---
 
 ## Callsigns
 
-| Callsign | Best lane | If unassigned |
-|----------|-----------|----------------|
-| **RADAR** | A — circulars / watch / PDFs | First free among A–E by letter |
-| **WIRE** | B — spice / news | |
-| **PULSE** | C — crawl / discovery | |
-| **SHELL** | D — UI / Bangla / calendar | |
-| **SIREN** | E — notifications | |
-| **ARCHIVIST** | F — docs / this board | |
-
-Imti can pin a name: `You are WIRE. Claim B only.`
+| Callsign | Lane | Scope |
+|----------|------|--------|
+| **RADAR** | A | `circulars.ts`, `watch.ts`, portals/PDFs |
+| **WIRE** | B | `desk-spice.ts`, news alerts feed |
+| **PULSE** | C | crawler / discovery / monitor |
+| **SHELL** | D | UI, calendar, i18n, theme/Naughty |
+| **SIREN** | E | `desk-push.ts`, SW, SCREAM NOW |
+| **ARCHIVIST** | F | this board + handoff only |
 
 ---
 
 ## Active mission
 
-**Id:** `mission-2026-11-10-go`  
-**Status:** `cooling` (stampede cleanup — prefer not to re-open A/B until Imti says so)  
-**Lesson:** parallel GO UPDATE without wait+claim = duplicate RADAR rows, merge noise, same story written thrice.
+**Mission id:** `mission-2026-11-10-go`  
+**Status:** `cooling` (swarm already ran — messy; protocol fixed below)  
+**Note:** First swarm tested the board. Result: claim races, duplicate RADAR rows, overlapping spice. Anti-stampede is the fix.
 
----
-
-## Lanes (single row per lane — do not duplicate)
+### Lanes (canonical — one row each)
 
 | Lane | Scope | Status | Callsign | Notes |
-|------|-------|--------|----------|-------|
-| **A** | `circulars.ts` / `watch.ts` | done | RADAR | 10 Nov: DU T-1 apps, medical 18 Dec, BUET 21 Nov/16 Jan (multiple RADAR pushes — board was messy) |
-| **B** | `desk-spice.ts` (~9 cards, new ids) | claimed/done | WIRE / others | n1010e-* spice cycle landed in parallel |
-| **C** | crawler / discovery / monitor | open | — | |
-| **D** | calendar / shell / i18n / theme | open | — | |
-| **E** | notifications / SW / SCREAM NOW | open | — | |
-| **F** | handoff + crew protocol only | done | ARCHIVIST | anti-stampede rules added after mess |
+|------|--------|--------|----------|-------|
+| **A** | circulars / watch / PDFs | done | RADAR | KUET live; BUET 21 Nov/16 Jan; DU+DGHS portals |
+| **B** | desk-spice / NEWS | done | WIRE | n1010e-* spice cycle |
+| **C** | crawler / discovery | open | — | |
+| **D** | UI / Bangla / calendar | open | — | |
+| **E** | notifications / SW | open | — | |
+| **F** | docs / board | done | ARCHIVIST | anti-stampede rewrite |
+
+### Session log (newest first)
+
+- `2026-11-10 ~15:28 +06` — **ARCHIVIST** cleaned board + **ANTI-STAMPEDE** after Imti called the swarm messy. Next swarm: wait 4–12s → claim-only → re-pull → work.
+- `2026-11-10 ~15:20–15:25 +06` — Swarm wave: RADAR A + WIRE B shipped useful data; git still a knife fight. Lesson learned.
 
 ---
 
-## Session log (newest first)
+## What went wrong (10 Nov swarm) — don’t repeat
 
-- `2026-11-10 ~15:30 +06` — **ARCHIVIST**: stampede post-mortem. Five chats, one prompt, no wait → duplicate lane A claims, overlapping circular/news work. Board cleaned; **anti-stampede** section added. Next parallel test: wait → claim-only commit → re-fetch → then work.
-- `2026-11-10 ~15:25 +06` — **RADAR** (several windows): lane A circular/watch updates (DU tomorrow, medical 18 Dec, BUET hard line). Product data mostly aligned; git history noisy.
-- `2026-11-10 ~15:22 +06` — **WIRE** / spice agents: lane B news cards (`n1010e-*` etc.).
-- `2026-11-10 ~15:20 +06` — Mission opened; agents ignored stagger and rushed.
+1. Everyone started product work at T+0 with no wait.
+2. Multiple agents fought rebase on the same files.
+3. Board rows duplicated.
+4. Status reports looked parallel; history was not.
+
+**Fix is process:** wait → claim-only push → confirm → work.
 
 ---
 
-## Imti paste templates (one name per window)
+## Imti: clean driver prompts
 
 ```text
-You are RADAR. Read DESK_HANDOFF.md + DESK_CREW.md. WAIT 5s. Claim lane A only if still open (board-only commit first). Then GO UPDATE circulars.
+You are RADAR. Anti-stampede on. Claim A only. GO UPDATE circulars.
 ```
-
 ```text
-You are WIRE. … WAIT 8s. Claim lane B only if open. Then GO UPDATE NEWS.
+You are WIRE. Anti-stampede on. Claim B only. GO UPDATE NEWS.
 ```
-
 ```text
-You are PULSE. … WAIT 11s. Claim lane C …
+You are PULSE. Anti-stampede on. Claim C only.
 ```
-
 ```text
-You are SHELL. … WAIT 14s. Claim lane D …
+You are SHELL. Anti-stampede on. Claim D only.
 ```
-
 ```text
-You are SIREN. … WAIT 17s. Claim lane E …
+You are SIREN. Anti-stampede on. Claim E only.
 ```
 
-Different **wait** offsets are intentional so claim commits don’t all hit GitHub in the same second.
+Same prompt in all five **with** `[[posted in all 5]]` is OK only if agents wait + self-claim different lanes.

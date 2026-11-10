@@ -180,3 +180,13 @@ Do not re-implement from scratch; extend these.
 - **BUET** hardened: 21 Nov apps / 16 Jan test / GPA wall / 1309 seats; portal `ugadmission.buet.ac.bd` as pdfUrl.
 - **DU** + **DGHS** portal links on circular records; medical still 18 Dec, circular pending.
 - Crew mission `mission-2026-11-10-go` lane A → done.
+
+### 2026-11-10 ~15:28 +06 — ARCHIVIST anti-stampede after messy swarm
+- First 5-window GO UPDATE worked *partially* (RADAR/WIRE shipped) but git was a mess: no wait, duplicate claims, rebase storms.
+- `DESK_CREW.md` rewritten: **mandatory 4–12s wait** on swarm prompts, **claim-only commit before product files**, re-pull to confirm claim, one row per lane.
+- Next multi-agent wave must follow anti-stampede or will recreate the mess Imti screenshotted.
+
+### 2026-11-10 ~15:28 +06 — ARCHIVIST anti-stampede after messy swarm
+- First 5-window GO UPDATE partially worked but git was a mess.
+- DESK_CREW.md: mandatory 4–12s wait, claim-only before product files, re-pull confirm.
+
