@@ -907,3 +907,257 @@ article:has([class*="NUKE"]) {
   border-color: var(--color-accent) !important;
   box-shadow: 6px 6px 0 0 var(--color-accent) !important;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   CALENDAR EVENT CHIPS — Impact uni stamps + hover req cards
+   ═══════════════════════════════════════════════════════════ */
+
+.cal-chip {
+  position: relative;
+  border: 2px solid var(--color-ink);
+  border-radius: 0.45rem;
+  background: var(--color-paper);
+  box-shadow: 2px 2px 0 0 var(--color-ink);
+  transition:
+    transform 80ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 80ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 80ms ease;
+}
+
+.cal-chip--compact {
+  padding: 0.12rem 0.2rem 0.14rem;
+}
+
+.cal-chip--roomy {
+  padding: 0.28rem 0.4rem 0.32rem;
+}
+
+.cal-chip--done {
+  opacity: 0.55;
+  text-decoration: line-through;
+}
+
+.cal-chip--accent {
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-paper));
+  box-shadow: 2px 2px 0 0 var(--color-accent);
+}
+
+.cal-chip--ink {
+  background: color-mix(in srgb, var(--color-ink) 6%, var(--color-paper));
+}
+
+.cal-chip--mute {
+  border-color: color-mix(in srgb, var(--color-ink) 45%, transparent);
+  color: var(--color-mute);
+}
+
+.cal-chip--signal {
+  border-color: var(--color-signal);
+  background: color-mix(in srgb, var(--color-signal) 12%, var(--color-paper));
+  box-shadow: 2px 2px 0 0 var(--color-signal);
+}
+
+.cal-chip-row {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+  min-width: 0;
+}
+
+.cal-chip-uni {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  padding: 0.05rem 0.28rem 0.08rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 0.28rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cal-chip--compact .cal-chip-uni {
+  font-size: 0.62rem;
+  padding: 0.04rem 0.22rem 0.06rem;
+  border-width: 1.5px;
+}
+
+.cal-chip-stamp {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-mute);
+  white-space: nowrap;
+}
+
+.cal-chip--compact .cal-chip-stamp {
+  font-size: 0.52rem;
+  letter-spacing: 0.06em;
+}
+
+.cal-chip-action {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  color: var(--color-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Hover requirement card */
+.cal-chip-tip {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.4rem);
+  z-index: 40;
+  width: max(11.5rem, 100%);
+  min-width: 11.5rem;
+  max-width: 16rem;
+  padding: 0.55rem 0.65rem 0.6rem;
+  border: 3px solid var(--color-ink);
+  border-radius: 0.65rem;
+  background: var(--color-panel);
+  box-shadow: 5px 5px 0 0 var(--color-accent);
+  opacity: 0;
+  transform: translateY(4px) scale(0.98);
+  transition:
+    opacity 120ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 120ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cal-chip-tip-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.cal-chip-tip-uni {
+  display: inline-flex;
+  padding: 0.08rem 0.35rem 0.1rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 0.3rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.cal-chip-tip-kind {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.cal-chip-tip-title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.cal-chip-tip-meta {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-mute);
+}
+
+.cal-chip-tip-list {
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cal-chip-tip-list li {
+  position: relative;
+  padding: 0.15rem 0 0.15rem 0.7rem;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  border-top: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
+}
+
+.cal-chip-tip-list li:first-child {
+  border-top: 0;
+}
+
+.cal-chip-tip-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-size: 0.65rem;
+  color: var(--color-accent);
+}
+
+.cal-chip-tip-time {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-mute);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cal-chip:hover,
+  .cal-chip:focus-within {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 0 var(--color-accent);
+    z-index: 30;
+  }
+
+  .cal-chip:hover .cal-chip-tip,
+  .cal-chip:focus-within .cal-chip-tip {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Day cells need room for tip overflow */
+.cal-day {
+  overflow: visible;
+}
+
+.cal-month {
+  overflow: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cal-chip,
+  .cal-chip-tip {
+    transition: none !important;
+  }
+}

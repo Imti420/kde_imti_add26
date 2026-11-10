@@ -2,7 +2,16 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { PageHead, TextButton, controlClass } from "@/components/marks";
 import type { PersonalEvent, PersonalEventKind } from "@/data/types";
-import { archiveEvents, monthMatrix, shiftMonth, toIcs, toneFor, weekDays, type CalendarEvent } from "@/lib/calendar";
+import {
+  archiveEvents,
+  kindStamp,
+  monthMatrix,
+  shiftMonth,
+  toIcs,
+  toneFor,
+  weekDays,
+  type CalendarEvent,
+} from "@/lib/calendar";
 import { useCatalog } from "@/lib/catalog";
 import { cn } from "@/lib/cn";
 import { formatDay, relativeDay, todayISO } from "@/lib/dates";
@@ -203,7 +212,7 @@ function CalendarPage() {
 
       {/* MONTH VIEW — phone-first grid */}
       {view === "month" ? (
-        <div className="cal-month overflow-hidden rounded-[1.1rem] border-[3px] border-ink bg-paper shadow-[5px_5px_0_0_var(--color-ink)]">
+        <div className="cal-month overflow-visible rounded-[1.1rem] border-[3px] border-ink bg-paper shadow-[5px_5px_0_0_var(--color-ink)]">
           <div className="grid grid-cols-7 border-b-2 border-ink bg-panel">
             {WEEKDAY_KEYS.map((key) => (
               <p
@@ -684,6 +693,8 @@ function toCalendar(event: PersonalEvent, shortName: string | null): CalendarEve
     day: event.day,
     time: event.time,
     title: shortName ? `${shortName} · ${event.title}` : event.title,
+    shortName,
+    action: event.title,
     kind: event.kind,
     confidence: "personal",
     confidenceLabel: "PERSONAL DESK",
@@ -693,25 +704,60 @@ function toCalendar(event: PersonalEvent, shortName: string | null): CalendarEve
     completed: event.completed,
     notes: event.notes,
     remindDays: event.remindDays,
+    reqLines: event.notes ? [event.notes.slice(0, 120)] : [],
   };
 }
 
 function EventChip({ event, compact }: { event: CalendarEvent; compact?: boolean }) {
   const tone = toneFor(event.kind);
+  const uni = event.shortName ?? (event.personal ? "YOU" : "REC");
+  const stamp = kindStamp(event.kind);
+  const tipLines =
+    event.reqLines.length > 0
+      ? event.reqLines
+      : event.notes
+        ? [event.notes]
+        : [event.action];
+
   return (
     <span
       className={cn(
-        "block truncate border-l-[3px] font-mono leading-snug",
-        compact ? "px-1 text-[10px]" : "mt-0.5 px-1.5 py-0.5 text-xs",
-        event.completed && "line-through opacity-60",
-        tone === "accent" && "border-accent bg-accent/10",
-        tone === "ink" && "border-ink bg-ink/5",
-        tone === "mute" && "border-mute text-mute",
-        tone === "signal" && "border-signal bg-signal/10 text-signal",
+        "cal-chip group/chip relative block text-left",
+        compact ? "cal-chip--compact" : "cal-chip--roomy mt-0.5",
+        event.completed && "cal-chip--done",
+        tone === "accent" && "cal-chip--accent",
+        tone === "ink" && "cal-chip--ink",
+        tone === "mute" && "cal-chip--mute",
+        tone === "signal" && "cal-chip--signal",
       )}
     >
-      {event.title}
+      <span className="cal-chip-row">
+        <span className="cal-chip-uni" title={event.title}>
+          {uni}
+        </span>
+        <span className="cal-chip-stamp">{stamp}</span>
+      </span>
+      {!compact ? (
+        <span className="cal-chip-action">{event.action}</span>
+      ) : null}
+
+      {/* Hover requirement card — desktop screenshots + desk polish */}
+      <span className="cal-chip-tip" role="tooltip">
+        <span className="cal-chip-tip-head">
+          <span className="cal-chip-tip-uni">{uni}</span>
+          <span className="cal-chip-tip-kind">{stamp}</span>
+        </span>
+        <span className="cal-chip-tip-title">{event.action}</span>
+        <span className="cal-chip-tip-meta">{event.confidenceLabel}</span>
+        <ul className="cal-chip-tip-list">
+          {tipLines.map((line) => (
+            <li key={line}>{line}</li>
+          ))}
+        </ul>
+        {event.time ? <span className="cal-chip-tip-time">{event.time} · BD</span> : null}
+      </span>
     </span>
   );
 }
-// deploy-bump 20261108160932
+// deploy-bump 20261110-cal-chips
+
