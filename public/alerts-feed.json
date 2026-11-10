@@ -1,33 +1,22 @@
 {
-  "updated": "2026-11-10T00:20:00+06:00",
-  "cycle": "circular-kuet-live",
+  "updated": "2026-11-10T15:00:00+06:00",
+  "cycle": "kuet-open-frantic",
   "news": [],
   "registrations": [
     {
       "id": "reg-c-kuet-2026-11-10",
-      "title": "HEIII KUET REGISTRATION IS LIVE — HURRYY UPP",
-      "body": "KUET apps open 10 Nov 10:00 → 10 Dec 17:00. Portal admission.kuet.ac.bd · ~1105 seats · test 8 Jan 2027.",
+      "title": "KUEEEET ADMISSION REGISTRATION AHHHHHHHH>>>>!!!!!!",
+      "body": "KUET forms OPEN TODAY → 10 Dec. Portal admission.kuet.ac.bd",
       "url": "/circulars/c-kuet"
-    },
-    {
-      "id": "reg-c-du-2026-11-11",
-      "title": "HEIII DU REGISTRATION STARTS WEDNESDAY NOON — HURRYY UPP",
-      "body": "DU applications open 11 Nov 12:00 → 25 Nov 23:59.",
-      "url": "/circulars/c-du"
     }
   ],
-  "circulars": [
+  "circulars": [],
+  "frantic": [
     {
-      "id": "c-kuet",
-      "title": "NEW CIRCULAR · KUET",
-      "body": "KUET 2026–27 circular live on admission.kuet.ac.bd — 1105 seats, apps through 10 Dec, test 8 Jan 2027.",
+      "id": "open-c-kuet-2026-11-10",
+      "title": "KUEEEET ADMISSION REGISTRATION AHHHHHHHH>>>>!!!!!!",
+      "body": "Forms are OPEN TODAY. Stop scrolling.",
       "url": "/circulars/c-kuet"
-    },
-    {
-      "id": "c-mist",
-      "title": "NEW CIRCULAR · MIST",
-      "body": "MIST revised test map on file — Science 15 Jan, Engineering/Architecture 22 Jan 2027.",
-      "url": "/circulars/c-mist"
     }
   ]
 }

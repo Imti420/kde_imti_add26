@@ -25,7 +25,7 @@ export function DeskPushBoot() {
       if (!cancelled) tick();
     });
 
-    const interval = window.setInterval(tick, 5 * 60 * 1000);
+    const interval = window.setInterval(tick, 2 * 60 * 1000);
     const onFocus = () => tick();
     const onVis = () => {
       if (document.visibilityState === "visible") tick();

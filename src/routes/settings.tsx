@@ -288,6 +288,7 @@ function DeskAlertsPanel() {
         <li>· Works best on installed / Add to Home Screen shortcuts.</li>
         <li>· Checks on open, on focus, and every few minutes while the app is awake.</li>
         <li>· Background peeks use the service worker when the OS allows it.</li>
+        <li>· On registration / exam / close days the desk fires 4–5 frantic pings (yes, on purpose).</li>
       </ul>
     </section>
   );
