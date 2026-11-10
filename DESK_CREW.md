@@ -1,136 +1,95 @@
 # ADMISSION//26 — Crew board (multi-agent coordination)
 
-**This is the fun place.** Multiple Grok agents cannot share one brain, but they **can** share this file on `main`. When Imti says **GO UPDATE** (or the same prompt) in several chats at once, each agent:
+**Repo:** https://github.com/Imti420/kde_imti_add26  
+**Live:** https://kdeimtiadd26.vercel.app  
 
-1. Reads **this file first** (after `DESK_HANDOFF.md`)
-2. Picks a **free lane** (or the lane matching their **callsign**)
-3. **Claims** it by editing this file + pushing
-4. Does **only** that lane’s work
-5. Marks the lane **done**, appends a one-liner here and a full note in `DESK_HANDOFF.md` Changelog
-
-No claim → no work on that lane. Two agents in the same lane = wasted motion.
-
-Live: https://kdeimtiadd26.vercel.app  
-Repo: https://github.com/Imti420/kde_imti_add26
+Multiple Groks do **not** share a brain. This file is the only shared state. If you ignore it, you will collide — as on **2026-11-10 ~15:20** when five windows got the same `GO UPDATE` and several stampeded lane A.
 
 ---
 
-## Callsigns (you have names now)
+## ANTI-STAMPEDE (read before any GO UPDATE)
 
-Pick one when you claim. If taken, pick another. Stay that name for the session.
+When the user posts the **same** prompt in multiple chats (look for `[this text was posted in all N of the agents]`):
 
-| Callsign | Vibe | Best lanes |
-|----------|------|------------|
-| **RADAR** | Circular hunter | A — circulars / watch / PDFs |
-| **WIRE** | Desk journalist | B — spice cards / GO UPDATE NEWS |
-| **PULSE** | Crawl & discovery | C — workflows / discovery UX / monitor |
-| **SHELL** | UI / mobile / Bangla | D — calendar, shell, i18n, theme |
-| **SIREN** | Alerts & PWA | E — notifications, SW, SCREAM NOW |
-| **ARCHIVIST** | Docs & continuity | F — DESK_HANDOFF / this board only |
+1. **Stop. Do not edit product files yet.**
+2. **Wait 5–15 seconds** (stagger by callsign if assigned; otherwise by whim).
+3. **Fetch this file from `main` again** (`DESK_CREW.md`).
+4. **Claim exactly one free lane** with a commit whose **only** change is this board (message like `crew: WIRE claims B`).
+5. **Re-fetch the board.** If two claims landed on the same lane, the **later** agent **aborts** that lane and takes another `open` one — or stops.
+6. **Only then** touch product files in your lane.
+7. Finish → mark `done` + one session-log line + short `DESK_HANDOFF.md` changelog.
 
-Imti can assign: e.g. `GO UPDATE — you are RADAR` in one chat, `you are WIRE` in another.
+**Never** start researching + rewriting `circulars.ts` / `desk-spice.ts` before a successful claim push.
+
+**Never** have five agents rewrite the handoff essay. One line of changelog each is enough.
+
+---
+
+## Callsigns
+
+| Callsign | Best lane | If unassigned |
+|----------|-----------|----------------|
+| **RADAR** | A — circulars / watch / PDFs | First free among A–E by letter |
+| **WIRE** | B — spice / news | |
+| **PULSE** | C — crawl / discovery | |
+| **SHELL** | D — UI / Bangla / calendar | |
+| **SIREN** | E — notifications | |
+| **ARCHIVIST** | F — docs / this board | |
+
+Imti can pin a name: `You are WIRE. Claim B only.`
 
 ---
 
 ## Active mission
 
-**Mission id:** `mission-2026-11-10-go`  
-**Opened by:** Imti (multi-window GO UPDATE experiment)  
-**Status:** `open`  
-**Objective:** Parallel desk upgrade without five agents rewriting the same handoff.
-
-When the mission is finished, set status to `closed` and clear claims (or start a new mission id).
+**Id:** `mission-2026-11-10-go`  
+**Status:** `cooling` (stampede cleanup — prefer not to re-open A/B until Imti says so)  
+**Lesson:** parallel GO UPDATE without wait+claim = duplicate RADAR rows, merge noise, same story written thrice.
 
 ---
 
-## Lanes (claim → work → done)
+## Lanes (single row per lane — do not duplicate)
 
-Status values: `open` | `claimed` | `done` | `blocked`
-
-| Lane | Scope (do only this) | Status | Callsign | Notes |
-|------|----------------------|--------|----------|-------|
-| **A** | `circulars.ts` / `watch.ts` — web hunt DU, BUET, medical, GST, privates; PDFs/portals | done | RADAR | KUET live; BUET 21 Nov/16 Jan; DU+DGHS portals | done | RADAR | KUET live; BUET 21 Nov/16 Jan; DU+DGHS portals |
-| **A** | `circulars.ts` / `watch.ts` — web hunt DU, BUET, medical, GST, privates; PDFs/portals | done | RADAR | 10 Nov: DU T-1, medical 18 Dec, BUET 21 Nov/16 Jan |
-| **B** | `desk-spice.ts` — replace all ~9 cards, **new ids**; alerts feed if needed | claimed | WIRE | 15:22 +06 DU portal tomorrow confirmed |
-| **C** | Crawler schedule, discovery log live feel, monitor report hygiene | open | — | |
-| **D** | UI: calendar mobile, Bangla strings, shell chrome, theme/Naughty | open | — | |
-| **E** | Notifications, frantic day-of, SCREAM NOW, SW reliability | open | — | |
-| **F** | Handoff/crew docs only — no product code unless fixing this protocol | open | — | |
-
-### How to claim (copy pattern)
-
-```markdown
-| **A** | … | claimed | RADAR | 15:20 +06 starting DU/BUET pass |
-```
-
-Push that edit **before** large data edits so another agent sees the claim.
-
-### How to finish
-
-```markdown
-| **A** | … | done | RADAR | DU window confirmed; watch updated |
-```
-
-One line under **Session log** below.
+| Lane | Scope | Status | Callsign | Notes |
+|------|-------|--------|----------|-------|
+| **A** | `circulars.ts` / `watch.ts` | done | RADAR | 10 Nov: DU T-1 apps, medical 18 Dec, BUET 21 Nov/16 Jan (multiple RADAR pushes — board was messy) |
+| **B** | `desk-spice.ts` (~9 cards, new ids) | claimed/done | WIRE / others | n1010e-* spice cycle landed in parallel |
+| **C** | crawler / discovery / monitor | open | — | |
+| **D** | calendar / shell / i18n / theme | open | — | |
+| **E** | notifications / SW / SCREAM NOW | open | — | |
+| **F** | handoff + crew protocol only | done | ARCHIVIST | anti-stampede rules added after mess |
 
 ---
 
-## Session log (append only, newest at top)
+## Session log (newest first)
 
-- `2026-11-10 ~15:25 +06` — **RADAR** done lane **A**: BUET hold + portal, DU/DGHS pdfUrl, KUET+BUET watch items.
-- `2026-11-10 ~15:25 +06` — **RADAR** lane **A done**: watch + circulars refreshed (DU apps open 11 Nov noon; medical exam 18 Dec; BUET 21 Nov / 16 Jan). Sources: TBS, DGME press, portal.
-- `2026-11-10 ~15:22 +06` — **WIRE** claimed lane **B** (NEWS). Portal-confirmed DU open tomorrow + BUET Nov 21 / Jan 16.
-- `2026-11-10 ~15:20 +06` — **RADAR** claimed lane **A** (circulars/watch). Starting web hunt.
-- `2026-11-10 ~15:20 +06` — **ARCHIVIST** opened crew board + callsigns. Mission `mission-2026-11-10-go` status `open`.
-
----
-
-## Protocol (short)
-
-```
-GO UPDATE in N chats
-  → each agent: HANDOFF → CREW board
-  → claim free lane (or assigned callsign’s lane)
-  → work only that scope
-  → mark done + session log + DESK_HANDOFF changelog
-  → if blocked, status=blocked + note, pick another open lane
-```
-
-**Do not:** five agents rewrite `DESK_HANDOFF.md` with the same essay.  
-**Do:** one line in Changelog per real upgrade; board holds the parallel state.
+- `2026-11-10 ~15:30 +06` — **ARCHIVIST**: stampede post-mortem. Five chats, one prompt, no wait → duplicate lane A claims, overlapping circular/news work. Board cleaned; **anti-stampede** section added. Next parallel test: wait → claim-only commit → re-fetch → then work.
+- `2026-11-10 ~15:25 +06` — **RADAR** (several windows): lane A circular/watch updates (DU tomorrow, medical 18 Dec, BUET hard line). Product data mostly aligned; git history noisy.
+- `2026-11-10 ~15:22 +06` — **WIRE** / spice agents: lane B news cards (`n1010e-*` etc.).
+- `2026-11-10 ~15:20 +06` — Mission opened; agents ignored stagger and rushed.
 
 ---
 
-## Fun rules
-
-1. Callsigns stick for the session.
-2. Stealing a `claimed` lane is a desk crime (unless stuck >30 min / `blocked`).
-3. `SCREAM NOW` still works; SIREN owns that maze.
-4. If you only see docs work left, you are ARCHIVIST — improve the board, then stop.
-5. Winning = more lanes `done`, not more words about coordination.
-
----
-
-## Imti one-liners (paste per window)
+## Imti paste templates (one name per window)
 
 ```text
-You are RADAR. Read DESK_HANDOFF.md + DESK_CREW.md. Claim lane A. GO UPDATE circulars only.
+You are RADAR. Read DESK_HANDOFF.md + DESK_CREW.md. WAIT 5s. Claim lane A only if still open (board-only commit first). Then GO UPDATE circulars.
 ```
 
 ```text
-You are WIRE. Read DESK_HANDOFF.md + DESK_CREW.md. Claim lane B. GO UPDATE NEWS only.
+You are WIRE. … WAIT 8s. Claim lane B only if open. Then GO UPDATE NEWS.
 ```
 
 ```text
-You are PULSE. Read DESK_HANDOFF.md + DESK_CREW.md. Claim lane C. Discovery/crawler only.
+You are PULSE. … WAIT 11s. Claim lane C …
 ```
 
 ```text
-You are SHELL. Read DESK_HANDOFF.md + DESK_CREW.md. Claim lane D. UI/Bangla/calendar only.
+You are SHELL. … WAIT 14s. Claim lane D …
 ```
 
 ```text
-You are SIREN. Read DESK_HANDOFF.md + DESK_CREW.md. Claim lane E. Notifications only.
+You are SIREN. … WAIT 17s. Claim lane E …
 ```
 
-Same prompt in all five without names → everyone must still **self-claim different lanes** using this board. First push wins the claim.
+Different **wait** offsets are intentional so claim commits don’t all hit GitHub in the same second.
