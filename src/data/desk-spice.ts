@@ -1,7 +1,7 @@
 /**
  * Desk-written spicy briefings — not crawler headlines.
- * Agent 02 · 11 Nov 2026 ~16:30 +06 — circularId deep-links for in-app circular surface.
- * New ids only when the claim is re-verified; superseded claims stay visible elsewhere.
+ * Evening cycle 11 Nov 2026 — UGC floor vs campuses that simply did not move.
+ * New ids so alert fan-out treats them as fresh.
  */
 export interface SpiceCard {
   id: string;
@@ -13,61 +13,89 @@ export interface SpiceCard {
   sourceLabel: string;
   sourceUrl: string;
   published: string;
-  /** When set, primary action goes to /circulars/<id> (in-app). Coordinate name with A01. */
+  /** When set, primary action goes to /circulars/<id> (in-app). */
   circularId: string | null;
 }
 
 export const SPICE_CARDS: SpiceCard[] = [
   {
-    id: "n1111-du-open",
+    id: "n1117-ugc-ignored",
     heat: "NUKE",
-    kicker: "DU · LIVE NOW · 11 NOV 12:00 → 25 NOV 23:59",
+    kicker: "UGC · JAN/FEB FLOOR · CAMPUSES DID NOT BLINK",
     headline:
-      "Dhaka University applications are OPEN. Portal is taking forms. Close 25 November 23:59. UGC said January. DU said no — and meant it.",
+      "UGC said public-uni apps from January, tests after 1 February. DU opened the form on 11 Nov anyway. BUET kept 16 Jan. Several others never moved their published grids. The commission still exists — a stack of flagships is acting like the briefing was optional.",
     body:
-      "admission.eis.du.ac.bd is live as of noon 11 Nov. Unit tests still Dec: IBA 5 · Science 12 · Arts/Law/Social 19 · Fine Arts 22 · Business 26. Re-evaluation results due 23 Nov still fit inside the close. Some subject bars were eased on 9 Nov; the calendar was not. Portal-first — full PDF circular may still be pending on the university side.",
-    punch: "The form is open. Open the DU circular record in-app for dates.",
-    sourceLabel: "DU portal · TBS · Observer · Channel I · Jago News · 9–11 Nov 2026",
+      "9 Nov VC meeting: wait for HSC re-eval / supplementary (~31 Dec), then national motion. Universities that already published were asked to reconsider. DU’s admission committee met the same day and kept Dec tests. BUET’s 10 Nov website notice kept 16 Jan. KUET apps are live on its own window. AAUB is one of the few reported formal slips. Floor is not a binding national circular PDF — and the heavyweights are treating it that way.",
+    punch: "Read the campus notice. Not the press conference.",
+    sourceLabel: "Prothom Alo · TBS · Jago · bdnews24 · Daily Star · 9–11 Nov 2026",
+    sourceUrl: "https://en.prothomalo.com/youth/education/rkb167dkiy",
+    published: "2026-11-11",
+    circularId: null,
+  },
+  {
+    id: "n1117-du-open",
+    heat: "HOT",
+    kicker: "DU · FORM OPEN · CLOSE 25 NOV 23:59",
+    headline:
+      "Dhaka University applications are live right now. Portal taking forms through 25 Nov 23:59. Unit tests still December. UGC’s January floor did not touch this calendar.",
+    body:
+      "admission.eis.du.ac.bd from noon 11 Nov. Tests: IBA 5 Dec · Science 12 · Arts/Law/Social 19 · Fine Arts 22 · Business 26. Re-eval results due 23 Nov still fit inside the close. DU said it had no involvement with the UGC decision and would follow its own highest forum. Portal-first.",
+    punch: "The form is open. Ignore the rumour mill.",
+    sourceLabel: "DU portal · TBS · Observer · Channel I · 9–11 Nov 2026",
     sourceUrl: "https://admission.eis.du.ac.bd/",
     published: "2026-11-11",
     circularId: "c-du",
   },
   {
-    id: "n1111-buet-notice",
+    id: "n1117-buet-stands",
     heat: "WAR",
-    kicker: "BUET · 10 NOV NOTICE · TEST 16 JAN STANDS",
+    kicker: "BUET · 10 NOV NOTICE · 16 JAN STANDS",
     headline:
-      "BUET published a notice: first-year test stays 16 January 2027. Applications from 21 November. After DU, the second heavyweight walked off the UGC script.",
+      "BUET published a notice: first-year test stays 16 January 2027. Apps from 21 November. Second flagship off the UGC script after DU.",
     body:
-      "Prothom Alo and Jago News (10–11 Nov): BUET’s brief website notice keeps 16 Jan. Apps open 21 Nov; close date still NOT ANNOUNCED in that notice. GPA wall unchanged. Two flagships are now off the commission’s January/February floor. In-app circular record tracks the notice; full PDF may land later.",
-    punch: "A notice beats a press conference.",
+      "Prothom Alo / Jago (10–11 Nov): brief website notice keeps 16 Jan. Application close still NOT ANNOUNCED in that notice. GPA wall unchanged. No preliminary MCQ pattern from last year is the working assumption until a fuller circular lands.",
+    punch: "A notice beats a VC meeting photo-op.",
     sourceLabel: "Prothom Alo · Jago News · BUET notice · 10–11 Nov 2026",
     sourceUrl: "https://en.prothomalo.com/youth/education/rkb167dkiy",
     published: "2026-11-11",
     circularId: "c-buet",
   },
   {
-    id: "n1111-ugc-floor",
-    heat: "SYSTEM",
-    kicker: "UGC · JAN APPS · FEB TESTS · STILL ON THE BOOKS",
+    id: "n1117-kuet-live",
+    heat: "HOT",
+    kicker: "KUET · APPS LIVE · OFFICIAL PDF ON FILE",
     headline:
-      "UGC’s 9 Nov floor is not withdrawn: public university applications from January, tests after 1 February — a recommendation + VC meeting outcome, not a single binding national circular PDF.",
+      "KUET applications open through 10 December. Test 8 January 2027. Official circular PDF is on the circular record — one of the few.",
     body:
-      "Chairman Mamun Ahmed after the VC meeting: wait for HSC re-eval + supplementary results by ~31 Dec, then national public-uni motion. Universities that already published were asked to reconsider. DU and BUET have not. This is not the same as “UGC postponed every exam.” Do not treat the press briefing as a superseding circular.",
-    punch: "Floor ≠ formal rewrite of every campus notice.",
-    sourceLabel: "TBS · Daily Star · Prothom Alo · UGC briefing · 9 Nov 2026",
-    sourceUrl: "https://www.tbsnews.net/bangladesh/education/public-university-admission-applications-open-january-tests-february-1597276",
+      "Portal admission.kuet.ac.bd. Centres KUET / DU / RUET. ~1,105 seats. Own engineering track; not waiting on UGC’s February floor. Open the in-app circular for the PDF link.",
+    punch: "PDF on record. Apply on the portal.",
+    sourceLabel: "KUET admission portal + official circular · 10–11 Nov 2026",
+    sourceUrl: "https://admission.kuet.ac.bd/",
+    published: "2026-11-11",
+    circularId: "c-kuet",
+  },
+  {
+    id: "n1117-who-moved",
+    heat: "SYSTEM",
+    kicker: "WHO OBEYED · WHO DID NOT",
+    headline:
+      "Reported compliance is thin. AAUB deferred (5 Dec → 30 Jan). Most published grids — DU, BUET, KUET, and several others with Nov–Jan windows — are still on their own paper.",
+    body:
+      "UGC asked campuses that already published to reconsider. That is not the same as every university rewriting. JnU / RU / CU still carry local or preliminary lines in this archive; treat them as provisional under pressure, not as formal slips. Desk rule: no invented postponements.",
+    punch: "Silence is not compliance.",
+    sourceLabel: "Desk synthesis · Digi Bangla (AAUB) · campus notices · 9–11 Nov 2026",
+    sourceUrl: "https://digibanglatech.news/195219",
     published: "2026-11-11",
     circularId: null,
   },
   {
-    id: "n1111-dgme-18",
+    id: "n1117-dgme-18",
     heat: "HOT",
-    kicker: "MEDICAL · 18 DEC TEST · CIRCULAR STILL MISSING",
+    kicker: "MEDICAL · 18 DEC · NOT UGC’S PROBLEM",
     headline:
-      "DGME line remains 18 December for MBBS/BDS. Formal admission circular PDF still not published as of this desk pass. Apps expected mid-November — expected, not locked.",
+      "DGME line remains 18 December for MBBS/BDS. Health education is outside the UGC public-uni floor. Formal admission circular PDF still missing.",
     body:
-      "Health education is not under the UGC public-university floor. Daily Campus / Observer / bdnews24 carried DGME confirmation of 18 Dec. Until the PDF is on dgme.gov.bd, treat application opens as reported. In-app medical circular record stays the place to watch.",
+      "Daily Campus / Observer / bdnews24 carried DGME confirmation of 18 Dec. Apps expected mid-November — expected, not locked. Until the PDF is on dgme.gov.bd, application opens stay reported.",
     punch: "Date without PDF is still incomplete.",
     sourceLabel: "Daily Campus · Observer · bdnews24 · DGME lines · 7–11 Nov 2026",
     sourceUrl: "https://observerbd.com/news/604606",
@@ -75,71 +103,43 @@ export const SPICE_CARDS: SpiceCard[] = [
     circularId: "c-dghs",
   },
   {
-    id: "n1111-kuet-live",
-    heat: "HOT",
-    kicker: "KUET · APPS LIVE · OFFICIAL PDF ON FILE",
-    headline:
-      "KUET undergraduate applications are open through 10 December. Test 8 January 2027. Official circular PDF is attached on the KUET circular record.",
-    body:
-      "Portal admission.kuet.ac.bd. Window from 10 Nov. Centres: KUET, DU, RUET. ~1,105 seats. This is one of the few entries where an official PDF URL is on the circular record — open it in-app from the circular page (Agent 03/04 mirroring for offline is separate).",
-    punch: "PDF on record. Apply on the portal.",
-    sourceLabel: "KUET admission portal + official circular PDF · 10–11 Nov 2026",
-    sourceUrl: "https://admission.kuet.ac.bd/",
-    published: "2026-11-11",
-    circularId: "c-kuet",
-  },
-  {
-    id: "n1111-ju-hold",
-    heat: "WAR",
-    kicker: "JU · LEANING HOLD · NOT A FORMAL SLIP",
-    headline:
-      "Jahangirnagar coverage still points at keeping its published path rather than sliding fully to UGC’s February tests — treat as reported campus lean, not a scanned circular.",
-    body:
-      "TBS / Daily Campus (10 Nov): JU has no firm public “we postpone everything” PDF on this desk. UGC asked reconsideration. Until JU posts a formal notice, do not delete prior schedule claims; mark them provisional. No circularId until Agent 03 has a JnU/JU circular row with dates.",
-    punch: "Lean ≠ circular.",
-    sourceLabel: "TBS · Daily Campus · 10 Nov 2026",
-    sourceUrl: "https://www.tbsnews.net/bangladesh/no-plan-postpone-ju-admission-tests-despite-ugc-decision-1598286",
-    published: "2026-11-11",
-    circularId: null,
-  },
-  {
-    id: "n1111-aaub-obeys",
-    heat: "SYSTEM",
-    kicker: "AAUB · COMPLIED · TEST MOVED TO 30 JAN",
-    headline:
-      "Aviation and Aerospace University Bangladesh deferred its test from 5 December to 30 January after the UGC meeting — a reported formal campus move.",
-    body:
-      "Coverage cites an official circular 9 Nov afternoon. Two centres reported. Specialized public uni. First clear compliance story on the desk. No AAUB circular row in archive yet — circularId null until Agent 03 adds one.",
-    punch: "Someone moved. Most have not.",
-    sourceLabel: "Digi Bangla · AAUB circular coverage · 9 Nov 2026",
-    sourceUrl: "https://digibanglatech.news/195219",
-    published: "2026-11-11",
-    circularId: null,
-  },
-  {
-    id: "n1111-retake-split",
+    id: "n1117-retake-split",
     heat: "MARKET",
-    kicker: "RETAKES · 1 DEC START · WHO GETS A SEAT",
+    kicker: "RETAKES · 1 DEC · WHO GETS CUT",
     headline:
-      "HSC retakes begin 1 December. UGC moved the public calendar for them. DU’s November gate and BUET’s GPA wall mostly leave them outside.",
+      "HSC retakes begin 1 December. Campuses that close before supplementary results drop will strand late passers. DU’s 25 Nov close is before that wave.",
     body:
-      "Results hoped by 31 Dec. Medical on 18 Dec likely closes before revised results. January-application campuses (if they obey) are the path. This is analysis, not an announcement of a single national PDF.",
-    punch: "Equity for retakers is a campus choice.",
-    sourceLabel: "UGC briefing · DGME lines · desk synthesis · 9–11 Nov 2026",
+      "UGC framed January apps as the fix for re-eval + supplementary students. Campuses holding Nov–Dec windows are choosing session speed over that cohort. Neither side is inventing the other out of existence — the split is the story.",
+    punch: "Check the close date before you assume you’re covered.",
+    sourceLabel: "UGC briefing · DU schedule · education desks · 9–11 Nov 2026",
     sourceUrl: "https://bdnews24.com/education/5ntai555o0",
     published: "2026-11-11",
     circularId: null,
   },
   {
-    id: "n1111-desk-tonight",
+    id: "n1117-clash-grid",
     heat: "STREET",
-    kicker: "DESK · 11 NOV · WHAT ACTUALLY MATTERS",
+    kicker: "CLASH MAP · DEC–JAN STILL CROWDED",
     headline:
-      "1) DU form is open — close 25 Nov. 2) BUET apps 21 Nov, test 16 Jan. 3) KUET PDF on file. 4) Medical circular still not on paper.",
+      "Published and provisional grids still stack mid-December through mid-January: DU units, MIST, KUET 8 Jan, RU / JnU fragments, BUET 16 Jan. UGC’s ‘after 1 Feb’ did not clear the calendar.",
     body:
-      "Track in-app circular records, not only news URLs. DU · BUET · KUET · DGHS rows are the calendar spine. UGC floor still exists for campuses that have not rewritten. Do not wait for one national timetable.",
+      "Students chasing multiple campuses still need a personal clash sheet. This desk will not delete a local notice because a commission briefing preferred a later floor. Track circular records for what is actually on paper.",
+    punch: "Your shortlist. Your calendar. Their notices.",
+    sourceLabel: "Desk clash synthesis · Star timelines · campus notices · 11 Nov 2026",
+    sourceUrl: "https://kdeimtiadd26.vercel.app/calendar",
+    published: "2026-11-11",
+    circularId: null,
+  },
+  {
+    id: "n1117-desk-now",
+    heat: "STREET",
+    kicker: "DESK · 11 NOV EVENING · DO THESE",
+    headline:
+      "1) DU form is open — close 25 Nov. 2) BUET apps 21 Nov, test 16 Jan. 3) KUET PDF on file. 4) Medical circular still not on paper. 5) UGC floor is real for campuses that never published — not a delete key for the ones that did.",
+    body:
+      "In-app circular rows (DU · BUET · KUET · DGHS) are the spine. News URLs expire; the notice does not. Do not wait for one national timetable that has not been issued as a single PDF.",
     punch: "Circular record first. Rumour second.",
-    sourceLabel: "Desk synthesis · verified 11 Nov 2026",
+    sourceLabel: "Desk synthesis · verified 11 Nov 2026 evening",
     sourceUrl: "https://kdeimtiadd26.vercel.app/circulars",
     published: "2026-11-11",
     circularId: null,
