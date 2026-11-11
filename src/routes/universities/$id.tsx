@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { AmendUniversity } from "@/components/amend";
 import { NoteBox, ProgressSelect, RecordActions } from "@/components/actions";
 import { Announced, EvidenceStamp, ExternalLink, SectionLabel, StatusPill } from "@/components/marks";
+import { UniMark } from "@/components/uni-mark";
 import { earliestExam } from "@/components/university-card";
 import { campusVoice } from "@/data/voices";
 import { SYSTEM_LABEL, TRACK_LABEL, type Circular } from "@/data/types";
