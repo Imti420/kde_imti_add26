@@ -74,6 +74,31 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 
 ## Changelog (append only)
 
+
+### 2026-11-11 ~16:35 +06 — Agent 01 (Chief Engineer) — document contract
+
+**Mission:** Circular in hand (Commander PDF/marks orders).
+
+**Shipped:**
+- `src/data/types.ts`: `CircularDoc`, `UniversityMark`; optional `Circular.doc`, `University.mark`; kept `pdfUrl`; budgets constants.
+- `src/lib/catalog.ts`: `circularDocState`, `circularPdfHref`, `circularThumbPath`, `universityMark`; blank* seed null doc/mark.
+- `package.json`: `pdfjs-dist@^4.10.38` (lazy reader only — Agent 05 mounts); test suite includes `doc-invariants.test.ts`.
+- `src/routes/circulars/$id/pdf.tsx`: empty reader shell (state label + official/mirror link). Agent 05 fills viewer.
+- `src/lib/doc-invariants.test.ts`: soft checks (shape, path pattern, optional file bytes/sha256/budget when files exist).
+- `ARCHITECTURE.md`: contract, helpers, budgets, reader decision, asset dirs.
+
+**Reader decision:** pdf.js via `pdfjs-dist`, dynamic import only inside the `/circulars/$id/pdf` route. Rationale: iOS Safari `<iframe>`/`<object>` PDF shows page 1 only. Bundle: pdfjs must stay out of initial chunk (lazy route + dynamic import).
+
+**Not done / not owned:**
+- Mirroring PDFs into `public/circulars/` (Agent 04).
+- Filling `doc` / `mark` on seed data (Agent 03).
+- UI reader / CTAs / offline SW cache expansion (Agents 05 / 04).
+- Hardening invariants once assets exist (Agent 06).
+
+**Tested:** Type shapes compile in isolation; route file is valid TSX; helpers pure. Full `npm run typecheck` / `npm test` / build sizes not run in this environment (no node_modules install here). Next agent or CI should confirm pdfjs is code-split.
+
+**Files:** types.ts, catalog.ts, package.json, routes/circulars/$id/pdf.tsx, lib/doc-invariants.test.ts, ARCHITECTURE.md, DESK_RADIO.md.
+
 ### 2026-11-11 ~16:10 +06 — Agent 05 (Platform / Frontend) — representation audit
 
 **Live:** `/`, `/newswire`, `/calendar` HTTP 200. Identity (desk/brutalist) intact.
