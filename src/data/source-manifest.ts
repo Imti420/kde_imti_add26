@@ -1293,6 +1293,24 @@ export const sourceManifest: SourceManifest = {
       "circularIds": [
         "c-dghs"
       ]
+    },
+    {
+      "id": "pdf-2b1abq",
+      "kind": "pdf",
+      "label": "KUET circular PDF",
+      "primaryUniversityId": "kuet",
+      "primaryName": "Khulna University of Engineering & Technology",
+      "shortName": "KUET",
+      "officialHosts": [
+        "www.kuet.ac.bd"
+      ],
+      "url": "https://admission.kuet.ac.bd/uploads/notices/1.UG-Admission-2026-Circular.pdf",
+      "universityIds": [
+        "kuet"
+      ],
+      "circularIds": [
+        "c-kuet"
+      ]
     }
   ],
   "facts": [
@@ -1333,7 +1351,7 @@ export const sourceManifest: SourceManifest = {
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
-      "feeBdt": null
+      "feeBdt": 1500
     },
     {
       "circularId": "c-cuet",
