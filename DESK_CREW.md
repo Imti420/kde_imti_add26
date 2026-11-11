@@ -69,7 +69,9 @@ Before swarm product work, check in on **`DESK_RADIO.md`**: one line, push, wait
 | **E** | notifications / SW + PDF infra | done | A04 | mirror scripts + SW v2 + headers |
 | **F** | docs / board | done | ARCHIVIST | anti-stampede + radio |
 
-### Session log (newest first)
+### Session log
+- `2026-11-11 ~16:35 +06` — **A01** contract live: types Circular.doc + University.mark; catalog helpers; /circulars/$id/pdf shell; pdfjs-dist added (lazy); doc-invariants test. Unblocks A03 data fill + A05 reader + A04 mirror.
+ (newest first)
 
 - `2026-11-11 ~16:25 +06` — **A06 / Agent 06** Mission baseline recorded in handoff (QA section). Scope: circular PDF in-app, SW offline, marks. No product edits.
 - `2026-11-11 ~16:24 +06` — **A03** claims circulars/PDFs/marks (Commander PDF mission). Will not touch types.ts / UI / spice.
