@@ -1,9 +1,9 @@
 import { mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
-import { shouldStartCycle } from "../src/lib/crawl/gate.ts";
+import { healStuckRunningState, shouldStartCycle } from "../src/lib/crawl/gate.ts";
 import { readManual, runWireCycle } from "../src/lib/wire/cycle.ts";
 import { WIRE_SOURCES } from "../src/lib/wire/registry.ts";
-import { WIRE_INTERVAL_MINUTES, type WireItem, type WireLive, type WireSourceState, type WireStateFile } from "../src/lib/wire/types.ts";
+import { WIRE_INTERVAL_MINUTES, WIRE_RUNNING_TOO_LONG_MS, type WireItem, type WireLive, type WireSourceState, type WireStateFile } from "../src/lib/wire/types.ts";
 
 const root = resolve(import.meta.dirname, "..");
 const force = process.argv.includes("--force");
@@ -30,7 +30,7 @@ const registryPath = resolve(root, "data/wire/registry.json");
 const manualPath = resolve(root, "data/wire/manual.json");
 const livePath = resolve(root, "public/wire/live.json");
 
-const previous = readJson<WireStateFile>(statePath, {
+const previousRaw = readJson<WireStateFile>(statePath, {
   version: 1,
   intervalMinutes: WIRE_INTERVAL_MINUTES,
   lastStartedAt: null,
@@ -40,6 +40,17 @@ const previous = readJson<WireStateFile>(statePath, {
 });
 
 const now = new Date();
+const previous = healStuckRunningState(previousRaw, now, WIRE_RUNNING_TOO_LONG_MS);
+if (previous.lastStatus !== previousRaw.lastStatus) {
+  writeJson(statePath, previous);
+  console.log(
+    JSON.stringify({
+      healedStuckRunning: true,
+      note: previous.note,
+      lastStartedAt: previous.lastStartedAt,
+    }),
+  );
+}
 if (!force && !shouldStartCycle(previous.lastCompletedAt, now, previous.intervalMinutes || WIRE_INTERVAL_MINUTES, previous.lastStatus)) {
   console.log(
     JSON.stringify({

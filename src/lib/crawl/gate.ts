@@ -13,6 +13,32 @@ export function shouldStartCycle(
   return now.getTime() - then >= intervalMinutes * 60_000;
 }
 
+
+/** If a prior runner died mid-cycle (SIGKILL / job timeout), state can sit on `running` forever.
+ *  Treat that as failed after RUNNING_TOO_LONG_MS so the next scheduled pass can start cleanly
+ *  without requiring --force. Does not invent a successful completion. */
+export function healStuckRunningState<T extends { lastStatus?: string | null; lastStartedAt?: string | null; note?: string | null }>(
+  state: T,
+  now: Date,
+  limitMs: number = RUNNING_TOO_LONG_MS,
+): T {
+  if (state.lastStatus !== "running") return state;
+  const started = Date.parse(state.lastStartedAt ?? "");
+  if (!Number.isFinite(started)) {
+    return {
+      ...state,
+      lastStatus: "failed",
+      note: "Prior cycle left status=running with no start time. Marked failed — not a successful scan.",
+    };
+  }
+  if (now.getTime() - started <= limitMs) return state;
+  return {
+    ...state,
+    lastStatus: "failed",
+    note: `Prior cycle was still marked running after ${Math.round(limitMs / 60000)} minutes (likely killed before finish). Marked failed — not a successful scan.`,
+  };
+}
+
 export type SystemStatus = "never" | "active" | "idle" | "degraded" | "failed" | "stale";
 
 export function systemStatus(live: LiveFile | null, now: Date): SystemStatus {

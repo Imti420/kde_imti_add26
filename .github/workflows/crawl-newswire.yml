@@ -6,6 +6,11 @@ on:
     - cron: "12 * * * *"
     - cron: "42 * * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Bypass 55-minute gate (stuck recovery / manual)"
+        type: boolean
+        default: false
 
 concurrency:
   group: "crawl-newswire"
@@ -40,7 +45,11 @@ jobs:
           GITHUB_ACTIONS: "true"
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          node --experimental-strip-types scripts/crawl-newswire.ts --force
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force }}" = "true" ]; then
+            node --experimental-strip-types scripts/crawl-newswire.ts --force
+          else
+            node --experimental-strip-types scripts/crawl-newswire.ts
+          fi
 
       - name: Commit and push newswire updates
         run: |

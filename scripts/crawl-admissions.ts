@@ -1,8 +1,8 @@
 import { mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { runDiscovery } from "../src/lib/crawl/cycle.ts";
-import { shouldStartCycle } from "../src/lib/crawl/gate.ts";
-import { NO_DATE_NOTE, type CrawlState, type DiscoveryRecord, type LiveFile, type RobotsCacheEntry, type SourceRecord } from "../src/lib/crawl/types.ts";
+import { healStuckRunningState, shouldStartCycle } from "../src/lib/crawl/gate.ts";
+import { NO_DATE_NOTE, RUNNING_TOO_LONG_MS, type CrawlState, type DiscoveryRecord, type LiveFile, type RobotsCacheEntry, type SourceRecord } from "../src/lib/crawl/types.ts";
 import { seedSystems, seedUniversities } from "../src/data/universities.ts";
 
 const root = resolve(import.meta.dirname, "..");
@@ -32,7 +32,7 @@ const seenPath = resolve(root, "data/ops/seen.json");
 const robotsPath = resolve(root, "data/ops/robots.json");
 const livePath = resolve(root, "public/ops/live.json");
 
-const previous = readJson<CrawlState>(statePath, {
+const previousRaw = readJson<CrawlState>(statePath, {
   version: 1,
   intervalMinutes: 45,
   lastStartedAt: null,
@@ -44,6 +44,17 @@ const previous = readJson<CrawlState>(statePath, {
 });
 
 const now = new Date();
+const previous = healStuckRunningState(previousRaw, now, RUNNING_TOO_LONG_MS);
+if (previous.lastStatus !== previousRaw.lastStatus) {
+  writeJson(statePath, previous);
+  console.log(
+    JSON.stringify({
+      healedStuckRunning: true,
+      note: previous.note,
+      lastStartedAt: previous.lastStartedAt,
+    }),
+  );
+}
 if (!force && !shouldStartCycle(previous.lastCompletedAt, now, previous.intervalMinutes || 45, previous.lastStatus)) {
   console.log(
     JSON.stringify({

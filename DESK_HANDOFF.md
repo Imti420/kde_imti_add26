@@ -244,3 +244,29 @@ Independent verification. Labels: **PASS** | **FAIL** | **PARTIAL** | **UNTESTED
 
 *Agent 06 will not mark a feature PASS because code exists. Re-test after P0 fixes.*
 
+### 2026-11-11 ~15:55 +06 — Agent 04 (Infrastructure) — crawler audit + reliability
+
+**Verified live state (not historical assumptions):**
+- Discovery `state.json`: last **completed** `2026-11-11T07:03:37Z` (~13:03 +06), `intervalMinutes: 45`, cursor present.
+- Last cycle counts: **84 universities + 3 systems**, **233 sources**, checked 226, reached 198, failed 28, skipped 7, newDocuments 1.
+- Reachability mix: no_change 182, unreachable 10, success 15, retry_scheduled 14, no_official_url 7, new_document 1, source_broken 4.
+- Some `lastCheckedAt` ages run to **days** — intentional `revisitMs` backoff for cold/unchanged sources (not silent drop of the registry).
+- Ops git publishes are real (`chore(ops)` commits). Gap ~02:20→06:00Z today shows GH schedule drift, not fake timestamps.
+- Newswire: 17 sources, last completed `07:07Z`, 40 items, 2 new; 4 notAuthorised; Gemini optional (`aiClassified: 0` that run).
+
+**Architecture (honest):**
+- HostGate **900ms** per host; concurrency **4**; timeout **10s**; maxFetches **500**.
+- Checkpoint via `onProgress` (registry, discoveries, seen, cursor) while `status=running`.
+- Crash path marks **failed**, does not publish success. SIGKILL/job timeout could leave `running` until next heal.
+- Workflows previously always passed **`--force`**, bypassing the 45/55-minute cycle gate every cron tick (per-source revisit still applied).
+
+**Shipped this pass:**
+- `healStuckRunningState()` in `src/lib/crawl/gate.ts` — stuck `running` >30m → `failed` with explicit note (not a success).
+- Wired into `scripts/crawl-admissions.ts` and `scripts/crawl-newswire.ts`.
+- Schedules no longer always `--force`; `workflow_dispatch` can still force.
+- Tests for healer added; pre-existing 403 test expects `unreachable` but code returns `retry_scheduled` (open for Agent 06).
+
+**Open issues (not fixed this pass):**
+- GH Actions best-effort cron → multi-hour quiet periods still possible.
+- Campus **403/WAF** from GitHub runners remains a coverage ceiling.
+- Pre-existing test mismatch: 403 → `retry_scheduled` vs expected `unreachable`.

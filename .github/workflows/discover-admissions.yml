@@ -8,6 +8,11 @@ on:
     - cron: "33 * * * *"
     - cron: "48 * * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Bypass 45-minute gate (stuck recovery / manual)"
+        type: boolean
+        default: false
 
 concurrency:
   group: "discover-admissions"
@@ -44,7 +49,13 @@ jobs:
         env:
           GITHUB_ACTIONS: "true"
         run: |
-          node --experimental-strip-types scripts/crawl-admissions.ts --force
+          # Scheduled runs respect the 45-minute gate + per-source revisit windows.
+          # workflow_dispatch may pass force=true to bypass the cycle gate only.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force }}" = "true" ]; then
+            node --experimental-strip-types scripts/crawl-admissions.ts --force
+          else
+            node --experimental-strip-types scripts/crawl-admissions.ts
+          fi
 
       - name: Commit and push official discoveries
         run: |

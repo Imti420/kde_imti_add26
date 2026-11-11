@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { runDiscovery } from "./cycle.ts";
 import { extractFeedItems } from "./html.ts";
-import { shouldStartCycle, systemStatus } from "./gate.ts";
+import { healStuckRunningState, shouldStartCycle, systemStatus } from "./gate.ts";
 import { scoreLink, admissionSignal, linkTitle } from "./lexicon.ts";
 import { parseRobots, robotsAllows } from "./robots.ts";
 import { NO_DATE_NOTE, type CrawlState, type LiveFile, type SeedInstitution } from "./types.ts";
@@ -227,6 +227,19 @@ describe("discovery crawler", () => {
     assert.equal(shouldStartCycle("2026-11-04T16:00:00.000Z", new Date("2026-11-04T16:20:00.000Z"), 45, "completed"), false);
     assert.equal(shouldStartCycle("2026-11-04T16:00:00.000Z", new Date("2026-11-04T16:50:00.000Z"), 45, "completed"), true);
     assert.equal(shouldStartCycle("2026-11-04T16:00:00.000Z", new Date("2026-11-04T16:10:00.000Z"), 45, "running"), true);
+    const healed = healStuckRunningState(
+      { lastStatus: "running", lastStartedAt: "2026-11-04T15:00:00.000Z", note: "mid-cycle" },
+      new Date("2026-11-04T16:00:00.000Z"),
+      30 * 60_000,
+    );
+    assert.equal(healed.lastStatus, "failed");
+    assert.match(healed.note ?? "", /not a successful scan/i);
+    const stillRunning = healStuckRunningState(
+      { lastStatus: "running", lastStartedAt: "2026-11-04T15:50:00.000Z", note: "mid-cycle" },
+      new Date("2026-11-04T16:00:00.000Z"),
+      30 * 60_000,
+    );
+    assert.equal(stillRunning.lastStatus, "running");
   });
 
   it("does not refetch an unchanged site until its revisit window opens", async () => {
