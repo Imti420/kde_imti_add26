@@ -43,6 +43,31 @@ export type Progress =
   | "admitted"
   | "not-selected";
 
+/** Mirrored official document for in-app / offline reading. Agent 03 fills; Agent 04 mirrors. */
+export interface CircularDoc {
+  /** Official source URL. Never removed or replaced by the mirror. */
+  originalUrl: string;
+  /** Path under our origin, e.g. "/circulars/c-kuet.pdf". Null until mirrored. */
+  mirrorPath: string | null;
+  /** Page-1 WebP thumbnail under our origin, e.g. "/circulars/c-kuet.webp". */
+  thumbPath: string | null;
+  pages: number | null;
+  bytes: number | null;
+  /** SHA-256 of the mirrored PDF bytes. */
+  sha256: string | null;
+  /** ISO date we copied the file. */
+  fetchedAt: string | null;
+  /** True when originalUrl is on a university / ministry / UGC domain. */
+  officialHost: boolean;
+}
+
+export interface UniversityMark {
+  kind: "logo" | "monogram";
+  /** Path under our origin, e.g. "/marks/kuet.webp". Null when no asset yet. */
+  path: string | null;
+  sourceUrl: string | null;
+}
+
 export interface University {
   id: string;
   kind: "university" | "system";
@@ -55,6 +80,8 @@ export interface University {
   website: string | null;
   admissionUrl: string | null;
   directoryNote: string;
+  /** Optional identity mark. Null / absent = no asset (UI shows monogram fallback). */
+  mark?: UniversityMark | null;
 }
 
 export interface UnitPlan {
@@ -83,7 +110,17 @@ export interface Circular {
   confidenceNote: string;
   sources: SourceRef[];
   updatedOn: string;
+  /**
+   * Back-compat / derived PDF URL for existing callers.
+   * Prefer `doc.mirrorPath` (same-origin) or `doc.originalUrl` when present.
+   * Keep this field populated when a PDF exists so old UI keeps working.
+   */
   pdfUrl: string | null;
+  /**
+   * Structured document record. Optional so the app builds before any mirror exists.
+   * doc = null / absent means "NO PDF PUBLISHED" — do not invent.
+   */
+  doc?: CircularDoc | null;
   applicationOpens: string | null;
   opensAt: string | null;
   applicationCloses: string | null;
@@ -100,6 +137,8 @@ export interface Circular {
   units: UnitPlan[];
   notes: string[];
 }
+
+export type CircularDocState = "mirrored" | "original-only" | "none";
 
 export interface WatchItem {
   id: string;
@@ -204,3 +243,8 @@ export interface DeskNote {
 }
 
 export const ARCHIVE_STAMP = "2026-11-11";
+
+/** Soft budgets for mirrored assets (Agent 04 / 06 enforce). */
+export const DOC_PDF_MAX_BYTES = 5 * 1024 * 1024;
+export const DOC_THUMB_MAX_BYTES = 60 * 1024;
+export const MARK_MAX_BYTES = 30 * 1024;
