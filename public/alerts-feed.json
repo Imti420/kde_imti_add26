@@ -1,57 +1,57 @@
 {
-  "updated": "2026-11-11T16:30:00+06:00",
-  "cycle": "n1111-a02-circular-links",
+  "updated": "2026-11-11T17:55:00+06:00",
+  "cycle": "n1117-ugc-split",
   "news": [
     {
-      "id": "n1111-du-open",
+      "id": "n1117-ugc-ignored",
       "heat": "NUKE",
+      "headline": "UGC Jan/Feb floor — flagships did not move",
+      "url": "/newswire"
+    },
+    {
+      "id": "n1117-du-open",
+      "heat": "HOT",
       "headline": "DU applications OPEN — close 25 Nov 23:59",
       "url": "/circulars/c-du"
     },
     {
-      "id": "n1111-buet-notice",
+      "id": "n1117-buet-stands",
       "heat": "WAR",
-      "headline": "BUET notice: test 16 Jan stands; apps from 21 Nov",
+      "headline": "BUET notice: test 16 Jan stands",
       "url": "/circulars/c-buet"
     },
     {
-      "id": "n1111-kuet-live",
+      "id": "n1117-kuet-live",
       "heat": "HOT",
-      "headline": "KUET apps LIVE + official PDF on circular record",
+      "headline": "KUET apps LIVE + official PDF on file",
       "url": "/circulars/c-kuet"
     },
     {
-      "id": "n1111-dgme-18",
+      "id": "n1117-dgme-18",
       "heat": "HOT",
-      "headline": "Medical test still 18 Dec — formal PDF missing",
+      "headline": "Medical 18 Dec — formal PDF still missing",
       "url": "/circulars/c-dghs"
-    },
-    {
-      "id": "n1111-ugc-floor",
-      "heat": "SYSTEM",
-      "headline": "UGC Jan/Feb floor still on books — not a campus PDF",
-      "url": "/newswire"
     }
   ],
   "registrations": [
+    {
+      "id": "reg-c-du-2026-11-11-e",
+      "title": "DU REGISTRATION OPEN — close 25 Nov",
+      "body": "Portal admission.eis.du.ac.bd · UGC floor did not stop this window",
+      "url": "/circulars/c-du"
+    },
     {
       "id": "reg-c-kuet-2026-11-10",
       "title": "KUET apps LIVE → 10 Dec · test 8 Jan",
       "body": "Official PDF on circular record. Portal admission.kuet.ac.bd",
       "url": "/circulars/c-kuet"
-    },
-    {
-      "id": "reg-c-du-2026-11-11",
-      "title": "DU REGISTRATION OPEN — close 25 Nov",
-      "body": "Portal admission.eis.du.ac.bd · in-app circular c-du",
-      "url": "/circulars/c-du"
     }
   ],
   "circulars": [
     {
       "id": "circ-c-kuet-pdf",
       "title": "KUET 2026–27 circular PDF on file",
-      "body": "Open the circular record for official link / mirror when ready",
+      "body": "Open the circular record for official link",
       "url": "/circulars/c-kuet"
     }
   ],
