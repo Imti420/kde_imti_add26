@@ -19,11 +19,9 @@
     "preview:stop": "node scripts/preview.mjs stop",
     "typecheck": "tsc --noEmit",
     "check:auth": "node scripts/check-auth-invariant.mjs",
-    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/app-data/readiness-schedule.test.ts src/lib/auth/gate-identity.test.ts src/lib/auth/sign-in-gate.test.ts src/lib/preview-path-prefix.test.ts src/lib/verify-engine.test.ts src/lib/calendar.test.ts src/lib/crawl/crawl.test.ts src/lib/wire/wire.test.ts",
+    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/app-data/readiness-schedule.test.ts src/lib/auth/gate-identity.test.ts src/lib/auth/sign-in-gate.test.ts src/lib/preview-path-prefix.test.ts src/lib/verify-engine.test.ts src/lib/calendar.test.ts src/lib/crawl/crawl.test.ts src/lib/wire/wire.test.ts src/lib/doc-invariants.test.ts",
     "lint": "eslint .",
-    "format": "prettier --write .",
-    "mirror:pdf": "node --experimental-strip-types scripts/mirror-circular-pdf.ts",
-    "optimize:mark": "node scripts/optimize-mark.mjs"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.4",
@@ -81,7 +79,8 @@
     "vaul": "^1.1.2",
     "vite": "^8.2.0",
     "zod": "^4.4.0",
-    "zustand": "^5.0.0"
+    "zustand": "^5.0.0",
+    "pdfjs-dist": "^4.10.38"
   },
   "devDependencies": {
     "@eslint/js": "^9.20.0",
