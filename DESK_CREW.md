@@ -71,6 +71,7 @@ Before swarm product work, check in on **`DESK_RADIO.md`**: one line, push, wait
 
 ### Session log (newest first)
 
+- `2026-11-11 ~16:25 +06` — **A06 / Agent 06** Mission baseline recorded in handoff (QA section). Scope: circular PDF in-app, SW offline, marks. No product edits.
 - `2026-11-11 ~16:24 +06` — **A03** claims circulars/PDFs/marks (Commander PDF mission). Will not touch types.ts / UI / spice.
 
 
