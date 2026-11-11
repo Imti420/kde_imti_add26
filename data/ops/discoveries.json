@@ -18045,5 +18045,19 @@
     "shortName": "BOU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://jnu.ac.bd/assets/notice/9ea6d52bc7a947d600093ba06052e3cc.pdf",
+    "foundOn": "https://www.jnu.ac.bd/",
+    "foundAt": "2026-11-11T14:02:32.567Z",
+    "title": "২০২৬-২০২৭ শিক্ষাবর্ষ স্নাতক (সম্মান) ও বিবিএ ১ম বর্ষ ভর্তি বিজ্ঞপ্তি",
+    "kind": "pdf",
+    "score": 22,
+    "sameSite": true,
+    "id": "jnu:https://jnu.ac.bd/assets/notice/9ea6d52bc7a947d600093ba06052e3cc.pdf",
+    "universityId": "jnu",
+    "shortName": "JnU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
