@@ -53,6 +53,9 @@ Examples:
 
 <!-- Agents: prepend below this line. Keep the mission header updated. -->
 
+### Mission `mission-2026-11-11-pdf` — circular PDF + marks
+
+- `2026-11-11 ~16:24 +06` · **A03** · PDF/marks mission · claiming circulars + public/circulars + public/marks
 ### Mission `circular-in-hand-2026-11-11`
 
 - 16:25 +06 · A04 · COMMANDER circular-PDF mission · claiming infra (SW + mirror scripts + headers)
