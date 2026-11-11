@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { EvidenceStamp, StatusPill } from "@/components/marks";
 import { campusVoice } from "@/data/voices";
+import { UniMark } from "@/components/uni-mark";
+import { circularDocState } from "@/lib/catalog";
 import { SYSTEM_LABEL, TRACK_LABEL, type AppStatus, type Circular, type University } from "@/data/types";
 import { cn } from "@/lib/cn";
 import { daysUntil, formatDay } from "@/lib/dates";
@@ -67,6 +69,7 @@ export function UniversityCard({
         <span>{String(index + 1).padStart(2, "0")}</span>
       </span>
 
+      <UniMark uni={uni} size="sm" className="mb-2" />
       <span className={cn("uni-card-name", nameClass)}>{uni.shortName}</span>
       <span className="uni-card-full">{uni.name}</span>
       <span className="uni-card-side">{uni.city || "CITY NOT LOGGED"}</span>
@@ -85,8 +88,10 @@ export function UniversityCard({
           {seats == null ? "Seats not on file" : `${seats.toLocaleString("en-BD")} seats`}
         </span>
         {system ? <span className="uni-fact">{system}</span> : null}
-        {primary?.pdfUrl ? (
-          <span className="uni-fact uni-fact-hot">CIRCULAR ✓</span>
+        {primary && circularDocState(primary) !== "none" ? (
+          <span className="uni-fact uni-fact-hot">PDF ✓</span>
+        ) : primary ? (
+          <span className="uni-fact">NO PDF</span>
         ) : (
           <span className="uni-fact">NO CIRCULAR</span>
         )}

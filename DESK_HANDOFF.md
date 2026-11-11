@@ -74,6 +74,24 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 
 ## Changelog (append only)
 
+### 2026-11-11 ~16:38 +06 — Agent 05 (Creative) — in-app PDF reader + marks UI
+
+**Shipped:**
+- Filled A01 shell `src/routes/circulars/$id/pdf.tsx` with real reader UI
+- `src/components/pdf-viewer.tsx` — lazy pdf.js CDN ESM, canvas, pinch/double-tap, page memory, progress, object/iframe fallback
+- Circular paper hero + READ CIRCULAR; Fact row in-app + official source
+- `uni-mark.tsx` on cards + profiles; NO PDF PUBLISHED honesty
+- Replaced external blank PDF opens on uni profile/card
+- routeTree registers `/circulars/$id/pdf`
+
+**Not edited:** types.ts, data files, sw.js
+**Uses:** circularDocState / circularPdfHref / circularThumbPath / universityMark
+
+**Code-verified only.** Not tested on real 360px phone / iOS Safari. Screenshots not captured (no local browser run). public/circulars has c-kuet.pdf + thumbs from A03/A04 — reader should hit mirror when doc.mirrorPath set.
+
+**Needs A06:** phone walkthrough screenshots/ before/after.
+
+
 
 ### 2026-11-11 ~16:35 +06 — Agent 01 (Chief Engineer) — document contract
 

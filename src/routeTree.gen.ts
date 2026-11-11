@@ -21,6 +21,7 @@ import { Route as ShortlistRouteImport } from './routes/shortlist'
 import { Route as TrackerRouteImport } from './routes/tracker'
 import { Route as CircularsIndexRouteImport } from './routes/circulars/index'
 import { Route as CircularsIdRouteImport } from './routes/circulars/$id'
+import { Route as CircularsIdPdfRouteImport } from './routes/circulars/$id/pdf'
 import { Route as UniversitiesIndexRouteImport } from './routes/universities/index'
 import { Route as UniversitiesIdRouteImport } from './routes/universities/$id'
 
@@ -84,6 +85,11 @@ const CircularsIdRoute = CircularsIdRouteImport.update({
   path: '/circulars/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CircularsIdPdfRoute = CircularsIdPdfRouteImport.update({
+  id: '/circulars/$id/pdf',
+  path: '/circulars/$id/pdf',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UniversitiesIndexRoute = UniversitiesIndexRouteImport.update({
   id: '/universities/',
   path: '/universities/',
@@ -107,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/shortlist': typeof ShortlistRoute
   '/tracker': typeof TrackerRoute
   '/circulars/$id': typeof CircularsIdRoute
+  '/circulars/$id/pdf': typeof CircularsIdPdfRoute
   '/universities/$id': typeof UniversitiesIdRoute
   '/circulars/': typeof CircularsIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
@@ -123,6 +130,7 @@ export interface FileRoutesByTo {
   '/shortlist': typeof ShortlistRoute
   '/tracker': typeof TrackerRoute
   '/circulars/$id': typeof CircularsIdRoute
+  '/circulars/$id/pdf': typeof CircularsIdPdfRoute
   '/universities/$id': typeof UniversitiesIdRoute
   '/circulars': typeof CircularsIndexRoute
   '/universities': typeof UniversitiesIndexRoute
@@ -140,6 +148,7 @@ export interface FileRoutesById {
   '/shortlist': typeof ShortlistRoute
   '/tracker': typeof TrackerRoute
   '/circulars/$id': typeof CircularsIdRoute
+  '/circulars/$id/pdf': typeof CircularsIdPdfRoute
   '/universities/$id': typeof UniversitiesIdRoute
   '/circulars/': typeof CircularsIndexRoute
   '/universities/': typeof UniversitiesIndexRoute
@@ -158,6 +167,7 @@ export interface FileRouteTypes {
     | '/shortlist'
     | '/tracker'
     | '/circulars/$id'
+    | '/circulars/$id/pdf'
     | '/universities/$id'
     | '/circulars/'
     | '/universities/'
@@ -174,6 +184,7 @@ export interface FileRouteTypes {
     | '/shortlist'
     | '/tracker'
     | '/circulars/$id'
+    | '/circulars/$id/pdf'
     | '/universities/$id'
     | '/circulars'
     | '/universities'
@@ -190,6 +201,7 @@ export interface FileRouteTypes {
     | '/shortlist'
     | '/tracker'
     | '/circulars/$id'
+    | '/circulars/$id/pdf'
     | '/universities/$id'
     | '/circulars/'
     | '/universities/'
@@ -207,6 +219,7 @@ export interface RootRouteChildren {
   ShortlistRoute: typeof ShortlistRoute
   TrackerRoute: typeof TrackerRoute
   CircularsIdRoute: typeof CircularsIdRoute
+  CircularsIdPdfRoute: typeof CircularsIdPdfRoute
   UniversitiesIdRoute: typeof UniversitiesIdRoute
   CircularsIndexRoute: typeof CircularsIndexRoute
   UniversitiesIndexRoute: typeof UniversitiesIndexRoute
@@ -298,6 +311,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CircularsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/circulars/$id/pdf': {
+      id: '/circulars/$id/pdf'
+      path: '/circulars/$id/pdf'
+      fullPath: '/circulars/$id/pdf'
+      preLoaderRoute: typeof CircularsIdPdfRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/universities/': {
       id: '/universities/'
       path: '/universities'
@@ -327,6 +347,7 @@ const rootRouteChildren: RootRouteChildren = {
   ShortlistRoute: ShortlistRoute,
   TrackerRoute: TrackerRoute,
   CircularsIdRoute: CircularsIdRoute,
+  CircularsIdPdfRoute: CircularsIdPdfRoute,
   UniversitiesIdRoute: UniversitiesIdRoute,
   CircularsIndexRoute: CircularsIndexRoute,
   UniversitiesIndexRoute: UniversitiesIndexRoute,

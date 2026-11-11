@@ -2,7 +2,8 @@ import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
 import { AmendCircular } from "@/components/amend";
 import { NoteBox, ProgressSelect, RecordActions } from "@/components/actions";
 import { Announced, EvidenceStamp, ExternalLink, Fact, SectionLabel, StatusPill } from "@/components/marks";
-import { useCatalog } from "@/lib/catalog";
+import { circularDocState, circularPdfHref, circularThumbPath, useCatalog } from "@/lib/catalog";
+import { UniMark } from "@/components/uni-mark";
 import { formatDay } from "@/lib/dates";
 import { usePublishedReport } from "@/lib/published-report";
 import { usePersonal } from "@/lib/store";
@@ -37,6 +38,13 @@ function CircularPage() {
   const uni = byId.get(circular.universityId);
   const timeline = eventsFor(circular);
 
+  const docState = circularDocState(circular);
+  const pdfHref = circularPdfHref(circular);
+  const thumb = circularThumbPath(circular);
+  const originalPdf = circular.doc?.originalUrl ?? circular.pdfUrl;
+
+
+
   return (
     <article>
       <p className="font-mono text-xs tracking-widest text-mute">
@@ -69,6 +77,52 @@ function CircularPage() {
       <div className="mt-4">
         <RecordActions universityId={uni?.id} circularId={circular.id} />
       </div>
+
+      {/* Paper hero — PDF first */}
+      <section className="mt-6 grid gap-4 border-[3px] border-ink bg-panel p-3 sm:grid-cols-[minmax(0,11rem)_1fr] sm:p-4">
+        <div className="relative aspect-[3/4] max-h-64 overflow-hidden border-[3px] border-ink bg-paper sm:max-h-none">
+          {thumb ? (
+            <img src={thumb} alt="" className="h-full w-full object-cover object-top" width={176} height={234} loading="lazy" />
+          ) : (
+            <div className="flex h-full min-h-40 flex-col items-center justify-center gap-2 p-3 text-center">
+              {uni ? <UniMark uni={uni} size="lg" /> : null}
+              <p className="font-mono text-[10px] tracking-widest text-mute">
+                {docState === "none" ? "NO PDF" : "CIRCULAR"}
+              </p>
+            </div>
+          )}
+        </div>
+        <div className="flex min-w-0 flex-col justify-between gap-3">
+          <div>
+            <p className="font-mono text-[10px] tracking-widest text-accent">
+              {docState === "mirrored" ? "ARCHIVED COPY ON DESK" : docState === "original-only" ? "OFFICIAL PDF LINK" : "NO PDF PUBLISHED"}
+            </p>
+            <p className="mt-2 font-mono text-xs text-mute">
+              Opens {circular.applicationOpens ? formatDay(circular.applicationOpens) : "—"}
+              {" · "}
+              Closes {circular.applicationCloses ? formatDay(circular.applicationCloses) : "—"}
+              {" · "}
+              Exam {circular.examDate ? formatDay(circular.examDate) : "—"}
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {docState !== "none" ? (
+              <Link to="/circulars/$id/pdf" params={{ id: circular.id }} className="press min-h-11 bg-ink px-4 font-mono text-xs tracking-widest text-paper">
+                READ CIRCULAR
+              </Link>
+            ) : (
+              <span className="inline-flex min-h-11 items-center border-[3px] border-dashed border-ink px-3 font-mono text-xs tracking-widest text-mute">
+                NO PDF PUBLISHED
+              </span>
+            )}
+            {originalPdf ? (
+              <a href={originalPdf} target="_blank" rel="noreferrer" className="press min-h-11 px-3 font-mono text-xs tracking-widest">
+                OFFICIAL SOURCE
+              </a>
+            ) : null}
+          </div>
+        </div>
+      </section>
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <div>
@@ -189,7 +243,24 @@ function CircularPage() {
             {circular.seats == null ? <span className="font-mono text-sm text-mute">NOT ANNOUNCED</span> : circular.seats}
           </Fact>
           <Fact label="Official PDF">
-            {circular.pdfUrl ? <ExternalLink href={circular.pdfUrl}>Open PDF</ExternalLink> : <span className="font-mono text-sm text-mute">NOT ON FILE</span>}
+            {docState === "none" ? (
+              <span className="font-mono text-sm text-mute">NO PDF PUBLISHED</span>
+            ) : (
+              <span className="flex flex-col gap-1">
+                <Link to="/circulars/$id/pdf" params={{ id: circular.id }} className="font-mono text-sm font-semibold underline underline-offset-4">
+                  Read in app →
+                </Link>
+                {originalPdf ? (
+                  <ExternalLink href={originalPdf}>Official source</ExternalLink>
+                ) : null}
+                {circular.doc?.mirrorPath ? (
+                  <span className="font-mono text-[10px] tracking-widest text-mute">
+                    ARCHIVED COPY{circular.doc.fetchedAt ? ` · ${circular.doc.fetchedAt.slice(0, 10)}` : ""}
+                    {circular.doc.officialHost ? " · official host ✓" : ""}
+                  </span>
+                ) : null}
+              </span>
+            )}
           </Fact>
           <Fact label="Application portal">
             {uni?.admissionUrl ? (

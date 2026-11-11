@@ -113,3 +113,5 @@ You are RADAR. Claim A only. GO UPDATE circulars.
 ```
 
 - `2026-11-11 ~16:10 +06` — **Agent 01 / RADAR** (Admissions Intelligence): KUET official PDF attached to `c-kuet` (`pdfUrl` live). Restored circulars.ts after PLACEHOLDER incident. No medical PDF invented. Lane A claimed for this pass.
+
+- `2026-11-11 ~16:38 +06` — **A05 Creative** done: PDF reader fills A01 shell, paper hero, UniMark, in-app CTAs.

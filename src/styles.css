@@ -1161,3 +1161,24 @@ article:has([class*="NUKE"]) {
     transition: none !important;
   }
 }
+
+
+/* —— Agent 05: uni mark + PDF reader —— */
+.uni-mark {
+  box-shadow: 3px 3px 0 0 var(--color-ink);
+}
+.uni-mark-mono {
+  letter-spacing: -0.04em;
+}
+.pdf-toolbar .press {
+  min-height: 2.75rem;
+}
+.pdf-stage {
+  -webkit-overflow-scrolling: touch;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pdf-stage,
+  .uni-mark {
+    transition: none !important;
+  }
+}

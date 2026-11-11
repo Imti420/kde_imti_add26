@@ -88,7 +88,10 @@ function UniversityPage() {
             <p className="sticker">Campus commentary · not a fact</p>
             {primary ? <StatusPill status={deriveStatus(primary)} /> : <span className="phase phase-missing">NOT ANNOUNCED</span>}
           </div>
-          <h1 className={cn("mt-4 font-display font-bold uppercase leading-[0.8]", nameClass)}>{uni.shortName}</h1>
+          <div className="mt-4 flex items-end gap-3">
+            <UniMark uni={uni} size="lg" />
+            <h1 className={cn("font-display font-bold uppercase leading-[0.8]", nameClass)}>{uni.shortName}</h1>
+          </div>
           <p className="mt-3 max-w-3xl text-lg">{uni.name}</p>
           {uni.nameBn ? <p className="text-sm text-mute">{uni.nameBn}</p> : null}
           <p className="mt-4 max-w-3xl font-display text-3xl font-bold uppercase leading-none md:text-4xl">{voice}</p>
@@ -137,17 +140,16 @@ function UniversityPage() {
         ) : (
           <span className="font-mono text-xs text-mute">PORTAL NOT ON FILE</span>
         )}
-        {primary?.pdfUrl ? (
-          <a
-            href={primary.pdfUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="press bg-ink text-paper font-mono text-xs tracking-widest uppercase"
+        {primary && circularDocState(primary) !== "none" ? (
+          <Link
+            to="/circulars/$id/pdf"
+            params={{ id: primary.id }}
+            className="press min-h-11 bg-ink px-3 font-mono text-xs tracking-widest uppercase text-paper"
           >
-            Circular / PDF ↗
-          </a>
+            Read circular
+          </Link>
         ) : (
-          <span className="font-mono text-xs text-mute">CIRCULAR PDF NOT ON FILE</span>
+          <span className="font-mono text-xs text-mute">NO PDF PUBLISHED</span>
         )}
         {primary ? (
           <Link
@@ -212,12 +214,17 @@ function UniversityPage() {
                         </Link>
                       </h3>
                       <p className="mt-2 max-w-3xl text-sm text-pretty">{item.summary}</p>
-                      {item.pdfUrl ? (
-                        <p className="mt-2">
-                          <ExternalLink href={item.pdfUrl}>Official PDF</ExternalLink>
+                      {circularDocState(item) !== "none" ? (
+                        <p className="mt-2 flex flex-wrap gap-3 font-mono text-xs">
+                          <Link to="/circulars/$id/pdf" params={{ id: item.id }} className="underline underline-offset-4">
+                            Read in app →
+                          </Link>
+                          {(item.doc?.originalUrl ?? item.pdfUrl) ? (
+                            <ExternalLink href={(item.doc?.originalUrl ?? item.pdfUrl)!}>Official source</ExternalLink>
+                          ) : null}
                         </p>
                       ) : (
-                        <p className="mt-2 font-mono text-xs text-mute">PDF NOT ON FILE</p>
+                        <p className="mt-2 font-mono text-xs text-mute">NO PDF PUBLISHED</p>
                       )}
                     </li>
                   ))}
