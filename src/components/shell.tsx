@@ -1,5 +1,5 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
-import { Search, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from "react";
 import { NoticeBell } from "@/components/notifications";
 import { DeskPushBoot } from "@/components/desk-push-boot";
@@ -50,6 +50,14 @@ export function Shell({ children }: { children: ReactNode }) {
   const generatedAt = usePublishedReport((s) => s.report?.generatedAt ?? null);
   const loadReport = usePublishedReport((s) => s.load);
   const [menu, setMenu] = useState(false);
+  const [railCollapsed, setRailCollapsed] = useState(() => {
+    if (typeof window === "undefined") return false;
+    try {
+      return window.localStorage.getItem("a26-rail-collapsed") === "1";
+    } catch {
+      return false;
+    }
+  });
   const [query, setQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -68,6 +76,14 @@ export function Shell({ children }: { children: ReactNode }) {
     setSearchOpen(false);
     setQuery("");
   }, [path]);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem("a26-rail-collapsed", railCollapsed ? "1" : "0");
+    } catch {
+      /* ignore quota / private mode */
+    }
+  }, [railCollapsed]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -119,20 +135,79 @@ export function Shell({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-paper text-ink">
       <DeskPushBoot />
       <IntroSequence />
-      <div className="md:grid md:grid-cols-[280px_minmax(0,1fr)]">
-        <aside className="sticky top-0 hidden h-screen flex-col border-r-[3px] border-ink bg-rail text-railfg md:flex">
-          <Brand />
-          <Nav path={path} shortlist={shortlist} review={review} />
-          <div className="mt-auto border-t-[3px] border-railfg/30">
-            <p className="px-4 pt-3 font-mono text-[0.65rem] uppercase leading-relaxed tracking-widest text-railfg/65">
-              {t("chrome.session")}
-              <br />
-              {t("chrome.localDesk")}
-              <br />
-              {t("chrome.notPortal")}
-            </p>
-            <Signature variant="rail" />
-          </div>
+      <div
+        className={cn(
+          "md:grid",
+          railCollapsed
+            ? "md:grid-cols-[52px_minmax(0,1fr)]"
+            : "md:grid-cols-[280px_minmax(0,1fr)]",
+        )}
+      >
+        <aside
+          className={cn(
+            "sticky top-0 hidden h-screen flex-col border-r-[3px] border-ink bg-rail text-railfg md:flex",
+            railCollapsed && "items-center",
+          )}
+        >
+          {railCollapsed ? (
+            <>
+              <Link
+                to="/"
+                className="flex w-full flex-col items-center gap-1 border-b border-railfg/25 px-1 py-3"
+                title="A//26"
+              >
+                <span className="font-display text-lg font-bold uppercase leading-none tracking-tight">
+                  A<span className="text-accent">//</span>
+                </span>
+                <span className="font-display text-lg font-bold leading-none">26</span>
+              </Link>
+              <button
+                type="button"
+                className="mt-2 flex h-10 w-10 items-center justify-center border-[2px] border-railfg/30 text-railfg transition hover:border-railfg/60 hover:bg-railfg/10"
+                onClick={() => setRailCollapsed(false)}
+                aria-label="Expand sidebar"
+                title="Expand sidebar"
+              >
+                <ChevronRight className="size-4" aria-hidden />
+              </button>
+              <div className="mt-auto mb-3">
+                <button
+                  type="button"
+                  className="flex h-10 w-10 items-center justify-center border-[2px] border-railfg/30 text-railfg transition hover:border-railfg/60 hover:bg-railfg/10"
+                  onClick={() => setRailCollapsed(false)}
+                  aria-label="Expand sidebar"
+                >
+                  <span className="font-mono text-[0.55rem] tracking-widest text-railfg/70">OPEN</span>
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="relative">
+                <Brand />
+                <button
+                  type="button"
+                  className="absolute right-2 top-3 flex h-8 w-8 items-center justify-center border-[2px] border-railfg/30 text-railfg transition hover:border-railfg/60 hover:bg-railfg/10"
+                  onClick={() => setRailCollapsed(true)}
+                  aria-label="Collapse sidebar"
+                  title="Collapse sidebar"
+                >
+                  <ChevronLeft className="size-4" aria-hidden />
+                </button>
+              </div>
+              <Nav path={path} shortlist={shortlist} review={review} />
+              <div className="mt-auto border-t-[3px] border-railfg/30">
+                <p className="px-4 pt-3 font-mono text-[0.65rem] uppercase leading-relaxed tracking-widest text-railfg/65">
+                  {t("chrome.session")}
+                  <br />
+                  {t("chrome.localDesk")}
+                  <br />
+                  {t("chrome.notPortal")}
+                </p>
+                <Signature variant="rail" />
+              </div>
+            </>
+          )}
         </aside>
 
         <div className="min-w-0 pb-[calc(4.6rem+env(safe-area-inset-bottom))] md:pb-0">
@@ -187,6 +262,17 @@ export function Shell({ children }: { children: ReactNode }) {
             </div>
 
             <div className="hidden items-center gap-3 px-5 py-3 md:flex lg:px-6">
+              {railCollapsed ? (
+                <button
+                  type="button"
+                  className="press flex h-10 w-10 shrink-0 items-center justify-center px-0"
+                  onClick={() => setRailCollapsed(false)}
+                  aria-label="Expand sidebar"
+                  title="Expand sidebar"
+                >
+                  <ChevronRight className="size-4" aria-hidden />
+                </button>
+              ) : null}
               <div className="relative min-w-0 flex-1">
                 <SearchBox
                   inputRef={inputRef}
