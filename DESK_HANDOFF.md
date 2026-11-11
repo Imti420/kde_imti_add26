@@ -627,3 +627,7 @@ node scripts/optimize-mark.mjs du ./official-logo.png
 - Live path will be `https://kdeimtiadd26.vercel.app/circulars/c-kuet.pdf` after Vercel deploy.
 - Marks byte sizes under 30 KB budget.
 
+### 2026-11-11 ~16:55 +06 — UniMark crash fix
+User reported `/universities` error boundary: **UniMark is not defined**.
+Cause: mid-deploy / stale client chunk where `university-card` referenced `UniMark` before the `uni-mark` module resolved for that session.
+Fix: defensive `UniMark` (null uni guard), SW cache **a26-desk-v2** to force clients off stale shell. Live re-checked OK after deploy; user should hard-refresh if still black-screened.

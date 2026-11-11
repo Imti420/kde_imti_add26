@@ -2,7 +2,7 @@ import type { University } from "@/data/types";
 import { universityMark } from "@/lib/catalog";
 import { cn } from "@/lib/cn";
 
-/** House-style identity: logo from our origin, or typographic monogram seal. Never hotlinks. */
+/** House-style identity: logo from our origin, or typographic monogram. Never hotlinks. */
 export function UniMark({
   uni,
   size = "md",
@@ -12,13 +12,20 @@ export function UniMark({
   size?: "sm" | "md" | "lg";
   className?: string;
 }) {
+  if (!uni) return null;
   const mark = universityMark(uni);
   const dim = size === "sm" ? "h-9 w-9 text-xs" : size === "lg" ? "h-16 w-16 text-xl" : "h-12 w-12 text-sm";
-  const letters = (uni.shortName || uni.id).slice(0, 4).toUpperCase();
+  const letters = String(uni.shortName || uni.id || "?").slice(0, 4).toUpperCase();
 
   if (mark?.kind === "logo" && mark.path) {
     return (
-      <span className={cn("uni-mark uni-mark-logo inline-flex shrink-0 items-center justify-center overflow-hidden border-[3px] border-ink bg-paper", dim, className)}>
+      <span
+        className={cn(
+          "uni-mark uni-mark-logo inline-flex shrink-0 items-center justify-center overflow-hidden border-[3px] border-ink bg-paper",
+          dim,
+          className,
+        )}
+      >
         <img
           src={mark.path}
           alt=""
