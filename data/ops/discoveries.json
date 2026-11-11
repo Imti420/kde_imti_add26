@@ -18003,5 +18003,47 @@
     "shortName": "BOU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.du.ac.bd/du_post_details/notice/29148",
+    "foundOn": "https://www.du.ac.bd/",
+    "foundAt": "2026-11-11T09:52:11.657Z",
+    "title": "11 Nov ২০২৬-২০২৭ শিক্ষাবর্ষে আন্ডারগ্র্যাজুয়েট প্রোগ্রামে ভর্তি বিজ্ঞপ্তি 11 Nov, 2026",
+    "kind": "page",
+    "score": 20,
+    "sameSite": true,
+    "id": "du:https://www.du.ac.bd/du_post_details/notice/29148",
+    "universityId": "du",
+    "shortName": "DU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/admission/1880828443927211.pdf",
+    "foundOn": "https://www.bou.ac.bd/",
+    "foundAt": "2026-11-11T09:53:21.100Z",
+    "title": "Admission circular and instruction of BEd Program (Batch: 2027) 2026-11-11",
+    "kind": "pdf",
+    "score": 25,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/admission/1880828443927211.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/admission/1881554327502090.pdf",
+    "foundOn": "https://www.bou.ac.bd/",
+    "foundAt": "2026-11-11T09:53:21.100Z",
+    "title": "Course Fee Details of BMEd Program (Batch: 2027) 2026-11-11",
+    "kind": "pdf",
+    "score": 13,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/admission/1881554327502090.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
