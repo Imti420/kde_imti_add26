@@ -427,3 +427,29 @@ Independent verification. Labels: **PASS** | **FAIL** | **PARTIAL** | **UNTESTED
 **Not fabricated:** medical formal circular still missing; CUET/RUET app windows; BUET close date; exact DU fee if portal differs from guides.
 
 **Files:** `src/data/universities.ts`, `src/data/circulars.ts`, `src/data/types.ts` (ARCHIVE_STAMP 2026-11-11).
+
+### 2026-11-11 ~16:10 +06 — Agent 01 / RADAR (Admissions Intelligence) — KUET official PDF attached
+
+**Mission:** Comprehensive circular audit + make actual documents accessible.
+
+**What changed:**
+- **KUET (`c-kuet`)**: Located and attached the **official PDF**  
+  `https://admission.kuet.ac.bd/uploads/notices/1.UG-Admission-2026-Circular.pdf`  
+  (live “Download circular” on admission.kuet.ac.bd).  
+  - `pdfUrl` set (was null).  
+  - Added `KUET_OFFICIAL` + `KUET_PORTAL` SourceRefs.  
+  - Eligibility hardened: HSC Science, SSC ≥4.00, PCME combined ≥16.00 (relaxed).  
+  - Fee note + centres (Khulna / DU / RUET) + 1,105 seats confirmed from portal.  
+  - Summary + confidenceNote + notes updated to point students at the real PDF.
+
+**Verified still true (no invention):**
+- DU apps OPEN (portal live 11 Nov).  
+- BUET apps from 21 Nov, test 16 Jan 2027; close still unannounced.  
+- Medical / DGME formal circular **still missing** (exam 18 Dec reported only).  
+- CUET / RUET / others remain thin or provisional.
+
+**Restored:** Accidental PLACEHOLDER overwrite of `circulars.ts` was immediately reverted with full seed + the KUET PDF patch.
+
+**Files:** `src/data/circulars.ts` only.  
+**Coordinate:** Agent 03 calendar already derives from this; Agent 06 can verify CIRCULAR ✓ badge + PDF open on `/circulars/c-kuet`.
+
