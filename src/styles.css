@@ -917,15 +917,20 @@ article:has([class*="NUKE"]) {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   CALENDAR EVENT CHIPS — Impact uni stamps + hover req cards
+   CALENDAR — full-width chips · symbols · deadline tint
+   Spec: text 17 · pad 9/16 · border 3 · shadow 3 · radius 12 · cell 109
+   Light (day) + dark (night) via CSS vars.
    ═══════════════════════════════════════════════════════════ */
 
 .cal-chip {
   position: relative;
-  border: 2px solid var(--color-ink);
-  border-radius: 0.45rem;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 3px solid var(--color-ink);
+  border-radius: 12px;
   background: var(--color-paper);
-  box-shadow: 2px 2px 0 0 var(--color-ink);
+  box-shadow: 3px 3px 0 0 var(--color-ink);
   transition:
     transform 80ms cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 80ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -933,84 +938,131 @@ article:has([class*="NUKE"]) {
 }
 
 .cal-chip--compact {
-  padding: 0.12rem 0.2rem 0.14rem;
+  padding: 9px 16px;
 }
 
 .cal-chip--roomy {
-  padding: 0.28rem 0.4rem 0.32rem;
+  padding: 9px 16px 11px;
 }
 
 .cal-chip--done {
-  opacity: 0.55;
+  opacity: 0.45;
   text-decoration: line-through;
+  filter: grayscale(0.35);
 }
 
+/* DEADLINE / END — solid red */
 .cal-chip--accent {
   border-color: var(--color-accent);
-  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-paper));
-  box-shadow: 2px 2px 0 0 var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-onaccent);
+  box-shadow: 3px 3px 0 0 var(--color-ink);
+}
+.cal-chip--accent .cal-chip-uni,
+.cal-chip--accent .cal-chip-stamp,
+.cal-chip--accent .cal-chip-sym,
+.cal-chip--accent .cal-chip-action {
+  color: var(--color-onaccent);
+  border-color: transparent;
+  background: transparent;
 }
 
+/* EXAM — solid ink */
 .cal-chip--ink {
-  background: color-mix(in srgb, var(--color-ink) 6%, var(--color-paper));
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  box-shadow: 3px 3px 0 0 color-mix(in srgb, var(--color-ink) 55%, transparent);
+}
+.cal-chip--ink .cal-chip-uni,
+.cal-chip--ink .cal-chip-stamp,
+.cal-chip--ink .cal-chip-sym,
+.cal-chip--ink .cal-chip-action {
+  color: var(--color-paper);
+  border-color: transparent;
+  background: transparent;
 }
 
+/* START / OPEN — paper fill, ink border */
 .cal-chip--mute {
-  border-color: color-mix(in srgb, var(--color-ink) 45%, transparent);
-  color: var(--color-mute);
+  border-color: var(--color-ink);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: 3px 3px 0 0 var(--color-ink);
+}
+.cal-chip--mute .cal-chip-uni {
+  border-color: transparent;
+  background: transparent;
+  color: var(--color-ink);
+}
+.cal-chip--mute .cal-chip-stamp,
+.cal-chip--mute .cal-chip-sym {
+  color: var(--color-ink);
 }
 
+/* ADMIT / signal */
 .cal-chip--signal {
   border-color: var(--color-signal);
-  background: color-mix(in srgb, var(--color-signal) 12%, var(--color-paper));
-  box-shadow: 2px 2px 0 0 var(--color-signal);
+  background: color-mix(in srgb, var(--color-signal) 18%, var(--color-paper));
+  box-shadow: 3px 3px 0 0 var(--color-signal);
 }
 
+/* VARSITY coaching — purple */
 .cal-chip--varsity {
-  border-color: var(--color-varsity);
-  background: color-mix(in srgb, var(--color-varsity) 14%, var(--color-paper));
-  box-shadow: 2px 2px 0 0 var(--color-varsity);
+  border-color: color-mix(in srgb, var(--color-varsity) 70%, var(--color-ink));
+  background: color-mix(in srgb, var(--color-varsity) 22%, var(--color-paper));
+  box-shadow: 3px 3px 0 0 color-mix(in srgb, var(--color-varsity) 55%, var(--color-ink));
+}
+.cal-chip--varsity .cal-chip-uni,
+.cal-chip--varsity .cal-chip-stamp,
+.cal-chip--varsity .cal-chip-sym {
+  color: var(--color-ink);
+  border-color: transparent;
+  background: transparent;
 }
 
-.cal-chip--varsity .cal-chip-uni {
-  border-color: var(--color-varsity);
-  background: var(--color-varsity);
-  color: var(--color-onvarsity);
-}
-
+/* ENGINEERING coaching — blue */
 .cal-chip--eng {
-  border-color: var(--color-eng);
-  background: color-mix(in srgb, var(--color-eng) 14%, var(--color-paper));
-  box-shadow: 2px 2px 0 0 var(--color-eng);
+  border-color: color-mix(in srgb, var(--color-eng) 70%, var(--color-ink));
+  background: color-mix(in srgb, var(--color-eng) 22%, var(--color-paper));
+  box-shadow: 3px 3px 0 0 color-mix(in srgb, var(--color-eng) 55%, var(--color-ink));
 }
-
-.cal-chip--eng .cal-chip-uni {
-  border-color: var(--color-eng);
-  background: var(--color-eng);
-  color: var(--color-oneng);
+.cal-chip--eng .cal-chip-uni,
+.cal-chip--eng .cal-chip-stamp,
+.cal-chip--eng .cal-chip-sym {
+  color: var(--color-ink);
+  border-color: transparent;
+  background: transparent;
 }
 
 .cal-chip-row {
   display: flex;
   align-items: center;
-  gap: 0.28rem;
+  gap: 0.35rem;
   min-width: 0;
+  width: 100%;
+}
+
+.cal-chip-sym {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  line-height: 1;
+  opacity: 0.95;
 }
 
 .cal-chip-uni {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  padding: 0.05rem 0.28rem 0.08rem;
-  border: 2px solid var(--color-ink);
-  border-radius: 0.28rem;
-  background: var(--color-ink);
-  color: var(--color-paper);
+  max-width: 55%;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
+  font-size: 17px;
+  letter-spacing: 0.02em;
   line-height: 1;
   text-transform: uppercase;
   white-space: nowrap;
@@ -1019,40 +1071,42 @@ article:has([class*="NUKE"]) {
 }
 
 .cal-chip--compact .cal-chip-uni {
-  font-size: 0.62rem;
-  padding: 0.04rem 0.22rem 0.06rem;
-  border-width: 1.5px;
+  font-size: 13px;
+  letter-spacing: 0.03em;
 }
 
 .cal-chip-stamp {
+  margin-left: auto;
   font-family: var(--font-mono);
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-mute);
+  color: inherit;
+  opacity: 0.85;
   white-space: nowrap;
 }
 
 .cal-chip--compact .cal-chip-stamp {
-  font-size: 0.52rem;
+  font-size: 10px;
   letter-spacing: 0.06em;
 }
 
 .cal-chip-action {
   display: block;
-  margin-top: 0.2rem;
+  margin-top: 0.25rem;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   letter-spacing: 0.04em;
   line-height: 1.25;
-  color: var(--color-ink);
+  color: inherit;
+  opacity: 0.85;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* Hover requirement card */
+/* Hover tip — keep clean */
 .cal-chip-tip {
   pointer-events: none;
   position: absolute;
@@ -1064,9 +1118,9 @@ article:has([class*="NUKE"]) {
   max-width: 16rem;
   padding: 0.55rem 0.65rem 0.6rem;
   border: 3px solid var(--color-ink);
-  border-radius: 0.65rem;
+  border-radius: 12px;
   background: var(--color-panel);
-  box-shadow: 5px 5px 0 0 var(--color-accent);
+  box-shadow: 4px 4px 0 0 var(--color-accent);
   opacity: 0;
   transform: translateY(4px) scale(0.98);
   transition:
@@ -1137,11 +1191,11 @@ article:has([class*="NUKE"]) {
   padding: 0.15rem 0 0.15rem 0.7rem;
   font-size: 0.72rem;
   line-height: 1.3;
-  border-top: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
+  color: var(--color-ink);
 }
 
 .cal-chip-tip-list li:first-child {
-  border-top: 0;
+  font-weight: 600;
 }
 
 .cal-chip-tip-list li::before {
@@ -1167,7 +1221,7 @@ article:has([class*="NUKE"]) {
   .cal-chip:hover,
   .cal-chip:focus-within {
     transform: translate(-1px, -1px);
-    box-shadow: 3px 3px 0 0 var(--color-accent);
+    box-shadow: 4px 4px 0 0 var(--color-accent);
     z-index: 30;
   }
 
@@ -1178,9 +1232,46 @@ article:has([class*="NUKE"]) {
   }
 }
 
-/* Day cells need room for tip overflow */
+/* Day cells — height 109 desktop, deadline tint, past dim */
 .cal-day {
   overflow: visible;
+}
+
+.cal-day-chips {
+  width: 100%;
+}
+
+.cal-day--out {
+  background: color-mix(in srgb, var(--color-panel) 70%, transparent);
+  color: var(--color-mute);
+  opacity: 0.55;
+}
+
+.cal-day--past {
+  opacity: 0.48;
+  filter: grayscale(0.25);
+}
+
+.cal-day--past .cal-chip {
+  opacity: 0.7;
+}
+
+.cal-day--deadline {
+  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-paper));
+}
+
+.cal-day--deadline.cal-day--past {
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-panel));
+}
+
+.cal-day--today {
+  background: color-mix(in srgb, var(--color-yellow) 55%, var(--color-paper));
+  box-shadow: inset 0 0 0 3px var(--color-accent);
+}
+
+.cal-day--selected {
+  background: color-mix(in srgb, var(--color-yellow) 35%, var(--color-paper));
+  box-shadow: inset 0 0 0 2px var(--color-ink);
 }
 
 .cal-month {
@@ -1193,7 +1284,6 @@ article:has([class*="NUKE"]) {
     transition: none !important;
   }
 }
-
 
 /* —— Agent 05: uni mark + PDF reader —— */
 .uni-mark {

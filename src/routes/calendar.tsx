@@ -6,6 +6,7 @@ import {
   archiveEvents,
   coachingCalendarEvents,
   kindStamp,
+  kindSymbol,
   monthMatrix,
   shiftMonth,
   toIcs,
@@ -197,19 +198,22 @@ function CalendarPage() {
         </div>
       </div>
 
-      {/* Legend — compact chips */}
+      {/* Legend — symbols match chips */}
       <ul className="mb-3 flex flex-wrap gap-2 font-mono text-[10px] tracking-widest">
         <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
-          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-accent" /> {t("cal.deadline")}
+          <span className="font-bold text-accent">▲</span> {t("cal.deadline")}
         </li>
         <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
-          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-ink" /> {t("cal.exam")}
+          <span className="font-bold">■</span> {t("cal.exam")}
         </li>
         <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
-          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-mute" /> {t("cal.opens")}
+          <span className="font-bold">●</span> {t("cal.opens")}
         </li>
         <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
-          <i className="inline-block h-2.5 w-2.5 rounded-sm bg-signal" /> {t("cal.admit")}
+          <span className="font-bold" style={{ color: "var(--color-varsity)" }}>◆</span> VARSITY
+        </li>
+        <li className="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-panel px-2 py-1">
+          <span className="font-bold" style={{ color: "var(--color-eng)" }}>◆</span> ENGG
         </li>
       </ul>
 
@@ -239,10 +243,12 @@ function CalendarPage() {
                   type="button"
                   onClick={() => pickDay(day, items[0]?.id ?? null)}
                   className={cn(
-                    "cal-day relative flex min-h-[3.35rem] flex-col items-center justify-start gap-0.5 border-b border-r border-ink/15 p-1 pt-1.5 transition-colors active:bg-yellow/40 md:min-h-[5.5rem] md:items-stretch md:p-1.5",
-                    !inMonth && "bg-panel/60 text-mute",
-                    isSelected && "z-[1] bg-yellow/30 ring-2 ring-inset ring-accent",
-                    isToday && !isSelected && "bg-accent/5",
+                    "cal-day relative flex min-h-[3.35rem] flex-col items-center justify-start gap-0.5 border-b border-r border-ink/15 p-1 pt-1.5 transition-colors active:bg-yellow/40 md:min-h-[109px] md:items-stretch md:p-1.5",
+                    !inMonth && "cal-day--out",
+                    day < today && inMonth && "cal-day--past",
+                    items.some((e) => e.kind === "closes") && inMonth && "cal-day--deadline",
+                    isSelected && "z-[1] cal-day--selected",
+                    isToday && "cal-day--today",
                   )}
                 >
                   <span
@@ -274,12 +280,12 @@ function CalendarPage() {
                     </span>
                   ) : null}
                   {/* Desktop: chips */}
-                  <span className="mt-1 hidden flex-col gap-0.5 md:flex">
-                    {items.slice(0, 3).map((event) => (
+                  <span className="cal-day-chips mt-1 hidden w-full flex-col gap-[3px] md:flex">
+                    {items.slice(0, 4).map((event) => (
                       <EventChip key={event.id} event={event} compact />
                     ))}
-                    {count > 3 ? (
-                      <span className="font-mono text-[10px] text-mute">+{count - 3}</span>
+                    {count > 4 ? (
+                      <span className="font-mono text-[10px] font-bold text-mute">+{count - 4}</span>
                     ) : null}
                   </span>
                 </button>
@@ -719,8 +725,9 @@ function EventChip({ event, compact }: { event: CalendarEvent; compact?: boolean
   const tone = toneFor(event.kind);
   const uni = event.shortName ?? (event.personal ? "YOU" : "REC");
   const stamp = kindStamp(event.kind);
+  const symbol = kindSymbol(event.kind);
   const isCoach = event.kind === "coach-varsity" || event.kind === "coach-eng";
-  // Coaching hover: track + marks distribution only (table-ish, no requirements dump)
+  // Coaching hover: track + marks distribution only
   const tipLines = isCoach
     ? event.reqLines
     : event.reqLines.length > 0
@@ -732,7 +739,7 @@ function EventChip({ event, compact }: { event: CalendarEvent; compact?: boolean
   return (
     <span
       className={cn(
-        "cal-chip group/chip relative block text-left",
+        "cal-chip group/chip relative block w-full text-left",
         compact ? "cal-chip--compact" : "cal-chip--roomy mt-0.5",
         event.completed && "cal-chip--done",
         tone === "accent" && "cal-chip--accent",
@@ -744,6 +751,9 @@ function EventChip({ event, compact }: { event: CalendarEvent; compact?: boolean
       )}
     >
       <span className="cal-chip-row">
+        <span className="cal-chip-sym" aria-hidden>
+          {symbol}
+        </span>
         <span className="cal-chip-uni" title={event.title}>
           {uni}
         </span>
@@ -753,7 +763,7 @@ function EventChip({ event, compact }: { event: CalendarEvent; compact?: boolean
         <span className="cal-chip-action">{event.action}</span>
       ) : null}
 
-      {/* Hover requirement card — desktop screenshots + desk polish */}
+      {/* Hover — stay clean: uni/coach tip only */}
       <span className="cal-chip-tip" role="tooltip">
         <span className="cal-chip-tip-head">
           <span className="cal-chip-tip-uni">{uni}</span>
@@ -771,5 +781,5 @@ function EventChip({ event, compact }: { event: CalendarEvent; compact?: boolean
     </span>
   );
 }
-// deploy-bump 20261110-cal-chips
+// deploy-bump 20261112-cal-aesthetic
 

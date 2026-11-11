@@ -40,12 +40,22 @@ export function toneFor(kind: CalendarKind): EventTone {
 }
 
 export function kindStamp(kind: CalendarKind): string {
-  if (kind === "closes") return "CLOSE";
-  if (kind === "exam") return "TEST";
-  if (kind === "opens") return "OPEN";
+  if (kind === "closes") return "END";
+  if (kind === "exam") return "EXAM";
+  if (kind === "opens") return "START";
   if (kind === "admit") return "ADMIT";
-  if (kind === "coach-varsity" || kind === "coach-eng") return "COACH";
+  if (kind === "coach-varsity" || kind === "coach-eng") return "MOCK";
   return "NOTE";
+}
+
+/** Glyph on the chip: ▲ end · ■ exam · ● open · ◆ coaching */
+export function kindSymbol(kind: CalendarKind): string {
+  if (kind === "closes") return "▲";
+  if (kind === "exam") return "■";
+  if (kind === "opens") return "●";
+  if (kind === "coach-varsity" || kind === "coach-eng") return "◆";
+  if (kind === "admit") return "●";
+  return "●";
 }
 
 function reqLinesFor(circular: Circular): string[] {
