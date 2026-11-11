@@ -1,6 +1,11 @@
 import { useMemo } from "react";
 import { seedCirculars } from "@/data/circulars";
-import type { Circular, University } from "@/data/types";
+import type {
+  Circular,
+  CircularDocState,
+  University,
+  UniversityMark,
+} from "@/data/types";
 import { seedSystems, seedUniversities } from "@/data/universities";
 import { usePersonal } from "@/lib/store";
 import { usePublishedReport } from "@/lib/published-report";
@@ -110,6 +115,7 @@ export function blankUniversity(name: string): University {
     website: null,
     admissionUrl: null,
     directoryNote: "Added on this desk. No official 2026–27 notice is stored until you log a source.",
+    mark: null,
   };
 }
 
@@ -127,6 +133,7 @@ export function blankCircular(universityId: string, title: string): Circular {
     sources: [],
     updatedOn: new Date().toISOString().slice(0, 10),
     pdfUrl: null,
+    doc: null,
     applicationOpens: null,
     opensAt: null,
     applicationCloses: null,
@@ -143,4 +150,33 @@ export function blankCircular(universityId: string, title: string): Circular {
     units: [],
     notes: [],
   };
+}
+
+/**
+ * Document availability for UI.
+ * - mirrored: we host a same-origin copy (prefer for in-app reader / offline)
+ * - original-only: official URL only (opens external)
+ * - none: no PDF published / known
+ */
+export function circularDocState(c: Circular): CircularDocState {
+  if (c.doc?.mirrorPath) return "mirrored";
+  if (c.doc?.originalUrl || c.pdfUrl) return "original-only";
+  return "none";
+}
+
+/** Prefer same-origin mirror, then doc.originalUrl, then legacy pdfUrl. */
+export function circularPdfHref(c: Circular): string | null {
+  if (c.doc?.mirrorPath) return c.doc.mirrorPath;
+  if (c.doc?.originalUrl) return c.doc.originalUrl;
+  return c.pdfUrl ?? null;
+}
+
+/** Thumbnail path if we have one. */
+export function circularThumbPath(c: Circular): string | null {
+  return c.doc?.thumbPath ?? null;
+}
+
+/** University identity mark, or null. */
+export function universityMark(u: University): UniversityMark | null {
+  return u.mark ?? null;
 }
