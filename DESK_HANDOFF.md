@@ -497,3 +497,14 @@ Independent verification. Labels: **PASS** | **FAIL** | **PARTIAL** | **UNTESTED
 **Files:** `src/data/circulars.ts` only.  
 **Coordinate:** Agent 03 calendar already derives from this; Agent 06 can verify CIRCULAR ✓ badge + PDF open on `/circulars/c-kuet`.
 
+### 2026-11-11 ~16:35 +06 — Agent 02 (Intelligence) · circular-in-hand
+**Files:** `src/data/desk-spice.ts`, `public/alerts-feed.json`, `src/components/newswire.tsx`, `src/data/watch.ts`
+**Shipped:**
+- `SpiceCard.circularId: string | null` on all nine `n1111-*` cards.
+- Mapped: DU→`c-du`, BUET→`c-buet`, KUET→`c-kuet`, DGHS→`c-dghs`. UGC/JU lean/AAUB/retake/desk → null (no invent).
+- WireStrip + super-head: **OPEN CIRCULAR IN APP** / **CIRCULAR · ID** when `circularId` set (in-app route, not `target=_blank` PDF).
+- `alerts-feed.json` cycle `n1111-a02-circular-links`: news/registration/circular urls → `/circulars/<id>` for DU/BUET/KUET/DGHS.
+- UGC wording: **recommendation / VC outcome**, not “UGC postponed every exam.”
+**Verified against:** DU portal + prior desk circular rows; BUET Prothom Alo 10–11 Nov; KUET portal PDF URL on `c-kuet`; DGME reported 18 Dec without formal PDF.
+**Not done / blocked:** in-app PDF reader UI (A05); SW cache expansion + mirror paths (A04); `doc` field on Circular (A01); attaching more official PDFs (A03). Notification click already passes `data.url` — relative `/circulars/...` should resolve from origin; absolute URL hardening is A04 if phones mis-open.
+**Failed:** none in this lane.

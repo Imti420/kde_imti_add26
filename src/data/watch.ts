@@ -2,6 +2,14 @@ import type { WatchItem } from "@/data/types";
 
 export const watchItems: WatchItem[] = [
   {
+    id: "a02-circular-deeplink",
+    title: "Wire rule · circular stories open in-app records",
+    body: "Spice cards that map to a circular carry circularId (c-du, c-buet, c-kuet, c-dghs). Alerts-feed urls point at /circulars/<id>, not only news sites. KUET still the only row with an official PDF URL on file — mirror/offline is A03/A04. UGC floor is SYSTEM/reported, not a campus circular.",
+    sourceLabel: "Agent 02 intelligence · 11 Nov 2026",
+    sourceUrl: "https://kdeimtiadd26.vercel.app/circulars/c-kuet",
+    published: "2026-11-11",
+  },
+  {
     id: "cal-officer-11nov",
     title: "Calendar truth · 11 Nov — UGC floor is not universal",
     body: "UGC 9 Nov: public uni apps from January, tests after 1 Feb (for HSC re-eval/supplementary cohort). Operational calendar on this desk: DU OPEN 11–25 Nov / tests Dec 5–26 (held). BUET apps 21 Nov / test 16 Jan (notice 10 Nov held). KUET apps LIVE → 10 Dec / test 8 Jan. Medical DGME 18 Dec (not UGC). JnU/RU/CU still show local Nov–Jan lines as preliminary or notice — subject to formal slip. GST tests still reported March 2027; apps NOT ANNOUNCED. Never invent a postponed date.",

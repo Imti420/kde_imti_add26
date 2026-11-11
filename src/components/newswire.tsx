@@ -162,6 +162,15 @@ export function UgcNukeSuperHead() {
             <p className="mt-1.5 font-mono text-[10px] tracking-wide text-mute md:mt-2">
               <ExternalLink href={lead.sourceUrl}>{lead.sourceLabel}</ExternalLink>
             </p>
+            {lead.circularId ? (
+              <Link
+                to="/circulars/$id"
+                params={{ id: lead.circularId }}
+                className="mt-3 inline-flex press text-[10px] tracking-widest"
+              >
+                OPEN CIRCULAR IN APP →
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>
@@ -231,6 +240,15 @@ export function WireStrip() {
               {" · "}
               {card.published}
             </p>
+            {card.circularId ? (
+              <Link
+                to="/circulars/$id"
+                params={{ id: card.circularId }}
+                className="mt-2 inline-flex w-fit border-[2px] border-ink bg-paper px-2 py-1 font-mono text-[10px] font-bold tracking-widest text-ink hover:bg-yellow"
+              >
+                CIRCULAR · {card.circularId.toUpperCase()} →
+              </Link>
+            ) : null}
           </article>
         ))}
       </div>

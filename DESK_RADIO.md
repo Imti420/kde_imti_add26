@@ -66,6 +66,8 @@ Examples:
 
 ### Mission `circular-in-hand` — Commander 11 Nov
 
+- 16:35 +06 · **A02** · out · spice circularId + alerts → /circulars/id · newswire CTAs
+
 - 16:24 +06 · **A02** · Intelligence · spice circularId + alerts deep-link · claiming news/alerts lane
 
 ### Mission `mission-2026-11-10-go3`

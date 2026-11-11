@@ -1,23 +1,35 @@
 {
-  "updated": "2026-11-11T16:00:00+06:00",
-  "cycle": "n1111-day-news",
+  "updated": "2026-11-11T16:30:00+06:00",
+  "cycle": "n1111-a02-circular-links",
   "news": [
     {
       "id": "n1111-du-open",
-      "title": "DU applications OPEN NOW — close 25 Nov 23:59",
-      "body": "Portal admission.eis.du.ac.bd live since noon. UGC said January. DU refused.",
-      "url": "/newswire"
+      "heat": "NUKE",
+      "headline": "DU applications OPEN — close 25 Nov 23:59",
+      "url": "/circulars/c-du"
     },
     {
       "id": "n1111-buet-notice",
-      "title": "BUET notice: test 16 Jan stands — apps from 21 Nov",
-      "body": "Second heavyweight off the UGC January/February script.",
-      "url": "/newswire"
+      "heat": "WAR",
+      "headline": "BUET notice: test 16 Jan stands; apps from 21 Nov",
+      "url": "/circulars/c-buet"
+    },
+    {
+      "id": "n1111-kuet-live",
+      "heat": "HOT",
+      "headline": "KUET apps LIVE + official PDF on circular record",
+      "url": "/circulars/c-kuet"
     },
     {
       "id": "n1111-dgme-18",
-      "title": "Medical still 18 Dec — formal circular still missing",
-      "body": "Apps expected mid-November. Not inside UGC fight.",
+      "heat": "HOT",
+      "headline": "Medical test still 18 Dec — formal PDF missing",
+      "url": "/circulars/c-dghs"
+    },
+    {
+      "id": "n1111-ugc-floor",
+      "heat": "SYSTEM",
+      "headline": "UGC Jan/Feb floor still on books — not a campus PDF",
       "url": "/newswire"
     }
   ],
@@ -25,10 +37,23 @@
     {
       "id": "reg-c-kuet-2026-11-10",
       "title": "KUET apps LIVE → 10 Dec · test 8 Jan",
-      "body": "~1105 seats. Portal admission.kuet.ac.bd",
+      "body": "Official PDF on circular record. Portal admission.kuet.ac.bd",
+      "url": "/circulars/c-kuet"
+    },
+    {
+      "id": "reg-c-du-2026-11-11",
+      "title": "DU REGISTRATION OPEN — close 25 Nov",
+      "body": "Portal admission.eis.du.ac.bd · in-app circular c-du",
+      "url": "/circulars/c-du"
+    }
+  ],
+  "circulars": [
+    {
+      "id": "circ-c-kuet-pdf",
+      "title": "KUET 2026–27 circular PDF on file",
+      "body": "Open the circular record for official link / mirror when ready",
       "url": "/circulars/c-kuet"
     }
   ],
-  "circulars": [],
   "frantic": []
 }
