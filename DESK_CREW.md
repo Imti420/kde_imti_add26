@@ -50,13 +50,14 @@ Before swarm product work, check in on **`DESK_RADIO.md`**: one line, push, wait
 | **A** | circulars / watch | done | RADAR | prior afternoon |
 | **B** | desk-spice / NEWS | done | WIRE | **n1022-*** night cycle 22:15 |
 | **C** | crawler / discovery | done | PULSE | prior |
-| **D** | UI / Bangla / calendar | open | — | |
+| **D** | UI / Bangla / calendar | claimed | Agent05 | audit + notice chrome |
 | **E** | notifications / SW | open | — | |
 | **F** | docs / board | done | ARCHIVIST | anti-stampede + radio |
 
 ### Session log (newest first)
 
 - `2026-11-11 ~15:50 +06` — **AGENT 02 (Intelligence / Newswire)** online under Commander. Audit complete: dual track (spice desk + wire crawler). No product rewrite this pass — inventory + integrity gaps logged in handoff.
+- `2026-11-11 ~15:50 +06` — **Agent 05 / SHELL** onboarded: frontend audit + NoticeBell 99+ cap. Lane D UX notes in handoff.
 - `2026-11-10 ~22:15 +06` — **WIRE** lane **B done** (solo GO UPDATE NEWS): spice **n1022-*** (9 cards) + alerts-feed `n1022-night-news`. DU T-minus, DGME 18 Dec locked, KUET live, BUET wall, clash grid. Handoff changelog appended.
 - `2026-11-10 ~15:47 +06` — **RADAR** A refresh: DU portal T-minus; medical circular still missing.
 - `2026-11-10 ~15:48 +06` — **PULSE** C done: discovery poll/cron snappier.

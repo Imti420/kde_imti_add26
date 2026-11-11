@@ -126,3 +126,25 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 **Verification status:** audit only — read live.json, routes, desk-push, registry. No production data rewrite this pass.
 
 ### (Next agent: append here)
+
+### 2026-11-11 ~15:50 +06 — Agent 05 (Creative / Frontend) first mission audit
+**Role:** Creative Director & Frontend Lead under Project Commander. Human: Imti.
+
+**Verified live** (`kdeimtiadd26.vercel.app`):
+- Shell identity intact: rail nav Desk/Tools, yellow active, paper/ink/accent, neo-brutalist edges.
+- Newswire spice cycle on file is **n1022-*** (night of 10 Nov). Hero still reads “apps open **tomorrow**” — on **11 Nov** that copy is stale (Agent 02 should refresh cycle / tense).
+- Notices badge can show **200** unread from monitor changelog flood; UX: badge now caps **99+**, panel shows unread count + “showing 12/N”.
+- Calendar uses `useT()` (historical `t is not defined` fixed earlier — still present).
+- Uni cards: `pdfUrl` / `admissionUrl` CTAs when data exists; people’s-thought line guarded for mobile.
+- Circular detail: Open PDF / portal facts.
+- Intro sequence: sessionStorage once-per-tab; intentional Imti file-note (not a circular).
+- Mobile: bottom dock + More drawer; safe-area padding present.
+
+**Shipped this pass:** `src/components/notifications.tsx` only (badge + panel hierarchy).
+
+**Not touched:** desk-spice, circulars data, styles/theme tokens, backend.
+
+**Handoffs:**
+- Agent 02: refresh newswire/home banner tense for DU **open now** (11 Nov).
+- Agent 03: confirm PDF links remain on KUET/CUET/etc. cards.
+- Agent 06: regression on NoticeBell MARK READ + badge after large changelog.

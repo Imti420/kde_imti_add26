@@ -27,15 +27,25 @@ export function NoticeBell({ compact = false }: { compact?: boolean }) {
       >
         <Bell className="size-4" aria-hidden />
         <span className={compact ? "sr-only" : "hidden md:inline"}>Notices</span>
-        {unread > 0 ? <span className="rounded-full bg-accent px-1.5 text-onaccent">{unread}</span> : null}
+        {unread > 0 ? (
+          <span className="min-w-[1.25rem] rounded-full bg-accent px-1.5 text-center font-mono text-[0.65rem] font-bold leading-5 text-onaccent tabular-nums">
+            {unread > 99 ? "99+" : unread}
+          </span>
+        ) : null}
       </button>
       {open ? (
-        <div className="absolute top-full right-0 z-40 mt-1 w-[min(24rem,calc(100vw-2rem))] border border-ink bg-paper">
-          <div className="flex items-center justify-between border-b border-ink px-3 py-2">
-            <p className="font-mono text-xs tracking-widest text-mute">IN-APP · NOT BROWSER PUSH</p>
+        <div className="absolute top-full right-0 z-40 mt-1 w-[min(24rem,calc(100vw-2rem))] border-[3px] border-ink bg-paper shadow-[4px_4px_0_0_var(--color-ink)]">
+          <div className="flex items-center justify-between gap-2 border-b-[3px] border-ink px-3 py-2">
+            <div>
+              <p className="font-mono text-[0.65rem] tracking-widest text-mute">IN-APP · NOT BROWSER PUSH</p>
+              <p className="font-mono text-[0.65rem] tracking-widest text-ink">
+                {unread > 0 ? `${unread} UNREAD` : "ALL CAUGHT UP"}
+                {notices.length > 12 ? ` · SHOWING 12/${notices.length}` : ""}
+              </p>
+            </div>
             <button
               type="button"
-              className="font-mono text-xs underline"
+              className="shrink-0 font-mono text-xs underline underline-offset-2"
               onClick={() => markNoticesRead(notices.map((notice) => notice.id))}
             >
               MARK READ
@@ -44,7 +54,7 @@ export function NoticeBell({ compact = false }: { compact?: boolean }) {
           {notices.length === 0 ? (
             <p className="px-3 py-4 text-sm">No notices. A quiet desk is not a successful verification.</p>
           ) : (
-            <ul className="max-h-96 overflow-auto">
+            <ul className="max-h-[min(24rem,70vh)] overflow-auto">
               {notices.slice(0, 12).map((notice) => {
                 const seen = read.includes(notice.id);
                 return (
