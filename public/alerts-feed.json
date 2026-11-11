@@ -1,31 +1,31 @@
 {
-  "updated": "2026-11-10T22:15:00+06:00",
-  "cycle": "n1022-night-news",
+  "updated": "2026-11-11T16:00:00+06:00",
+  "cycle": "n1111-day-news",
   "news": [
     {
-      "id": "n1022-du-tminus",
-      "title": "DU apps open in HOURS — 11 Nov 12:00",
-      "body": "Portal admission.eis.du.ac.bd. Close 25 Nov 23:59. UGC said wait. DU said no.",
+      "id": "n1111-du-open",
+      "title": "DU applications OPEN NOW — close 25 Nov 23:59",
+      "body": "Portal admission.eis.du.ac.bd live since noon. UGC said January. DU refused.",
       "url": "/newswire"
     },
     {
-      "id": "n1022-dgme-18",
-      "title": "DGME: medical/dental test 18 Dec — circular days away",
-      "body": "Apps likely 15–18 Nov. Not inside UGC January fight.",
+      "id": "n1111-buet-notice",
+      "title": "BUET notice: test 16 Jan stands — apps from 21 Nov",
+      "body": "Second heavyweight off the UGC January/February script.",
       "url": "/newswire"
     },
     {
-      "id": "n1022-kuet-live",
-      "title": "KUET apps LIVE → 10 Dec · test 8 Jan",
-      "body": "~1105 seats. Portal admission.kuet.ac.bd",
-      "url": "/circulars/c-kuet"
+      "id": "n1111-dgme-18",
+      "title": "Medical still 18 Dec — formal circular still missing",
+      "body": "Apps expected mid-November. Not inside UGC fight.",
+      "url": "/newswire"
     }
   ],
   "registrations": [
     {
       "id": "reg-c-kuet-2026-11-10",
-      "title": "KUEEEET ADMISSION REGISTRATION AHHHHHHHH>>>>!!!!!!",
-      "body": "KUET forms OPEN → 10 Dec. Portal admission.kuet.ac.bd",
+      "title": "KUET apps LIVE → 10 Dec · test 8 Jan",
+      "body": "~1105 seats. Portal admission.kuet.ac.bd",
       "url": "/circulars/c-kuet"
     }
   ],
