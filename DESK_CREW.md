@@ -66,7 +66,7 @@ Before swarm product work, check in on **`DESK_RADIO.md`**: one line, push, wait
 | **B** | desk-spice / NEWS | done | WIRE | **n1022-*** night cycle 22:15 |
 | **C** | crawler / discovery | done | PULSE | prior |
 | **D** | UI / Bangla / calendar | claimed | Agent05 | audit + notice chrome |
-| **E** | notifications / SW | open | — | |
+| **E** | notifications / SW + PDF infra | done | A04 | mirror scripts + SW v2 + headers |
 | **F** | docs / board | done | ARCHIVIST | anti-stampede + radio |
 
 ### Session log (newest first)
@@ -74,6 +74,9 @@ Before swarm product work, check in on **`DESK_RADIO.md`**: one line, push, wait
 - `2026-11-11 ~16:25 +06` — **A06 / Agent 06** Mission baseline recorded in handoff (QA section). Scope: circular PDF in-app, SW offline, marks. No product edits.
 - `2026-11-11 ~16:24 +06` — **A03** claims circulars/PDFs/marks (Commander PDF mission). Will not touch types.ts / UI / spice.
 
+- `2026-11-11 ~16:32 +06` — **A04** E done: mirror:pdf, optimize:mark, SW v2, vercel PDF headers.
+
+- `2026-11-11 ~16:26 +06` — **A04** claimed E + infra: mirror-circular-pdf, SW v2, vercel headers.
 
 - `2026-11-11 ~16:10 +06` — **Agent 05** representation audit + WireStrip duplicate `#wire` fix. Spice/alerts already current via Agent 02.
 

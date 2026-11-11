@@ -1,15 +1,115 @@
-/* ADMISSION//26 desk service worker — local alerts for installed shortcuts / PWA */
-const CACHE = "a26-desk-v1";
+/* ADMISSION//26 service worker v2 — shell + circular offline + desk alerts */
+const SHELL = "a26-shell-v2";
+const CIRC = "a26-circulars-v2";
+const LEGACY = ["a26-desk-v1"];
+
+const SHELL_URLS = ["/", "/alerts-feed.json", "/manifest.webmanifest", "/favicon.svg", "/icons/icon-192.png"];
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(["/", "/alerts-feed.json"]).catch(() => undefined)));
+  event.waitUntil(
+    caches.open(SHELL).then((cache) => cache.addAll(SHELL_URLS).catch(() => undefined)),
+  );
 });
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(
+        keys
+          .filter((k) => k !== SHELL && k !== CIRC)
+          .map((k) => caches.delete(k)),
+      );
+      await self.clients.claim();
+    })(),
+  );
 });
 
+function isCircularAsset(url) {
+  try {
+    const u = new URL(url);
+    if (u.origin !== self.location.origin) return false;
+    return /^\/circulars\/.+\.(pdf|webp)$/i.test(u.pathname);
+  } catch {
+    return false;
+  }
+}
+
+function isNavigation(request) {
+  return request.mode === "navigate" || (request.method === "GET" && request.headers.get("accept")?.includes("text/html"));
+}
+
+self.addEventListener("fetch", (event) => {
+  const { request } = event;
+  if (request.method !== "GET") return;
+
+  if (isCircularAsset(request.url)) {
+    event.respondWith(staleWhileRevalidate(request, CIRC));
+    return;
+  }
+
+  if (isNavigation(request)) {
+    event.respondWith(
+      fetch(request)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(SHELL).then((c) => c.put(request, copy)).catch(() => undefined);
+          return res;
+        })
+        .catch(async () => {
+          const cached = await caches.match(request);
+          if (cached) return cached;
+          const root = await caches.match("/");
+          if (root) return root;
+          return new Response("Offline — open a page once while online.", {
+            status: 503,
+            headers: { "content-type": "text/plain; charset=utf-8" },
+          });
+        }),
+    );
+    return;
+  }
+
+  // same-origin shell assets: cache-first with network fallback
+  try {
+    const u = new URL(request.url);
+    if (u.origin === self.location.origin && (u.pathname.startsWith("/icons/") || u.pathname === "/favicon.svg" || u.pathname === "/manifest.webmanifest")) {
+      event.respondWith(
+        caches.match(request).then((hit) => hit || fetch(request).then((res) => {
+          const copy = res.clone();
+          caches.open(SHELL).then((c) => c.put(request, copy)).catch(() => undefined);
+          return res;
+        })),
+      );
+    }
+  } catch {
+    /* ignore */
+  }
+});
+
+async function staleWhileRevalidate(request, cacheName) {
+  const cache = await caches.open(cacheName);
+  const cached = await cache.match(request);
+  const network = fetch(request)
+    .then((res) => {
+      if (res && res.ok) cache.put(request, res.clone()).catch(() => undefined);
+      return res;
+    })
+    .catch(() => null);
+  if (cached) {
+    network.catch(() => undefined);
+    return cached;
+  }
+  const res = await network;
+  if (res) return res;
+  return new Response("Circular asset unavailable offline. Open it once while online.", {
+    status: 503,
+    headers: { "content-type": "text/plain; charset=utf-8" },
+  });
+}
+
+/* —— desk alerts (unchanged contract) —— */
 self.addEventListener("message", (event) => {
   const data = event.data;
   if (!data || data.type !== "SHOW_ALERT") return;
@@ -46,7 +146,6 @@ self.addEventListener("notificationclick", (event) => {
   );
 });
 
-/** Background peek at the desk feed when the OS allows it */
 self.addEventListener("periodicsync", (event) => {
   if (event.tag !== "a26-desk-check") return;
   event.waitUntil(checkFeedAndNotify());

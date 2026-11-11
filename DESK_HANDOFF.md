@@ -508,3 +508,41 @@ Independent verification. Labels: **PASS** | **FAIL** | **PARTIAL** | **UNTESTED
 **Verified against:** DU portal + prior desk circular rows; BUET Prothom Alo 10–11 Nov; KUET portal PDF URL on `c-kuet`; DGME reported 18 Dec without formal PDF.
 **Not done / blocked:** in-app PDF reader UI (A05); SW cache expansion + mirror paths (A04); `doc` field on Circular (A01); attaching more official PDFs (A03). Notification click already passes `data.url` — relative `/circulars/...` should resolve from origin; absolute URL hardening is A04 if phones mis-open.
 **Failed:** none in this lane.
+### 2026-11-11 ~16:30 +06 — Agent 04 (Infrastructure) — PDF mirror + SW v2 + headers
+
+**Lane:** E + infra scripts (claimed on DESK_CREW / radio as A04)
+
+**Shipped files**
+- `scripts/mirror-circular-pdf.ts` — download / local file, `%PDF-` check, ≤5 MB, sha256, pdfinfo pages, pdftoppm + sharp/ImageMagick WebP ≤60 KB, prints `doc` JSON. Error classes: `not-pdf` | `too-large` | `http-error` | `timeout` | `missing-args` | `tool-error`.
+- `scripts/optimize-mark.mjs` — logo → `public/marks/<id>.webp` ≤30 KB when possible.
+- `package.json` scripts: `mirror:pdf`, `optimize:mark`
+- `public/sw.js` v2 — shell cache `a26-shell-v2`, circular SWR `a26-circulars-v2`, deletes legacy `a26-desk-v1`, offline nav fallback, SHOW_ALERT / notificationclick / periodicsync / push unchanged.
+- `vercel.json` — PDF `Content-Type: application/pdf` + `Content-Disposition: inline` + SWR cache; webp/marks long cache; `sw.js` must-revalidate.
+- `public/circulars/.gitkeep`, `public/marks/.gitkeep`
+
+**Commands**
+```bash
+npm run mirror:pdf -- c-kuet "https://admission.kuet.ac.bd/uploads/notices/1.UG-Admission-2026-Circular.pdf"
+npm run mirror:pdf -- --file c-test ./local.pdf
+node scripts/optimize-mark.mjs du ./official-logo.png
+```
+
+**Tested (this environment)**
+- `--file` on mozilla sample PDF (1 016 315 B, 14 pages): mirror + webp **44 054 B** ≤ 60 KB, sha256 produced. OK.
+- HTTP mirror of W3C dummy.pdf: OK (13 264 B, 1 page, thumb 1 236 B).
+- `not-pdf` class: OK on non-PDF body.
+- **KUET official URL:** host unreachable from this runner (HTTP 000 / TLS fail) — Agent 03 must run `mirror:pdf` where `admission.kuet.ac.bd` resolves.
+- Offline SW: logic reviewed; full browser offline re-open not run here (no headed browser in this pass). Agent 06 should verify on preview.
+- Headers: declared in vercel.json; live header check needs deploy/preview.
+
+**Perf snapshot (source, not production bundle — `npm install` hit 502 on registry)**
+- `src/` ~1.2 MB source tree
+- `src/styles.css` 25 380 B
+- `.grok/fonts` ~528 KB (5 TTF: BarlowCondensed 3× + IBMPlexMono 2×) — largest static cost; subsetting/preload only after measured LCP
+- `public/og.jpg` 92 KB; icons 52 KB total
+- Initial JS/CSS gzip from production build: **not measured** (install failed). Flag for Agent 06 / next infra pass after successful `vite build`.
+
+**Not done / left**
+- No real KUET PDF committed (truth rule — only mirror when download succeeds).
+- Did not edit `types.ts` / `circulars.ts` / UI / crawlers.
+- Agent 03 pastes `doc` blocks after running mirror on reachable hosts.

@@ -62,6 +62,8 @@ Examples:
 - `2026-11-11 ~16:24 +06` · **A03** · PDF/marks mission · claiming circulars + public/circulars + public/marks
 ### Mission `circular-in-hand-2026-11-11`
 
+- 16:32 +06 · A04 · out · mirror:pdf + SW v2 + vercel headers shipped; KUET host unreachable here
+
 - 16:25 +06 · A04 · COMMANDER circular-PDF mission · claiming infra (SW + mirror scripts + headers)
 
 ### Mission `circular-in-hand` — Commander 11 Nov
