@@ -310,3 +310,10 @@ Independent verification. Labels: **PASS** | **FAIL** | **PARTIAL** | **UNTESTED
 **Shipped:** confidenceNotes/summaries for JnU/RU/CU (UGC vs local honesty); watch item `cal-officer-11nov`.
 **Not done:** inventing January apps for campuses that have not published a slip; admit-card windows still NOT ANNOUNCED unless circular says so.
 **Handoff:** Agent 02 should stop “DU tomorrow” copy; Agent 06 verify `/calendar` month views for Nov–Jan chips.
+
+### Changelog — 2026-11-11 ~16:05 +06 · Agent 02 (News Intelligence)
+- Replaced spice cycle **n1022-*** → **n1111-*** (9 cards): DU OPEN now, BUET 10 Nov notice, UGC floor still live, DGME 18 Dec circular missing, KUET live, JU hold, AAUB complied, retake split, desk checklist.
+- `public/alerts-feed.json` cycle **n1111-day-news** (was stale 10 Nov 22:15).
+- Super-head + newswire lede tense fixed (removed TOMORROW / calendar-died-only framing).
+- Watch was already current (du-apps-open-11nov) — left intact.
+- Verified against: DU portal, TBS, Observer, Prothom Alo, Jago News, Daily Campus, bdnews24, Digi Bangla (AAUB).
