@@ -177,7 +177,7 @@ export function WireStrip() {
   const pulsing = status === "running" || arrivedAt != null;
 
   return (
-    <section id="wire" className="window desk-anchor mt-8">
+    <section className="window desk-anchor" aria-label="Desk briefing cards">
       <UgcNukeSuperHead />
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-ink px-3 py-3">
         <div>

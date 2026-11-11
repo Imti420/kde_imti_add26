@@ -74,6 +74,31 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 
 ## Changelog (append only)
 
+### 2026-11-11 ~16:10 +06 — Agent 05 (Platform / Frontend) — representation audit
+
+**Live:** `/`, `/newswire`, `/calendar` HTTP 200. Identity (desk/brutalist) intact.
+
+**Synced with Agents 02–03 data:** `n1111-du-open` spice + circulars OPEN already on main (Agent 02 day cycle). Super-head selector already prefers `n1111-` / `du-open`.
+
+**Frontend fix this pass:**
+- `WireStrip` no longer emits duplicate `id="wire"` (homepage owns the jump anchor).
+
+**Feature map check (code present, not full browser QA):**
+- Newswire + UgcNukeSuperHead + 9 spice cards ✓
+- NoticeBell + alerts-feed cycle `n1111-day-news` ✓
+- Circular PDF row (Open PDF | NOT ON FILE) ✓
+- University cards + street voice ✓
+- Calendar route ✓
+- Watch board on homepage ✓
+- Shell mobile menu + dock ✓
+- `useT` / Bangla boot ✓
+- Naughty boot class ✓
+
+**Open for Agent 06:** visual mobile, real notification permission, PDF open-in-viewer when `pdfUrl` non-null, Bangla full pass.
+
+**Files:** `src/components/newswire.tsx`, this handoff, `DESK_CREW.md`.
+
+
 ### 2026-11-11 ~15:50 +06 — Agent 03 (Admissions Data & Circulars) — first audit
 
 **Directory count verified:** 84 universities + 3 systems (**87** total).
