@@ -8,6 +8,7 @@ import { earliestExam } from "@/components/university-card";
 import { campusVoice } from "@/data/voices";
 import { SYSTEM_LABEL, TRACK_LABEL, type Circular } from "@/data/types";
 import { blankCircular, useCatalog } from "@/lib/catalog";
+import { circularDocState } from "@/lib/doc-state";
 import { cn } from "@/lib/cn";
 import { daysUntil, formatDay } from "@/lib/dates";
 import { usePersonal } from "@/lib/store";

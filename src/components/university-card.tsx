@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { EvidenceStamp, StatusPill } from "@/components/marks";
 import { campusVoice } from "@/data/voices";
 import { UniMark } from "@/components/uni-mark";
-import { circularDocState } from "@/lib/catalog";
+import { circularDocState } from "@/lib/doc-state";
 import { SYSTEM_LABEL, TRACK_LABEL, type AppStatus, type Circular, type University } from "@/data/types";
 import { cn } from "@/lib/cn";
 import { daysUntil, formatDay } from "@/lib/dates";

@@ -1,7 +1,8 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { ExternalLink } from "@/components/marks";
-import { circularDocState, circularPdfHref, useCatalog } from "@/lib/catalog";
+import { useCatalog } from "@/lib/catalog";
+import { circularDocState, circularPdfHref } from "@/lib/doc-state";
 import { formatDay } from "@/lib/dates";
 
 const PdfViewer = lazy(() =>

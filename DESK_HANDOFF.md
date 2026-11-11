@@ -631,3 +631,7 @@ node scripts/optimize-mark.mjs du ./official-logo.png
 User reported `/universities` error boundary: **UniMark is not defined**.
 Cause: mid-deploy / stale client chunk where `university-card` referenced `UniMark` before the `uni-mark` module resolved for that session.
 Fix: defensive `UniMark` (null uni guard), SW cache **a26-desk-v2** to force clients off stale shell. Live re-checked OK after deploy; user should hard-refresh if still black-screened.
+
+### 2026-11-11 ~17:25 +06 — Fix circularDocState is not defined
+**Cause:** `university-card` and `universities/$id` called `circularDocState` while that helper lived only at the bottom of heavy `catalog.ts`. Module graph / missing import on `$id` → runtime `ReferenceError: circularDocState is not defined` on All Universities.
+**Fix:** pure `src/lib/doc-state.ts` (no React/store). All UI imports from there. `catalog.ts` re-exports for back-compat. Missing import on `universities/$id.tsx` added. SW shell → v3.

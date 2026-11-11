@@ -152,31 +152,10 @@ export function blankCircular(universityId: string, title: string): Circular {
   };
 }
 
-/**
- * Document availability for UI.
- * - mirrored: we host a same-origin copy (prefer for in-app reader / offline)
- * - original-only: official URL only (opens external)
- * - none: no PDF published / known
- */
-export function circularDocState(c: Circular): CircularDocState {
-  if (c.doc?.mirrorPath) return "mirrored";
-  if (c.doc?.originalUrl || c.pdfUrl) return "original-only";
-  return "none";
-}
-
-/** Prefer same-origin mirror, then doc.originalUrl, then legacy pdfUrl. */
-export function circularPdfHref(c: Circular): string | null {
-  if (c.doc?.mirrorPath) return c.doc.mirrorPath;
-  if (c.doc?.originalUrl) return c.doc.originalUrl;
-  return c.pdfUrl ?? null;
-}
-
-/** Thumbnail path if we have one. */
-export function circularThumbPath(c: Circular): string | null {
-  return c.doc?.thumbPath ?? null;
-}
-
-/** University identity mark, or null. */
-export function universityMark(u: University): UniversityMark | null {
-  return u.mark ?? null;
-}
+/** @deprecated import from @/lib/doc-state — re-exported for back-compat */
+export {
+  circularDocState,
+  circularPdfHref,
+  circularThumbPath,
+  universityMark,
+} from "@/lib/doc-state";

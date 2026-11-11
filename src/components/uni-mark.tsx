@@ -1,5 +1,5 @@
 import type { University } from "@/data/types";
-import { universityMark } from "@/lib/catalog";
+import { universityMark } from "@/lib/doc-state";
 import { cn } from "@/lib/cn";
 
 /** House-style identity: logo from our origin, or typographic monogram. Never hotlinks. */

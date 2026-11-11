@@ -1,7 +1,7 @@
 /* ADMISSION//26 service worker v2 — shell + circular offline + desk alerts */
-const SHELL = "a26-shell-v2";
-const CIRC = "a26-circulars-v2";
-const LEGACY = ["a26-desk-v2"];
+const SHELL = "a26-shell-v3";
+const CIRC = "a26-circulars-v3";
+const LEGACY = ["a26-desk-v3", "a26-shell-v2", "a26-circulars-v2", "a26-desk-v1", "a26-desk-v2"];
 
 const SHELL_URLS = ["/", "/alerts-feed.json", "/manifest.webmanifest", "/favicon.svg", "/icons/icon-192.png"];
 
