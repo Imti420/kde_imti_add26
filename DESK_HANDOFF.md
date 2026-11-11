@@ -546,3 +546,41 @@ node scripts/optimize-mark.mjs du ./official-logo.png
 - No real KUET PDF committed (truth rule — only mirror when download succeeds).
 - Did not edit `types.ts` / `circulars.ts` / UI / crawlers.
 - Agent 03 pastes `doc` blocks after running mirror on reachable hosts.
+
+
+### Agent 03 — Admissions (circular PDF + marks) — 2026-11-11 ~16:35 +06
+
+**Lane:** `src/data/circulars.ts`, `public/circulars/*`, `public/marks/*` (universities.ts mark field blocked on A01 types).
+
+#### PDF acquisition
+| Circular | Official PDF? | Mirror | Notes |
+|----------|---------------|--------|-------|
+| **c-kuet** | YES | `/circulars/c-kuet.pdf` | Source `https://admission.kuet.ac.bd/uploads/notices/1.UG-Admission-2026-Circular.pdf`. Verified `%PDF-1.7`, 494729 bytes (≤5MB), ~2 pages, sha256 `6d86886d9fb2813ad20d796e26913146cf7a26a2a53fc6f27dd5da3c9291ac3f`, fetchedAt 2026-11-11, officialHost true. Host needed TLS `-k` (issuer chain incomplete in agent CA store). |
+| **c-du** | NO PDF found | — | Portal-driven (admission.eis.du.ac.bd). du.ac.bd lists undergrad notice title 11 Nov but no downloadable undergrad circular PDF located on du.ac.bd / ssl.du.ac.bd this pass. **doc = null** (portal-only). |
+| **c-buet** | NO PDF found | — | News cites 10 Nov website notice (test 16 Jan). No `.pdf` admission circular on buet.ac.bd homepage this pass. **doc = null**. |
+| **c-dghs** | NO formal circular | — | DGME still “circular within days” as of 10–11 Nov press. No 2026–27 MBBS/BDS admission PDF on dgme.gov.bd notices list. **doc = null**. |
+| **c-cuet, c-ruet, c-mist, c-jnu, c-ru, c-cu, c-ku, c-cou, c-gst, c-agri** | NO PDF found this pass | — | Homepages checked; no 2026–27 undergrad circular PDF linked. **doc = null** until official PDF appears on uni/ministry domain. |
+
+**Truth rule applied:** Did not substitute news HTML for PDFs. Did not hotlink.
+
+#### Identity marks
+| Uni | Asset | Source |
+|-----|-------|--------|
+| **du** | `/marks/du.webp` (8370 B) | `https://www.du.ac.bd/assets/img/dulogo.png` (official) |
+| **kuet** | `/marks/kuet.webp` (8680 B) | `https://www.kuet.ac.bd/logo/kuet-logo.png` (official) |
+| **buet** | monogram fallback | Official logo URL on buet.ac.bd returned HTML 404 / not a bitmap this pass |
+| **others** | monogram fallback | Not fetched this pass |
+
+`University.mark` field **not written** — `types.ts` has no `mark` yet (radioed A01). Files exist for A05 to wire once types land.
+
+#### Blocked / left
+1. A01 must land `Circular.doc` + `University.mark` in types.ts before typed `doc: {...}` fills.
+2. Agent 04 mirror script + thumb generation (page-1 webp) not used yet — hand-mirrored KUET only.
+3. Re-hunt DU/BUET/DGME when they publish real PDFs.
+4. Did not edit UI, spice, types, crawlers.
+
+#### Tested
+- KUET file magic `%PDF`, size, sha256 computed locally before push.
+- Live path will be `https://kdeimtiadd26.vercel.app/circulars/c-kuet.pdf` after Vercel deploy.
+- Marks byte sizes under 30 KB budget.
+
