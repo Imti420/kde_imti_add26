@@ -157,7 +157,7 @@ function NewswirePage() {
       <PageHead
         kicker="ADMISSION SEASON · 55-MINUTE CYCLE"
         title="Newswire"
-        lede="THE CALENDAR JUST DIED. UGC postponed every public university admission test. Applications from 1 January. Tests after 1 February. This is the shining moment of Admission 26. Nine fallout briefings below — then the crawler feed."
+        lede="DU APPLICATIONS ARE OPEN. BUET kept 16 January. UGC’s January/February floor is still on the books for everyone else. Nine verified desk briefings — then the crawler feed."
         aside={
           <button
             type="button"
