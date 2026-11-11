@@ -148,3 +148,99 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 - Agent 02: refresh newswire/home banner tense for DU **open now** (11 Nov).
 - Agent 03: confirm PDF links remain on KUET/CUET/etc. cards.
 - Agent 06: regression on NoticeBell MARK READ + badge after large changelog.
+
+
+---
+
+## QA baseline — Agent 06 (2026-11-11 ~15:50 +06)
+
+Independent verification. Labels: **PASS** | **FAIL** | **PARTIAL** | **UNTESTED** | **BLOCKED**.
+
+### Production / deploy
+| Check | Result | Evidence |
+|-------|--------|----------|
+| Live site responds | **PASS** | https://kdeimtiadd26.vercel.app returns 200 |
+| Core routes 200 | **PASS** | `/` `/newswire` `/settings` `/calendar` `/discovery` `/monitor` `/universities` `/circulars` `/desk` `/radar` `/shortlist` `/tracker` |
+| `/directory` | **FAIL** | 404 (likely renamed to `/universities` — nav must not promise it) |
+| Vercel + Actions | **PASS** | Actions green today: Discovery, Newswire, Monitor workflows completed success 11 Nov morning |
+| Service worker | **PARTIAL** | `/sw.js` 200; `/service-worker.js` 404 |
+| PWA manifest | **PASS** | `/manifest.webmanifest` valid name/icons |
+
+### Newswire & breaking
+| Check | Result | Evidence |
+|-------|--------|----------|
+| `/newswire` renders | **PASS** | 200; spice cards + super-head content in HTML |
+| 9 spice cards present | **PASS** | `desk-spice.ts` has 9 `n1022-*` cards; live page shows NUKE/WAR/HOT cards |
+| Time-sensitive copy current | **FAIL** | On **11 Nov afternoon**, watch + spice still say DU apps open “TOMORROW” / “hours left / noon tomorrow”. DU window opened 11 Nov 12:00. Live desk is a day behind its own calendar. |
+| Alerts feed | **PARTIAL** | `/alerts-feed.json` 200, 3 news items, `updated: 2026-11-10T22:15:00+06:00` — not refreshed for opening day |
+| Super-head vs spice alignment | **PARTIAL** | Page shows both “calendar died / UGC” framing and DU-defy lead; not wrong, but mixed eras of messaging |
+
+### Circulars / PDFs / university records
+| Check | Result | Evidence |
+|-------|--------|----------|
+| Circular detail routes | **PASS** | `/circulars/c-du` … `/circulars/c-ru` 200 |
+| Circular count | **PASS** | 14 circulars in `circulars.ts` (DU, BUET, KUET, CUET, RUET, MIST, JnU, RU, CU, KU, CoU, GST, AGRI, DGHS) |
+| PDF viewing | **FAIL** | `pdfUrl` field exists; values effectively null / unused. **No PDF links stored.** Users cannot open official PDFs from the archive. |
+| Source citations | **PARTIAL** | Sources as `SourceRef` objects (STAR_DU, DU_PORTAL, etc.); portal links work (DU portal 200). Not the same as storing the circular PDF. |
+| Confidence tags | **PASS** | Mix of notice / reported / preliminary present |
+| DU record content | **PASS** | Reflects UGC defy + 11–25 Nov apps + Dec tests (data quality OK; **presentation tense is stale**) |
+| Medical (DGHS) | **PARTIAL** | 18 Dec locked in data; formal circular still “expected” — matches public reporting as of 10 Nov; needs re-check if DGME published since |
+
+### Watch board
+| Check | Result | Evidence |
+|-------|--------|----------|
+| Watch data exists | **PASS** | 3 items: du-defies-ugc, ugc-floor-vs-du, medical-18-dec-orphan |
+| Watch tense | **FAIL** | Lead title still “applications open TOMORROW (11 Nov)” on 11 Nov after noon |
+
+### Calendar
+| Check | Result | Evidence |
+|-------|--------|----------|
+| `/calendar` loads | **PASS** | 200, large payload |
+| ICS / personal events | **UNTESTED** | Code paths in `calendar.ts` / settings export; no browser exercise this audit |
+
+### Discovery / crawler
+| Check | Result | Evidence |
+|-------|--------|----------|
+| Actions run | **PASS** | University Discovery Crawler + Newswire workflows success multiple times 11 Nov |
+| Discovery UI shows log | **FAIL / PARTIAL** | Live `/discovery` HTML shows “WAITING FOR THE PUBLISHED LOG” / loading copy — published cycle not visible to user despite green Actions |
+| Monitor verification report | **FAIL** | `/monitor` shows “No published report”, universities “NOT CHECKED”, 0 reached — Actions “success” does not equal user-visible verification |
+
+### Notifications
+| Check | Result | Evidence |
+|-------|--------|----------|
+| Code + settings UI | **PASS** | `desk-push.ts`, NoticeBell, settings enable/disable/screamNow present |
+| alerts-feed consumed | **PARTIAL** | Feed exists and is current to 10 Nov night |
+| Real OS push delivery | **UNTESTED** | Cannot confirm permission → push → device without browser client session |
+
+### Mobile / shell / i18n / experimental
+| Check | Result | Evidence |
+|-------|--------|----------|
+| Shell + nav | **PASS** | `shell.tsx` NAV + mobile DOCK; Bangla toggle; NoticeBell; NaughtyBadge |
+| i18n keys | **PARTIAL** | Extensive `i18n.tsx` dictionary; completeness of BN coverage not fully audited |
+| Naughty mode | **UNTESTED** | Code in theme/settings; no runtime toggle verification this pass |
+| Mobile layout visual QA | **UNTESTED** | No device lab this pass — mark for Agent 05 + QA follow-up |
+
+### Data integrity risks (regression)
+1. **Opening-day tense** — any “tomorrow / hours left” copy must be date-aware or daily-refreshed (Agent 03 + 02).
+2. **Published report pipeline** — crawler success ≠ desk visibility (Agent 04).
+3. **PDF gap** — archive claims circular coverage without file-level artifacts (Agent 03).
+4. **Stale alerts-feed** after NEWS cycles if feed not rewritten same commit as spice.
+
+### Outstanding issues (priority)
+| # | Issue | Owner hint | Severity |
+|---|--------|------------|----------|
+| 1 | DU / watch / spice still say “tomorrow” on open day | 03 Admissions + 02 Intel + 05 Creative | **P0** |
+| 2 | Monitor + Discovery show no published report | 04 Infrastructure | **P0** |
+| 3 | No circular PDFs in data | 03 Admissions | **P1** |
+| 4 | alerts-feed not refreshed 11 Nov | 02 / WIRE lane | **P1** |
+| 5 | `/directory` 404 if linked anywhere | 01 / 05 | **P2** |
+| 6 | OS notification end-to-end | 06 QA + 04 | **P2** |
+
+### Test coverage this pass
+- HTTP smoke: routes, alerts-feed, manifest, sw, DU portal
+- Static data: circulars, spice, watch, universities tree
+- Actions API: recent workflow conclusions
+- **Not covered:** real browser push, visual mobile, Bangla full pass, PDF open-in-viewer, auth gates
+
+*Agent 06 will not mark a feature PASS because code exists. Re-test after P0 fixes.*
+
