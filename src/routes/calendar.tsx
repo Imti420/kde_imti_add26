@@ -4,6 +4,7 @@ import { PageHead, TextButton, controlClass } from "@/components/marks";
 import type { PersonalEvent, PersonalEventKind } from "@/data/types";
 import {
   archiveEvents,
+  coachingCalendarEvents,
   kindStamp,
   monthMatrix,
   shiftMonth,
@@ -55,11 +56,13 @@ function CalendarPage() {
     const archive = archiveEvents(circulars, names).filter(
       (event) => scope === "all" || (event.universityId && shortlist.includes(event.universityId)),
     );
+    // Coaching routines always visible on "all"; hide on shortlist-only scope.
+    const coach = scope === "all" ? coachingCalendarEvents() : [];
     const mine = personal
       .filter((event) => scope === "all" || !event.universityId || shortlist.includes(event.universityId))
       .filter((event) => (hideDone ? !event.completed : true))
       .map((event) => toCalendar(event, event.universityId ? (names.get(event.universityId) ?? null) : null));
-    return [...archive, ...mine].sort((a, b) => a.day.localeCompare(b.day) || a.title.localeCompare(b.title));
+    return [...archive, ...coach, ...mine].sort((a, b) => a.day.localeCompare(b.day) || a.title.localeCompare(b.title));
   }, [circulars, names, personal, scope, shortlist, hideDone]);
 
   const year = Number(cursor.slice(0, 4));
@@ -260,7 +263,11 @@ function CalendarPage() {
                           ? "bg-accent text-onaccent"
                           : items.some((e) => toneFor(e.kind) === "ink")
                             ? "bg-ink text-paper"
-                            : "bg-signal text-onaccent",
+                            : items.some((e) => toneFor(e.kind) === "varsity")
+                              ? "bg-[var(--color-varsity)] text-[var(--color-onvarsity)]"
+                              : items.some((e) => toneFor(e.kind) === "eng")
+                                ? "bg-[var(--color-eng)] text-[var(--color-oneng)]"
+                                : "bg-signal text-onaccent",
                       )}
                     >
                       {count}
@@ -712,8 +719,11 @@ function EventChip({ event, compact }: { event: CalendarEvent; compact?: boolean
   const tone = toneFor(event.kind);
   const uni = event.shortName ?? (event.personal ? "YOU" : "REC");
   const stamp = kindStamp(event.kind);
-  const tipLines =
-    event.reqLines.length > 0
+  const isCoach = event.kind === "coach-varsity" || event.kind === "coach-eng";
+  // Coaching hover: track + marks distribution only (table-ish, no requirements dump)
+  const tipLines = isCoach
+    ? event.reqLines
+    : event.reqLines.length > 0
       ? event.reqLines
       : event.notes
         ? [event.notes]
@@ -729,6 +739,8 @@ function EventChip({ event, compact }: { event: CalendarEvent; compact?: boolean
         tone === "ink" && "cal-chip--ink",
         tone === "mute" && "cal-chip--mute",
         tone === "signal" && "cal-chip--signal",
+        tone === "varsity" && "cal-chip--varsity",
+        tone === "eng" && "cal-chip--eng",
       )}
     >
       <span className="cal-chip-row">
