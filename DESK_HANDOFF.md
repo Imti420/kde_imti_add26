@@ -90,4 +90,39 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 - CARD upgraded `university-card.tsx` (always-on street voice).
 - SHELL chrome polish; PULSE discovery snappier.
 
+
+### 2026-11-11 ~15:50 +06 — Agent 02 intelligence audit (no product rewrite)
+
+**Role:** Director of Intelligence & Newswire (Agent 02). Reports to Commander / Imti.
+
+**What is genuinely implemented**
+- **Desk spice track:** `src/data/desk-spice.ts` — hand-authored ~9 heat-tagged cards; drives newswire hero strip + homepage desk strip; current cycle **`n1022-*`** (10 Nov night).
+- **Wire crawler track:** `src/lib/wire/*` + `scripts/crawl-newswire.ts` + Actions `crawl-newswire.yml` (pins :12/:42). Live artifact `public/wire/live.json` (verified 11 Nov: status completed, **40 items**, 17 sources, 11 reached, 2 newItems).
+- **Verification labels:** official | reported | community | unverified | corrected — UI filters on `/newswire`.
+- **Source registry:** UGC, DU, BUET, DGHS, coaching web, newsrooms; Facebook rows intentionally `not_authorised` / manual_only (no Meta token).
+- **Manual desk submissions:** localStorage `admission26.wire.desk.v1` on newswire page.
+- **Notifications:** `desk-push.ts` triggers on new spice ids, circular PDFs, frantic day-of; `public/alerts-feed.json`; Settings SCREAM NOW.
+- **Integrity stance in code:** wire note “News is not a circular”; coaching caveats on headlines.
+
+**What is broken / stale**
+- **`UgcNukeSuperHead` hardcodes** badge “10 NOV 2026”, title “APPS OPEN TOMORROW”, and looks up spice id **`spice-du-defy`** which **does not exist** in current `SPICE_CARDS` (falls back to `[0]`). On **11 Nov** the “tomorrow” copy is wrong — apps are already open. Coordinate with Agent 05 for presentation; Agent 02 owns the fact pattern.
+- **Wire relevance gaps:** live feed includes hospital/fire “ভর্তি” false positives (e.g. burn-unit admissions). Heuristic classifier active; **aiClassified: 0** on last cycle.
+- **Spice history:** rotating ids replace prior cycles; no durable in-app archive of old spice sets (only git history).
+- **alerts-feed `news`:** thin vs full spice set; can lag spice cycle if not updated together.
+
+**What is planned / partial**
+- Gemini enrich path exists (`src/lib/wire/ai.ts`) but last cycle was heuristic-only.
+- Supersession of announcements is not a first-class wire field (no explicit “this item replaces X”).
+- Cross-link from wire item → Agent 03 circular record is not automated (dates in `detectedDates` optional).
+
+**Do not recreate:** full wire engine, spice card system, desk-push, UGC nuke *layout* (fix data binding / date accuracy instead).
+
+**Coordination**
+- Agent 03: any wire/spice claim that changes deadlines must match `circulars.ts` / `watch.ts`.
+- Agent 04: ingestion/crawl changes only with them.
+- Agent 05: nuke superhead date/id binding is a presentation+data fix.
+- Agent 06: verify after any integrity patch.
+
+**Verification status:** audit only — read live.json, routes, desk-push, registry. No production data rewrite this pass.
+
 ### (Next agent: append here)
