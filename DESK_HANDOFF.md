@@ -44,18 +44,18 @@ Stack: TanStack Start / Vite / Tailwind, data in `src/data/*`, client personal s
 
 ---
 
-## Season snapshot (as of 10 Nov night 2026)
+## Season snapshot (as of 11 Nov 2026 desk · Agent 03)
 
-- **DU:** Apps **11 Nov 12:00 → 25 Nov 23:59**; tests Dec 5–26; portal live. Held vs UGC January floor.
-- **BUET:** Apps **~21 Nov**; test **16 Jan 2027**; GPA wall intact; no post-UGC rewrite yet.
-- **KUET:** Apps **live 10 Nov → 10 Dec**; test **8 Jan**; ~1105 seats.
-- **Medical/dental:** DGME **18 Dec** locked (Daily Campus 10 Nov); circular expected within days; apps likely 15–18 Nov.
-- **UGC:** Still selling Jan apps / Feb tests for public universities. DU is the crack.
-- Do **not** move DU to January without a new primary source.
+- **Directory:** **84 universities + 3 systems = 87** records (matches historical ~87). Circular coverage: **14** records only.
+- **DU:** Applications **OPEN** 11 Nov 12:00 → 25 Nov 23:59; tests Dec 5–26; fee raised on four units. Held vs UGC.
+- **BUET:** **Official notice 10 Nov** — test **16 Jan 2027** holds (rejects UGC). Apps open **21 Nov**; **close NOT ANNOUNCED**. GPA wall intact.
+- **KUET:** Official circular — apps **10 Nov 10:00 → 10 Dec 17:00**; test **8 Jan 2027**; ~1,105 seats.
+- **Medical/dental:** DGME **18 Dec** still the line; **formal circular STILL MISSING** as of 11 Nov; apps expected mid-Nov, not locked.
+- **UGC:** Jan apps / Feb tests still the commission floor. DU + BUET are both off-script.
+- Do **not** invent application closes, fees, or medical circular content.
 
-**Current spice cycle:** `n1022-*` (night of 10 Nov).
+**Current spice cycle:** see Agent 02 / WIRE (not owned by Agent 03).
 
----
 
 ## Non-negotiables (short)
 
@@ -73,6 +73,26 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 ---
 
 ## Changelog (append only)
+
+### 2026-11-11 ~15:50 +06 — Agent 03 (Admissions Data & Circulars) — first audit
+
+**Directory count verified:** 84 universities + 3 systems (**87** total).
+
+**Circular coverage:** 14 circular records. ~73 directory rows have **no** circular — shown as not-on-file, not invented.
+
+**Data changes:**
+- **DU (`c-du`):** Applications **OPEN** (11 Nov); fee note aligned; `updatedOn` → 2026-11-11.
+- **BUET (`c-buet`):** Upgraded to `notice` after **10 Nov official website notice** (16 Jan holds, rejects UGC). Apps 21 Nov; **applicationCloses null**. `updatedOn` → 2026-11-11.
+- **KUET (`c-kuet`):** Official window 10 Nov 10:00 → 10 Dec 17:00; fee centres; `opensAt`/`closesAt`; `updatedOn` → 2026-11-11.
+- **DGHS (`c-dghs`):** 18 Dec retained as `reported`; formal circular **still missing**; `updatedOn` → 2026-11-11.
+- **Watch:** Rewritten for 11 Nov (DU open, BUET notice, medical circular gap).
+
+**Sources:** DU portal; Channel I/TBS/Observer/Jago (DU); Prothom Alo/Jago (BUET notice); admission.kuet.ac.bd; Daily Campus/Star/Observer/bdnews24 (DGME).
+
+**Outstanding:** No DGME PDF; BUET close/fee not announced; no supersession schema fields; `pdfUrl` mostly null; JU/GST members directory-only.
+
+**Files:** `src/data/circulars.ts`, `src/data/watch.ts`, this handoff, `DESK_CREW.md`.
+
 
 ### 2026-11-10 ~22:15 +06 — GO UPDATE NEWS (night cycle n1022-*)
 - Solo (not swarm). Replaced all 9 `SPICE_CARDS` with **`n1022-*`** ids for alert fan-out.
