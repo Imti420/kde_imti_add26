@@ -60,6 +60,9 @@ Examples:
 
 - 16:25 +06 · A04 · COMMANDER circular-PDF mission · claiming infra (SW + mirror scripts + headers)
 
+### Mission `circular-in-hand` — Commander 11 Nov
+
+- 16:24 +06 · **A02** · Intelligence · spice circularId + alerts deep-link · claiming news/alerts lane
 
 ### Mission `mission-2026-11-10-go3`
 
