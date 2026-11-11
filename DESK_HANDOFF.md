@@ -240,6 +240,50 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 #### Sign-off
 ADMISSION//26 is **deployed and largely wired**, but **not fully trustworthy on the flagship DU status narrative** until P0 copy is fixed and redeployed. QA does not clear “genuinely up to date” until P0 is verified on production.
 
+
+### 2026-11-11 ~16:25 +06 — Agent 06 (QA) · MISSION BASELINE (before PDF/reader/SW work)
+
+**Role:** Independent verification only. No product features shipped this pass.
+
+**Mission measured against:** "Circular in hand, in two taps, inside the app, on a cheap phone, even offline."
+
+#### Baseline table (code + prod 2026-11-11)
+
+| Feature | Owner (when fixed) | Status | Evidence |
+|---------|-------------------|--------|----------|
+| Circular `doc` contract in types | A01 | **FAIL** | `src/data/types.ts` has `pdfUrl` only; no `doc` object |
+| University `mark` contract | A01 | **FAIL** | no `mark` on University interface |
+| PDF links per circular | A03 | **PARTIAL** | **1/14** have non-null `pdfUrl` (`c-kuet` only). Others default `null` via `C()` |
+| In-app PDF reader | A05 | **FAIL** | no pdf.js / reader route; circular page uses `ExternalLink` |
+| PDF open leaves app | A05 | **FAIL** | `ExternalLink` → `target="_blank"` in `marks.tsx` |
+| Mirrored PDFs under `/circulars/` | A03/A04 | **FAIL** | no `public/circulars/` directory on main |
+| Thumbs `.webp` | A03/A04 | **FAIL** | none |
+| University marks `/public/marks/` | A03/A04 | **FAIL** | directory absent; no logos in product |
+| SW precache | A04 | **FAIL** vs mission | `public/sw.js` caches **only** `"/"` and `"/alerts-feed.json"` (`a26-desk-v1`); no circular assets |
+| Offline reopen of circular PDF | A04/A05 | **FAIL** | nothing to cache; no reader |
+| "NO PDF PUBLISHED" explicit UX | A05 | **PARTIAL** | shows `NOT ON FILE` when `pdfUrl` null — not mission copy, but honest |
+| Hotlinked PDF (KUET) | A03 | **PARTIAL** | remote `admission.kuet.ac.bd/...pdf`; not same-origin mirror; fetch from QA env SSL fail (status 000) — treat official host link as **UNTESTED** reachability from this runner |
+| Initial bundle includes reader | A05 | **PASS** (vacuously) | no reader JS present to leak into initial bundle |
+| Mobile 360×800 / 390×844 circular flow | A05 | **UNTESTED** this pass | will retest after reader lands |
+| Notifications → circular | A02/A05 | **UNTESTED** | requires permissioned device |
+| `npm run typecheck` / `test` / `lint` | A01 | **UNTESTED** this pass | runner not full CI |
+
+#### What is true today (not claims)
+- Product can list circulars and show portal links.
+- Student with KUET is **thrown to a new browser tab** for the only PDF we store a URL for.
+- Student with DU/BUET/medical **cannot open any PDF inside or outside** from our data (null).
+- Offline: SW does not help circulars.
+- Zero university identity imagery from our origin.
+
+#### P0 gates for later re-verify (do not mark Mission PASS until)
+1. A01: `doc` + `mark` on types; `pdfUrl` back-compat.
+2. A03: real official PDFs where they exist; `doc: null` + honest UI where they don't; mirrors with sha256.
+3. A04: `public/circulars/*`, SW cache strategy for mirrors, size budgets.
+4. A05: in-app reader ≤2 taps, no `_blank` for mirrors; NO PDF PUBLISHED state.
+5. A06: re-run this table on production after deploy.
+
+**QA clearance for Mission: withheld.**
+
 ### (Next agent: append here)
 
 ### 2026-11-11 ~15:50 +06 — Agent 05 (Creative / Frontend) first mission audit
