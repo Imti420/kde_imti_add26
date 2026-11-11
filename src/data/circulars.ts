@@ -48,6 +48,12 @@ const DAILYBD_MED: SourceRef = {
   published: "2026-11-08",
 };
 
+const BDNEWS_SPLIT: SourceRef = {
+  label: "bdnews24 — DU/BUET hold; RU Feb tests + resit window; JnU resit door",
+  url: "https://bdnews24.com/education/wk2v9xuw49",
+  published: "2026-11-11",
+};
+
 const SEATS_COMP: SourceRef = {
   label: "Admission desk compilation — public university seat numbers 2026–27",
   url: "https://admissionnotice.com/en/public-university-seat-number-2026-27/",
@@ -378,21 +384,26 @@ export const seedCirculars: Circular[] = [
     id: "c-jnu",
     universityId: "jnu",
     title: "Jagannath University undergraduate admission 2026–27",
-    summary: "Five-unit MCQ schedule in Dhaka. Applications 15 Nov – 10 Dec. About 2,957 own seats reported for the session.",
+    summary:
+      "Five-unit MCQ schedule in Dhaka still starts 1 January 2027. Application window reported as 25 Nov – 10 Dec (shifted later than the earlier 15 Nov open). bdnews24 (11 Nov): candidates sitting supplementary exams in up to two subjects may register using SSC qualifications. About 2,957 own seats. Not a full slide to UGC’s February floor — a targeted resit accommodation.",
     system: "own",
     publication: "notice",
-    confidence: "notice",
-    confidenceNote: "Schedule from official release cited by Star. Seats from 2026–27 compilations.",
-    sources: [STAR_CLASH, SEATS_COMP],
-    updatedOn: "2026-11-08",
-    applicationOpens: "2026-11-15",
+    confidence: "reported",
+    confidenceNote:
+      "Test grid from earlier institutional release (Star). App window + resit door from bdnews24 11 Nov campus line. Formal JnU circular PDF for the resit rule not yet on this desk — confidence reported for the accommodation; test dates still the prior notice pattern until superseded.",
+    sources: [BDNEWS_SPLIT, STAR_CLASH, SEATS_COMP],
+    updatedOn: "2026-11-12",
+    applicationOpens: "2026-11-25",
     opensAt: "12:00",
     applicationCloses: "2026-12-10",
     closesAt: "23:59",
     examDate: "2027-01-01",
     examTime: "10:00–11:00",
     seats: 2957,
-    eligibility: ["GPA bars were not fully in the stored press release — check JnU circular."],
+    eligibility: [
+      "GPA bars were not fully in the stored press release — check JnU circular.",
+      "Supplementary candidates (up to two subjects): may apply on SSC qualifications per 11 Nov campus line (bdnews24) — confirm on JnU notice before relying on it.",
+    ],
     units: [
       { code: "A", detail: "Science and Life & Earth Sciences.", examDate: "2027-01-01", examTime: "10:00–11:00", centre: "Dhaka" },
       { code: "E", detail: "Unit E (as defined by JnU).", examDate: "2027-01-08", examTime: "10:00–11:00", centre: "Dhaka" },
@@ -400,31 +411,53 @@ export const seedCirculars: Circular[] = [
       { code: "C", detail: "Unit C.", examDate: "2027-01-22", examTime: "10:00–11:00", centre: "Dhaka" },
       { code: "D", detail: "Unit D.", examDate: "2027-01-23", examTime: "10:00–11:00", centre: "Dhaka" },
     ],
-    notes: ["All tests MCQ, Dhaka centres."],
+    notes: [
+      "All tests MCQ, Dhaka centres.",
+      "Resit accommodation is reported (news), not yet archived as a formal PDF on this desk.",
+    ],
   }),
 
   C({
     id: "c-ru",
     universityId: "ru",
     title: "University of Rajshahi undergraduate admission 2026–27",
-    summary: "Preliminary application 12–27 Nov. Unit tests B 8 Jan, C 9 Jan, A 16 Jan 2027. About 3,956 own seats.",
+    summary:
+      "RU is bending toward the UGC timeline. VC line (bdnews24, 11 Nov): admission tests begin 12 February 2027 with the Business faculty unit; initial applications mid-November (reported 15–30 Nov); a separate seven-day application window for supplementary/HSC-resit passers after those results publish. Prior January unit dates on this desk are SUPERSEDED by that VC line until a formal RU circular PDF lands. About 3,956 own seats.",
     system: "own",
     publication: "decision",
-    confidence: "preliminary",
-    confidenceNote: "Dates from RU PR as preliminary. Seats from 2026–27 compilations.",
-    sources: [STAR_CLASH, SEATS_COMP],
-    updatedOn: "2026-11-08",
-    applicationOpens: "2026-11-12",
-    applicationCloses: "2026-11-27",
-    examDate: "2027-01-08",
+    confidence: "reported",
+    confidenceNote:
+      "bdnews24 11 Nov cites RU VC Prof Md Faridul Islam: tests from 12 Feb; initial apps ~15–30 Nov; seven-day late window for supplementary candidates. Not yet a scanned RU circular PDF — confidence stays reported. Old Jan 8/9/16 unit grid is withdrawn from this record.",
+    sources: [BDNEWS_SPLIT, STAR_CLASH, SEATS_COMP],
+    updatedOn: "2026-11-12",
+    applicationOpens: "2026-11-15",
+    applicationCloses: "2026-11-30",
+    examDate: "2027-02-12",
     seats: 3956,
-    eligibility: ["Unit-wise GPA bars in the RU circular."],
-    units: [
-      { code: "B", detail: "Business Studies unit.", examDate: "2027-01-08", examTime: null, centre: "Not stated." },
-      { code: "C", detail: "Science unit.", examDate: "2027-01-09", examTime: null, centre: "Not stated." },
-      { code: "A", detail: "Arts / Humanities unit.", examDate: "2027-01-16", examTime: null, centre: "Not stated." },
+    eligibility: [
+      "Unit-wise GPA bars belong in the RU circular.",
+      "Supplementary / HSC-resit passers: separate seven-day application window after results publish (VC line via bdnews24) — confirm on RU notice before relying on it.",
     ],
-    notes: ["Treat schedule as preliminary until the circular hardens."],
+    units: [
+      {
+        code: "Business",
+        detail: "Business faculty unit — first in the revised sequence (VC line).",
+        examDate: "2027-02-12",
+        examTime: null,
+        centre: "Not stated in stored reports.",
+      },
+      {
+        code: "Other units",
+        detail: "Remaining unit order and exact dates to be fixed in formal RU circular. Do not reuse the withdrawn January grid.",
+        examDate: null,
+        examTime: null,
+        centre: "Not stated.",
+      },
+    ],
+    notes: [
+      "SUPERSEDED: prior desk line of B 8 Jan / C 9 Jan / A 16 Jan 2027 is withdrawn after the 11 Nov VC line.",
+      "Formal circular PDF still not on this archive — treat close dates and late window as reported until RU publishes.",
+    ],
   }),
 
   C({
