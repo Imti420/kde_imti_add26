@@ -3,7 +3,7 @@
 **Owner:** Agent 01 (Chief Engineer)  
 **Human owner:** Imti  
 **Commander:** ChatGPT (priorities)  
-**Baseline commit inspected:** `55fb7bb` (2026-11-11)  
+**Baseline commit inspected:** post-contract (2026-11-11) — Circular.doc + University.mark  
 **Live:** https://kdeimtiadd26.vercel.app
 
 This file is the **shared technical contract**. Departments edit their surfaces; they do not invent parallel schemas, dual handoffs, or competing data owners.
@@ -68,15 +68,40 @@ Client-first Bangladesh public-university admission desk (session **2026–27**)
 
 ## 4. Canonical types (`src/data/types.ts`)
 
-Shared contracts — **do not fork**:
+Shared contracts — **do not fork**. Agent 01 owns this file.
 
-- `University` — id, names, track, city, website, admissionUrl
-- `Circular` — dates, seats, eligibility, units, `publication`, `confidence`, pdfUrl, sources
+- `University` — id, names, track, city, website, admissionUrl, optional **`mark`**
+- `Circular` — dates, seats, eligibility, units, `publication`, `confidence`, **`pdfUrl`** (back-compat), optional **`doc`**, sources
+- `CircularDoc` — originalUrl, mirrorPath, thumbPath, pages, bytes, sha256, fetchedAt, officialHost
+- `UniversityMark` — kind (`logo` | `monogram`), path, sourceUrl
 - `WatchItem` — desk watch list
 - `AppStatus` / `Confidence` / `Publication` — status language
 - Personal: `PersonalEvent`, `DeskNote`, `Progress`, desk layout
 
 Spice cards live in `desk-spice.ts` as `SpiceCard` (id, heat, kicker, headline, body, punch, sources).
+
+**Document contract (Commander 2026-11-11)**
+
+| Field | Meaning |
+|-------|---------|
+| `Circular.doc` | Optional. `null` / absent = **NO PDF PUBLISHED**. Never invent. |
+| `doc.originalUrl` | Official source; never replaced by the mirror. |
+| `doc.mirrorPath` | Same-origin `/circulars/<id>.pdf` after Agent 04 mirrors. |
+| `doc.thumbPath` | Same-origin `/circulars/<id>.webp` page-1 thumb. |
+| `Circular.pdfUrl` | Back-compat; prefer `circularPdfHref()` from catalog. |
+| `University.mark` | Optional identity asset under `/marks/`. |
+
+**Catalog helpers** (`src/lib/catalog.ts`):
+
+- `circularDocState(c)` → `"mirrored" | "original-only" | "none"`
+- `circularPdfHref(c)` → mirror first, then original, then pdfUrl
+- `circularThumbPath(c)` · `universityMark(u)`
+
+**Budgets:** PDF ≤ 5 MB · thumb ≤ 60 KB WebP · mark ≤ 30 KB. Constants: `DOC_PDF_MAX_BYTES`, `DOC_THUMB_MAX_BYTES`, `MARK_MAX_BYTES`.
+
+**In-app reader:** `pdfjs-dist` (lazy). Route shell: `/circulars/$id/pdf` (`src/routes/circulars/$id/pdf.tsx`). Agent 05 fills the viewer. Native `<iframe>` PDF is unreliable on iOS Safari (page 1 only).
+
+**Asset dirs:** `public/circulars/` · `public/marks/`. Soft invariants in `src/lib/doc-invariants.test.ts`.
 
 **Id rules**
 
