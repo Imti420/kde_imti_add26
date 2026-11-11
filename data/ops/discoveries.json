@@ -17989,5 +17989,19 @@
     "shortName": "AGRI",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/admission/1881544293924310.pdf",
+    "foundOn": "https://www.bou.ac.bd/",
+    "foundAt": "2026-11-11T07:02:18.094Z",
+    "title": "List of primarily selected applicants for Viva-Voce of MBA Program, 241 Semester 2026-11-10",
+    "kind": "pdf",
+    "score": 13,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/admission/1881544293924310.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
