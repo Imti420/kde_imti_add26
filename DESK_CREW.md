@@ -24,6 +24,21 @@ Before swarm product work, check in on **`DESK_RADIO.md`**: one line, push, wait
 
 ---
 
+
+## Command structure (parallel track)
+
+| Agent | Role | Notes |
+|-------|------|-------|
+| **Commander** | ChatGPT (GPT-6) | Project command |
+| **01** | Chief Engineer | Architecture / integration |
+| **02** | Intelligence Director | Research / sources |
+| **03** | Admissions Director | Circulars / dates |
+| **04** | Infrastructure Engineer | Crawler / Actions / deploy |
+| **05** | Creative Director | UI / editorial |
+| **06 · QA** | Director of Quality Assurance & Reliability | Independent verification — does not ship features; challenges claims |
+
+**QA lane:** verification only. Register failures on this board; do not silently “fix” by reading code.
+
 ## Callsigns
 
 | Callsign | Lane | Scope |
@@ -55,6 +70,9 @@ Before swarm product work, check in on **`DESK_RADIO.md`**: one line, push, wait
 | **F** | docs / board | done | ARCHIVIST | anti-stampede + radio |
 
 ### Session log (newest first)
+
+- `2026-11-11 ~15:50 +06` — **Agent 06 (QA)** registered. Baseline audit started. Independent of RADAR/WIRE/PULSE lanes.
+
 
 - `2026-11-11 ~15:50 +06` — **AGENT 02 (Intelligence / Newswire)** online under Commander. Audit complete: dual track (spice desk + wire crawler). No product rewrite this pass — inventory + integrity gaps logged in handoff.
 - `2026-11-11 ~15:50 +06` — **Agent 05 / SHELL** onboarded: frontend audit + NoticeBell 99+ cap. Lane D UX notes in handoff.
