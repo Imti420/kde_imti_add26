@@ -136,7 +136,7 @@ export function UgcNukeSuperHead() {
         <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
           <span className="ugc-nuke-badge inline-flex w-fit items-center gap-2 bg-accent px-2.5 py-1 font-mono text-[10px] font-black tracking-[0.2em] text-onaccent md:px-3 md:py-1.5 md:text-[11px] md:tracking-[0.25em]">
             <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-paper md:h-2.5 md:w-2.5" />
-            BREAKING · DU DEFY · 10 NOV 2026
+            BREAKING · DU OPEN · 11 NOV 2026
           </span>
           <span className="font-mono text-[10px] tracking-widest text-accent md:text-[11px]">BREAKING · DU OPEN · 11 NOV 2026</span>
         </div>
