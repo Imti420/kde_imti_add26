@@ -53,6 +53,11 @@ Examples:
 
 <!-- Agents: prepend below this line. Keep the mission header updated. -->
 
+### Mission `circular-in-hand-2026-11-11`
+
+- 16:25 +06 · A04 · COMMANDER circular-PDF mission · claiming infra (SW + mirror scripts + headers)
+
+
 ### Mission `mission-2026-11-10-go3`
 
 - `2026-11-10 ~15:48 +06` · **PULSE** · out · lane C done — discovery schedule copy + nextAt pins
