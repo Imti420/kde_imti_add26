@@ -1,59 +1,52 @@
 {
-  "updated": "2026-11-11T17:55:00+06:00",
-  "cycle": "n1117-ugc-split",
+  "updated": "2026-11-12T02:15:00+06:00",
+  "cycle": "n1112-split-hardens",
   "news": [
     {
-      "id": "n1117-ugc-ignored",
+      "id": "n1112-split-hardens",
       "heat": "NUKE",
-      "headline": "UGC Jan/Feb floor — flagships did not move",
+      "headline": "Two speeds: DU/BUET hold · RU/JnU bend for resits",
       "url": "/newswire"
     },
     {
-      "id": "n1117-du-open",
+      "id": "n1112-du-day2",
       "heat": "HOT",
-      "headline": "DU applications OPEN — close 25 Nov 23:59",
+      "headline": "DU day-2 apps open — fees up — close 25 Nov",
       "url": "/circulars/c-du"
     },
     {
-      "id": "n1117-buet-stands",
+      "id": "n1112-ru-bends",
+      "heat": "SYSTEM",
+      "headline": "RU tests from 12 Feb + supplementary window",
+      "url": "/circulars/c-ru"
+    },
+    {
+      "id": "n1112-buet-holds",
       "heat": "WAR",
-      "headline": "BUET notice: test 16 Jan stands",
+      "headline": "BUET apps 21 Nov · test 16 Jan holds",
       "url": "/circulars/c-buet"
     },
     {
-      "id": "n1117-kuet-live",
+      "id": "n1112-kuet-live",
       "heat": "HOT",
-      "headline": "KUET apps LIVE + official PDF on file",
+      "headline": "KUET apps LIVE + PDF on file",
       "url": "/circulars/c-kuet"
-    },
-    {
-      "id": "n1117-dgme-18",
-      "heat": "HOT",
-      "headline": "Medical 18 Dec — formal PDF still missing",
-      "url": "/circulars/c-dghs"
     }
   ],
   "registrations": [
     {
-      "id": "reg-c-du-2026-11-11-e",
+      "id": "reg-c-du-2026-11-12",
       "title": "DU REGISTRATION OPEN — close 25 Nov",
-      "body": "Portal admission.eis.du.ac.bd · UGC floor did not stop this window",
+      "body": "Fees raised on four units. Portal admission.eis.du.ac.bd",
       "url": "/circulars/c-du"
     },
     {
       "id": "reg-c-kuet-2026-11-10",
       "title": "KUET apps LIVE → 10 Dec · test 8 Jan",
-      "body": "Official PDF on circular record. Portal admission.kuet.ac.bd",
+      "body": "Official PDF on circular record",
       "url": "/circulars/c-kuet"
     }
   ],
-  "circulars": [
-    {
-      "id": "circ-c-kuet-pdf",
-      "title": "KUET 2026–27 circular PDF on file",
-      "body": "Open the circular record for official link",
-      "url": "/circulars/c-kuet"
-    }
-  ],
+  "circulars": [],
   "frantic": []
 }
