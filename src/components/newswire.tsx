@@ -123,9 +123,9 @@ const HEAT_CLASS: Record<string, string> = {
   NUKE: "bg-accent text-onaccent nuke-badge",
 };
 
-/** Massive breaking super-head — DU defies UGC; apps open tomorrow. */
+/** Massive breaking super-head — lead card from SPICE_CARDS (DU open / season split). */
 export function UgcNukeSuperHead() {
-  const lead = SPICE_CARDS.find((c) => c.id === "spice-du-defy") ?? SPICE_CARDS[0];
+  const lead = SPICE_CARDS.find((c) => c.id.startsWith("n1111-") || c.id.includes("du-open") || c.id.includes("du-defy")) ?? SPICE_CARDS[0];
   return (
     <section className="ugc-nuke-super relative mb-6 overflow-hidden border-[3px] border-ink bg-ink text-paper shadow-[8px_8px_0_0_var(--color-accent)] md:mb-8 md:border-[4px] md:shadow-[12px_12px_0_0_var(--color-accent)]">
       <div className="absolute inset-0 ugc-nuke-scanlines pointer-events-none" aria-hidden />
@@ -138,17 +138,14 @@ export function UgcNukeSuperHead() {
             <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-paper md:h-2.5 md:w-2.5" />
             BREAKING · DU DEFY · 10 NOV 2026
           </span>
-          <span className="font-mono text-[10px] tracking-widest text-accent md:text-[11px]">THE SHINING MOMENT OF ADMISSION 26</span>
+          <span className="font-mono text-[10px] tracking-widest text-accent md:text-[11px]">BREAKING · DU OPEN · 11 NOV 2026</span>
         </div>
 
         <p className="mt-3 font-mono text-[11px] font-bold tracking-[0.28em] text-accent sm:mt-4 sm:text-xs md:text-sm md:tracking-[0.35em]">
           UGC SAID WAIT. DU SAID NO.
         </p>
 
-        <h1 className="ugc-nuke-title mt-2 font-display text-[2.1rem] font-black uppercase leading-[0.9] tracking-tight text-paper sm:text-[2.6rem] md:mt-3 md:text-[4.2rem] md:leading-[0.88] lg:text-[5.2rem]">
-          DU DEFY: APPS OPEN{" "}
-          <span className="text-accent">TOMORROW</span>
-        </h1>
+        <h1 className="ugc-nuke-title mt-2 font-display text-[2.1rem] font-black uppercase leading-[0.9] tracking-tight text-paper sm:text-[2.6rem] md:mt-3 md:text-[4.2rem] md:leading-[0.88] lg:text-[5.2rem]">DU APPLICATIONS ARE <span className="text-accent">OPEN</span></h1>
 
         <p className="mt-4 max-w-4xl font-display text-base font-bold uppercase leading-snug text-paper/95 sm:text-xl md:mt-5 md:text-2xl md:leading-tight">
           UGC ordered January/February. Dhaka University kept 11–25 Nov apps and December tests. Portal is live. The national calendar just split in half.
