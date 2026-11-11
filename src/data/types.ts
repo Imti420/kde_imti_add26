@@ -203,4 +203,4 @@ export interface DeskNote {
   updatedAt: string;
 }
 
-export const ARCHIVE_STAMP = "2026-11-04";
+export const ARCHIVE_STAMP = "2026-11-11";

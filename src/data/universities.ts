@@ -32,7 +32,9 @@ export const seedUniversities: University[] = [
   U("du", "University of Dhaka", "DU", "general", "Dhaka", "https://www.du.ac.bd", {
     admissionUrl: "https://admission.eis.du.ac.bd/",
     nameBn: "ঢাকা বিশ্ববিদ্যালয়",
-    directoryNote: "Runs its own undergraduate admission. Not part of the GST cluster in the 2026–27 reports stored here.",
+    tags: ["own-test", "apps-open"],
+    directoryNote:
+      "2026–27 apps OPEN 11 Nov 12:00 → 25 Nov 23:59 on admission.eis.du.ac.bd. Five units (IBA / Science / ALS / Fine Arts / Business). ~6,125 seats. Own test — not GST. Held schedule vs UGC January floor.",
   }),
   U("ru", "University of Rajshahi", "RU", "general", "Rajshahi", "https://www.ru.ac.bd", {
     admissionUrl: "https://admission.ru.ac.bd/",
@@ -45,9 +47,11 @@ export const seedUniversities: University[] = [
     directoryNote: "Runs its own undergraduate admission. Stored 2026–27 test dates were described as probable.",
   }),
   U("ju", "Jahangirnagar University", "JU", "general", "Savar, Dhaka", "https://www.juniv.edu", {
-    admissionUrl: "https://juadmission.tech/",
+    admissionUrl: "https://www.juniv.edu/",
     nameBn: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়",
-    directoryNote: "Runs its own admission (not GST). About 1,848 own seats in 2026–27 compilations. Full unit circular not yet stored — desk will fill when the notice lands.",
+    tags: ["own-test"],
+    directoryNote:
+      "Own admission (not GST). ~1,848 seats in 2026–27 compilations. Unit circular / exact app window not fully stored — use juniv.edu notices, not third-party form clones.",
   }),
   U("iu", "Islamic University, Bangladesh", "IU", "general", "Kushtia", "https://www.iu.ac.bd", {
     nameBn: "ইসলামী বিশ্ববিদ্যালয়",
@@ -61,7 +65,7 @@ export const seedUniversities: University[] = [
   U("jnu", "Jagannath University", "JnU", "general", "Dhaka", "https://www.jnu.ac.bd", {
     admissionUrl: "https://www.jnu.ac.bd/",
     nameBn: "জগন্নাথ বিশ্ববিদ্যালয়",
-    directoryNote: "Runs its own undergraduate admission. Not the same institution as Jahangirnagar University (JU).",
+    directoryNote: "Own five-unit MCQ. Apps 15 Nov – 10 Dec in stored notice; ~2,957 seats. Confirm portal on application day.",
   }),
   U("cou", "Comilla University", "CoU", "general", "Cumilla", "https://www.cou.ac.bd", {
     nameBn: "কুমিল্লা বিশ্ববিদ্যালয়",
@@ -104,22 +108,30 @@ export const seedUniversities: University[] = [
   U("buet", "Bangladesh University of Engineering & Technology", "BUET", "engineering", "Dhaka", "https://www.buet.ac.bd", {
     admissionUrl: "https://ugadmission.buet.ac.bd/",
     nameBn: "বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়",
-    directoryNote: "1,309 seats · Group A engineering & URP · Group B architecture · applications expected 21 Nov · written test 16 Jan 2027 · no preliminary MCQ.",
+    tags: ["own-test", "engineering"],
+    directoryNote:
+      "1,309 seats (4 reserved). Group A engineering & URP · Group B architecture. Apps open 21 Nov (close NOT announced). Written test 16 Jan 2027 — no preliminary MCQ. GPA wall unchanged. Rejected UGC after-1-Feb floor (notice 10 Nov).",
   }),
   U("cuet", "Chittagong University of Engineering & Technology", "CUET", "engineering", "Chattogram", "https://www.cuet.ac.bd", {
     admissionUrl: "https://admission.cuet.ac.bd/",
     nameBn: "চট্টগ্রাম প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
-    directoryNote: "The only stored 2026–27 date is a proposed test day. Not a confirmed circular.",
+    tags: ["engineering"],
+    directoryNote:
+      "~931 seats in compilations. Proposed test ~23 Jan 2027 — full circular and application window NOT locked in this archive. Confirm on admission.cuet.ac.bd.",
   }),
   U("kuet", "Khulna University of Engineering & Technology", "KUET", "engineering", "Khulna", "https://www.kuet.ac.bd", {
     admissionUrl: "https://admission.kuet.ac.bd/",
     nameBn: "খুলনা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
-    directoryNote: "About 1,105 seats. Test 8 Jan 2027 in Khulna, Dhaka and Rajshahi.",
+    tags: ["own-test", "engineering", "apps-open"],
+    directoryNote:
+      "Apps OPEN 10 Nov 10:00 → 10 Dec 17:00 on admission.kuet.ac.bd. ~1,105 seats / 17 departments. MCQ test 8 Jan 2027 09:30–12:30 at Khulna, DU and RUET centres.",
   }),
   U("ruet", "Rajshahi University of Engineering & Technology", "RUET", "engineering", "Rajshahi", "https://www.ruet.ac.bd", {
     admissionUrl: "https://admission.ruet.ac.bd/",
     nameBn: "রাজশাহী প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
-    directoryNote: "Test date was provisionally fixed. Not a confirmed circular.",
+    tags: ["engineering"],
+    directoryNote:
+      "~1,235 seats in compilations. Mid-January test appears in clash timelines — treat as provisional until RUET publishes the circular on admission.ruet.ac.bd.",
   }),
   U("duet", "Dhaka University of Engineering & Technology", "DUET", "engineering", "Gazipur", "https://www.duet.ac.bd", {
     directoryNote: "DUET's undergraduate entry has historically been a diploma-to-degree route, not the BUET-style HSC test. The 2026–27 circular is not stored here.",

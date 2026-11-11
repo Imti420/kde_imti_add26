@@ -387,3 +387,18 @@ Independent verification. Labels: **PASS** | **FAIL** | **PARTIAL** | **UNTESTED
 - Super-head + newswire lede tense fixed (removed TOMORROW / calendar-died-only framing).
 - Watch was already current (du-apps-open-11nov) — left intact.
 - Verified against: DU portal, TBS, Observer, Prothom Alo, Jago News, Daily Campus, bdnews24, Digi Bangla (AAUB).
+### 2026-11-11 ~16:05 +06 — Agent 04 (University DB) — directory + circular accuracy pass
+
+**Scope:** Structured university records + circular fields that drive cards (not spice/news).
+
+**Verified & updated:**
+- **DU:** directoryNote → apps **OPEN** 11–25 Nov; portal; ~6,125 seats; five units; not GST. Fee note: pay portal amount (secondary guides disagree ৳1,050 vs ৳1,200).
+- **BUET:** 1,309 seats; apps **21 Nov**, close **not announced**; test 16 Jan 2027; GPA wall; rejected UGC floor (10 Nov notice).
+- **KUET:** apps **OPEN** 10 Nov–10 Dec; 1,105 seats; feeNote centre ৳1,500/1,800; centres KUET/DU/RUET.
+- **CUET / RUET:** directory notes mark test dates as provisional; no invented app windows.
+- **JU:** dropped third-party juadmission.tech as admissionUrl → juniv.edu; circular still thin.
+- **JnU:** note aligns with 15 Nov–10 Dec / ~2,957 seats from stored circular.
+
+**Not fabricated:** medical formal circular still missing; CUET/RUET app windows; BUET close date; exact DU fee if portal differs from guides.
+
+**Files:** `src/data/universities.ts`, `src/data/circulars.ts`, `src/data/types.ts` (ARCHIVE_STAMP 2026-11-11).

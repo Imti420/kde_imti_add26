@@ -143,7 +143,7 @@ export const seedCirculars: Circular[] = [
     examDate: "2026-12-05",
     classesBegin: "2027-03-28",
     feeBdt: 1200,
-    feeNote: "Portal lists unit fees: Science / Arts / Business ৳1,200; Fine Arts ৳1,400; IBA ৳1,500.",
+    feeNote: "Pay only what admission.eis.du.ac.bd shows at checkout. Desk compilations list Science/ALS/Business around ৳1,050–1,200, Fine Arts ~৳1,250–1,400, IBA ৳1,500 — confirm on the portal before paying.",
     seats: 6125,
     eligibility: [
       "SSC/equivalent passed 2021–2024; HSC/equivalent passed 2026 only (no second-time HSC batch).",
@@ -239,7 +239,7 @@ export const seedCirculars: Circular[] = [
     notes: [
       "No preliminary MCQ screening (same pattern as 2025–26).",
       "Not delaying for HSC retake results.",
-      "Application close date still to be fixed in the formal circular.",
+      "Application close date still to be fixed in a subsequent BUET notice (Prothom Alo 11 Nov).",
     ],
   }),
 
@@ -261,20 +261,25 @@ export const seedCirculars: Circular[] = [
     closesAt: "17:00",
     examDate: "2027-01-08",
     seats: 1105,
+    feeBdt: null,
+    feeNote: "Centre-based application fee reported with the circular: Khulna ৳1,500; Dhaka or Rajshahi ৳1,800 (plus gateway charges). Confirm on admission.kuet.ac.bd before paying.",
     eligibility: [
-      "HSC/equivalent 2026 Science.",
-      "Secondary desks cite SSC GPA ≥ 4.00 and strong PCM + English scores at HSC — confirm in KUET circular before applying.",
+      "HSC/equivalent 2026 Science group.",
+      "SSC GPA ≥ 4.00 cited by secondary desks; HSC Physics/Chemistry/Math/English bars — confirm exact GPA lines in the KUET circular PDF before applying.",
     ],
     units: [
       {
         code: "Engineering",
-        detail: "Single undergraduate engineering admission test covering KUET departments (CE, EEE, ME, CSE, ECE, LE, URP, Architecture, and others on the current map).",
+        detail: "Single undergraduate MCQ covering KUET departments (CE, EEE, ME, CSE, ECE, LE, URP, Architecture, AICS where listed, and others on the current 17-department map).",
         examDate: "2027-01-08",
         examTime: "09:30–12:30",
-        centre: "Khulna, Dhaka, Rajshahi",
+        centre: "Khulna (KUET), Dhaka (DU), Rajshahi (RUET)",
       },
     ],
-    notes: ["Application procedure and final eligibility live only in the KUET circular."],
+    notes: [
+      "Eligible-candidate list pattern ~20 Dec; result pattern ~21 Jan — confirm on portal.",
+      "Final eligibility and department seat split live only in the KUET circular.",
+    ],
   }),
 
   C({
