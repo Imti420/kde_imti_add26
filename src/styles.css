@@ -7,6 +7,10 @@
   --color-mute: #5c574f;
   --color-panel: #fffdf8;
   --color-signal: #c45c12;
+  --color-varsity: #6b3fa0;
+  --color-eng: #1a5f9e;
+  --color-onvarsity: #f8f4ff;
+  --color-oneng: #eef6ff;
   --color-yellow: #ffe14a;
   --color-onyellow: #141414;
   --color-onaccent: #fffdf8;
@@ -26,6 +30,10 @@ html.dark {
   --color-mute: #d2c6b8;
   --color-panel: #26211c;
   --color-signal: #ffb020;
+  --color-varsity: #b48cff;
+  --color-eng: #5eb0ff;
+  --color-onvarsity: #1a1028;
+  --color-oneng: #0a1a28;
   --color-rail: #0c0b0a;
   --color-railfg: #f4efe6;
   color-scheme: dark;
@@ -956,6 +964,30 @@ article:has([class*="NUKE"]) {
   border-color: var(--color-signal);
   background: color-mix(in srgb, var(--color-signal) 12%, var(--color-paper));
   box-shadow: 2px 2px 0 0 var(--color-signal);
+}
+
+.cal-chip--varsity {
+  border-color: var(--color-varsity);
+  background: color-mix(in srgb, var(--color-varsity) 14%, var(--color-paper));
+  box-shadow: 2px 2px 0 0 var(--color-varsity);
+}
+
+.cal-chip--varsity .cal-chip-uni {
+  border-color: var(--color-varsity);
+  background: var(--color-varsity);
+  color: var(--color-onvarsity);
+}
+
+.cal-chip--eng {
+  border-color: var(--color-eng);
+  background: color-mix(in srgb, var(--color-eng) 14%, var(--color-paper));
+  box-shadow: 2px 2px 0 0 var(--color-eng);
+}
+
+.cal-chip--eng .cal-chip-uni {
+  border-color: var(--color-eng);
+  background: var(--color-eng);
+  color: var(--color-oneng);
 }
 
 .cal-chip-row {
