@@ -290,3 +290,23 @@ Independent verification. Labels: **PASS** | **FAIL** | **PARTIAL** | **UNTESTED
 - GH Actions best-effort cron → multi-hour quiet periods still possible.
 - Campus **403/WAF** from GitHub runners remains a coverage ceiling.
 - Pre-existing test mismatch: 403 → `retry_scheduled` vs expected `unreachable`.
+
+### 2026-11-11 ~16:00 +06 — Agent 03 (Chief Calendar) Nov–Jan audit
+**Calendar source of truth:** `archiveEvents(circulars)` via `eventsFor` in `src/lib/status.ts` — every OPEN/CLOSE/TEST on `/calendar` is derived from `src/data/circulars.ts`. No invented dates.
+
+**Verified operational grid (11 Nov desk):**
+| Institution | Apps | Tests | vs UGC 9 Nov floor | Calendar status |
+|-------------|------|-------|--------------------|----------------|
+| DU | 11–25 Nov (OPEN) | 5–26 Dec units | **Held** local notice | On calendar |
+| BUET | 21 Nov; close NOT ANNOUNCED | 16 Jan 2027 | **Held** notice 10 Nov | On calendar |
+| KUET | 10 Nov–10 Dec LIVE | 8 Jan 2027 | Own engineering track | On calendar |
+| Medical (DGME) | mid-Nov expected | 18 Dec | Not UGC | Exam on calendar; apps expected |
+| JnU | 15 Nov–10 Dec | from 1 Jan | UGC asked reconsider; no slip | Local line kept |
+| RU | 12–27 Nov prelim | 8/9/16 Jan | UGC pressure; prelim | Local line kept |
+| CU | 15 Nov–10 Dec | 29 Jan–8 Feb probable | Partial overlap UGC | Probable line kept |
+| GST | NOT ANNOUNCED | 19/20/27 Mar reported | Long fuse | Tests only |
+| Agri cluster | NOT ANNOUNCED | 2 Jan reported | — | Test only |
+
+**Shipped:** confidenceNotes/summaries for JnU/RU/CU (UGC vs local honesty); watch item `cal-officer-11nov`.
+**Not done:** inventing January apps for campuses that have not published a slip; admit-card windows still NOT ANNOUNCED unless circular says so.
+**Handoff:** Agent 02 should stop “DU tomorrow” copy; Agent 06 verify `/calendar` month views for Nov–Jan chips.
