@@ -145,6 +145,76 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 
 **Verification status:** audit only — read live.json, routes, desk-push, registry. No production data rewrite this pass.
 
+
+### 2026-11-11 ~16:05 +06 — Agent 06 FINAL AUDIT (integration / QA)
+
+**Scope:** Independent verification of Agents 01–05 claims vs `main` + production `https://kdeimtiadd26.vercel.app`. QA did **not** ship product fixes.
+
+#### AUDIT 1 — CIRCULARS · **PARTIAL**
+| Check | Result |
+|-------|--------|
+| Key 2026–27 records present (DU, BUET, KUET, DGHS, GST, …) | **PASS** — 14 seed circulars; DU/BUET/KUET/DGHS `updatedOn` 2026-11-11 |
+| DU apps 11–25 Nov, unit tests Dec | **PASS** (matches portal + press) |
+| BUET apps 21 Nov / test 16 Jan 2027 | **PASS** on stored notice |
+| KUET window live | **PASS** on stored notice |
+| Medical formal circular / PDF | **FAIL** — exam 18 Dec reported; formal circular still missing (`confidence: reported`) · **Agent 03** |
+| PDFs in archive | **FAIL** — all inspected `pdfUrl` values **null** · **Agent 03** (+ portal links may exist on uni profiles) |
+| Superseded marking | **FAIL** — no supersession usage in circular seed · **Agent 03** |
+| Coverage vs full BD public map | **PARTIAL** — directory of unis larger than circular set; expected for thin notices |
+
+#### AUDIT 2 — NEWSWIRE · **FAIL** (integrity)
+| Check | Result |
+|-------|--------|
+| Wire crawler live | **PASS** — `public/wire/live.json` = prod `/wire/live.json`, completed 2026-11-11T07:07Z, 40 items |
+| Dual track (spice + wire) | **PASS** (architecture) |
+| Breaking DU copy on **production** | **FAIL** — UI still “APPS OPEN **TOMORROW**” / “10 NOV 2026”; spice `n1022-du-tminus` still “HOURS LEFT · NOON TOMORROW” on **11 Nov** when apps are open · **Agent 02 + Agent 05** |
+| `UgcNukeSuperHead` binds `spice-du-defy` | **FAIL** — id missing; falls back to `[0]` · **Agent 05** (bind) / **02** (facts) |
+| Source links on spice | **PASS** (present) |
+| Wire noise (hospital/fire “ভর্তি”) | **FAIL** — still in live feed · **Agent 02/04** relevance |
+| Duplicates | **PARTIAL** — EN/BN pairs for same story (acceptable if labeled) |
+| Old-as-breaking | **FAIL** — nuke superhead · **02/05** |
+
+#### AUDIT 3 — CALENDAR · **PARTIAL**
+| Check | Result |
+|-------|--------|
+| Events derived from circular seed | **PASS** (architecture) |
+| Unannounced filled as fact | **PASS** pattern — nulls/confidence notes used on soft dates |
+| Postponements / UGC floor vs DU hold | **PARTIAL** — data holds DU schedule; UI narrative lags · **02/05** |
+| Full interactive calendar on prod | **UNTESTED** deep UX (route HTTP 200 only) · **Agent 05** |
+
+#### AUDIT 4 — UNIVERSITY DATABASE · **PARTIAL**
+| Check | Result |
+|-------|--------|
+| Core unis + admission URLs (DU portal etc.) | **PASS** |
+| Seat/eligibility on circulars vs profiles | **PARTIAL** — seats live mainly on circular records |
+| Consistency circular `universityId` ↔ directory | **PASS** for seeded set |
+| Full seat truth for every campus | **PARTIAL** — not all unis have own circular |
+
+#### AUDIT 5 — PLATFORM · **PARTIAL**
+| Check | Result |
+|-------|--------|
+| `/` `/newswire` `/calendar` `/universities` `/discovery` HTTP | **PASS** 200 |
+| Bangla toggle present in chrome | **PASS** |
+| Wire JSON on prod | **PASS** |
+| Notifications / SCREAM NOW end-to-end | **UNTESTED** (requires permissioned browser) · **Agent 05/SIREN** |
+| Mobile calendar UX | **UNTESTED** device pass · **Agent 05** |
+| Crawler health (discovery + newswire Actions) | **PARTIAL** — artifacts fresh; newswire UI can show STALE relative to 55-min desk copy |
+
+#### AUDIT 6 — DEPLOYMENT · **PASS** (pipeline)
+| Stage | Result |
+|-------|--------|
+| `main` status | **PASS** — Vercel deployment success |
+| Prod serves latest wire artifact | **PASS** — same `generatedAt` as GitHub `public/wire/live.json` |
+| Prod serves fixed DU breaking narrative | **FAIL** — stale copy still live (code not corrected) |
+
+#### P0 blockers (students can misread)
+1. **Newswire breaking head + spice still say DU opens tomorrow** on 11 Nov · **Agents 02 + 05**
+2. **No circular PDFs stored** (`pdfUrl` null) · **Agent 03**
+3. **Medical formal circular still absent** · **Agent 03**
+
+#### Sign-off
+ADMISSION//26 is **deployed and largely wired**, but **not fully trustworthy on the flagship DU status narrative** until P0 copy is fixed and redeployed. QA does not clear “genuinely up to date” until P0 is verified on production.
+
 ### (Next agent: append here)
 
 ### 2026-11-11 ~15:50 +06 — Agent 05 (Creative / Frontend) first mission audit
