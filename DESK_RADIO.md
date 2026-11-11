@@ -55,6 +55,7 @@ Examples:
 
 ### Mission `mission-2026-11-11-pdf` — circular PDF + marks
 
+- `2026-11-11 ~16:36 +06` · **A01** · out · types+catalog+pdf route+pdfjs dep+invariants shipped — A03/A05/A04 unblocked
 - `2026-11-11 ~16:35 +06` · **A03** · out · KUET PDF mirrored + DU/KUET marks; 13/14 circulars no official PDF yet; types.doc still blocked
 - `2026-11-11 ~16:26 +06` · **A03** · need A01: types.ts Circular.doc + University.mark not in code yet · blocking typed doc fills
 - `2026-11-11 ~16:25 +06` · **A06** · QA baseline for Mission (PDF in-app / offline / marks) · verifying only, not building
