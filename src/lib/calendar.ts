@@ -1,23 +1,24 @@
 import type { Circular, Confidence } from "@/data/types";
+import { coachingExams, type CoachingExam } from "@/data/coaching";
 import { monthMatrix, shiftMonth, toIcs, weekDays } from "@/lib/calendar-ics";
 import { evidenceLabel, eventsFor, type RadarEvent } from "@/lib/status";
 
 export { monthMatrix, shiftMonth, toIcs, weekDays };
 
-export type CalendarKind = RadarEvent["kind"] | "other";
-export type EventTone = "accent" | "ink" | "mute" | "signal";
+export type CalendarKind = RadarEvent["kind"] | "other" | "coach-varsity" | "coach-eng";
+export type EventTone = "accent" | "ink" | "mute" | "signal" | "varsity" | "eng";
 
 export interface CalendarEvent {
   id: string;
   day: string;
   time: string | null;
   title: string;
-  /** University short code for chip display (e.g. KUET, DU). */
+  /** University short code or track label (e.g. KUET, VARSITY). */
   shortName: string | null;
   /** Action label without the uni prefix (e.g. Written test). */
   action: string;
   kind: CalendarKind;
-  confidence: Confidence | "personal";
+  confidence: Confidence | "personal" | "reported";
   confidenceLabel: string;
   universityId: string | null;
   circularId: string | null;
@@ -33,6 +34,8 @@ export function toneFor(kind: CalendarKind): EventTone {
   if (kind === "closes") return "accent";
   if (kind === "exam") return "ink";
   if (kind === "opens") return "mute";
+  if (kind === "coach-varsity") return "varsity";
+  if (kind === "coach-eng") return "eng";
   return "signal";
 }
 
@@ -41,6 +44,7 @@ export function kindStamp(kind: CalendarKind): string {
   if (kind === "exam") return "TEST";
   if (kind === "opens") return "OPEN";
   if (kind === "admit") return "ADMIT";
+  if (kind === "coach-varsity" || kind === "coach-eng") return "COACH";
   return "NOTE";
 }
 
@@ -75,7 +79,7 @@ export function archiveEvents(circulars: Circular[], shortNames: Map<string, str
       title: `${short} · ${event.label}`,
       shortName: short,
       action: event.label,
-      kind: event.kind,
+      kind: event.kind as CalendarKind,
       confidence: circular.confidence,
       confidenceLabel: evidenceLabel(circular.confidence, circular.publication),
       universityId: circular.universityId,
@@ -86,5 +90,40 @@ export function archiveEvents(circulars: Circular[], shortNames: Map<string, str
       remindDays: null,
       reqLines: req,
     }));
+  });
+}
+
+function phaseStamp(phase: CoachingExam["phase"]): string {
+  if (phase === "paper") return "PAPER";
+  if (phase === "subject") return "SUBJECT";
+  if (phase === "model") return "MODEL";
+  if (phase === "combined") return "COMBINED";
+  return "SPECIAL";
+}
+
+/** Coaching routine events — Varsity (purple) + Engineering (blue). */
+export function coachingCalendarEvents(): CalendarEvent[] {
+  return coachingExams.map((row) => {
+    const isVarsity = row.track === "varsity";
+    const trackLabel = isVarsity ? "VARSITY" : "ENGINEERING";
+    return {
+      id: `coach-${row.id}`,
+      day: row.day,
+      time: row.time ?? null,
+      title: `${trackLabel} · ${row.action}`,
+      shortName: isVarsity ? "VARSITY" : "ENGG",
+      action: row.action,
+      kind: (isVarsity ? "coach-varsity" : "coach-eng") as CalendarKind,
+      confidence: "reported",
+      confidenceLabel: "COACHING ROUTINE",
+      universityId: null,
+      circularId: null,
+      personal: false,
+      completed: false,
+      notes: "",
+      remindDays: null,
+      // Hover: track name + number distribution only
+      reqLines: [trackLabel, row.marks],
+    };
   });
 }
