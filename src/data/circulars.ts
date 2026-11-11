@@ -265,7 +265,7 @@ export const seedCirculars: Circular[] = [
     publication: "notice",
     confidence: "notice",
     confidenceNote:
-      "Official PDF on admission.kuet.ac.bd (1.UG-Admission-2026-Circular.pdf). Apps live; test 8 Jan 2027. Eligible-list due 20 Dec; result pattern 21 Jan.",
+      "Official PDF on admission.kuet.ac.bd (1.UG-Admission-2026-Circular.pdf). Archived copy at /circulars/c-kuet.pdf (sha256 6d86886d9fb2813ad20d796e26913146cf7a26a2a53fc6f27dd5da3c9291ac3f, 494729 bytes, ~2 pages, fetched 2026-11-11, officialHost). Apps live; test 8 Jan 2027. Eligible-list due 20 Dec; result pattern 21 Jan. doc field pending A01 types.ts.",
     sources: [KUET_OFFICIAL, KUET_PORTAL, STAR_CLASH, SEATS_COMP, STAR_RETAKE],
     updatedOn: "2026-11-11",
     pdfUrl: "https://admission.kuet.ac.bd/uploads/notices/1.UG-Admission-2026-Circular.pdf",
