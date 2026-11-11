@@ -48,6 +48,12 @@ const DAILYBD_MED: SourceRef = {
   published: "2026-11-08",
 };
 
+const COACH_ALIGN: SourceRef = {
+  label: "Udvas–Unmesh Varsity KA / Engineering MT routine 2026 (coaching calendar — not a university circular)",
+  url: "https://udvash-unmesh.com/media/Files/Routine/2026/AP26/Ka/VarsityKA26FMT.pdf",
+  published: "2026-11",
+};
+
 const BDNEWS_SPLIT: SourceRef = {
   label: "bdnews24 — DU/BUET hold; RU Feb tests + resit window; JnU resit door",
   url: "https://bdnews24.com/education/wk2v9xuw49",
@@ -211,6 +217,7 @@ export const seedCirculars: Circular[] = [
     notes: [
       "Official portal: admission.eis.du.ac.bd",
       "HSC retake candidates are not accommodated under the published window.",
+      "Science unit 12 Dec aligns with national Varsity KA coaching routines marking DU 'Ka' that day — formal schedule remains the DU notice.",
     ],
   }),
 
@@ -258,6 +265,7 @@ export const seedCirculars: Circular[] = [
       "No preliminary MCQ screening (same pattern as 2025–26).",
       "Not delaying for HSC retake results.",
       "Application close date still to be fixed in the formal circular.",
+      "16 Jan test day matches Engineering MT coaching calendars; formal BUET notice already on desk.",
     ],
   }),
 
@@ -303,6 +311,7 @@ export const seedCirculars: Circular[] = [
       "Official PDF: https://admission.kuet.ac.bd/uploads/notices/1.UG-Admission-2026-Circular.pdf",
       "Eligible-candidate list pattern ~20 Dec; result pattern ~21 Jan — confirm on portal.",
       "Portal shows applications open and ~30 days remaining as of 11 Nov.",
+      "8 Jan test day matches Engineering MT coaching calendars; formal KUET circular already on desk with PDF.",
     ],
   }),
 
@@ -376,6 +385,7 @@ export const seedCirculars: Circular[] = [
       { code: "C", detail: "Unit C (as defined in MIST circular).", examDate: "2026-12-18", examTime: null, centre: "Seven divisional cities" },
       { code: "A", detail: "Unit A.", examDate: "2026-12-19", examTime: null, centre: "Seven divisional cities" },
       { code: "B", detail: "Unit B.", examDate: "2026-12-19", examTime: null, centre: "Seven divisional cities" },
+      "14 Jan test day matches Engineering MT coaching calendars; formal RUET circular still not archived here.",
     ],
     notes: ["Centres: Dhaka, Rajshahi, Rangpur, Khulna, Chattogram, Sylhet, Mymensingh."],
   }),
@@ -638,6 +648,7 @@ export const seedCirculars: Circular[] = [
       "Originally targeted 4 Dec; slipped past HSC result delay and BCS written on 11 Dec.",
       "HSC retake starts 1 Dec; results hoped end-December — retakers are largely locked out of this cycle unless ministry intervenes.",
       "Formal circular still pending as of 9 Nov desk pass.",
+      "18 Dec medical line also appears on Engineering MT coaching routines; formal DGME circular still thin on this desk.",
     ],
   }),
 ];
@@ -647,4 +658,35 @@ export const EVIDENCE_COPY = [
   "REPORTED — a newsroom or compilation stated the figure. This desk has not stored the underlying PDF.",
   "REPORTED · NOT FINAL — the source itself calls the date proposed, probable, provisional or tentative.",
   "NOT ANNOUNCED — this archive does not have the fact. Empty is honest.",
+  C({
+    id: "c-sust",
+    universityId: "sust",
+    title: "SUST undergraduate admission test 2026–27",
+    summary:
+      "Admission test reported for 17 January 2027 on national coaching calendars (Engineering MT routines). Formal SUST circular PDF is not yet on this archive. Application window still not locked here.",
+    system: "science-technology",
+    publication: "decision",
+    confidence: "reported",
+    confidenceNote:
+      "Exam day 17 Jan 2027 appears on Udvas–Unmesh Engineering MT routine and similar prep calendars alongside KUET 8 Jan / RUET 14 Jan / BUET 16 Jan. SUST admission portal has no 2026–27 notice stored on this desk — confidence stays reported until a formal circular lands.",
+    sources: [COACH_ALIGN, SEATS_COMP],
+    updatedOn: "2026-11-12",
+    examDate: "2027-01-17",
+    seats: null,
+    eligibility: ["Criteria belong in the SUST circular — not archived here yet."],
+    units: [
+      {
+        code: "Admission test",
+        detail: "Undergraduate admission test (cluster/subject split not fixed on this desk).",
+        examDate: "2027-01-17",
+        examTime: null,
+        centre: "As notified by SUST",
+      },
+    ],
+    notes: [
+      "Coaching routines are not formal circulars. Treat 17 Jan as reported until SUST publishes.",
+      "Application open/close still unknown on this archive.",
+    ],
+  }),
+
 ];
