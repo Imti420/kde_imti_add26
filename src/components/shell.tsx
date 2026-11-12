@@ -5,7 +5,7 @@ import { NoticeBell } from "@/components/notifications";
 import { DeskPushBoot } from "@/components/desk-push-boot";
 import { IntroSequence } from "@/components/intro";
 import { Signature } from "@/components/signature";
-import { ChromeToggles, NaughtyBadge } from "@/components/theme";
+import { ChromeToggles, NaughtyBadge, PhilosopherBadge } from "@/components/theme";
 import { useLang, useT } from "@/lib/i18n";
 import { useCatalog } from "@/lib/catalog";
 import { cn } from "@/lib/cn";
@@ -287,6 +287,7 @@ export function Shell({ children }: { children: ReactNode }) {
               <div className="flex shrink-0 items-center gap-2 border-l-[3px] border-ink pl-3">
                 <ChromeToggles />
                 <NaughtyBadge />
+                <PhilosopherBadge />
                 <NoticeBell />
               </div>
               <p className="hidden max-w-[9rem] font-mono text-[0.65rem] uppercase leading-snug tracking-widest text-mute xl:block">
@@ -369,6 +370,7 @@ export function Shell({ children }: { children: ReactNode }) {
           </div>
           <div className="flex items-center justify-between gap-3 border-t-[3px] border-railfg/30 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
             <NaughtyBadge />
+            <PhilosopherBadge />
             <ChromeToggles />
           </div>
           <Signature variant="rail" />

@@ -845,6 +845,115 @@ html.naughty .desk-experiment {
   box-shadow: var(--naughty-glow);
 }
 
+
+/* ═══════════════════════════════════════════════════════════
+   CREATOR-ONLY · PHILOSOPHER MODE (html.philosopher)
+   localStorage: a26-philosopher. Visual priority over naughty.
+   ═══════════════════════════════════════════════════════════ */
+
+html.philosopher {
+  --color-paper: #e8e3d5;
+  --color-panel: #f1ede2;
+  --color-ink: #292c29;
+  --color-mute: #77796b;
+  --color-accent: #68745a;
+  --color-onaccent: #f1ede2;
+  --color-yellow: #d4c9a8;
+  --color-onyellow: #292c29;
+  --color-rail: #2d302a;
+  --color-railfg: #e6e0d2;
+  --color-signal: #925b50;
+  --philosopher-rule: #c9c2b1;
+}
+
+html.dark.philosopher {
+  --color-paper: #242722;
+  --color-panel: #2d302a;
+  --color-ink: #e6e0d2;
+  --color-mute: #a8a592;
+  --color-accent: #a3a982;
+  --color-onaccent: #242722;
+  --color-yellow: #3a3d34;
+  --color-onyellow: #e6e0d2;
+  --color-rail: #1a1c18;
+  --color-railfg: #e6e0d2;
+  --color-signal: #bd8275;
+  --philosopher-rule: #46493f;
+}
+
+/* Both on: philosopher wins — restate palette after naughty rules */
+html.philosopher.naughty,
+html.dark.philosopher.naughty {
+  /* inherit philosopher tokens already set above; kill naughty glow language */
+}
+
+html.philosopher body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+html.philosopher ::selection {
+  background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  color: var(--color-ink);
+}
+
+html.philosopher .press:hover {
+  box-shadow: 4px 4px 0 0 var(--color-ink);
+}
+
+html.philosopher a:hover {
+  text-shadow: none;
+  text-decoration-thickness: 2px;
+}
+
+/* kill naughty throb when philosopher also active */
+html.philosopher.naughty .naughty-badge,
+html.philosopher.naughty .naughty-heart,
+html.philosopher.naughty .naughty-label {
+  animation: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+html.philosopher.naughty .window,
+html.philosopher.naughty .uni-card,
+html.philosopher.naughty header {
+  box-shadow: none;
+}
+
+.philosopher-badge {
+  border-color: var(--philosopher-rule, var(--color-mute)) !important;
+  letter-spacing: 0.14em;
+  opacity: 0.92;
+  user-select: none;
+}
+
+html.philosopher .window,
+html.philosopher .uni-card {
+  border-color: var(--philosopher-rule, var(--color-ink));
+}
+
+html.philosopher header {
+  border-bottom-color: var(--philosopher-rule, var(--color-ink));
+}
+
+html.philosopher .desk-experiment {
+  opacity: 1;
+  border-style: solid;
+  box-shadow: none;
+  border-color: var(--philosopher-rule, var(--color-ink));
+}
+
+html.philosopher .border-accent,
+html.philosopher [class*="border-accent"] {
+  border-color: var(--color-accent) !important;
+}
+
+/* quiet editorial rule under display heads when mode is on */
+html.philosopher .page-enter > :first-child {
+  /* no layout shift — token only */
+}
+
 /* ═══════════════════════════════════════════════════════════
    UGC NUKE SUPER-HEAD — the shining moment of Admission 26
    ═══════════════════════════════════════════════════════════ */

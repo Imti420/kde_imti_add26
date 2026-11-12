@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { EVIDENCE_COPY } from "@/data/circulars";
 import { SYSTEM_LABEL, TRACK_LABEL, type Track } from "@/data/types";
 import { Signature } from "@/components/signature";
-import { applyNaughty, resolveNaughty } from "@/components/theme";
+import { applyNaughty, applyPhilosopher, resolveNaughty, resolvePhilosopher } from "@/components/theme";
 import { PageHead, TextButton, controlClass } from "@/components/marks";
 import { blankCircular, blankUniversity, buildCatalog, useCatalog } from "@/lib/catalog";
 import { todayISO } from "@/lib/dates";
@@ -334,15 +334,22 @@ function SeedCount() {
 
 function DeskExperiment() {
   const [open, setOpen] = useState(false);
-  const [on, setOn] = useState(false);
+  const [naughtyOn, setNaughtyOn] = useState(false);
+  const [philOn, setPhilOn] = useState(false);
 
   useEffect(() => {
-    setOn(resolveNaughty());
+    setNaughtyOn(resolveNaughty());
+    setPhilOn(resolvePhilosopher());
   }, []);
 
-  const toggle = (next: boolean) => {
+  const toggleNaughty = (next: boolean) => {
     applyNaughty(next);
-    setOn(next);
+    setNaughtyOn(next);
+  };
+
+  const togglePhilosopher = (next: boolean) => {
+    applyPhilosopher(next);
+    setPhilOn(next);
   };
 
   return (
@@ -362,22 +369,41 @@ function DeskExperiment() {
       {open ? (
         <div className="mt-3 border-t border-ink pt-3">
           <p className="mb-3 text-xs text-mute">
-            Creator skin. This browser only. Not in the public product. Not synced. Flip if you know.
+            Creator skins. This browser only. Not in the public product. Not synced. Flip if you know.
           </p>
           <label className="flex cursor-pointer items-center gap-3">
             <input
               type="checkbox"
               className="size-4 accent-[var(--color-accent)]"
-              checked={on}
-              onChange={(e) => toggle(e.target.checked)}
+              checked={naughtyOn}
+              onChange={(e) => toggleNaughty(e.target.checked)}
             />
             <span className="font-display text-lg font-bold uppercase tracking-wide">
-              {on ? "♥ soaked · on" : "horny mode · off"}
+              {naughtyOn ? "♥ soaked · on" : "horny mode · off"}
             </span>
           </label>
-          {on ? (
+          {naughtyOn ? (
             <p className="mt-2 font-mono text-[10px] tracking-widest text-accent">
               palette molten · badge throbbing · this machine only
+            </p>
+          ) : null}
+
+          <label className="mt-4 flex cursor-pointer items-center gap-3 border-t border-ink/40 pt-4">
+            <input
+              type="checkbox"
+              className="size-4 accent-[var(--color-accent)]"
+              checked={philOn}
+              onChange={(e) => togglePhilosopher(e.target.checked)}
+            />
+            <span className="font-display text-lg font-bold uppercase tracking-wide">
+              {philOn ? "Φ philosopher · on" : "philosopher · off"}
+            </span>
+          </label>
+          <p className="mt-1 text-xs text-mute">Quiet desk. Long thoughts. Less noise.</p>
+          {philOn ? (
+            <p className="mt-2 font-mono text-[10px] tracking-widest text-mute">
+              archival paper · botanical ink · this machine only
+              {naughtyOn ? " · wins over naughty visually" : ""}
             </p>
           ) : null}
         </div>

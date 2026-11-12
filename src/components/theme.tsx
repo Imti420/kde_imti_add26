@@ -4,8 +4,9 @@ import { useLang, useT } from "@/lib/i18n";
 
 const KEY = "a26-theme";
 const NAUGHTY_KEY = "a26-naughty";
+const PHILOSOPHER_KEY = "a26-philosopher";
 
-export const THEME_BOOT = `(function(){try{var t=localStorage.getItem("${KEY}");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);document.documentElement.style.colorScheme=d?"dark":"light";var n=localStorage.getItem("${NAUGHTY_KEY}");if(n==="1"||n==="on"||n==="true"){document.documentElement.classList.add("naughty");}}catch(e){}})();`;
+export const THEME_BOOT = `(function(){try{var t=localStorage.getItem("${KEY}");var d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);document.documentElement.style.colorScheme=d?"dark":"light";var n=localStorage.getItem("${NAUGHTY_KEY}");if(n==="1"||n==="on"||n==="true"){document.documentElement.classList.add("naughty");}var p=localStorage.getItem("${PHILOSOPHER_KEY}");if(p==="1"||p==="on"||p==="true"){document.documentElement.classList.add("philosopher");}}catch(e){}})();`;
 
 function systemDark() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -31,15 +32,22 @@ export function resolveNaughty(): boolean {
   }
 }
 
+function syncThemeColor() {
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (!meta) return;
+  const dark = document.documentElement.classList.contains("dark");
+  const philosopher = document.documentElement.classList.contains("philosopher");
+  const naughty = document.documentElement.classList.contains("naughty");
+  // Philosopher visual priority over Naughty when both are on.
+  if (philosopher) meta.setAttribute("content", dark ? "#242722" : "#68745A");
+  else if (naughty) meta.setAttribute("content", dark ? "#14030c" : "#ff0066");
+  else meta.setAttribute("content", dark ? "#171513" : "#141414");
+}
+
 export function applyTheme(dark: boolean) {
   document.documentElement.classList.toggle("dark", dark);
   document.documentElement.style.colorScheme = dark ? "dark" : "light";
-  const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) {
-    const naughty = document.documentElement.classList.contains("naughty");
-    if (naughty) meta.setAttribute("content", dark ? "#14030c" : "#ff0066");
-    else meta.setAttribute("content", dark ? "#171513" : "#141414");
-  }
+  syncThemeColor();
 }
 
 export function applyNaughty(on: boolean) {
@@ -50,18 +58,34 @@ export function applyNaughty(on: boolean) {
   } catch {
     /* private mode */
   }
-  const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) {
-    const dark = document.documentElement.classList.contains("dark");
-    if (on) meta.setAttribute("content", dark ? "#14030c" : "#ff0066");
-    else meta.setAttribute("content", dark ? "#171513" : "#141414");
+  syncThemeColor();
+}
+
+export function resolvePhilosopher(): boolean {
+  try {
+    const v = localStorage.getItem(PHILOSOPHER_KEY);
+    return v === "1" || v === "on" || v === "true";
+  } catch {
+    return false;
   }
+}
+
+export function applyPhilosopher(on: boolean) {
+  document.documentElement.classList.toggle("philosopher", on);
+  try {
+    if (on) localStorage.setItem(PHILOSOPHER_KEY, "1");
+    else localStorage.removeItem(PHILOSOPHER_KEY);
+  } catch {
+    /* private mode */
+  }
+  syncThemeColor();
 }
 
 export function ThemeBoot() {
   useEffect(() => {
     applyTheme(resolveDark());
     applyNaughty(resolveNaughty());
+    applyPhilosopher(resolvePhilosopher());
     const media = window.matchMedia("(prefers-color-scheme: dark)");
     const onChange = () => {
       if (!localStorage.getItem(KEY)) applyTheme(media.matches);
@@ -160,6 +184,32 @@ export function NaughtyBadge() {
         ♥
       </span>
       <span className="naughty-label">Soaked</span>
+    </span>
+  );
+}
+
+/** Creator-only. Renders nothing until philosopher is on. Quiet desk mark. */
+export function PhilosopherBadge() {
+  const [on, setOn] = useState(false);
+
+  useEffect(() => {
+    const sync = () => setOn(document.documentElement.classList.contains("philosopher"));
+    sync();
+    const obs = new MutationObserver(sync);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => obs.disconnect();
+  }, []);
+
+  if (!on) return null;
+
+  return (
+    <span
+      className="philosopher-badge inline-flex items-center gap-1.5 border border-[var(--color-border,currentColor)] bg-paper px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink"
+      title="Philosopher mode · this browser only"
+      aria-label="Philosopher mode active"
+    >
+      <span aria-hidden>Φ</span>
+      <span className="hidden sm:inline">Philosopher</span>
     </span>
   );
 }
