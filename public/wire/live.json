@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-12T03:21:20.421Z",
+  "generatedAt": "2026-11-12T10:56:47.499Z",
   "status": "completed",
   "runner": "github-actions",
   "intervalMinutes": 55,
-  "startedAt": "2026-11-12T03:20:49.124Z",
-  "completedAt": "2026-11-12T03:21:20.421Z",
-  "durationMs": 31297,
-  "nextExpectedAt": "2026-11-12T04:16:20.421Z",
-  "note": "Wire cycle finished. 0 new headlines. 1 source failed. 5 sources were not opened because automated access is not authorised. News is not a circular.",
+  "startedAt": "2026-11-12T10:56:14.680Z",
+  "completedAt": "2026-11-12T10:56:47.499Z",
+  "durationMs": 32819,
+  "nextExpectedAt": "2026-11-12T11:51:47.499Z",
+  "note": "Wire cycle finished. 2 new headlines. 1 source failed. 5 sources were not opened because automated access is not authorised. News is not a circular.",
   "counts": {
     "sources": 17,
     "attempted": 12,
@@ -16,10 +16,10 @@
     "failed": 1,
     "notAuthorised": 4,
     "manualOnly": 1,
-    "items": 47,
-    "newItems": 0,
+    "items": 49,
+    "newItems": 2,
     "aiClassified": 0,
-    "heuristicClassified": 16
+    "heuristicClassified": 26
   },
   "sources": [
     {
@@ -32,14 +32,14 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-12T03:20:49.124Z",
-      "lastCheckedAt": "2026-11-12T03:20:49.124Z",
-      "status": "no_change",
+      "lastSuccessAt": "2026-11-12T10:56:14.680Z",
+      "lastCheckedAt": "2026-11-12T10:56:14.680Z",
+      "status": "ok",
       "httpStatus": 200,
-      "contentHash": "666f6dd86a959d9b4b54e7b5f8b9db153791498f2457b2201589a39c7819da34",
+      "contentHash": "7d32a886396c346e1f227e1a8e88025bc0899e339f63a5ccc51b5215174edc52",
       "itemsFound": 0,
       "error": null,
-      "note": "Official UGC homepage. Only admission-relevant links are kept. Postgraduate scholarship notices are dropped."
+      "note": "Official UGC homepage. Only admission-relevant links are kept. Postgraduate scholarship notices are dropped. Reached. No admission-season headline in this response."
     },
     {
       "id": "du-home",
@@ -51,11 +51,11 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-12T03:20:49.124Z",
-      "lastCheckedAt": "2026-11-12T03:20:49.124Z",
+      "lastSuccessAt": "2026-11-12T10:56:14.680Z",
+      "lastCheckedAt": "2026-11-12T10:56:14.680Z",
       "status": "ok",
       "httpStatus": 200,
-      "contentHash": "84a15eccf12ea23a66c1bec51f074ce08a5c97446c2e16a652c2b56350537257",
+      "contentHash": "9f7eb935ad57604b992fcbb4aff3dd724c62bfaee37723fb9c476c84adec48a1",
       "itemsFound": 0,
       "error": null,
       "note": "Official website. Link text is kept as the headline. No date is invented. Reached. No admission-season headline in this response."
@@ -70,8 +70,8 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-12T03:20:49.124Z",
-      "lastCheckedAt": "2026-11-12T03:20:49.124Z",
+      "lastSuccessAt": "2026-11-12T10:56:14.680Z",
+      "lastCheckedAt": "2026-11-12T10:56:14.680Z",
       "status": "no_change",
       "httpStatus": 200,
       "contentHash": "dbf8c0b6b77fc70e1a7255d318560f5659764fa9c4e0acfa8f960a6d879386ad",
@@ -89,11 +89,11 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-12T03:20:49.124Z",
-      "lastCheckedAt": "2026-11-12T03:20:49.124Z",
+      "lastSuccessAt": "2026-11-12T10:56:14.680Z",
+      "lastCheckedAt": "2026-11-12T10:56:14.680Z",
       "status": "ok",
       "httpStatus": 200,
-      "contentHash": "634b9ff8464a7fe216f757a02b6f8936ed056c319d425ffbfafc48c6aaf4caba",
+      "contentHash": "dadf11ffa2beb1b699be3f0d36569b808ae39492e826e3f49a9a3c9a991e7cfd",
       "itemsFound": 0,
       "error": null,
       "note": "Official DGHS site. Medical admission headlines only when the page itself states them. Reached. No admission-season headline in this response."
@@ -108,11 +108,11 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-12T03:20:49.124Z",
-      "lastCheckedAt": "2026-11-12T03:20:49.124Z",
+      "lastSuccessAt": "2026-11-12T10:56:14.680Z",
+      "lastCheckedAt": "2026-11-12T10:56:14.680Z",
       "status": "ok",
       "httpStatus": 200,
-      "contentHash": "73fecac130777411a16b8bc7417f8e780bed13667c0b1f94bc1e34c4d0cf5d08",
+      "contentHash": "a037b8bab3d2fa6f207dfb816c89ecb038b3c53b380821fe456e47535aac5455",
       "itemsFound": 12,
       "error": null,
       "note": "Official Udvash website. Programme titles are coaching announcements, not university circulars."
@@ -127,8 +127,8 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-12T03:20:49.124Z",
-      "lastCheckedAt": "2026-11-12T03:20:49.124Z",
+      "lastSuccessAt": "2026-11-12T10:56:14.680Z",
+      "lastCheckedAt": "2026-11-12T10:56:14.680Z",
       "status": "no_change",
       "httpStatus": 200,
       "contentHash": "dd887b5a0bdcfdcc0faef5769a64a0fcde28743f02b70348ac77455037d1d524",
@@ -146,14 +146,14 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-12T03:20:49.124Z",
-      "lastCheckedAt": "2026-11-12T03:20:49.124Z",
-      "status": "no_change",
+      "lastSuccessAt": "2026-11-12T10:56:14.680Z",
+      "lastCheckedAt": "2026-11-12T10:56:14.680Z",
+      "status": "ok",
       "httpStatus": 200,
-      "contentHash": "3996e99d3cf4ec273c25aaaabf53f32e9cc58eb19a8986973f76da849a1a0fd8",
+      "contentHash": "25258cc35a1463a3759c938b522bae0cd296fcb17e4d9a7e336c6575b55a7fd1",
       "itemsFound": 0,
       "error": null,
-      "note": "ACS admission programmes are published here. Not a university circular."
+      "note": "ACS admission programmes are published here. Not a university circular. Reached. No admission-season headline in this response."
     },
     {
       "id": "daily-star-education",
@@ -165,11 +165,11 @@
       "trust": "reported",
       "accessMethod": "rss",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-12T03:20:49.124Z",
-      "lastCheckedAt": "2026-11-12T03:20:49.124Z",
+      "lastSuccessAt": "2026-11-12T10:56:14.680Z",
+      "lastCheckedAt": "2026-11-12T10:56:14.680Z",
       "status": "ok",
       "httpStatus": 200,
-      "contentHash": "5cb0394f20017a7b5140498490c662260bc5836ba16be56f4dd1aadf28211d53",
+      "contentHash": "fbd65e0220107fe99bb3e2314d34b93285335c3b089bb796024cf0a75f9f5bc8",
       "itemsFound": 4,
       "error": null,
       "note": "Public education RSS. A reported story is not the university circular."
@@ -184,11 +184,11 @@
       "trust": "reported",
       "accessMethod": "rss",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-12T03:20:49.124Z",
-      "lastCheckedAt": "2026-11-12T03:20:49.124Z",
-      "status": "no_change",
+      "lastSuccessAt": "2026-11-12T10:56:14.680Z",
+      "lastCheckedAt": "2026-11-12T10:56:14.680Z",
+      "status": "ok",
       "httpStatus": 200,
-      "contentHash": "b8b27425fb69e55b296e42c22f04c7748871a350b40c43779aa7215a0c0eed1f",
+      "contentHash": "12b799e2e2faace725a00acd5d16fbbebfe51ba09e7b1e1964b468c140a95d68",
       "itemsFound": 9,
       "error": null,
       "note": "Public education RSS. Admission filter applied. Unrelated education items are dropped."
@@ -203,14 +203,14 @@
       "trust": "reported",
       "accessMethod": "rss",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-12T03:20:49.124Z",
-      "lastCheckedAt": "2026-11-12T03:20:49.124Z",
+      "lastSuccessAt": "2026-11-12T10:56:14.680Z",
+      "lastCheckedAt": "2026-11-12T10:56:14.680Z",
       "status": "ok",
       "httpStatus": 200,
-      "contentHash": "47bcd9a39bbf03b69fe6c166bbbbc1c74cae8ec9e2994bc80b66098d92f7d2cb",
-      "itemsFound": 0,
+      "contentHash": "f85f6e7321d32478b1d545b7df0962c6fa49109f979b8985610c6f693e74b041",
+      "itemsFound": 1,
       "error": null,
-      "note": "Public front-page RSS. Only admission-season headlines are kept. An empty result is not filled in. Reached. No admission-season headline in this response."
+      "note": "Public front-page RSS. Only admission-season headlines are kept. An empty result is not filled in."
     },
     {
       "id": "prothom-alo-english",
@@ -222,11 +222,11 @@
       "trust": "reported",
       "accessMethod": "rss",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-12T03:20:49.124Z",
-      "lastCheckedAt": "2026-11-12T03:20:49.124Z",
+      "lastSuccessAt": "2026-11-12T10:56:14.680Z",
+      "lastCheckedAt": "2026-11-12T10:56:14.680Z",
       "status": "ok",
       "httpStatus": 200,
-      "contentHash": "dd58a9ea86aa7906650c10b74553151e292356a9d9f7934ec4f78d353a688f43",
+      "contentHash": "53242cf3ac9a00ffd9ab737c7b7f93ab2c202854d4cb81a9167fd7eb706d3137",
       "itemsFound": 0,
       "error": null,
       "note": "Public English RSS. Same admission filter. Reached. No admission-season headline in this response."
@@ -242,7 +242,7 @@
       "accessMethod": "html",
       "automatedAuthorised": true,
       "lastSuccessAt": null,
-      "lastCheckedAt": "2026-11-12T03:20:49.124Z",
+      "lastCheckedAt": "2026-11-12T10:56:14.680Z",
       "status": "blocked",
       "httpStatus": 403,
       "contentHash": null,
@@ -347,6 +347,42 @@
     }
   ],
   "items": [
+    {
+      "id": "5872e0c20b162ccb",
+      "headline": "১২ বিশ্ববিদ্যালয়ে ভর্তি পরীক্ষার সময়সূচি প্রকাশ, দেখুন কোথায় কবে পরীক্ষা",
+      "summary": null,
+      "sourceId": "prothom-alo",
+      "sourceName": "Prothom Alo",
+      "sourceUrl": "https://www.prothomalo.com/education/admission/nonjv8wels",
+      "sourceCategory": "news",
+      "platform": "web",
+      "verification": "reported",
+      "publishedAt": "2026-11-12T10:51:02.000Z",
+      "discoveredAt": "2026-11-12T10:56:14.680Z",
+      "contentHash": "5872e0c20b162ccbd00e9b7c7ad5a869c94e29b01f939b654461b7a0e9cdd0b7",
+      "importance": "normal",
+      "origin": "crawled",
+      "classifier": "heuristic",
+      "aiModel": null
+    },
+    {
+      "id": "0a559388f31da462",
+      "headline": "CU admission applications to open on 20 December; HSC supplementary examinees eligible",
+      "summary": "Syed Akhtaruzzaman, president of the Bangladesh Inter-Education Board Coordination Committee, has informed the media that the results of the HSC supplementary examinations may be published on 31 December.",
+      "sourceId": "tbs-education",
+      "sourceName": "The Business Standard — Education",
+      "sourceUrl": "https://www.tbsnews.net/bangladesh/education/cu-admission-applications-open-20-december-hsc-supplementary-examinees-eligible",
+      "sourceCategory": "news",
+      "platform": "web",
+      "verification": "reported",
+      "publishedAt": "2026-11-12T06:55:00.000Z",
+      "discoveredAt": "2026-11-12T10:56:14.680Z",
+      "contentHash": "0a559388f31da4629b51f514123a8bb7709f8c02053759094bc14ef24219a177",
+      "importance": "normal",
+      "origin": "crawled",
+      "classifier": "heuristic",
+      "aiModel": null
+    },
     {
       "id": "72d9d640d6a73350",
       "headline": "New admission policy introduces lottery system for class 1, written tests for classes 2-9 for pvt schools",
@@ -1196,103 +1232,103 @@
   ],
   "log": [
     {
-      "at": "2026-11-12T03:20:52.629Z",
+      "at": "2026-11-12T10:56:17.550Z",
       "level": "info",
       "sourceId": "ugc-home",
-      "message": "No change since the last successful read."
+      "message": "Reached. Nothing admission-related to keep."
     },
     {
-      "at": "2026-11-12T03:20:56.474Z",
+      "at": "2026-11-12T10:56:21.036Z",
       "level": "info",
       "sourceId": "du-home",
       "message": "Reached. Nothing admission-related to keep."
     },
     {
-      "at": "2026-11-12T03:21:01.215Z",
+      "at": "2026-11-12T10:56:25.531Z",
       "level": "info",
       "sourceId": "buet-home",
       "message": "No change since the last successful read."
     },
     {
-      "at": "2026-11-12T03:21:05.698Z",
+      "at": "2026-11-12T10:56:30.232Z",
       "level": "info",
       "sourceId": "dghs-home",
       "message": "Reached. Nothing admission-related to keep."
     },
     {
-      "at": "2026-11-12T03:21:09.234Z",
+      "at": "2026-11-12T10:56:33.635Z",
       "level": "info",
       "sourceId": "udvash-web",
       "message": "Kept 12 admission headlines."
     },
     {
-      "at": "2026-11-12T03:21:10.662Z",
+      "at": "2026-11-12T10:56:35.092Z",
       "level": "info",
       "sourceId": "acs-hub",
       "message": "No change since the last successful read."
     },
     {
-      "at": "2026-11-12T03:21:11.966Z",
+      "at": "2026-11-12T10:56:36.625Z",
       "level": "info",
       "sourceId": "apars-web",
-      "message": "No change since the last successful read."
+      "message": "Reached. Nothing admission-related to keep."
     },
     {
-      "at": "2026-11-12T03:21:14.158Z",
+      "at": "2026-11-12T10:56:39.857Z",
       "level": "info",
       "sourceId": "daily-star-education",
       "message": "Kept 4 admission headlines."
     },
     {
-      "at": "2026-11-12T03:21:16.505Z",
+      "at": "2026-11-12T10:56:43.375Z",
       "level": "info",
       "sourceId": "tbs-education",
-      "message": "No change since the last successful read."
+      "message": "Kept 9 admission headlines."
     },
     {
-      "at": "2026-11-12T03:21:17.814Z",
+      "at": "2026-11-12T10:56:44.797Z",
       "level": "info",
       "sourceId": "prothom-alo",
-      "message": "Reached. Nothing admission-related to keep."
+      "message": "Kept 1 admission headline."
     },
     {
-      "at": "2026-11-12T03:21:19.097Z",
+      "at": "2026-11-12T10:56:46.182Z",
       "level": "info",
       "sourceId": "prothom-alo-english",
       "message": "Reached. Nothing admission-related to keep."
     },
     {
-      "at": "2026-11-12T03:21:20.415Z",
+      "at": "2026-11-12T10:56:47.492Z",
       "level": "error",
       "sourceId": "dhaka-tribune-education",
       "message": "HTTP 403. Access was refused."
     },
     {
-      "at": "2026-11-12T03:21:20.415Z",
+      "at": "2026-11-12T10:56:47.492Z",
       "level": "warn",
       "sourceId": "fb-udvash",
       "message": "Udvash — Facebook Page was not opened. No authorised access method is configured."
     },
     {
-      "at": "2026-11-12T03:21:20.415Z",
+      "at": "2026-11-12T10:56:47.492Z",
       "level": "warn",
       "sourceId": "fb-du",
       "message": "University of Dhaka — Facebook Page was not opened. No authorised access method is configured."
     },
     {
-      "at": "2026-11-12T03:21:20.415Z",
+      "at": "2026-11-12T10:56:47.492Z",
       "level": "warn",
       "sourceId": "fb-buet",
       "message": "BUET — Facebook Page was not opened. No authorised access method is configured."
     },
     {
-      "at": "2026-11-12T03:21:20.415Z",
+      "at": "2026-11-12T10:56:47.492Z",
       "level": "warn",
       "sourceId": "fb-apars",
       "message": "Apars Classroom — Facebook Page was not opened. No authorised access method is configured."
     },
     {
-      "at": "2026-11-12T03:21:20.415Z",
+      "at": "2026-11-12T10:56:47.492Z",
       "level": "warn",
       "sourceId": "fb-apars-group",
       "message": "Apars Classroom — public Facebook group was not opened. No authorised access method is configured."
