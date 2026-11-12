@@ -18185,5 +18185,19 @@
     "shortName": "BAUST",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://jnu.ac.bd/assets/notice/bc796ec8cca854c69ae57e4274094be9.pdf",
+    "foundOn": "https://www.jnu.ac.bd/",
+    "foundAt": "2026-11-12T03:54:28.311Z",
+    "title": "'জাতীয় পরিবেশ পদক ২০২৬' এর আবেদন আহ্বান প্রসঙ্গে",
+    "kind": "pdf",
+    "score": 9,
+    "sameSite": true,
+    "id": "jnu:https://jnu.ac.bd/assets/notice/bc796ec8cca854c69ae57e4274094be9.pdf",
+    "universityId": "jnu",
+    "shortName": "JnU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
