@@ -1,52 +1,60 @@
 {
-  "updated": "2026-11-12T02:15:00+06:00",
-  "cycle": "n1112-split-hardens",
+  "updated": "2026-11-12T17:45:00+06:00",
+  "cycle": "n1112b-cou-delay",
   "news": [
     {
-      "id": "n1112-split-hardens",
+      "id": "n1112b-cou-delay",
+      "heat": "HOT",
+      "headline": "CoU apps delayed — open 10–31 Dec · tests 5–7 Feb",
+      "url": "/circulars/c-cou"
+    },
+    {
+      "id": "n1112b-split",
       "heat": "NUKE",
-      "headline": "Two speeds: DU/BUET hold · RU/JnU bend for resits",
+      "headline": "Two speeds: flagships hold · CoU joins late window",
       "url": "/newswire"
     },
     {
-      "id": "n1112-du-day2",
+      "id": "n1112b-du-open",
       "heat": "HOT",
-      "headline": "DU day-2 apps open — fees up — close 25 Nov",
+      "headline": "DU apps open through 25 Nov",
       "url": "/circulars/c-du"
     },
     {
-      "id": "n1112-ru-bends",
-      "heat": "SYSTEM",
-      "headline": "RU tests from 12 Feb + supplementary window",
-      "url": "/circulars/c-ru"
-    },
-    {
-      "id": "n1112-buet-holds",
+      "id": "n1112b-buet",
       "heat": "WAR",
       "headline": "BUET apps 21 Nov · test 16 Jan holds",
       "url": "/circulars/c-buet"
     },
     {
-      "id": "n1112-kuet-live",
+      "id": "n1112b-kuet",
       "heat": "HOT",
-      "headline": "KUET apps LIVE + PDF on file",
+      "headline": "KUET live through 10 Dec + PDF",
       "url": "/circulars/c-kuet"
-    }
-  ],
-  "registrations": [
-    {
-      "id": "reg-c-du-2026-11-12",
-      "title": "DU REGISTRATION OPEN — close 25 Nov",
-      "body": "Fees raised on four units. Portal admission.eis.du.ac.bd",
-      "url": "/circulars/c-du"
     },
     {
-      "id": "reg-c-kuet-2026-11-10",
-      "title": "KUET apps LIVE → 10 Dec · test 8 Jan",
-      "body": "Official PDF on circular record",
-      "url": "/circulars/c-kuet"
+      "id": "n1112b-cu",
+      "heat": "SYSTEM",
+      "headline": "CU apps 20 Dec → 10 Jan",
+      "url": "/circulars/c-cu"
+    },
+    {
+      "id": "n1112b-medical",
+      "heat": "HOT",
+      "headline": "Medical test ~18 Dec — PDF still missing",
+      "url": "/circulars/c-dghs"
+    },
+    {
+      "id": "n1112b-ru-jnu",
+      "heat": "SYSTEM",
+      "headline": "RU Feb tests · JnU limited resit door",
+      "url": "/circulars/c-ru"
+    },
+    {
+      "id": "n1112b-desk",
+      "heat": "STREET",
+      "headline": "Desk list: DU · CoU Dec 10 · BUET 21 Nov",
+      "url": "/newswire"
     }
-  ],
-  "circulars": [],
-  "frantic": []
+  ]
 }
