@@ -23,7 +23,7 @@
     },
     {
       "origin": "https://www.sau.edu.bd",
-      "fetchedAt": "2026-11-10T23:31:44.150Z",
+      "fetchedAt": "2026-11-12T01:01:06.748Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -73,7 +73,7 @@
     },
     {
       "origin": "https://www.jkkniu.edu.bd",
-      "fetchedAt": "2026-11-10T23:31:00.907Z",
+      "fetchedAt": "2026-11-12T01:00:31.802Z",
       "body": "User-agent: *\r\nDisallow: \r\n"
     },
     {
@@ -128,7 +128,7 @@
     },
     {
       "origin": "https://www.pstu.ac.bd",
-      "fetchedAt": "2026-11-10T23:31:19.650Z",
+      "fetchedAt": "2026-11-12T01:00:43.719Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -143,7 +143,7 @@
     },
     {
       "origin": "https://bsfmstu.ac.bd",
-      "fetchedAt": "2026-11-10T23:31:31.409Z",
+      "fetchedAt": "2026-11-12T01:01:00.271Z",
       "body": null
     },
     {
@@ -178,22 +178,22 @@
     },
     {
       "origin": "https://www.bau.edu.bd",
-      "fetchedAt": "2026-11-10T23:31:39.096Z",
+      "fetchedAt": "2026-11-12T01:01:04.287Z",
       "body": "# As a condition of accessing this website, you agree to abide by the following\n# content signals:\n\n# (a)  If a content-signal = yes, you may collect content for the corresponding\n#      use.\n# (b)  If a content-signal = no, you may not collect content for the\n#      corresponding use.\n# (c)  If the website operator does not include a content signal for a\n#      corresponding use, the website operator neither grants nor restricts\n#      permission via content signal with respect to the corresponding use.\n\n# The content signals and their meanings are:\n\n# search:   building a search index and providing search results (e.g., returning\n#           hyperlinks and short excerpts from your website's contents). Search does not\n#           include providing AI-generated search summaries.\n# ai-input: inputting content into one or more AI models (e.g., retrieval\n#           augmented generation, grounding, or other real-time taking of content for\n#           generative AI search answers).\n# ai-train: training or fine-tuning AI models.\n\n# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS RESERVATIONS OF\n# RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT\n# AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.\n"
     },
     {
       "origin": "https://www.sau.ac.bd",
-      "fetchedAt": "2026-11-10T23:31:47.384Z",
+      "fetchedAt": "2026-11-12T01:01:09.967Z",
       "body": null
     },
     {
       "origin": "https://www.hau.ac.bd",
-      "fetchedAt": "2026-11-10T23:31:48.179Z",
+      "fetchedAt": "2026-11-12T01:01:13.540Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
       "origin": "https://www.kuriau.edu.bd",
-      "fetchedAt": "2026-11-10T23:31:50.247Z",
+      "fetchedAt": "2026-11-12T01:01:13.680Z",
       "body": "User-agent: *\nDisallow: \nDisallow: /cgi-bin/\nSitemap: https://kuriau.edu.bd/sitemap.xml\n"
     },
     {
@@ -213,7 +213,7 @@
     },
     {
       "origin": "https://www.rmu.ac.bd",
-      "fetchedAt": "2026-11-10T23:32:09.324Z",
+      "fetchedAt": "2026-11-12T01:01:24.358Z",
       "body": "# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nSitemap: https://rmu.ac.bd/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK"
     },
     {
@@ -228,7 +228,7 @@
     },
     {
       "origin": "https://www.aaub.edu.bd",
-      "fetchedAt": "2026-11-10T23:32:18.505Z",
+      "fetchedAt": "2026-11-12T01:01:42.982Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -258,7 +258,7 @@
     },
     {
       "origin": "https://www.ewubd.edu",
-      "fetchedAt": "2026-11-10T22:34:45.604Z",
+      "fetchedAt": "2026-11-12T01:02:26.397Z",
       "body": null
     },
     {
