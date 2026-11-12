@@ -644,3 +644,7 @@ Fix: defensive `UniMark` (null uni guard), SW cache **a26-desk-v2** to force cli
 - **Settings:** desk-experiment panel, after Naughty — “Philosopher / Quiet desk. Long thoughts. Less noise.”
 - **Files:** `theme.tsx`, `styles.css`, `settings.tsx`, `shell.tsx` (badge only)
 - **Not touched:** circulars, spice, watch, calendar data, types, SW
+
+### 2026-11-12 ~06:25 — Settings crash fix (React #31)
+Cause: EVIDENCE_COPY had a full C({c-sust}) object. Settings rendered it as a child.
+Fix: c-sust in seedCirculars; EVIDENCE_COPY strings only; settings filters strings.

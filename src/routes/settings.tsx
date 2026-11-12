@@ -95,7 +95,7 @@ function SettingsPage() {
       <section className="border border-ink p-4">
         <h2 className="font-display text-3xl font-bold uppercase">{t("set.howRead")}</h2>
         <ul className="mt-3 space-y-2 text-sm">
-          {EVIDENCE_COPY.map((line) => (
+          {EVIDENCE_COPY.filter((line): line is string => typeof line === "string").map((line) => (
             <li key={line} className="border-b border-ink py-2">
               {line}
             </li>

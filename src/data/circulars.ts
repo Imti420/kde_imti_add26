@@ -651,20 +651,13 @@ export const seedCirculars: Circular[] = [
       "18 Dec medical line also appears on Engineering MT coaching routines; formal DGME circular still thin on this desk.",
     ],
   }),
-];
-
-export const EVIDENCE_COPY = [
-  "OFFICIAL NOTICE CITED — a news report quotes a university notice, press release, or signed decision. The PDF is linked only when this archive actually has a URL.",
-  "REPORTED — a newsroom or compilation stated the figure. This desk has not stored the underlying PDF.",
-  "REPORTED · NOT FINAL — the source itself calls the date proposed, probable, provisional or tentative.",
-  "NOT ANNOUNCED — this archive does not have the fact. Empty is honest.",
-  C({
+C({
     id: "c-sust",
     universityId: "sust",
     title: "SUST undergraduate admission test 2026–27",
     summary:
       "Admission test reported for 17 January 2027 on national coaching calendars (Engineering MT routines). Formal SUST circular PDF is not yet on this archive. Application window still not locked here.",
-    system: "science-technology",
+    system: "own",
     publication: "decision",
     confidence: "reported",
     confidenceNote:
@@ -688,5 +681,12 @@ export const EVIDENCE_COPY = [
       "Application open/close still unknown on this archive.",
     ],
   }),
+];
 
+
+export const EVIDENCE_COPY = [
+  "OFFICIAL NOTICE CITED — a news report quotes a university notice, press release, or signed decision. The PDF is linked only when this archive actually has a URL.",
+  "REPORTED — a newsroom or compilation stated the figure. This desk has not stored the underlying PDF.",
+  "REPORTED · NOT FINAL — the source itself calls the date proposed, probable, provisional or tentative.",
+  "NOT ANNOUNCED — this archive does not have the fact. Empty is honest.",
 ];
