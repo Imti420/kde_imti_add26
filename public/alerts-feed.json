@@ -1,7 +1,19 @@
 {
-  "updated": "2026-11-13T16:05:00+06:00",
-  "cycle": "n1113-du-clock",
+  "updated": "2026-11-13T18:35:00+06:00",
+  "cycle": "n1113b-ju",
   "news": [
+    {
+      "id": "n1113b-ju",
+      "heat": "HOT",
+      "headline": "JU apps from 25 Nov · tests 10–21 Jan",
+      "url": "/circulars/c-ju"
+    },
+    {
+      "id": "n1113b-butex",
+      "heat": "SYSTEM",
+      "headline": "BUTEX test 29 Jan — apps not announced",
+      "url": "/circulars/c-butex"
+    },
     {
       "id": "n1113-du-clock",
       "heat": "HOT",
