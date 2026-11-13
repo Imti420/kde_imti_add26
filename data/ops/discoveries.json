@@ -18535,5 +18535,61 @@
     "shortName": "AAUB",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/admission/1881736885842477.pdf",
+    "foundOn": "https://www.bou.ac.bd/",
+    "foundAt": "2026-11-13T11:37:50.974Z",
+    "title": "Admission Instruction of BMEd Program (Batch - 2027) 2026-11-13",
+    "kind": "pdf",
+    "score": 13,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/admission/1881736885842477.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/admission/1881738639123130.pdf",
+    "foundOn": "https://www.bou.ac.bd/",
+    "foundAt": "2026-11-13T11:37:50.974Z",
+    "title": "Extended Admission Time of BA &amp; BSS Program (03 years, 2027 Batch) 2026-11-13",
+    "kind": "pdf",
+    "score": 13,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/admission/1881738639123130.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/administrative/1881738813628242.pdf",
+    "foundOn": "https://www.bou.ac.bd/",
+    "foundAt": "2026-11-13T11:37:50.974Z",
+    "title": "এইচএসসি পরিক্ষা-২০২৬ এর ফলাফল প্রকাশ সংক্রান্ত বিজ্ঞপ্তি",
+    "kind": "pdf",
+    "score": 13,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/administrative/1881738813628242.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/flashnews/1881738850877526.pdf",
+    "foundOn": "https://www.bou.ac.bd/NoticeBoard/Admission",
+    "foundAt": "2026-11-13T11:37:52.264Z",
+    "title": "এইচএসসি পরিক্ষা-২০২৬ এর ফলাফল প্রকাশ সংক্রান্ত বিজ্ঞপ্তি",
+    "kind": "pdf",
+    "score": 13,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/flashnews/1881738850877526.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
