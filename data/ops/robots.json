@@ -128,7 +128,7 @@
     },
     {
       "origin": "https://www.pstu.ac.bd",
-      "fetchedAt": "2026-11-12T01:00:43.719Z",
+      "fetchedAt": "2026-11-13T07:47:39.549Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -143,7 +143,7 @@
     },
     {
       "origin": "https://bsfmstu.ac.bd",
-      "fetchedAt": "2026-11-12T01:01:00.271Z",
+      "fetchedAt": "2026-11-13T07:47:50.370Z",
       "body": null
     },
     {
@@ -188,12 +188,12 @@
     },
     {
       "origin": "https://www.hau.ac.bd",
-      "fetchedAt": "2026-11-12T01:01:13.540Z",
+      "fetchedAt": "2026-11-13T07:48:08.102Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
       "origin": "https://www.kuriau.edu.bd",
-      "fetchedAt": "2026-11-12T01:01:13.680Z",
+      "fetchedAt": "2026-11-13T07:48:07.534Z",
       "body": "User-agent: *\nDisallow: \nDisallow: /cgi-bin/\nSitemap: https://kuriau.edu.bd/sitemap.xml\n"
     },
     {
@@ -213,7 +213,7 @@
     },
     {
       "origin": "https://www.rmu.ac.bd",
-      "fetchedAt": "2026-11-12T01:01:24.358Z",
+      "fetchedAt": "2026-11-13T07:48:18.917Z",
       "body": "# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nSitemap: https://rmu.ac.bd/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK"
     },
     {
@@ -258,7 +258,7 @@
     },
     {
       "origin": "https://www.ewubd.edu",
-      "fetchedAt": "2026-11-12T01:02:26.397Z",
+      "fetchedAt": "2026-11-13T07:49:19.083Z",
       "body": null
     },
     {
