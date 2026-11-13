@@ -18591,5 +18591,33 @@
     "shortName": "BOU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.bracu.ac.bd/sites/default/files/uploads/2026/11/06/Result_only%20selected.pdf",
+    "foundOn": "https://www.bracu.ac.bd/sicip-admission-test-result",
+    "foundAt": "2026-11-13T16:10:10.684Z",
+    "title": "SICIP Admission Test Result",
+    "kind": "pdf",
+    "score": 10,
+    "sameSite": true,
+    "id": "bracu:https://www.bracu.ac.bd/sites/default/files/uploads/2026/11/06/Result_only%20selected.pdf",
+    "universityId": "bracu",
+    "shortName": "BRACU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bracu.ac.bd/sicip-admission-test-result",
+    "foundOn": "https://www.bracu.ac.bd/",
+    "foundAt": "2026-11-13T16:10:10.686Z",
+    "title": "06 Nov SICIP Admission Test Result",
+    "kind": "page",
+    "score": 8,
+    "sameSite": true,
+    "id": "bracu:https://www.bracu.ac.bd/sicip-admission-test-result",
+    "universityId": "bracu",
+    "shortName": "BRACU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]

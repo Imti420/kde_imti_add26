@@ -68,7 +68,7 @@
     },
     {
       "origin": "https://www.cou.ac.bd",
-      "fetchedAt": "2026-11-12T08:51:23.601Z",
+      "fetchedAt": "2026-11-13T16:08:34.533Z",
       "body": null
     },
     {
@@ -168,7 +168,7 @@
     },
     {
       "origin": "https://www.prstu.ac.bd",
-      "fetchedAt": "2026-11-12T08:51:58.110Z",
+      "fetchedAt": "2026-11-13T16:08:58.300Z",
       "body": "User-agent: Googlebot\r\nDisallow: /nogooglebot/\r\n\r\nUser-agent: *\r\nAllow: /\r\n\r\nDisallow:\r\nSitemap:https://bsmrstup.ac.bd/sitemap.xml"
     },
     {
