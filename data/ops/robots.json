@@ -23,7 +23,7 @@
     },
     {
       "origin": "https://www.sau.edu.bd",
-      "fetchedAt": "2026-11-12T01:01:06.748Z",
+      "fetchedAt": "2026-11-13T01:56:20.100Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -73,7 +73,7 @@
     },
     {
       "origin": "https://www.jkkniu.edu.bd",
-      "fetchedAt": "2026-11-12T01:00:31.802Z",
+      "fetchedAt": "2026-11-13T01:56:02.144Z",
       "body": "User-agent: *\r\nDisallow: \r\n"
     },
     {
@@ -178,12 +178,12 @@
     },
     {
       "origin": "https://www.bau.edu.bd",
-      "fetchedAt": "2026-11-12T01:01:04.287Z",
+      "fetchedAt": "2026-11-13T01:56:17.075Z",
       "body": "# As a condition of accessing this website, you agree to abide by the following\n# content signals:\n\n# (a)  If a content-signal = yes, you may collect content for the corresponding\n#      use.\n# (b)  If a content-signal = no, you may not collect content for the\n#      corresponding use.\n# (c)  If the website operator does not include a content signal for a\n#      corresponding use, the website operator neither grants nor restricts\n#      permission via content signal with respect to the corresponding use.\n\n# The content signals and their meanings are:\n\n# search:   building a search index and providing search results (e.g., returning\n#           hyperlinks and short excerpts from your website's contents). Search does not\n#           include providing AI-generated search summaries.\n# ai-input: inputting content into one or more AI models (e.g., retrieval\n#           augmented generation, grounding, or other real-time taking of content for\n#           generative AI search answers).\n# ai-train: training or fine-tuning AI models.\n\n# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS RESERVATIONS OF\n# RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT\n# AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.\n"
     },
     {
       "origin": "https://www.sau.ac.bd",
-      "fetchedAt": "2026-11-12T01:01:09.967Z",
+      "fetchedAt": "2026-11-13T01:56:23.242Z",
       "body": null
     },
     {
@@ -228,7 +228,7 @@
     },
     {
       "origin": "https://www.aaub.edu.bd",
-      "fetchedAt": "2026-11-12T01:01:42.982Z",
+      "fetchedAt": "2026-11-13T01:57:07.423Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
