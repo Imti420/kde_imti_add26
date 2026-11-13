@@ -1,5 +1,23 @@
 [
   {
+    "id": "db2a7b804bbfc0ec",
+    "headline": "DU, JU and BUET shut doors on HSC supplementary candidates; where can they apply",
+    "summary": null,
+    "sourceId": "prothom-alo-english",
+    "sourceName": "Prothom Alo English",
+    "sourceUrl": "https://en.prothomalo.com/youth/education/sm22pntzlz",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-13T12:25:50.000Z",
+    "discoveredAt": "2026-11-13T16:12:32.306Z",
+    "contentHash": "db2a7b804bbfc0ecff5e90523101274fea074d7bb6df3f6148e6c6cb2623a6f3",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "23f438da4e980313",
     "headline": "Class one admission age raised to 6 in govt schools from 2027",
     "summary": "Revised policy aligns government and private school admission rules for 2027 academic year",
