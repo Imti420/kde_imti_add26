@@ -1,6 +1,6 @@
 /**
  * Desk-written spicy briefings — not crawler headlines.
- * Cycle n1112b · 12 Nov 2026 night — CoU apps delayed; CU window moves; flagships still hold.
+ * Cycle n1113 · 13 Nov 2026 afternoon — DU clock runs; JnU/RU open in 48h; 12 unis locked schedules.
  */
 export interface SpiceCard {
   id: string;
@@ -17,122 +17,129 @@ export interface SpiceCard {
 
 export const SPICE_CARDS: SpiceCard[] = [
   {
-    id: "n1112b-cou-delay",
+    id: "n1113-du-clock",
     heat: "HOT",
-    kicker: "12 NOV · COMILLA · WINDOW MOVED",
+    kicker: "13 NOV · DU · ~12 DAYS LEFT",
     headline:
-      "Comilla University just pushed applications to 10–31 December. Tests stay 5–7 February. The early-November open is dead.",
+      "Dhaka University applications still open — close 25 November 23:59. December unit tests do not move.",
     body:
-      "Prothom Alo / Times of Bangladesh / Kaler Kantho (11–12 Nov): VC MM Shariful Karim’s central admission committee delayed CoU apps from the old 15 Nov–10 Dec plan to 10–31 Dec. A unit 5 Feb 11:00 (Science & Engineering), B unit 6 Feb 15:00 (Arts/SS/Law), C unit 7 Feb 11:00 (Business). HSC 2026 supplementary candidates may apply. Own test — not GST. Formal PDF still not on the desk.",
-    punch: "CoU is on the board. Mark Dec 10.",
-    sourceLabel: "Prothom Alo · Times of Bangladesh · Kaler Kantho · 11–12 Nov 2026",
-    sourceUrl: "https://www.prothomalo.com/education/admission/gpl5kef7h0",
-    published: "2026-11-12",
-    circularId: "c-cou",
-  },
-  {
-    id: "n1112b-split",
-    heat: "NUKE",
-    kicker: "TWO SPEEDS · STILL LIVE",
-    headline:
-      "DU and BUET still refuse the UGC floor. RU and JnU bent. CoU just joined the late-application club.",
-    body:
-      "DU apps open through 25 Nov; December unit tests. BUET apps from 21 Nov, test 16 Jan. RU tests from 12 Feb + resit window. JnU limited resit door. CoU apps now 10–31 Dec, tests early February. Campuses are picking clocks in public.",
-    punch: "Same country. Different calendars.",
-    sourceLabel: "bdnews24 · Prothom Alo · CoU committee · 11–12 Nov 2026",
-    sourceUrl: "https://bdnews24.com/education/wk2v9xuw49",
-    published: "2026-11-12",
-    circularId: null,
-  },
-  {
-    id: "n1112b-du-open",
-    heat: "HOT",
-    kicker: "DU · FORM LIVE",
-    headline: "Dhaka University applications are open through 25 November. December tests unchanged.",
-    body:
-      "Portal live since 11 Nov noon. Close 25 Nov 23:59. Unit tests 5–26 Dec (IBA first). Fees raised on core units. Re-eval results due 23 Nov still fit the cutoff. Second-timers stay out.",
-    punch: "Pay the portal. Don’t wait for UGC.",
-    sourceLabel: "DU portal · Observer · Prothom Alo · 11–12 Nov 2026",
+      "Portal live since 11 Nov noon. Observer / Prothom Alo: only 2026 HSC batch; second-timers out. Science combined GPA 8.0 (3.5 each); Arts/Business 7.5; Fine Arts 6.5; IBA 8.0. Fees: core units ৳1,200 · Fine Arts ৳1,400 · IBA ৳1,500. Tests 5–26 Dec. Re-eval results due 23 Nov still fit the close.",
+    punch: "If DU is the target, the form is the job this week.",
+    sourceLabel: "DU portal · Observer · Prothom Alo · 11–13 Nov 2026",
     sourceUrl: "https://admission.eis.du.ac.bd/",
-    published: "2026-11-12",
+    published: "2026-11-13",
     circularId: "c-du",
   },
   {
-    id: "n1112b-buet",
-    heat: "WAR",
-    kicker: "BUET · HOLDS",
-    headline: "BUET applications from 21 November. Written test 16 January. No UGC blink.",
+    id: "n1113-jnu-ru-open",
+    heat: "NUKE",
+    kicker: "48 HOURS · TWO PORTALS",
+    headline:
+      "JnU and RU applications open 15 November. Mark the calendar — both windows are short.",
     body:
-      "Committee line unchanged: apps open 21 Nov, test 16 Jan 2027. GPA wall intact. ~1,309 seats. No formal full circular PDF on the desk yet — schedule is notice-backed.",
-    punch: "Engineering clock does not move for the floor.",
-    sourceLabel: "TBS · Prothom Alo · BUET notice · 7–11 Nov 2026",
-    sourceUrl: "https://www.tbsnews.net/bangladesh/education/buet-admission-applications-open-21-nov-test-set-16-jan-1595726",
-    published: "2026-11-12",
+      "JnU (circular line 11 Nov): apps 15 Nov 12:00 → 10 Dec 23:59; five-unit MCQ tests 1–23 Jan in Dhaka; ~2,765 seats reported. RU (Prothom Alo / committee): apps 15–30 Nov; tests pushed to 12 Feb (B), 13 Feb (C), 20 Feb (A); seven-day late window for supplementary passers after results. Opposite clocks from DU/BUET.",
+    punch: "Saturday morning: two forms, two strategies.",
+    sourceLabel: "Prothom Alo · Alormela · JnU / RU committees · 11–13 Nov 2026",
+    sourceUrl: "https://www.prothomalo.com/education/admission/syafosa3pv",
+    published: "2026-11-13",
+    circularId: "c-jnu",
+  },
+  {
+    id: "n1113-twelve-lock",
+    heat: "SYSTEM",
+    kicker: "BOARD · 12 UNIVERSITIES",
+    headline:
+      "Twelve universities have locked 2026–27 test dates. The national board is no longer a rumour graphic.",
+    body:
+      "Prothom Alo / Jugantor (11–12 Nov): DU Dec · JnU Jan · RU Feb · BUET 16 Jan · KUET 8 Jan · KU mid-Dec · MIST 18–19 Dec · CoU early Feb · CU late Jan/early Feb and more. Clashes still exist — 8 Jan packs KUET + JnU E + others. Pick before you pay.",
+    punch: "One board. Multiple clocks. Choose.",
+    sourceLabel: "Prothom Alo · Jugantor · RTV · 11–13 Nov 2026",
+    sourceUrl: "https://www.prothomalo.com/education/admission/nonjv8wels",
+    published: "2026-11-13",
+    circularId: null,
+  },
+  {
+    id: "n1113-buet",
+    heat: "WAR",
+    kicker: "BUET · 8 DAYS TO APPS",
+    headline:
+      "BUET applications open 21 November. Written test holds 16 January. GPA wall unchanged.",
+    body:
+      "Notice-backed: no preliminary MCQ; ~1,309 seats; SSC ≥4.00 science; HSC GPA 5.00 with A+ in Physics, Chemistry, Higher Math. Application close still not announced in the stored notice. Flagship engineering clock ignores the UGC floor.",
+    punch: "Prepare the grade sheet. Portal opens next week.",
+    sourceLabel: "BUET notice · TBS · students.bd · 8–13 Nov 2026",
+    sourceUrl: "https://students.bd/en/news/buet-admission-test-date-january-16-application-guidelines",
+    published: "2026-11-13",
     circularId: "c-buet",
   },
   {
-    id: "n1112b-kuet",
+    id: "n1113-kuet",
     heat: "HOT",
     kicker: "KUET · LIVE + PDF",
-    headline: "KUET applications still live through 10 December. Test 8 January. Official PDF on file.",
+    headline:
+      "KUET applications live through 10 December 17:00. Test 8 January. Official circular PDF on this archive.",
     body:
-      "Apps from 10 Nov; close 10 Dec 17:00. Test 8 Jan 2027. Circular PDF is the one archive document with a real mirror path. Don’t confuse with CoU’s December open.",
-    punch: "One engineering PDF you can actually open.",
-    sourceLabel: "KUET admission portal · desk archive",
+      "Apps from 10 Nov. 1,105 seats. Centres Khulna / Dhaka / Rajshahi. Fee ৳1,500 Khulna · ৳1,800 Dhaka/Rajshahi. Eligible list targeted 20 Dec. Still the cleanest engineering PDF on the desk.",
+    punch: "If engineering is the path, KUET is already counting.",
+    sourceLabel: "KUET admission portal · desk archive · 13 Nov 2026",
     sourceUrl: "https://admission.kuet.ac.bd/",
-    published: "2026-11-12",
+    published: "2026-11-13",
     circularId: "c-kuet",
   },
   {
-    id: "n1112b-cu",
+    id: "n1113-ru-feb",
     heat: "SYSTEM",
-    kicker: "CU · WINDOW SLIDES",
-    headline: "Chittagong University applications now line up for 20 December → 10 January.",
+    kicker: "RU · FEBRUARY GRID",
+    headline:
+      "Rajshahi University tests: 12 Feb Business · 13 Feb Science · 20 Feb Arts. January grid is dead.",
     body:
-      "TBS (12 Nov): CU admission committee extended the undergraduate form window — open 20 Dec through 10 Jan. Tentative unit tests late Jan / early Feb. Supplementary examinees in the conversation. Confirm on admission.cu.ac.bd when the portal posts.",
-    punch: "CU is not CoU. Check the portal name.",
-    sourceLabel: "The Business Standard · 12 Nov 2026",
-    sourceUrl: "https://www.tbsnews.net/bangladesh/education/cu-admission-applications-open-20-december-hsc-supplementary-examinees-eligible",
-    published: "2026-11-12",
-    circularId: "c-cu",
-  },
-  {
-    id: "n1112b-medical",
-    heat: "HOT",
-    kicker: "MEDICAL · 18 DEC",
-    headline: "National medical/dental test still pointing at 18 December. Formal DGME circular PDF still missing.",
-    body:
-      "Multiple campus wires keep 18 Dec as the medical test day. Application window expected mid-November if the circular lands. Do not invent a PDF — desk shows reported only until DGME publishes.",
-    punch: "No PDF, no invented fee.",
-    sourceLabel: "Daily Campus · Daily Sun · desk · Nov 2026",
-    sourceUrl: "https://thedailycampus.com/",
-    published: "2026-11-12",
-    circularId: "c-dghs",
-  },
-  {
-    id: "n1112b-ru-jnu",
-    heat: "SYSTEM",
-    kicker: "RU / JnU · BEND",
-    headline: "Rajshahi tests from mid-February. Jagannath opens a limited resit door on SSC marks.",
-    body:
-      "RU VC line: tests from 12 Feb, separate window for supplementary passers. JnU: up to two-subject resit candidates may apply on SSC; apps 25 Nov–10 Dec. Opposite of DU/BUET.",
-    punch: "Resit policy is campus-by-campus.",
-    sourceLabel: "bdnews24 · 11 Nov 2026",
-    sourceUrl: "https://bdnews24.com/education/wk2v9xuw49",
-    published: "2026-11-12",
+      "Prothom Alo (11 Nov) + committee line: apps 15–30 Nov; supplementary passers get about seven extra days after results. GPA bars under revision for the session — confirm on the formal circular when it lands. Not the old 8/9/16 Jan plan.",
+    punch: "RU is on the UGC-leaning clock.",
+    sourceLabel: "Prothom Alo · RU committee · 11–13 Nov 2026",
+    sourceUrl: "https://www.prothomalo.com/education/admission/syafosa3pv",
+    published: "2026-11-13",
     circularId: "c-ru",
   },
   {
-    id: "n1112b-desk",
-    heat: "STREET",
-    kicker: "DESK · TONIGHT",
-    headline: "Tonight’s only list: DU form · CoU Dec 10 · BUET 21 Nov · medical PDF · KUET close clock.",
+    id: "n1113-medical",
+    heat: "HOT",
+    kicker: "MEDICAL · 18 DEC",
+    headline:
+      "National MBBS/BDS test still pointing at 18 December. Formal DGME circular PDF still not on the desk.",
     body:
-      "If you are sitting DU, the portal is open. If you are watching CoU, do not show up in November — applications start 10 December. BUET opens 21 Nov. Medical still waiting on DGME paper. KUET already counting down to 10 Dec close.",
-    punch: "Write the dates. Ignore the rumour graphic.",
-    sourceLabel: "Admission//26 desk · 12 Nov 2026",
+      "Campus wires and coaching calendars keep 18 Dec. Application window expected mid-to-late November if the circular publishes. Outside the UGC public-uni fight. No invented fee, no invented portal until DGME posts.",
+    punch: "Reported day. Missing paper.",
+    sourceLabel: "Observer · Daily Campus · desk · 12–13 Nov 2026",
+    sourceUrl: "https://observerbd.com/news/605584",
+    published: "2026-11-13",
+    circularId: "c-dghs",
+  },
+  {
+    id: "n1113-cou-cu",
+    heat: "SYSTEM",
+    kicker: "LATE WINDOWS",
+    headline:
+      "CoU applications 10–31 December · CU applications 20 December → 10 January. November is not their month.",
+    body:
+      "CoU tests 5–7 Feb (A/B/C). CU tentative unit tests late Jan / early Feb — confirm on admission.cu.ac.bd. Both campuses talking supplementary examinees. Do not confuse CoU with CU on the form.",
+    punch: "Wrong portal = wasted fee.",
+    sourceLabel: "Prothom Alo · TBS · 11–12 Nov 2026",
+    sourceUrl: "https://www.prothomalo.com/education/admission/gpl5kef7h0",
+    published: "2026-11-13",
+    circularId: "c-cou",
+  },
+  {
+    id: "n1113-desk",
+    heat: "STREET",
+    kicker: "DESK · 13 NOV",
+    headline:
+      "This week’s only list: DU form · JnU/RU Saturday open · BUET 21 Nov · KUET close clock · medical PDF hunt.",
+    body:
+      "DU is live and counting down. JnU and RU open in two days. BUET opens next Friday. KUET already running to 10 Dec. Medical still waiting on DGME paper. Twelve universities have dates — clashes are real. Write the board; ignore the Facebook graphic.",
+    punch: "Forms first. Arguments later.",
+    sourceLabel: "Admission//26 desk · 13 Nov 2026",
     sourceUrl: "/newswire",
-    published: "2026-11-12",
+    published: "2026-11-13",
     circularId: null,
   },
 ];
