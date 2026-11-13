@@ -71,7 +71,9 @@ export const sourceManifest: SourceManifest = {
       "universityIds": [
         "ju"
       ],
-      "circularIds": []
+      "circularIds": [
+        "c-ju"
+      ]
     },
     {
       "id": "site-iu",
@@ -842,7 +844,9 @@ export const sourceManifest: SourceManifest = {
       "universityIds": [
         "butex"
       ],
-      "circularIds": []
+      "circularIds": [
+        "c-butex"
+      ]
     },
     {
       "id": "site-maru",
@@ -1397,13 +1401,13 @@ export const sourceManifest: SourceManifest = {
       "universityId": "jnu",
       "universityName": "Jagannath University",
       "shortName": "JnU",
-      "applicationOpens": "2026-11-25",
+      "applicationOpens": "2026-11-15",
       "applicationCloses": "2026-12-10",
       "examDate": "2027-01-01",
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
-      "feeBdt": null
+      "feeBdt": 1200
     },
     {
       "circularId": "c-ru",
@@ -1423,8 +1427,8 @@ export const sourceManifest: SourceManifest = {
       "universityId": "cu",
       "universityName": "University of Chittagong",
       "shortName": "CU",
-      "applicationOpens": "2026-11-15",
-      "applicationCloses": "2026-12-10",
+      "applicationOpens": "2026-12-20",
+      "applicationCloses": "2027-01-10",
       "examDate": "2027-01-29",
       "admitCardOn": null,
       "resultOn": null,
@@ -1449,9 +1453,9 @@ export const sourceManifest: SourceManifest = {
       "universityId": "cou",
       "universityName": "Comilla University",
       "shortName": "CoU",
-      "applicationOpens": null,
-      "applicationCloses": null,
-      "examDate": null,
+      "applicationOpens": "2026-12-10",
+      "applicationCloses": "2026-12-31",
+      "examDate": "2027-02-05",
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
@@ -1491,6 +1495,32 @@ export const sourceManifest: SourceManifest = {
       "applicationOpens": "2026-11-15",
       "applicationCloses": null,
       "examDate": "2026-12-18",
+      "admitCardOn": null,
+      "resultOn": null,
+      "classesBegin": null,
+      "feeBdt": null
+    },
+    {
+      "circularId": "c-ju",
+      "universityId": "ju",
+      "universityName": "Jahangirnagar University",
+      "shortName": "JU",
+      "applicationOpens": "2026-11-25",
+      "applicationCloses": "2026-12-18",
+      "examDate": "2027-01-10",
+      "admitCardOn": null,
+      "resultOn": null,
+      "classesBegin": null,
+      "feeBdt": null
+    },
+    {
+      "circularId": "c-butex",
+      "universityId": "butex",
+      "universityName": "Bangladesh University of Textiles",
+      "shortName": "BUTEX",
+      "applicationOpens": null,
+      "applicationCloses": null,
+      "examDate": "2027-01-29",
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
