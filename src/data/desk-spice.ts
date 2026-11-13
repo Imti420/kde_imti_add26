@@ -1,6 +1,6 @@
 /**
  * Desk-written spicy briefings — not crawler headlines.
- * Cycle n1113 · 13 Nov 2026 afternoon — DU clock runs; JnU/RU open in 48h; 12 unis locked schedules.
+ * Cycle n1113b · 13 Nov 2026 evening — database pass: JU + BUTEX added; JnU open corrected to 15 Nov; CoU/CU/RU grids locked.
  */
 export interface SpiceCard {
   id: string;
@@ -16,6 +16,34 @@ export interface SpiceCard {
 }
 
 export const SPICE_CARDS: SpiceCard[] = [
+  {
+    id: "n1113b-ju",
+    heat: "HOT",
+    kicker: "JU · ON THE BOARD",
+    headline:
+      "Jahangirnagar University applications from 25 November. Tests 10–21 January on campus.",
+    body:
+      "Secondary digests (students.bd / Observer compilations): apps 25 Nov 10:00 → 18 Dec. Test window 10–21 Jan 2027, typically Fri/Sat off, JU campus only. Unit-day precision still soft until formal circular PDF. Now a real circular row on this desk.",
+    punch: "JU is no longer a missing campus.",
+    sourceLabel: "students.bd · Observer · media digests · 13 Nov 2026",
+    sourceUrl: "https://students.bd/admission/ju-admission",
+    published: "2026-11-13",
+    circularId: "c-ju",
+  },
+  {
+    id: "n1113b-butex",
+    heat: "SYSTEM",
+    kicker: "BUTEX · 29 JAN",
+    headline:
+      "BUTEX admission test locked for 29 January 2027. Application window still not announced.",
+    body:
+      "Registrar press release fixed the test day; ~630 seats across 11 textile departments. Full eligibility and form dates await the formal circular — do not invent a portal deadline. New circular row on the desk.",
+    punch: "Test day yes. Form day no.",
+    sourceLabel: "BUTEX registrar line · All Result BD · 13 Nov 2026",
+    sourceUrl: "https://allresultbd.com/butex-admission-test-circular/",
+    published: "2026-11-13",
+    circularId: "c-butex",
+  },
   {
     id: "n1113-du-clock",
     heat: "HOT",
