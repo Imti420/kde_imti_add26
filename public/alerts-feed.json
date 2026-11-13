@@ -1,59 +1,59 @@
 {
-  "updated": "2026-11-12T17:45:00+06:00",
-  "cycle": "n1112b-cou-delay",
+  "updated": "2026-11-13T16:05:00+06:00",
+  "cycle": "n1113-du-clock",
   "news": [
     {
-      "id": "n1112b-cou-delay",
+      "id": "n1113-du-clock",
       "heat": "HOT",
-      "headline": "CoU apps delayed — open 10–31 Dec · tests 5–7 Feb",
-      "url": "/circulars/c-cou"
-    },
-    {
-      "id": "n1112b-split",
-      "heat": "NUKE",
-      "headline": "Two speeds: flagships hold · CoU joins late window",
-      "url": "/newswire"
-    },
-    {
-      "id": "n1112b-du-open",
-      "heat": "HOT",
-      "headline": "DU apps open through 25 Nov",
+      "headline": "DU apps ~12 days left — close 25 Nov 23:59",
       "url": "/circulars/c-du"
     },
     {
-      "id": "n1112b-buet",
+      "id": "n1113-jnu-ru-open",
+      "heat": "NUKE",
+      "headline": "JnU + RU applications open 15 Nov (48h)",
+      "url": "/circulars/c-jnu"
+    },
+    {
+      "id": "n1113-twelve-lock",
+      "heat": "SYSTEM",
+      "headline": "12 universities locked 2026–27 test dates",
+      "url": "/newswire"
+    },
+    {
+      "id": "n1113-buet",
       "heat": "WAR",
-      "headline": "BUET apps 21 Nov · test 16 Jan holds",
+      "headline": "BUET apps open 21 Nov · test 16 Jan holds",
       "url": "/circulars/c-buet"
     },
     {
-      "id": "n1112b-kuet",
+      "id": "n1113-kuet",
       "heat": "HOT",
-      "headline": "KUET live through 10 Dec + PDF",
+      "headline": "KUET live through 10 Dec + official PDF",
       "url": "/circulars/c-kuet"
     },
     {
-      "id": "n1112b-cu",
+      "id": "n1113-ru-feb",
       "heat": "SYSTEM",
-      "headline": "CU apps 20 Dec → 10 Jan",
-      "url": "/circulars/c-cu"
-    },
-    {
-      "id": "n1112b-medical",
-      "heat": "HOT",
-      "headline": "Medical test ~18 Dec — PDF still missing",
-      "url": "/circulars/c-dghs"
-    },
-    {
-      "id": "n1112b-ru-jnu",
-      "heat": "SYSTEM",
-      "headline": "RU Feb tests · JnU limited resit door",
+      "headline": "RU tests 12/13/20 Feb — January grid dead",
       "url": "/circulars/c-ru"
     },
     {
-      "id": "n1112b-desk",
+      "id": "n1113-medical",
+      "heat": "HOT",
+      "headline": "Medical ~18 Dec — DGME PDF still missing",
+      "url": "/circulars/c-dghs"
+    },
+    {
+      "id": "n1113-cou-cu",
+      "heat": "SYSTEM",
+      "headline": "CoU Dec 10–31 · CU 20 Dec→10 Jan",
+      "url": "/circulars/c-cou"
+    },
+    {
+      "id": "n1113-desk",
       "heat": "STREET",
-      "headline": "Desk list: DU · CoU Dec 10 · BUET 21 Nov",
+      "headline": "Desk: DU form · JnU/RU Sat · BUET 21 Nov",
       "url": "/newswire"
     }
   ]
