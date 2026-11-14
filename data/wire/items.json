@@ -1,5 +1,23 @@
 [
   {
+    "id": "10e45b2bd55cb4b9",
+    "headline": "২০২৭ শিক্ষাবর্ষে সরকারি-বেসরকারি স্কুলে ভর্তি, সরকারের যত নির্দেশনা",
+    "summary": null,
+    "sourceId": "prothom-alo",
+    "sourceName": "Prothom Alo",
+    "sourceUrl": "https://www.prothomalo.com/education/admission/sskvk1jwyx",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-14T02:21:46.000Z",
+    "discoveredAt": "2026-11-14T03:06:41.973Z",
+    "contentHash": "10e45b2bd55cb4b94d8003c8929a1a6f93acb3d86f870b8dcc5b05ece87936c9",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "db2a7b804bbfc0ec",
     "headline": "DU, JU and BUET shut doors on HSC supplementary candidates; where can they apply",
     "summary": null,
