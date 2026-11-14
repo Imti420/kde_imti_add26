@@ -123,40 +123,43 @@ const HEAT_CLASS: Record<string, string> = {
   NUKE: "bg-accent text-onaccent nuke-badge",
 };
 
-/** Massive breaking super-head — lead card from SPICE_CARDS (DU open / season split). */
+/** Friendly season board — lead from SPICE_CARDS (weekend form week). */
 export function UgcNukeSuperHead() {
-  const lead = SPICE_CARDS.find((c) => c.id.startsWith("n1111-") || c.id.includes("du-open") || c.id.includes("du-defy")) ?? SPICE_CARDS[0];
+  const lead =
+    SPICE_CARDS.find((c) => c.id.startsWith("n1114-") || c.id.includes("weekend") || c.id.includes("du")) ??
+    SPICE_CARDS[0];
   return (
-    <section className="ugc-nuke-super relative mb-6 overflow-hidden border-[3px] border-ink bg-ink text-paper shadow-[8px_8px_0_0_var(--color-accent)] md:mb-8 md:border-[4px] md:shadow-[12px_12px_0_0_var(--color-accent)]">
-      <div className="absolute inset-0 ugc-nuke-scanlines pointer-events-none" aria-hidden />
-      <div className="absolute -right-8 -top-8 h-40 w-40 rounded-full bg-accent/30 blur-3xl ugc-nuke-pulse" aria-hidden />
-      <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full bg-accent/20 blur-3xl ugc-nuke-pulse" style={{ animationDelay: "0.8s" }} aria-hidden />
+    <section className="ugc-nuke-super relative mb-6 overflow-hidden border-[3px] border-ink bg-paper text-ink shadow-[6px_6px_0_0_var(--color-accent)] md:mb-8 md:border-[4px] md:shadow-[10px_10px_0_0_var(--color-accent)]">
+      <div className="absolute -right-6 -top-6 h-32 w-32 rounded-full bg-accent/15 blur-2xl" aria-hidden />
+      <div className="absolute -bottom-8 -left-8 h-36 w-36 rounded-full bg-yellow/20 blur-2xl" aria-hidden />
 
-      <div className="relative px-3 py-5 sm:px-5 md:px-8 md:py-9">
+      <div className="relative px-3 py-5 sm:px-5 md:px-8 md:py-8">
         <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
-          <span className="ugc-nuke-badge inline-flex w-fit items-center gap-2 bg-accent px-2.5 py-1 font-mono text-[10px] font-black tracking-[0.2em] text-onaccent md:px-3 md:py-1.5 md:text-[11px] md:tracking-[0.25em]">
-            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-paper md:h-2.5 md:w-2.5" />
-            BREAKING · DU OPEN · 11 NOV 2026
+          <span className="inline-flex w-fit items-center gap-2 border-2 border-ink bg-accent px-2.5 py-1 font-mono text-[10px] font-black tracking-[0.18em] text-onaccent md:px-3 md:py-1.5 md:text-[11px]">
+            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-paper" />
+            LIVE · WEEKEND FORM BOARD
           </span>
-          <span className="font-mono text-[10px] tracking-widest text-accent md:text-[11px]">BREAKING · DU OPEN · 11 NOV 2026</span>
+          <span className="font-mono text-[10px] tracking-widest text-mute md:text-[11px]">14 NOV · SEASON IN MOTION</span>
         </div>
 
-        <p className="mt-3 font-mono text-[11px] font-bold tracking-[0.28em] text-accent sm:mt-4 sm:text-xs md:text-sm md:tracking-[0.35em]">
-          UGC SAID WAIT. DU SAID NO.
+        <p className="mt-3 font-mono text-[11px] font-bold tracking-[0.2em] text-accent sm:mt-4 sm:text-xs md:text-sm">
+          DU IS TAKING FORMS · YOU CAN BREATHE
         </p>
 
-        <h1 className="ugc-nuke-title mt-2 font-display text-[2.1rem] font-black uppercase leading-[0.9] tracking-tight text-paper sm:text-[2.6rem] md:mt-3 md:text-[4.2rem] md:leading-[0.88] lg:text-[5.2rem]">DU APPLICATIONS ARE <span className="text-accent">OPEN</span></h1>
+        <h1 className="mt-2 font-display text-[1.85rem] font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-[2.4rem] md:mt-3 md:text-[3.4rem] md:leading-[0.92] lg:text-[4rem]">
+          Applications are <span className="text-accent">open</span>
+        </h1>
 
-        <p className="mt-4 max-w-4xl font-display text-base font-bold uppercase leading-snug text-paper/95 sm:text-xl md:mt-5 md:text-2xl md:leading-tight">
-          UGC ordered January/February. Dhaka University kept 11–25 Nov apps and December tests. Portal is live. The national calendar just split in half.
+        <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-ink/85 sm:text-base md:mt-4 md:text-lg">
+          Dhaka University is accepting applications through 25 Nov. A few campuses are on their own clocks — RU and JnU are in the mix, BUET opens Friday. No need for drama: check the portal, finish the form, go make tea.
         </p>
 
-        <div className="mt-5 flex flex-col gap-3 border-t-2 border-accent/60 pt-4 sm:gap-4 md:mt-6 md:flex-row md:items-end md:justify-between md:pt-5">
-          <p className="max-w-2xl text-[13px] leading-relaxed text-paper/85 md:text-base">
-            {lead.body.slice(0, 280)}…
+        <div className="mt-5 flex flex-col gap-3 border-t-2 border-ink/15 pt-4 sm:gap-4 md:mt-6 md:flex-row md:items-end md:justify-between md:pt-5">
+          <p className="max-w-2xl text-[13px] leading-relaxed text-ink/75 md:text-sm">
+            {lead.body.slice(0, 220)}…
           </p>
           <div className="shrink-0 border-l-0 border-accent/40 pl-0 md:border-l-2 md:pl-4">
-            <p className="font-display text-base font-black uppercase leading-snug text-accent md:text-xl md:leading-none">
+            <p className="font-display text-base font-black uppercase leading-snug text-accent md:text-lg md:leading-none">
               {lead.punch}
             </p>
             <p className="mt-1.5 font-mono text-[10px] tracking-wide text-mute md:mt-2">
@@ -168,7 +171,7 @@ export function UgcNukeSuperHead() {
                 params={{ id: lead.circularId }}
                 className="mt-3 inline-flex press text-[10px] tracking-widest"
               >
-                OPEN CIRCULAR IN APP →
+                OPEN CIRCULAR →
               </Link>
             ) : null}
           </div>
