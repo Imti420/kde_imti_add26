@@ -73,7 +73,7 @@
     },
     {
       "origin": "https://www.jkkniu.edu.bd",
-      "fetchedAt": "2026-11-13T01:56:02.144Z",
+      "fetchedAt": "2026-11-14T06:42:14.406Z",
       "body": "User-agent: *\r\nDisallow: \r\n"
     },
     {
@@ -83,7 +83,7 @@
     },
     {
       "origin": "https://www.bu.ac.bd",
-      "fetchedAt": "2026-11-12T22:52:44.480Z",
+      "fetchedAt": "2026-11-14T06:42:15.183Z",
       "body": "User-agent: *\r\nDisallow: \r\n"
     },
     {
@@ -93,7 +93,7 @@
     },
     {
       "origin": "https://neu.ac.bd",
-      "fetchedAt": "2026-11-12T22:52:44.067Z",
+      "fetchedAt": "2026-11-14T06:42:16.359Z",
       "body": "# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nUser-agent: AdsBot\nDisallow: /\n\nSitemap: https://neu.ac.bd/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK"
     },
     {
@@ -118,7 +118,7 @@
     },
     {
       "origin": "https://www.duet.ac.bd",
-      "fetchedAt": "2026-11-12T22:52:52.028Z",
+      "fetchedAt": "2026-11-14T06:42:19.156Z",
       "body": "User-agent: *\r\nDisallow:\r\n"
     },
     {
@@ -183,7 +183,7 @@
     },
     {
       "origin": "https://www.sau.ac.bd",
-      "fetchedAt": "2026-11-13T01:56:23.242Z",
+      "fetchedAt": "2026-11-14T06:42:39.322Z",
       "body": null
     },
     {
@@ -198,7 +198,7 @@
     },
     {
       "origin": "https://www.bmu.ac.bd",
-      "fetchedAt": "2026-11-13T03:37:24.038Z",
+      "fetchedAt": "2026-11-14T06:42:51.182Z",
       "body": "User-agent: *\nallow: /\nsitemap: https://bmu.ac.bd/sitemap.xml\n"
     },
     {
@@ -218,7 +218,7 @@
     },
     {
       "origin": "https://bmu.edu.bd",
-      "fetchedAt": "2026-11-12T22:53:58.186Z",
+      "fetchedAt": "2026-11-14T06:43:19.884Z",
       "body": "User-Agent: *\nAllow: /\nDisallow: /dashboard\nDisallow: /not-permitted\nDisallow: /pdf-preview\n\nHost: https://bmu.edu.bd\nSitemap: https://bmu.edu.bd/sitemap.xml\n"
     },
     {
@@ -253,7 +253,7 @@
     },
     {
       "origin": "https://www.aiub.edu",
-      "fetchedAt": "2026-11-12T22:54:43.524Z",
+      "fetchedAt": "2026-11-14T06:44:02.080Z",
       "body": null
     },
     {
@@ -263,7 +263,7 @@
     },
     {
       "origin": "https://www.uiu.ac.bd",
-      "fetchedAt": "2026-11-12T22:54:46.280Z",
+      "fetchedAt": "2026-11-14T06:44:10.294Z",
       "body": "User-agent:*\nAllow:/\nSitemap:https://www.uiu.ac.bd/sitemap.xml\n\n"
     },
     {
@@ -308,7 +308,7 @@
     },
     {
       "origin": "https://www.uits.edu.bd",
-      "fetchedAt": "2026-11-12T22:54:54.726Z",
+      "fetchedAt": "2026-11-14T06:44:12.666Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
