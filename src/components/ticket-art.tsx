@@ -10,15 +10,16 @@ function Svg({ children }: { children: ReactNode }) {
   );
 }
 
-function Halftone() {
+function Halftone({ id }: { id: string }) {
+  const pid = `tk-ht-${id}`;
   return (
     <>
       <defs>
-        <pattern id={`tk-ht-${kind}`} width="10" height="10" patternUnits="userSpaceOnUse">
+        <pattern id={pid} width="10" height="10" patternUnits="userSpaceOnUse">
           <circle cx="5" cy="5" r="1.7" fill="#000" opacity="0.12" />
         </pattern>
       </defs>
-      <polygon points="880,220 880,480 500,480" fill="url(#tk-ht)" />
+      <polygon points="880,220 880,480 500,480" fill={`url(#${pid})`} />
     </>
   );
 }
