@@ -46,11 +46,18 @@ Before swarm product work, check in on **`DESK_RADIO.md`**: one line, push, wait
 | **RADAR** | A | circulars / watch / PDFs |
 | **WIRE** | B | desk-spice / NEWS |
 | **PULSE** | C | crawler / discovery |
-| **SHELL** | D | UI / calendar / i18n |
+| **SHELL** | D | UI / calendar / i18n / **ticket vault** |
 | **SIREN** | E | notifications / SW |
 | **ARCHIVIST** | F | handoff / board / radio |
 
 ---
+
+## Standing surface — Ticket vault
+
+- **Route:** `/tickets` · **Catalog:** `src/data/tickets.ts` · **Store:** `src/lib/tickets-store.ts` (`a26-tickets-v2`)
+- **Face:** minimal stripe template in `ticket-card.tsx` + `.tk` CSS — do not reintroduce campus scene art
+- **Lane:** SHELL / Agent 05 primary; Agent 03 may append catalog kinds when forms open
+- **Contract:** see `ARCHITECTURE.md` → Ticket vault
 
 ## Active mission
 
