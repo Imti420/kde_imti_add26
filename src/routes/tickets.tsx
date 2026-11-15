@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { PageHead, SectionLabel } from "@/components/marks";
 import { TicketFace } from "@/components/ticket-card";
 import { TICKET_CATALOG, TICKET_STATUS_LABEL, type TicketKind, type TicketStatus } from "@/data/tickets";
 import { useTickets, type UserTicket } from "@/lib/tickets-store";
@@ -13,6 +14,10 @@ function money(n: number): string {
   return `৳ ${n.toLocaleString("en-IN")}`;
 }
 
+function abbrOf(kind: TicketKind): string {
+  return TICKET_CATALOG.find((t) => t.kind === kind)?.abbr ?? kind.toUpperCase();
+}
+
 function TicketsPage() {
   const tickets = useTickets((s) => s.tickets);
   const hydrated = useTickets((s) => s.hydrated);
@@ -22,8 +27,8 @@ function TicketsPage() {
   const removeTicket = useTickets((s) => s.removeTicket);
 
   const [openId, setOpenId] = useState<string | null>(null);
+  const [shelfOpen, setShelfOpen] = useState(false);
   const [popId, setPopId] = useState<string | null>(null);
-  const shelfRef = useRef<HTMLElement>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -66,87 +71,86 @@ function TicketsPage() {
     addTicket(kind);
     setPopId(kind);
     window.setTimeout(() => setPopId(null), 450);
+    if (TICKET_CATALOG.every((t) => owned.has(t.kind) || t.kind === kind)) {
+      setShelfOpen(false);
+    }
   };
 
   return (
-    <div className="tv">
-      <header className="tv-hd">
-        <div>
-          <span className="tv-tag">ADMISSION//26</span>
-          <h1 className="tv-title">Ticket Vault</h1>
-          <p className="tv-lede">Collect a ticket for each exam you are sitting. Leave out the rest.</p>
-        </div>
-        <div className="tv-sum" role="group" aria-label="Admission summary">
-          <div>
-            <b>{stats.n}</b>
-            <span>Exams selected</span>
-          </div>
-          <div>
-            <b>{stats.paid}</b>
-            <span>Paid applications</span>
-          </div>
-          <div>
-            <b>{money(stats.spent)}</b>
-            <span>Spent (paid only)</span>
-          </div>
-          <div className={stats.wait ? "tv-hot" : undefined}>
-            <b>{stats.wait}</b>
-            <span>Awaiting payment</span>
-          </div>
-        </div>
-      </header>
+    <div>
+      <PageHead
+        kicker="Wallet"
+        title="Ticket vault"
+        lede="Claim only the exams you are sitting. Portal logins stay on this device. Ticket faces keep the campus art; the desk stays ADMISSION//26."
+        aside={
+          <button
+            type="button"
+            className="press press-accent shrink-0 px-4 py-2 font-mono text-[11px] tracking-widest"
+            onClick={() => setShelfOpen((v) => !v)}
+            aria-expanded={shelfOpen}
+          >
+            {shelfOpen ? "CLOSE SHELF" : shelf.length ? `ADD TICKET · ${shelf.length}` : "SHELF EMPTY"}
+          </button>
+        }
+      />
 
-      {!hydrated ? <p className="tv-none">Restoring vault…</p> : null}
+      <div className="grid grid-cols-2 border-[3px] border-ink bg-panel md:grid-cols-4">
+        <Stat label="EXAMS" value={String(stats.n)} />
+        <Stat label="PAID" value={String(stats.paid)} />
+        <Stat label="SPENT" value={money(stats.spent)} />
+        <Stat label="AWAITING" value={String(stats.wait)} hot={stats.wait > 0} />
+      </div>
 
-      <section className="tv-sec" aria-labelledby="tv-h-coll">
-        <h2 id="tv-h-coll">
-          My collection <i>{tickets.length}</i>
-        </h2>
-        {tickets.length === 0 ? (
-          <div className="tv-empty">
-            <div className="tv-stack" aria-hidden>
-              <i />
-              <i />
-              <i />
-            </div>
-            <div>
-              <h3>Your vault is empty</h3>
-              <p>Every exam you plan to sit gets its own ticket. Pick one from the shelf and it lands here.</p>
-              <button
-                type="button"
-                className="tv-btn"
-                onClick={() => shelfRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
-              >
-                Choose your first ticket
-              </button>
-            </div>
-          </div>
-        ) : (
-          <div className="tv-grid">
-            {tickets.map((t) => (
-              <div key={t.id} className={`tv-slot${popId === t.kind ? " tv-pop" : ""}`}>
-                <TicketFace kind={t.kind} data={t} interactive onOpen={() => setOpenId(t.id)} />
-                <button type="button" className="tv-btn tv-btn--sm tv-btn--ghost" onClick={() => removeTicket(t.id)}>
-                  Remove {templateAbbr(t.kind)}
-                </button>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
+      <p className="mt-2 font-mono text-[11px] tracking-wide text-mute">
+        Local only · password never printed on the ticket · delete lives inside the ticket panel
+      </p>
 
-      <section className="tv-sec" aria-labelledby="tv-h-shelf" ref={shelfRef} tabIndex={-1}>
-        <h2 id="tv-h-shelf">On the shelf</h2>
-        {shelf.length === 0 ? (
-          <p className="tv-none">You have collected every ticket on the shelf.</p>
-        ) : (
+      {!hydrated ? <p className="mt-4 font-mono text-xs text-mute">RESTORING VAULT…</p> : null}
+
+      {shelfOpen && shelf.length > 0 ? (
+        <section className="mt-6 border-[3px] border-ink bg-yellow/30 p-4">
+          <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
+            <SectionLabel>On the shelf</SectionLabel>
+            <p className="max-w-md text-sm text-ink">Pick a campus. It moves into your collection. You can skip any of them.</p>
+          </div>
           <div className="tv-grid">
             {shelf.map((tpl) => (
               <div key={tpl.kind} className="tv-slot">
                 <TicketFace kind={tpl.kind} />
-                <button type="button" className="tv-btn" onClick={() => claim(tpl.kind)}>
-                  Add {tpl.abbr} ticket
+                <button type="button" className="press px-3 py-2 font-mono text-[11px] tracking-widest" onClick={() => claim(tpl.kind)}>
+                  ADD {tpl.abbr}
                 </button>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {shelfOpen && shelf.length === 0 ? (
+        <p className="mt-6 border-[3px] border-ink bg-panel p-4 text-sm">Every ticket on the shelf is already in your collection.</p>
+      ) : null}
+
+      <section className="mt-8">
+        <SectionLabel>My collection</SectionLabel>
+        {tickets.length === 0 ? (
+          <div className="mt-4 border-[3px] border-ink bg-panel p-5">
+            <p className="font-display text-3xl font-bold uppercase leading-none">Vault is empty</p>
+            <p className="mt-2 max-w-prose text-sm">
+              Nothing claimed yet. Open the shelf and add only what you will sit — DU, KUET, RU, JnU, MAT, or none.
+            </p>
+            <button
+              type="button"
+              className="press press-accent mt-4 px-4 py-2 font-mono text-[11px] tracking-widest"
+              onClick={() => setShelfOpen(true)}
+            >
+              OPEN SHELF
+            </button>
+          </div>
+        ) : (
+          <div className="tv-grid mt-4">
+            {tickets.map((t) => (
+              <div key={t.id} className={`tv-slot${popId === t.kind ? " tv-pop" : ""}`}>
+                <TicketFace kind={t.kind} data={t} interactive onOpen={() => setOpenId(t.id)} />
               </div>
             ))}
           </div>
@@ -178,8 +182,13 @@ function TicketsPage() {
   );
 }
 
-function templateAbbr(kind: TicketKind): string {
-  return TICKET_CATALOG.find((t) => t.kind === kind)?.abbr ?? kind.toUpperCase();
+function Stat({ label, value, hot }: { label: string; value: string; hot?: boolean }) {
+  return (
+    <div className={`border-ink border-r border-b p-3 last:border-r-0 md:[&:nth-child(4)]:border-r-0 ${hot ? "bg-yellow text-onyellow" : ""}`}>
+      <p className="font-display text-3xl font-bold tabular-nums md:text-4xl">{value}</p>
+      <p className="mt-1 font-mono text-[10px] tracking-widest text-mute">{label}</p>
+    </div>
+  );
 }
 
 function TicketDetail({
@@ -195,7 +204,8 @@ function TicketDetail({
 }) {
   const [credOpen, setCredOpen] = useState(false);
   const [showPass, setShowPass] = useState(false);
-  const abbr = templateAbbr(ticket.kind);
+  const [confirmRemove, setConfirmRemove] = useState(false);
+  const abbr = abbrOf(ticket.kind);
 
   const setField = <K extends keyof UserTicket>(key: K, value: UserTicket[K]) => {
     onChange({ [key]: value } as Partial<UserTicket>);
@@ -204,9 +214,9 @@ function TicketDetail({
   return (
     <div className="tv-dlg__body">
       <div className="tv-dlg__top">
-        <span>{abbr} ticket</span>
-        <button type="button" className="tv-btn tv-btn--sm" onClick={onClose}>
-          Close
+        <span className="font-display text-2xl font-bold uppercase tracking-tight">{abbr} ticket</span>
+        <button type="button" className="press px-3 py-1 font-mono text-[11px] tracking-widest" onClick={onClose}>
+          CLOSE
         </button>
       </div>
       <div className="tv-dlg__tk">
@@ -290,11 +300,11 @@ function TicketDetail({
                 />
                 <button
                   type="button"
-                  className="tv-btn tv-btn--sm"
+                  className="press px-2 py-1 font-mono text-[10px] tracking-widest"
                   aria-pressed={showPass}
                   onClick={() => setShowPass((v) => !v)}
                 >
-                  {showPass ? "Hide" : "Show"}
+                  {showPass ? "HIDE" : "SHOW"}
                 </button>
               </span>
             </label>
@@ -307,18 +317,42 @@ function TicketDetail({
               Keep these login details on this device
             </label>
             <p className="tv-note">
-              Meant to stay on this device only. Nothing is sent anywhere, and your password never appears on the ticket.
+              Stays on this device only. Nothing is uploaded. The password never appears on the ticket face.
             </p>
           </div>
         ) : null}
       </div>
 
       <div className="tv-dlg__ft">
-        <button type="button" className="tv-btn tv-btn--ghost" onClick={onRemove}>
-          Remove from vault
-        </button>
-        <button type="button" className="tv-btn" onClick={onClose}>
-          Done
+        {!confirmRemove ? (
+          <button
+            type="button"
+            className="press px-3 py-2 font-mono text-[11px] tracking-widest"
+            onClick={() => setConfirmRemove(true)}
+          >
+            REMOVE TICKET
+          </button>
+        ) : (
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-sm font-semibold">Remove {abbr} from the vault?</span>
+            <button
+              type="button"
+              className="press press-accent px-3 py-2 font-mono text-[11px] tracking-widest"
+              onClick={onRemove}
+            >
+              YES, REMOVE
+            </button>
+            <button
+              type="button"
+              className="press px-3 py-2 font-mono text-[11px] tracking-widest"
+              onClick={() => setConfirmRemove(false)}
+            >
+              KEEP IT
+            </button>
+          </div>
+        )}
+        <button type="button" className="press press-ink px-3 py-2 font-mono text-[11px] tracking-widest" onClick={onClose}>
+          DONE
         </button>
       </div>
     </div>
