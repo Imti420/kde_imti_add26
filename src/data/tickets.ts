@@ -29,29 +29,32 @@ export const TICKET_STATUS_LABEL: Record<TicketStatus, string> = {
 export interface TicketTemplate {
   kind: TicketKind;
   abbr: string;
+  /** Full formal name (dialogs, lists). */
   name: string;
+  /** Short street label under the big abbr on the ticket face. */
+  shortName: string;
   defaultFee: string;
   circularId: string | null;
 }
 
 /** Flat poster-ticket order — matches the board aesthetic. */
 export const TICKET_CATALOG: TicketTemplate[] = [
-  { kind: "kuet", abbr: "KUET", name: "Khulna University of Engineering & Technology", defaultFee: "1200", circularId: "c-kuet" },
-  { kind: "du", abbr: "DU", name: "University of Dhaka", defaultFee: "1200", circularId: "c-du" },
-  { kind: "ru", abbr: "RU", name: "University of Rajshahi", defaultFee: "1200", circularId: "c-ru" },
-  { kind: "jnu", abbr: "JNU", name: "Jagannath University", defaultFee: "1200", circularId: "c-jnu" },
-  { kind: "duet", abbr: "DUET", name: "Dhaka University of Engineering & Technology", defaultFee: "1200", circularId: null },
-  { kind: "gst", abbr: "GST", name: "GST cluster · 20 public universities", defaultFee: "1200", circularId: "c-gst" },
-  { kind: "cu", abbr: "CU", name: "Chittagong University", defaultFee: "1200", circularId: "c-cu" },
-  { kind: "sust", abbr: "SUST", name: "Shahjalal University of Science & Technology", defaultFee: "1200", circularId: "c-sust" },
-  { kind: "cou", abbr: "CoU", name: "Comilla University", defaultFee: "1200", circularId: "c-cou" },
-  { kind: "ruet", abbr: "RUET", name: "Rajshahi University of Engineering & Technology", defaultFee: "1200", circularId: "c-ruet" },
-  { kind: "bup", abbr: "BUP", name: "Bangladesh University of Professionals", defaultFee: "1200", circularId: null },
-  { kind: "mat", abbr: "MAT", name: "Medical Admission Test (Bangladesh)", defaultFee: "1200", circularId: "c-dghs" },
-  { kind: "buet", abbr: "BUET", name: "Bangladesh University of Engineering & Technology", defaultFee: "1200", circularId: "c-buet" },
-  { kind: "cuet", abbr: "CUET", name: "Chittagong University of Engineering & Technology", defaultFee: "1200", circularId: "c-cuet" },
-  { kind: "mist", abbr: "MIST", name: "Military Institute of Science & Technology", defaultFee: "1200", circularId: "c-mist" },
-  { kind: "ju", abbr: "JU", name: "Jahangirnagar University", defaultFee: "1200", circularId: "c-ju" },
+  { kind: "kuet", abbr: "KUET", name: "Khulna University of Engineering & Technology", shortName: "Khulna engineering", defaultFee: "1200", circularId: "c-kuet" },
+  { kind: "du", abbr: "DU", name: "University of Dhaka", shortName: "Dhaka university", defaultFee: "1200", circularId: "c-du" },
+  { kind: "ru", abbr: "RU", name: "University of Rajshahi", shortName: "Rajshahi university", defaultFee: "1200", circularId: "c-ru" },
+  { kind: "jnu", abbr: "JNU", name: "Jagannath University", shortName: "Jagannath university", defaultFee: "1200", circularId: "c-jnu" },
+  { kind: "duet", abbr: "DUET", name: "Dhaka University of Engineering & Technology", shortName: "DU engineering", defaultFee: "1200", circularId: null },
+  { kind: "gst", abbr: "GST", name: "GST cluster · 20 public universities", shortName: "GST cluster", defaultFee: "1200", circularId: "c-gst" },
+  { kind: "cu", abbr: "CU", name: "Chittagong University", shortName: "Chittagong university", defaultFee: "1200", circularId: "c-cu" },
+  { kind: "sust", abbr: "SUST", name: "Shahjalal University of Science & Technology", shortName: "Shahjalal science", defaultFee: "1200", circularId: "c-sust" },
+  { kind: "cou", abbr: "CoU", name: "Comilla University", shortName: "Comilla university", defaultFee: "1200", circularId: "c-cou" },
+  { kind: "ruet", abbr: "RUET", name: "Rajshahi University of Engineering & Technology", shortName: "Rajshahi engineering", defaultFee: "1200", circularId: "c-ruet" },
+  { kind: "bup", abbr: "BUP", name: "Bangladesh University of Professionals", shortName: "BUP", defaultFee: "1200", circularId: null },
+  { kind: "mat", abbr: "MAT", name: "Medical Admission Test (Bangladesh)", shortName: "Medical admission", defaultFee: "1200", circularId: "c-dghs" },
+  { kind: "buet", abbr: "BUET", name: "Bangladesh University of Engineering & Technology", shortName: "BUET", defaultFee: "1200", circularId: "c-buet" },
+  { kind: "cuet", abbr: "CUET", name: "Chittagong University of Engineering & Technology", shortName: "Chittagong engineering", defaultFee: "1200", circularId: "c-cuet" },
+  { kind: "mist", abbr: "MIST", name: "Military Institute of Science & Technology", shortName: "Military institute", defaultFee: "1200", circularId: "c-mist" },
+  { kind: "ju", abbr: "JU", name: "Jahangirnagar University", shortName: "Jahangirnagar", defaultFee: "1200", circularId: "c-ju" },
 ];
 
 export function templateByKind(kind: TicketKind): TicketTemplate {

@@ -17,11 +17,10 @@ export function TicketFace({
 
   const body = (
     <div className="tk__card">
-      <span className="tk__notch" aria-hidden />
       <div className="tk__stripe" aria-hidden />
       <div className="tk__main">
         <p className="tk__abbr">{tpl.abbr}</p>
-        <p className="tk__uni">{tpl.name}</p>
+        <p className="tk__uni">{tpl.shortName}</p>
       </div>
       <p className="tk__fee">//{fee}</p>
     </div>
