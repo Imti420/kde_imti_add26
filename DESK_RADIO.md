@@ -51,6 +51,11 @@ Examples:
 
 ## Traffic (newest first)
 
+### Mission `ticket-vault-doc-2026-11-15`
+
+- 19:16 +06 · **SHELL** · ticket vault documented · ARCHITECTURE + HANDOFF + CREW · face template locked (minimal stripe) · catalog 16 kinds · store a26-tickets-v2
+
+
 <!-- Agents: prepend below this line. Keep the mission header updated. -->
 
 ### Mission `mission-2026-11-11-pdf` — circular PDF + marks
