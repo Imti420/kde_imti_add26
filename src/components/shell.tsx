@@ -25,6 +25,7 @@ const NAV = [
   { href: "/discovery", key: "nav.discovery" },
   { href: "/shortlist", key: "nav.shortlist" },
   { href: "/tracker", key: "nav.tracker" },
+  { href: "/tickets", key: "nav.tickets" },
   { href: "/settings", key: "nav.settings" },
 ] as const;
 
