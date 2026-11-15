@@ -1,14 +1,17 @@
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { PageHead } from "@/components/marks";
-import { BlankTicketFace, TicketCard } from "@/components/ticket-card";
-import { TICKET_CATALOG, type TicketKind } from "@/data/tickets";
-import { useTickets } from "@/lib/tickets-store";
+import { TicketFace } from "@/components/ticket-card";
+import { TICKET_CATALOG, TICKET_STATUS_LABEL, type TicketKind, type TicketStatus } from "@/data/tickets";
+import { useTickets, type UserTicket } from "@/lib/tickets-store";
 
 export const Route = createFileRoute("/tickets")({
-  head: () => ({ meta: [{ title: "Tickets — ADMISSION//26" }] }),
+  head: () => ({ meta: [{ title: "Ticket Vault — ADMISSION//26" }] }),
   component: TicketsPage,
 });
+
+function money(n: number): string {
+  return `৳ ${n.toLocaleString("en-IN")}`;
+}
 
 function TicketsPage() {
   const tickets = useTickets((s) => s.tickets);
@@ -18,212 +21,314 @@ function TicketsPage() {
   const updateTicket = useTickets((s) => s.updateTicket);
   const removeTicket = useTickets((s) => s.removeTicket);
 
-  const [pickerOpen, setPickerOpen] = useState(false);
-  const [kind, setKind] = useState<TicketKind | null>(null);
-  const [holderName, setHolderName] = useState("");
-  const [applicationId, setApplicationId] = useState("");
-  const [password, setPassword] = useState("");
-  const [feeBdt, setFeeBdt] = useState(0);
-  const [paid, setPaid] = useState(true);
-  const [note, setNote] = useState("");
+  const [openId, setOpenId] = useState<string | null>(null);
+  const [popId, setPopId] = useState<string | null>(null);
+  const shelfRef = useRef<HTMLElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    // zustand persist may already have hydrated
     if (!hydrated) {
-      const t = window.setTimeout(() => setHydrated(true), 50);
+      const t = window.setTimeout(() => setHydrated(true), 40);
       return () => window.clearTimeout(t);
     }
   }, [hydrated, setHydrated]);
 
+  useEffect(() => {
+    const dlg = dialogRef.current;
+    if (!dlg) return;
+    if (openId) {
+      if (!dlg.open) dlg.showModal();
+    } else if (dlg.open) {
+      dlg.close();
+    }
+  }, [openId]);
+
+  const owned = useMemo(() => new Set(tickets.map((t) => t.kind)), [tickets]);
+  const shelf = useMemo(() => TICKET_CATALOG.filter((t) => !owned.has(t.kind)), [owned]);
+  const active = tickets.find((t) => t.id === openId) ?? null;
+
   const stats = useMemo(() => {
-    const count = tickets.length;
-    const paidCount = tickets.filter((t) => t.paid).length;
-    const totalFee = tickets.reduce((sum, t) => sum + (t.feeBdt || 0), 0);
-    const paidFee = tickets.filter((t) => t.paid).reduce((sum, t) => sum + (t.feeBdt || 0), 0);
-    return { count, paidCount, totalFee, paidFee };
+    let paid = 0;
+    let wait = 0;
+    let spent = 0;
+    for (const t of tickets) {
+      if (t.status === "paid") {
+        paid += 1;
+        spent += Number(t.fee) || 0;
+      } else if (t.status === "await") {
+        wait += 1;
+      }
+    }
+    return { paid, wait, spent, n: tickets.length };
   }, [tickets]);
 
-  const ownedKinds = useMemo(() => new Set(tickets.map((t) => t.kind)), [tickets]);
-
-  const startAdd = (k: TicketKind) => {
-    const tpl = TICKET_CATALOG.find((t) => t.kind === k)!;
-    setKind(k);
-    setFeeBdt(tpl.defaultFeeBdt);
-    setPaid(true);
-    setHolderName("");
-    setApplicationId("");
-    setPassword("");
-    setNote("");
-    setPickerOpen(true);
-  };
-
-  const commit = () => {
-    if (!kind) return;
-    addTicket({
-      kind,
-      holderName: holderName.trim(),
-      applicationId: applicationId.trim(),
-      password,
-      feeBdt: Math.max(0, Math.round(feeBdt || 0)),
-      paid,
-      note: note.trim(),
-    });
-    setPickerOpen(false);
-    setKind(null);
+  const claim = (kind: TicketKind) => {
+    addTicket(kind);
+    setPopId(kind);
+    window.setTimeout(() => setPopId(null), 450);
   };
 
   return (
-    <div>
-      <PageHead
-        kicker="Wallet"
-        title="Admission tickets"
-        lede="Claim only the forms you are actually sitting. Store portal IDs and passwords on this device only — nothing is uploaded. Each campus gets its own ticket face."
-      />
-
-      <div className="grid grid-cols-2 border border-ink md:grid-cols-4">
-        <Stat label="TICKETS" value={String(stats.count).padStart(2, "0")} />
-        <Stat label="PAID" value={String(stats.paidCount).padStart(2, "0")} />
-        <Stat label="TOTAL ৳" value={stats.totalFee.toLocaleString("en-BD")} />
-        <Stat label="PAID ৳" value={stats.paidFee.toLocaleString("en-BD")} />
-      </div>
-
-      <p className="mt-3 font-mono text-[11px] tracking-wide text-mute">
-        Local wallet · passwords never leave this browser · you can skip any campus
-      </p>
-
-      {!hydrated ? <p className="mt-4 font-mono text-xs text-mute">RESTORING WALLET…</p> : null}
-
-      <section className="mt-6">
-        <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
+    <div className="tv">
+      <header className="tv-hd">
+        <div>
+          <span className="tv-tag">ADMISSION//26</span>
+          <h1 className="tv-title">Ticket Vault</h1>
+          <p className="tv-lede">Collect a ticket for each exam you are sitting. Leave out the rest.</p>
+        </div>
+        <div className="tv-sum" role="group" aria-label="Admission summary">
           <div>
-            <h2 className="font-display text-2xl font-bold uppercase tracking-tight">Available this season</h2>
-            <p className="mt-1 text-sm text-mute">Pick a ticket only if you are applying. Designs are placeholders — you can refine them later.</p>
+            <b>{stats.n}</b>
+            <span>Exams selected</span>
+          </div>
+          <div>
+            <b>{stats.paid}</b>
+            <span>Paid applications</span>
+          </div>
+          <div>
+            <b>{money(stats.spent)}</b>
+            <span>Spent (paid only)</span>
+          </div>
+          <div className={stats.wait ? "tv-hot" : undefined}>
+            <b>{stats.wait}</b>
+            <span>Awaiting payment</span>
           </div>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {TICKET_CATALOG.map((tpl) => {
-            const owned = ownedKinds.has(tpl.kind);
-            return (
-              <button
-                key={tpl.kind}
-                type="button"
-                disabled={owned}
-                onClick={() => startAdd(tpl.kind)}
-                className="ticket-pick text-left disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <BlankTicketFace kind={tpl.kind} />
-                <span className="mt-2 block font-mono text-[10px] tracking-widest text-mute">
-                  {owned ? "ALREADY IN WALLET" : "ADD TO WALLET"}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </section>
+      </header>
 
-      <section className="mt-10">
-        <h2 className="font-display text-2xl font-bold uppercase tracking-tight">Your ticket zone</h2>
+      {!hydrated ? <p className="tv-none">Restoring vault…</p> : null}
+
+      <section className="tv-sec" aria-labelledby="tv-h-coll">
+        <h2 id="tv-h-coll">
+          My collection <i>{tickets.length}</i>
+        </h2>
         {tickets.length === 0 ? (
-          <p className="mt-3 border border-ink p-4 text-sm">
-            Empty wallet. Add DU, KUET, RU, JnU or MAT when you decide to sit that exam — or add none.
-          </p>
+          <div className="tv-empty">
+            <div className="tv-stack" aria-hidden>
+              <i />
+              <i />
+              <i />
+            </div>
+            <div>
+              <h3>Your vault is empty</h3>
+              <p>Every exam you plan to sit gets its own ticket. Pick one from the shelf and it lands here.</p>
+              <button
+                type="button"
+                className="tv-btn"
+                onClick={() => shelfRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
+              >
+                Choose your first ticket
+              </button>
+            </div>
+          </div>
         ) : (
-          <div className="mt-4 grid gap-5 lg:grid-cols-2">
-            {tickets.map((ticket) => (
-              <TicketCard
-                key={ticket.id}
-                ticket={ticket}
-                onRemove={() => removeTicket(ticket.id)}
-                onUpdate={(patch) => updateTicket(ticket.id, patch)}
-              />
+          <div className="tv-grid">
+            {tickets.map((t) => (
+              <div key={t.id} className={`tv-slot${popId === t.kind ? " tv-pop" : ""}`}>
+                <TicketFace kind={t.kind} data={t} interactive onOpen={() => setOpenId(t.id)} />
+                <button type="button" className="tv-btn tv-btn--sm tv-btn--ghost" onClick={() => removeTicket(t.id)}>
+                  Remove {templateAbbr(t.kind)}
+                </button>
+              </div>
             ))}
           </div>
         )}
       </section>
 
-      {pickerOpen && kind ? (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-ink/50 p-3 sm:items-center">
-          <div
-            role="dialog"
-            aria-modal="true"
-            className="max-h-[90vh] w-full max-w-lg overflow-y-auto border-2 border-ink bg-paper p-4 shadow-[8px_8px_0_0_var(--color-accent)]"
-          >
-            <p className="font-mono text-[10px] tracking-widest text-mute">NEW TICKET · {kind.toUpperCase()}</p>
-            <h3 className="mt-1 font-display text-3xl font-bold uppercase">Fill what you want</h3>
-            <p className="mt-1 text-sm text-mute">
-              Name, ID, password and fee are optional fields. Password stays on this device.
-            </p>
-            <div className="mt-4 grid gap-3">
-              <Field label="Name on ticket">
-                <input value={holderName} onChange={(e) => setHolderName(e.target.value)} placeholder="Optional" />
-              </Field>
-              <Field label="Application / User ID">
-                <input
-                  value={applicationId}
-                  onChange={(e) => setApplicationId(e.target.value)}
-                  placeholder="Portal id"
-                  autoComplete="username"
-                />
-              </Field>
-              <Field label="Password (hidden by default on ticket)">
-                <input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Optional · local only"
-                  autoComplete="off"
-                />
-              </Field>
-              <Field label="Ticket cost (৳)">
-                <input
-                  type="number"
-                  min={0}
-                  value={feeBdt}
-                  onChange={(e) => setFeeBdt(Number(e.target.value))}
-                />
-              </Field>
-              <label className="flex items-center gap-2 text-sm">
-                <input type="checkbox" checked={paid} onChange={(e) => setPaid(e.target.checked)} />
-                Mark as paid
-              </label>
-              <Field label="Note">
-                <input value={note} onChange={(e) => setNote(e.target.value)} placeholder="Unit, centre…" />
-              </Field>
-            </div>
-            <div className="mt-5 flex flex-wrap gap-2">
-              <button type="button" className="press px-3 py-2 font-mono text-[11px] tracking-widest" onClick={commit}>
-                ADD TICKET
-              </button>
-              <button
-                type="button"
-                className="press px-3 py-2 font-mono text-[11px] tracking-widest"
-                onClick={() => {
-                  setPickerOpen(false);
-                  setKind(null);
-                }}
-              >
-                CANCEL
-              </button>
-            </div>
+      <section className="tv-sec" aria-labelledby="tv-h-shelf" ref={shelfRef} tabIndex={-1}>
+        <h2 id="tv-h-shelf">On the shelf</h2>
+        {shelf.length === 0 ? (
+          <p className="tv-none">You have collected every ticket on the shelf.</p>
+        ) : (
+          <div className="tv-grid">
+            {shelf.map((tpl) => (
+              <div key={tpl.kind} className="tv-slot">
+                <TicketFace kind={tpl.kind} />
+                <button type="button" className="tv-btn" onClick={() => claim(tpl.kind)}>
+                  Add {tpl.abbr} ticket
+                </button>
+              </div>
+            ))}
           </div>
-        </div>
-      ) : null}
+        )}
+      </section>
+
+      <dialog
+        ref={dialogRef}
+        className="tv-dlg"
+        aria-label="Ticket details"
+        onClose={() => setOpenId(null)}
+        onClick={(e) => {
+          if (e.target === dialogRef.current) setOpenId(null);
+        }}
+      >
+        {active ? (
+          <TicketDetail
+            ticket={active}
+            onClose={() => setOpenId(null)}
+            onRemove={() => {
+              removeTicket(active.id);
+              setOpenId(null);
+            }}
+            onChange={(patch) => updateTicket(active.id, patch)}
+          />
+        ) : null}
+      </dialog>
     </div>
   );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+function templateAbbr(kind: TicketKind): string {
+  return TICKET_CATALOG.find((t) => t.kind === kind)?.abbr ?? kind.toUpperCase();
+}
+
+function TicketDetail({
+  ticket,
+  onClose,
+  onRemove,
+  onChange,
+}: {
+  ticket: UserTicket;
+  onClose: () => void;
+  onRemove: () => void;
+  onChange: (patch: Partial<UserTicket>) => void;
+}) {
+  const [credOpen, setCredOpen] = useState(false);
+  const [showPass, setShowPass] = useState(false);
+  const abbr = templateAbbr(ticket.kind);
+
+  const setField = <K extends keyof UserTicket>(key: K, value: UserTicket[K]) => {
+    onChange({ [key]: value } as Partial<UserTicket>);
+  };
+
   return (
-    <div className="border-ink border-r border-b p-3 last:border-r-0 md:[&:nth-child(4)]:border-r-0">
-      <p className="font-display text-3xl font-bold tabular-nums md:text-4xl">{value}</p>
-      <p className="mt-1 font-mono text-[10px] tracking-widest text-mute">{label}</p>
+    <div className="tv-dlg__body">
+      <div className="tv-dlg__top">
+        <span>{abbr} ticket</span>
+        <button type="button" className="tv-btn tv-btn--sm" onClick={onClose}>
+          Close
+        </button>
+      </div>
+      <div className="tv-dlg__tk">
+        <TicketFace kind={ticket.kind} data={ticket} />
+      </div>
+
+      <fieldset className="tv-fs">
+        <legend>Candidate</legend>
+        <Field label="Candidate name">
+          <input
+            className="tv-in"
+            value={ticket.name}
+            placeholder="Your name"
+            onChange={(e) => setField("name", e.target.value)}
+          />
+        </Field>
+        <Field label="Application ID">
+          <input className="tv-in" value={ticket.appId} onChange={(e) => setField("appId", e.target.value)} />
+        </Field>
+      </fieldset>
+
+      <fieldset className="tv-fs">
+        <legend>Examination</legend>
+        <Field label="Date">
+          <input className="tv-in" type="date" value={ticket.date} onChange={(e) => setField("date", e.target.value)} />
+        </Field>
+        <Field label="Time">
+          <input className="tv-in" type="time" value={ticket.time} onChange={(e) => setField("time", e.target.value)} />
+        </Field>
+        <p className="tv-hint">Leave blank until the university announces it.</p>
+      </fieldset>
+
+      <fieldset className="tv-fs">
+        <legend>Payment</legend>
+        <Field label="Exam fee (৳)">
+          <input
+            className="tv-in"
+            type="number"
+            min={0}
+            step={1}
+            inputMode="numeric"
+            value={ticket.fee}
+            onChange={(e) => setField("fee", e.target.value)}
+          />
+        </Field>
+        <Field label="Registration status">
+          <select
+            className="tv-in"
+            value={ticket.status}
+            onChange={(e) => setField("status", e.target.value as TicketStatus)}
+          >
+            {(Object.keys(TICKET_STATUS_LABEL) as TicketStatus[]).map((k) => (
+              <option key={k} value={k}>
+                {TICKET_STATUS_LABEL[k]}
+              </option>
+            ))}
+          </select>
+        </Field>
+      </fieldset>
+
+      <div className="tv-fs tv-cred">
+        <button
+          type="button"
+          className="tv-cred__btn"
+          aria-expanded={credOpen}
+          onClick={() => setCredOpen((v) => !v)}
+        >
+          Saved login (optional)
+        </button>
+        {credOpen ? (
+          <div className="tv-cred__p">
+            <label className="tv-f">
+              <span>Password</span>
+              <span className="tv-pw">
+                <input
+                  className="tv-in"
+                  type={showPass ? "text" : "password"}
+                  autoComplete="off"
+                  value={ticket.pass}
+                  onChange={(e) => setField("pass", e.target.value)}
+                />
+                <button
+                  type="button"
+                  className="tv-btn tv-btn--sm"
+                  aria-pressed={showPass}
+                  onClick={() => setShowPass((v) => !v)}
+                >
+                  {showPass ? "Hide" : "Show"}
+                </button>
+              </span>
+            </label>
+            <label className="tv-chk">
+              <input
+                type="checkbox"
+                checked={ticket.keepLogin}
+                onChange={(e) => setField("keepLogin", e.target.checked)}
+              />
+              Keep these login details on this device
+            </label>
+            <p className="tv-note">
+              Meant to stay on this device only. Nothing is sent anywhere, and your password never appears on the ticket.
+            </p>
+          </div>
+        ) : null}
+      </div>
+
+      <div className="tv-dlg__ft">
+        <button type="button" className="tv-btn tv-btn--ghost" onClick={onRemove}>
+          Remove from vault
+        </button>
+        <button type="button" className="tv-btn" onClick={onClose}>
+          Done
+        </button>
+      </div>
     </div>
   );
 }
 
 function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <label className="grid gap-1 text-sm">
-      <span className="font-mono text-[10px] tracking-widest text-mute">{label}</span>
+    <label className="tv-f">
+      <span>{label}</span>
       {children}
     </label>
   );
