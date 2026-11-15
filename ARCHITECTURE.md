@@ -22,6 +22,7 @@ Client-first Bangladesh public-university admission desk (session **2026–27**)
 | Newswire | Editorial spice cards (desk-authored) |
 | Discovery / monitor | Crawler health + source verification |
 | Settings | Theme, Bangla, Naughty, desk alerts |
+| **Ticket vault** (`/tickets`) | Claim exam tickets; portal ID/password **local only** |
 
 **Not:** a multi-tenant SaaS. Personal data is **localStorage**. Auth/DB exist in the platform template but are **not** the admission product spine.
 
@@ -59,7 +60,7 @@ Client-first Bangladesh public-university admission desk (session **2026–27**)
  src/lib/catalog · status · calendar · desk-push
         │
         ▼
- localStorage (shortlist, progress, notes, push seen-ids)
+ localStorage (shortlist, progress, notes, push seen-ids, **a26-tickets-v2**)
 ```
 
 **Hard rule:** Desk-authored newswire (`desk-spice.ts`) is **not** overwritten by the crawler. Crawler feeds discovery/monitor/wire artifacts; humans/agents own circular confidence and spice voice.
@@ -116,6 +117,11 @@ Spice cards live in `desk-spice.ts` as `SpiceCard` (id, heat, kicker, headline, 
 | Path | Primary owner | Notes |
 |------|---------------|-------|
 | `src/data/types.ts` | **Agent 01** | Schema changes need Commander approval |
+| `src/data/tickets.ts` | Agent 05 (+ any on vault) | Shelf catalog (kinds, abbr, default fee, circularId) |
+| `src/lib/tickets-store.ts` | Agent 05 | Zustand persist `a26-tickets-v2`; password only if keepLogin |
+| `src/components/ticket-card.tsx` | Agent 05 | Minimal face: white card, notch, diagonal stripe, hard-shadow type |
+| `src/routes/tickets.tsx` | Agent 05 | Vault UI; shelf toggle; detail dialog; confirm remove |
+| `src/styles.css` (`.tk` / `.tv-*`) | Agent 05 | Ticket face + vault chrome only — do not restyle global shell |
 | `src/data/circulars.ts` | Agent 03 (RADAR / A) | Truth + confidence |
 | `src/data/universities.ts` | Agent 03 | Directory |
 | `src/data/watch.ts` | Agent 03 | Desk watch notes |
@@ -184,3 +190,22 @@ Spice cards live in `desk-spice.ts` as `SpiceCard` (id, heat, kicker, headline, 
 2. Align Agent 01–06 labels into `DESK_CREW.md` permanently.  
 3. Document spice + alerts-feed dual-write as a one-line checklist in Agent 02 prompts.  
 4. Keep circular PDF/portal fields as the CTA contract for university profiles.
+
+
+## Ticket vault (`/tickets`)
+
+**Purpose:** Student claims only the exams they will sit. Not a second circular archive.
+
+**Face template (locked):** white card · thick black border · left punch notch · huge abbr with hard black offset shadow · uni name · one diagonal stripe · `//fee` bottom-right. Per-campus **accent + stripe color only**. No icons, no campus scenes, no barcode clutter.
+
+**Catalog:** `src/data/tickets.ts` — kinds include KUET, DU, RU, JNU, DUET, GST, CU, SUST, CoU, RUET, BUP, MAT, BUET, CUET, MIST, JU. Link `circularId` when a circular exists.
+
+**Personal data (device only):** name, application id, password (opt-in persist), exam date/time, fee, status `none | await | paid`. Key: `localStorage["a26-tickets-v2"]`. Never upload.
+
+**UX rules:**
+- Shelf is **collapsed** by default (header **ADD TICKET**).
+- No remove button under the card — open dialog → REMOVE → confirm.
+- Nav: shell entry **Tickets** → `/tickets`.
+
+**Owners:** Agent 05 (face + vault UX). Agent 03 may add catalog rows when new forms open. Agent 01 only if route/store contract breaks.
+
