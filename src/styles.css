@@ -1413,3 +1413,164 @@ article:has([class*="NUKE"]) {
     transition: none !important;
   }
 }
+
+/* ——— Admission tickets wallet ——— */
+.ticket-pick {
+  border: 2px solid var(--color-ink);
+  background: var(--color-panel);
+  padding: 0.75rem;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.ticket-pick:not(:disabled):hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 0 var(--color-accent);
+}
+.ticket-blank {
+  display: grid;
+  gap: 0.35rem;
+  min-height: 7.5rem;
+  padding: 0.85rem 1rem;
+  border: 2px dashed color-mix(in srgb, var(--color-ink) 35%, transparent);
+  position: relative;
+  overflow: hidden;
+}
+.ticket-blank-code {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.ticket-blank-fee {
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+}
+.ticket-blank-line {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  max-width: 16rem;
+}
+
+.ticket-card {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+  border: 2px solid var(--color-ink);
+  background: var(--color-panel);
+  overflow: hidden;
+  min-height: 12rem;
+}
+.ticket-card-stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.25rem;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  border-right: 2px dashed color-mix(in srgb, var(--color-ink) 40%, transparent);
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.ticket-stub-code { font-size: 1.1rem; }
+.ticket-stub-year { font-size: 0.7rem; opacity: 0.8; }
+.ticket-card-body { padding: 0.9rem 1rem 0.75rem; display: flex; flex-direction: column; gap: 0.55rem; }
+.ticket-card-head { display: flex; justify-content: space-between; gap: 0.75rem; align-items: flex-start; }
+.ticket-kicker { font-family: ui-monospace, monospace; font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.75; }
+.ticket-title { font-family: var(--font-display); font-size: 1.55rem; font-weight: 800; line-height: 1; text-transform: uppercase; margin-top: 0.15rem; }
+.ticket-fee-block { text-align: right; }
+.ticket-fee-label { font-family: ui-monospace, monospace; font-size: 0.6rem; letter-spacing: 0.14em; }
+.ticket-fee { font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; line-height: 1; }
+.ticket-paid { font-family: ui-monospace, monospace; font-size: 0.65rem; letter-spacing: 0.12em; margin-top: 0.2rem; }
+.ticket-paid.is-paid { color: var(--color-accent); }
+.ticket-paid.is-unpaid { opacity: 0.65; }
+.ticket-face-line { font-size: 0.8rem; opacity: 0.85; max-width: 28rem; }
+.ticket-fields { display: grid; gap: 0.4rem; margin: 0; }
+.ticket-fields dt { font-family: ui-monospace, monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.65; }
+.ticket-fields dd { margin: 0.1rem 0 0; font-size: 0.9rem; }
+.ticket-reveal {
+  margin-left: 0.5rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-decoration: underline;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+}
+.ticket-edit-grid { display: grid; gap: 0.55rem; }
+.ticket-edit-grid label { display: grid; gap: 0.2rem; font-size: 0.8rem; }
+.ticket-edit-grid label span { font-family: ui-monospace, monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; }
+.ticket-edit-grid input[type="text"],
+.ticket-edit-grid input[type="number"],
+.ticket-edit-grid input:not([type]),
+.ticket-pick input,
+[role="dialog"] input {
+  border: 1px solid var(--color-ink);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  padding: 0.4rem 0.5rem;
+  font-size: 0.9rem;
+  width: 100%;
+}
+.ticket-check { display: flex !important; flex-direction: row !important; align-items: center; gap: 0.5rem; }
+.ticket-span { grid-column: 1 / -1; }
+.ticket-card-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: auto; padding-top: 0.4rem; border-top: 1px solid color-mix(in srgb, var(--color-ink) 18%, transparent); }
+.ticket-portal { font-family: ui-monospace, monospace; font-size: 0.65rem; letter-spacing: 0.06em; opacity: 0.7; }
+.ticket-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+/* Distinct faces — refine later with owner notes */
+.ticket-theme-du {
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, #6b0f1a 22%, transparent), transparent 55%),
+    linear-gradient(135deg, #1a2744 0%, #0f1a30 55%, #6b0f1a 140%);
+  color: #f6f0e6;
+}
+.ticket-theme-du .ticket-card-stub,
+.ticket-theme-du.ticket-blank { color: #f6f0e6; }
+.ticket-theme-du .ticket-title { color: #ffe14a; }
+.ticket-theme-du .ticket-card-body { background: transparent; }
+
+.ticket-theme-kuet {
+  background:
+    repeating-linear-gradient(-45deg, transparent, transparent 8px, color-mix(in srgb, #1a5f9e 12%, transparent) 8px, color-mix(in srgb, #1a5f9e 12%, transparent) 16px),
+    linear-gradient(160deg, #0c2238, #123a5c 60%, #1a5f9e);
+  color: #eef6ff;
+}
+.ticket-theme-kuet .ticket-title { color: #7ec8ff; }
+
+.ticket-theme-ru {
+  background:
+    radial-gradient(circle at 0% 100%, color-mix(in srgb, #c9a227 28%, transparent), transparent 50%),
+    linear-gradient(145deg, #0f3d2e, #145c42 70%, #1a6b4a);
+  color: #f3f7f0;
+}
+.ticket-theme-ru .ticket-title { color: #ffe14a; }
+
+.ticket-theme-jnu {
+  background:
+    linear-gradient(120deg, #3d2b1f 0%, #5c4030 45%, #8b6914 160%);
+  color: #f8f1e4;
+}
+.ticket-theme-jnu .ticket-title { color: #f0d9a0; }
+.ticket-theme-jnu .ticket-card-stub {
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, color-mix(in srgb, #000 12%, transparent) 3px, color-mix(in srgb, #000 12%, transparent) 6px);
+}
+
+.ticket-theme-mat {
+  background:
+    radial-gradient(circle at 80% 20%, color-mix(in srgb, #e10600 20%, transparent), transparent 45%),
+    linear-gradient(180deg, #fffdf8 0%, #f3efe6 100%);
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+.ticket-theme-mat .ticket-title { color: var(--color-accent); }
+.ticket-theme-mat .ticket-card-stub {
+  background: #fff;
+  color: var(--color-accent);
+  border-right-color: var(--color-accent);
+}
