@@ -78,28 +78,53 @@ function reqLinesFor(circular: Circular): string[] {
   return lines.slice(0, 3);
 }
 
+/** Compress unit code for the chip face: "Science" → keep short, "Arts / Law / Social Science" → "Arts+". */
+function chipUnitCode(code: string): string {
+  const c = code.trim();
+  if (c.length <= 8) return c;
+  // Prefer leading token before slash/paren
+  const lead = c.split(/[\/·(]/)[0]?.trim() ?? c;
+  if (lead.length <= 10) return lead;
+  return `${lead.slice(0, 8)}…`;
+}
+
 export function archiveEvents(circulars: Circular[], shortNames: Map<string, string>): CalendarEvent[] {
   return circulars.flatMap((circular) => {
     const short = shortNames.get(circular.universityId) ?? "RECORD";
-    const req = reqLinesFor(circular);
-    return eventsFor(circular).map((event) => ({
-      id: event.id,
-      day: event.day,
-      time: event.time,
-      title: `${short} · ${event.label}`,
-      shortName: short,
-      action: event.label,
-      kind: event.kind as CalendarKind,
-      confidence: circular.confidence,
-      confidenceLabel: evidenceLabel(circular.confidence, circular.publication),
-      universityId: circular.universityId,
-      circularId: circular.id,
-      personal: false,
-      completed: false,
-      notes: "",
-      remindDays: null,
-      reqLines: req,
-    }));
+    const baseReq = reqLinesFor(circular);
+    return eventsFor(circular).map((event) => {
+      const isUnitExam = event.kind === "exam" && event.unitCode;
+      const chipName = isUnitExam
+        ? `${short} [${chipUnitCode(event.unitCode!)}]`
+        : short;
+      const action = isUnitExam
+        ? (event.unitDetail?.split(".")[0]?.trim() || event.label)
+        : event.label;
+      const reqLines = isUnitExam
+        ? [
+            event.unitDetail || `Unit ${event.unitCode}`,
+            ...baseReq.filter((l) => l !== event.unitDetail).slice(0, 2),
+          ].slice(0, 3)
+        : baseReq;
+      return {
+        id: event.id,
+        day: event.day,
+        time: event.time,
+        title: isUnitExam ? `${short} · ${event.unitCode} · ${action}` : `${short} · ${event.label}`,
+        shortName: chipName,
+        action,
+        kind: event.kind as CalendarKind,
+        confidence: circular.confidence,
+        confidenceLabel: evidenceLabel(circular.confidence, circular.publication),
+        universityId: circular.universityId,
+        circularId: circular.id,
+        personal: false,
+        completed: false,
+        notes: "",
+        remindDays: null,
+        reqLines,
+      };
+    });
   });
 }
 

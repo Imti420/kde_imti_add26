@@ -45,6 +45,10 @@ export interface RadarEvent {
   day: string;
   time: string | null;
   label: string;
+  /** Unit code when this is a unit exam (A, B, IBA, …). */
+  unitCode?: string | null;
+  /** Who this unit is for — shown on calendar hover. */
+  unitDetail?: string | null;
 }
 
 export function eventsFor(c: Circular): RadarEvent[] {
@@ -85,14 +89,17 @@ export function eventsFor(c: Circular): RadarEvent[] {
   const unitExams = c.units.filter((u) => u.examDate);
   if (unitExams.length) {
     for (const u of unitExams) {
+      const code = u.code.trim();
       out.push({
-        id: `${c.id}-exam-${u.code}`,
+        id: `${c.id}-exam-${code.replace(/\s+/g, "-")}`,
         circularId: c.id,
         universityId: c.universityId,
         kind: "exam",
         day: u.examDate as string,
         time: u.examTime,
-        label: `Exam · ${u.code}`,
+        label: `Exam · ${code}`,
+        unitCode: code,
+        unitDetail: u.detail?.trim() || null,
       });
     }
   } else if (c.examDate) {
@@ -104,6 +111,8 @@ export function eventsFor(c: Circular): RadarEvent[] {
       day: c.examDate,
       time: c.examTime,
       label: "Admission test",
+      unitCode: null,
+      unitDetail: null,
     });
   }
   if (c.resultOn) {
