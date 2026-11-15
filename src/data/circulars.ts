@@ -402,7 +402,7 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "Application + unit grid from institutional releases cited by Observer / Prothom Alo / Alormela (11–12 Nov). Seats ~2,765 on Alormela circular digest. Formal PDF not mirrored on this desk yet.",
     sources: [BDNEWS_SPLIT, STAR_CLASH, SEATS_COMP],
-    updatedOn: "2026-11-13",
+    updatedOn: "2026-11-15",
     applicationOpens: "2026-11-15",
     opensAt: "12:00",
     applicationCloses: "2026-12-10",
@@ -441,7 +441,7 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "Prothom Alo 11 Nov + RU committee/VC lines. Formal RU circular PDF not yet mirrored here — confidence stays reported.",
     sources: [BDNEWS_SPLIT, STAR_CLASH, SEATS_COMP],
-    updatedOn: "2026-11-13",
+    updatedOn: "2026-11-15",
     applicationOpens: "2026-11-15",
     applicationCloses: "2026-11-30",
     examDate: "2027-02-12",
