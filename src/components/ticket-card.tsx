@@ -1,212 +1,102 @@
-import { useState } from "react";
-import { Link } from "@tanstack/react-router";
-import { templateByKind, type TicketKind } from "@/data/tickets";
+import { TICKET_STATUS_LABEL, templateByKind, type TicketKind } from "@/data/tickets";
 import type { UserTicket } from "@/lib/tickets-store";
+import { TicketArt } from "@/components/ticket-art";
 
-export function TicketCard({
-  ticket,
-  onRemove,
-  onUpdate,
-}: {
-  ticket: UserTicket;
-  onRemove: () => void;
-  onUpdate: (patch: Partial<UserTicket>) => void;
-}) {
-  const tpl = templateByKind(ticket.kind);
-  const [reveal, setReveal] = useState(false);
-  const [editing, setEditing] = useState(false);
-  const [draft, setDraft] = useState({
-    holderName: ticket.holderName,
-    applicationId: ticket.applicationId,
-    password: ticket.password,
-    feeBdt: ticket.feeBdt,
-    note: ticket.note,
-    paid: ticket.paid,
-  });
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-  const save = () => {
-    onUpdate({
-      holderName: draft.holderName.trim(),
-      applicationId: draft.applicationId.trim(),
-      password: draft.password,
-      feeBdt: Number.isFinite(draft.feeBdt) ? Math.max(0, Math.round(draft.feeBdt)) : 0,
-      note: draft.note.trim(),
-      paid: draft.paid,
-    });
-    setEditing(false);
-  };
+function fmtDate(v: string): string {
+  if (!v) return "";
+  const p = v.split("-");
+  if (p.length < 3) return v;
+  return `${Number(p[2])} ${MONTHS[Number(p[1]) - 1]} ${p[0]}`;
+}
 
+function fmtTime(v: string): string {
+  if (!v) return "";
+  const [hs, ms] = v.split(":");
+  const h = Number(hs);
+  const ap = h >= 12 ? "PM" : "AM";
+  return `${h % 12 || 12}:${ms} ${ap}`;
+}
+
+function MetaRow({ label, value, empty }: { label: string; value: string; empty: string }) {
   return (
-    <article className={`ticket-card ticket-theme-${tpl.theme}`}>
-      <div className="ticket-card-stub" aria-hidden>
-        <span className="ticket-stub-code">{tpl.shortLabel}</span>
-        <span className="ticket-stub-year">26/27</span>
-      </div>
-      <div className="ticket-card-body">
-        <header className="ticket-card-head">
-          <div>
-            <p className="ticket-kicker">{tpl.subtitle}</p>
-            <h3 className="ticket-title">{tpl.label}</h3>
-          </div>
-          <div className="ticket-fee-block">
-            <p className="ticket-fee-label">FEE</p>
-            <p className="ticket-fee">৳{ticket.feeBdt.toLocaleString("en-BD")}</p>
-            <p className={`ticket-paid ${ticket.paid ? "is-paid" : "is-unpaid"}`}>
-              {ticket.paid ? "PAID" : "UNPAID"}
-            </p>
-          </div>
-        </header>
-
-        <p className="ticket-face-line">{tpl.faceLine}</p>
-
-        {!editing ? (
-          <dl className="ticket-fields">
-            <div>
-              <dt>Holder</dt>
-              <dd>{ticket.holderName || "—"}</dd>
-            </div>
-            <div>
-              <dt>Application / User ID</dt>
-              <dd className="font-mono">{ticket.applicationId || "—"}</dd>
-            </div>
-            <div>
-              <dt>Password</dt>
-              <dd className="font-mono">
-                {ticket.password
-                  ? reveal
-                    ? ticket.password
-                    : "••••••••"
-                  : "—"}
-                {ticket.password ? (
-                  <button
-                    type="button"
-                    className="ticket-reveal"
-                    onClick={() => setReveal((v) => !v)}
-                  >
-                    {reveal ? "Hide" : "Show"}
-                  </button>
-                ) : null}
-              </dd>
-            </div>
-            {ticket.note ? (
-              <div>
-                <dt>Note</dt>
-                <dd>{ticket.note}</dd>
-              </div>
-            ) : null}
-          </dl>
-        ) : (
-          <div className="ticket-edit-grid">
-            <label>
-              <span>Name on ticket</span>
-              <input
-                value={draft.holderName}
-                onChange={(e) => setDraft({ ...draft, holderName: e.target.value })}
-                placeholder="Your name"
-              />
-            </label>
-            <label>
-              <span>Application / User ID</span>
-              <input
-                value={draft.applicationId}
-                onChange={(e) => setDraft({ ...draft, applicationId: e.target.value })}
-                placeholder="Portal user id"
-                autoComplete="username"
-              />
-            </label>
-            <label>
-              <span>Password (device only)</span>
-              <input
-                type="text"
-                value={draft.password}
-                onChange={(e) => setDraft({ ...draft, password: e.target.value })}
-                placeholder="Optional · stays in this browser"
-                autoComplete="off"
-              />
-            </label>
-            <label>
-              <span>Fee (৳)</span>
-              <input
-                type="number"
-                min={0}
-                value={draft.feeBdt}
-                onChange={(e) => setDraft({ ...draft, feeBdt: Number(e.target.value) })}
-              />
-            </label>
-            <label className="ticket-check">
-              <input
-                type="checkbox"
-                checked={draft.paid}
-                onChange={(e) => setDraft({ ...draft, paid: e.target.checked })}
-              />
-              <span>Marked paid</span>
-            </label>
-            <label className="ticket-span">
-              <span>Note</span>
-              <input
-                value={draft.note}
-                onChange={(e) => setDraft({ ...draft, note: e.target.value })}
-                placeholder="Unit, centre, anything"
-              />
-            </label>
-          </div>
-        )}
-
-        <footer className="ticket-card-foot">
-          <p className="ticket-portal">{tpl.portalHint}</p>
-          <div className="ticket-actions">
-            {tpl.circularId ? (
-              <Link to="/circulars/$id" params={{ id: tpl.circularId }} className="press text-[10px] tracking-widest">
-                CIRCULAR
-              </Link>
-            ) : null}
-            {!editing ? (
-              <>
-                <button type="button" className="press text-[10px] tracking-widest" onClick={() => setEditing(true)}>
-                  EDIT
-                </button>
-                <button type="button" className="press text-[10px] tracking-widest" onClick={onRemove}>
-                  REMOVE
-                </button>
-              </>
-            ) : (
-              <>
-                <button type="button" className="press text-[10px] tracking-widest" onClick={save}>
-                  SAVE
-                </button>
-                <button
-                  type="button"
-                  className="press text-[10px] tracking-widest"
-                  onClick={() => {
-                    setDraft({
-                      holderName: ticket.holderName,
-                      applicationId: ticket.applicationId,
-                      password: ticket.password,
-                      feeBdt: ticket.feeBdt,
-                      note: ticket.note,
-                      paid: ticket.paid,
-                    });
-                    setEditing(false);
-                  }}
-                >
-                  CANCEL
-                </button>
-              </>
-            )}
-          </div>
-        </footer>
-      </div>
-    </article>
+    <div>
+      <span>{label}</span>
+      <b className={value ? undefined : "e"}>{value || empty}</b>
+    </div>
   );
 }
 
-export function BlankTicketFace({ kind }: { kind: TicketKind }) {
+export function TicketFace({
+  kind,
+  data,
+  interactive,
+  onOpen,
+}: {
+  kind: TicketKind;
+  data?: Pick<UserTicket, "name" | "appId" | "date" | "time" | "fee" | "status">;
+  interactive?: boolean;
+  onOpen?: () => void;
+}) {
   const tpl = templateByKind(kind);
-  return (
-    <div className={`ticket-blank ticket-theme-${tpl.theme}`}>
-      <span className="ticket-blank-code">{tpl.shortLabel}</span>
-      <span className="ticket-blank-fee">৳{tpl.defaultFeeBdt}</span>
-      <span className="ticket-blank-line">{tpl.faceLine}</span>
+  const status = data?.status ?? "none";
+  const fee = data?.fee ?? "";
+  const hasFee = fee !== "";
+  const when = [fmtDate(data?.date ?? ""), fmtTime(data?.time ?? "")].filter(Boolean).join(", ");
+  const longFee = hasFee && String(fee).length > 4;
+
+  const inner = (
+    <div className="tk__in">
+      <div className="tk__art" aria-hidden>
+        <TicketArt kind={kind} />
+      </div>
+      <div className="tk__wash" />
+      <i className="tk__h" />
+      <i className="tk__h r" />
+      <div className="tk__top">
+        <span className="tk__chip">ADMISSION//26</span>
+        <span className={`tk__stat tk__stat--${status}`}>{TICKET_STATUS_LABEL[status]}</span>
+      </div>
+      <div className="tk__abbr">{tpl.abbr}</div>
+      <div className="tk__name">{tpl.name}</div>
+      <span />
+      <div className="tk__bot">
+        <div>
+          <div className="tk__meta">
+            <MetaRow label="Candidate" value={data?.name ?? ""} empty="NOT ADDED" />
+            <MetaRow label="Application ID" value={data?.appId ?? ""} empty="NOT ADDED" />
+            <MetaRow label="Exam" value={when} empty="NOT ANNOUNCED" />
+          </div>
+          <div className="tk__bc" />
+        </div>
+        <div className={`tk__fee${longFee ? " tk__fee--l" : ""}`}>
+          <small>{hasFee ? "EXAM FEE ৳" : "FEE NOT PROVIDED"}</small>
+          <b>//{hasFee ? fee : "——"}</b>
+        </div>
+      </div>
     </div>
   );
+
+  if (interactive) {
+    return (
+      <div
+        className={`tk tk--${kind}`}
+        role="button"
+        tabIndex={0}
+        aria-label={`Open ${tpl.abbr} ticket`}
+        onClick={onOpen}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            onOpen?.();
+          }
+        }}
+      >
+        {inner}
+      </div>
+    );
+  }
+
+  return <div className={`tk tk--${kind}`}>{inner}</div>;
 }
