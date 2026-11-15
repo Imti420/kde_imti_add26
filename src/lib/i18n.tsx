@@ -29,6 +29,7 @@ const en: Dict = {
   "nav.discovery": "Discovery log",
   "nav.shortlist": "My shortlist",
   "nav.tracker": "Application tracker",
+  "nav.tickets": "Tickets",
   "nav.settings": "Settings",
   // chrome
   "chrome.menu": "Menu",
@@ -287,6 +288,7 @@ const bn: Dict = {
   "nav.discovery": "ডিসকভারি লগ",
   "nav.shortlist": "আমার শর্টলিস্ট",
   "nav.tracker": "আবেদন ট্র্যাকার",
+  "nav.tickets": "টিকিট",
   "nav.settings": "সেটিংস",
   "chrome.menu": "মেনু",
   "chrome.close": "বন্ধ",
