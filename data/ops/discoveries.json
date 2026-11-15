@@ -18689,5 +18689,33 @@
     "shortName": "JnU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.iu.ac.bd/public/images/notice/bff091680d03f1ab2566691c100915be.pdf",
+    "foundOn": "https://www.iu.ac.bd/",
+    "foundAt": "2026-11-15T11:12:30.031Z",
+    "title": "নিয়োগ বিজ্ঞপ্তি এবং শিক্ষাগত যোগ্যতা ও অন্যান্য তথ্যবলী · 15",
+    "kind": "pdf",
+    "score": 10,
+    "sameSite": true,
+    "id": "iu:https://www.iu.ac.bd/public/images/notice/bff091680d03f1ab2566691c100915be.pdf",
+    "universityId": "iu",
+    "shortName": "IU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://cu.ac.bd/wp-content/uploads/2026/11/t.pdf",
+    "foundOn": "https://cu.ac.bd/",
+    "foundAt": "2026-11-15T11:12:30.394Z",
+    "title": "বিস্তারিত দেখুন",
+    "kind": "pdf",
+    "score": 7,
+    "sameSite": true,
+    "id": "cu:https://cu.ac.bd/wp-content/uploads/2026/11/t.pdf",
+    "universityId": "cu",
+    "shortName": "CU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
