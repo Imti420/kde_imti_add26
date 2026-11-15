@@ -1414,144 +1414,20 @@ article:has([class*="NUKE"]) {
   }
 }
 
-/* ===== ADMISSION//26 Ticket Vault (.tv / .tk) — ported from design prototype ===== */
-.tv {
-  --tv-ink: #16110f;
-  --tv-bg: #eceae3;
-  --tv-yel: #ffd23f;
-  --tv-bw: 4px;
-  --tv-disp: "Arial Black", "Helvetica Neue", Arial, sans-serif;
-  --tv-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-family: var(--tv-body);
-  color: var(--tv-ink);
-  background: var(--tv-bg);
-  padding: clamp(16px, 4vw, 44px);
-  box-sizing: border-box;
-  line-height: 1.4;
-  margin: -1rem -1rem 0;
-  min-height: 70vh;
-}
-.tv *,
-.tv *::before,
-.tv *::after {
-  box-sizing: border-box;
-}
-.tv :focus-visible {
-  outline: 3px solid #2b4eff;
-  outline-offset: 3px;
-}
-.tv-hd {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px 32px;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 28px;
-}
-.tv-tag {
-  display: inline-block;
-  background: var(--tv-ink);
-  color: var(--tv-yel);
-  font: 800 0.8rem var(--tv-body);
-  padding: 3px 10px;
-  transform: rotate(-2deg);
-  margin-bottom: 10px;
-}
-.tv-title {
-  margin: 0;
-  font: 900 clamp(2.2rem, 7vw, 4rem) / 0.88 var(--tv-disp);
-  letter-spacing: -0.03em;
-  color: var(--tv-ink);
-}
-.tv-lede {
-  margin: 10px 0 0;
-  max-width: 34ch;
-  font-size: 0.95rem;
-}
-.tv-sum {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  background: #fff;
-  border: var(--tv-bw) solid var(--tv-ink);
-  box-shadow: 6px 6px 0 var(--tv-ink);
-  flex: 1 1 420px;
-  max-width: 640px;
-}
-.tv-sum > div {
-  padding: 10px 12px;
-  border-right: 3px solid var(--tv-ink);
-}
-.tv-sum > div:last-child {
-  border-right: 0;
-}
-.tv-sum b {
-  display: block;
-  font: 900 1.45rem / 1.1 var(--tv-disp);
-}
-.tv-sum span {
-  font-size: 0.7rem;
-  font-weight: 700;
-}
-.tv-sum .tv-hot {
-  background: var(--tv-yel);
-}
-.tv-sec {
-  margin-top: 36px;
-}
-.tv-sec h2 {
-  margin: 0 0 18px;
-  font: 900 1.5rem / 1 var(--tv-disp);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--tv-ink);
-}
-.tv-sec h2 i {
-  font: 800 0.8rem var(--tv-body);
-  font-style: normal;
-  background: var(--tv-ink);
-  color: #fff;
-  border-radius: 99px;
-  padding: 3px 10px;
-}
+
+/* ===== ADMISSION//26 Ticket Vault — face styles + light chrome helpers ===== */
+/* Page chrome uses app tokens (PageHead, press, border-ink). Ticket faces keep .tk art. */
 .tv-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
-  gap: 34px 30px;
+  gap: 28px 24px;
   align-items: start;
 }
 .tv-slot {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  align-items: flex-start;
-  padding-right: 14px;
-}
-.tv-btn {
-  font: 800 0.85rem var(--tv-body);
-  padding: 10px 16px;
-  background: var(--tv-yel);
-  color: var(--tv-ink);
-  border: var(--tv-bw) solid var(--tv-ink);
-  box-shadow: 4px 4px 0 var(--tv-ink);
-  cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-.tv-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 var(--tv-ink);
-}
-.tv-btn:active {
-  transform: translate(3px, 3px);
-  box-shadow: 1px 1px 0 var(--tv-ink);
-}
-.tv-btn--sm {
-  padding: 5px 10px;
-  font-size: 0.75rem;
-  box-shadow: 3px 3px 0 var(--tv-ink);
-}
-.tv-btn--ghost {
-  background: #fff;
+  gap: 12px;
+  align-items: stretch;
 }
 .tv-pop {
   animation: tv-drop 0.38s cubic-bezier(0.3, 1.5, 0.5, 1);
@@ -1561,80 +1437,6 @@ article:has([class*="NUKE"]) {
     transform: translateY(-28px) rotate(-4deg);
     opacity: 0;
   }
-}
-.tv-empty {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 28px 44px;
-  padding: 28px;
-  background: var(--tv-yel);
-  border: var(--tv-bw) solid var(--tv-ink);
-  box-shadow: 8px 8px 0 var(--tv-ink);
-}
-.tv-stack {
-  position: relative;
-  width: 190px;
-  height: 150px;
-  flex: none;
-  margin: 0 auto;
-}
-.tv-stack i {
-  position: absolute;
-  width: 140px;
-  height: 84px;
-  border: var(--tv-bw) solid var(--tv-ink);
-  border-radius: 8px;
-}
-.tv-stack i::before {
-  content: "";
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  top: 18px;
-  height: 10px;
-  background: var(--tv-ink);
-  opacity: 0.9;
-}
-.tv-stack i::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  width: 50px;
-  top: 40px;
-  height: 8px;
-  background: var(--tv-ink);
-  opacity: 0.35;
-}
-.tv-stack i:nth-child(1) {
-  background: #ff7a1a;
-  left: 0;
-  top: 50px;
-  transform: rotate(-9deg);
-}
-.tv-stack i:nth-child(2) {
-  background: #8c1c13;
-  left: 44px;
-  top: 34px;
-  transform: rotate(5deg);
-}
-.tv-stack i:nth-child(3) {
-  background: #bfefe0;
-  left: 28px;
-  top: 4px;
-  transform: rotate(-2deg);
-}
-.tv-empty h3 {
-  margin: 0 0 8px;
-  font: 900 1.7rem / 1 var(--tv-disp);
-}
-.tv-empty p {
-  margin: 0 0 16px;
-  max-width: 36ch;
-}
-.tv-none {
-  margin: 0;
-  font-weight: 700;
 }
 
 /* Uniform ticket shell + per-school theme vars */
@@ -1723,7 +1525,7 @@ article:has([class*="NUKE"]) {
   height: 6cqw;
   margin-top: -3cqw;
   border-radius: 50%;
-  background: var(--tv-bg, #eceae3);
+  background: var(--color-paper);
   border: 0.9cqw solid var(--tk-c);
   z-index: 1;
 }
@@ -1852,11 +1654,11 @@ article:has([class*="NUKE"]) {
   width: min(760px, calc(100% - 20px));
   max-height: calc(100dvh - 20px);
   padding: 0;
-  border: var(--tv-bw) solid var(--tv-ink);
+  border: 3px solid var(--color-ink);
   background: #f7f4ec;
-  color: var(--tv-ink);
-  box-shadow: 8px 8px 0 var(--tv-ink);
-  font-family: var(--tv-body);
+  color: var(--color-ink);
+  box-shadow: 8px 8px 0 var(--color-ink);
+  font-family: system-ui, sans-serif;
 }
 .tv-dlg::backdrop {
   background: rgba(22, 17, 15, 0.62);
@@ -1869,7 +1671,7 @@ article:has([class*="NUKE"]) {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 22px;
-  font: 900 1.3rem var(--tv-disp);
+  font: 900 1.3rem var(--font-display);
 }
 .tv-dlg__tk {
   max-width: 640px;
@@ -1879,7 +1681,7 @@ article:has([class*="NUKE"]) {
 .tv-fs {
   margin: 0 0 16px;
   padding: 12px 14px 14px;
-  border: 3px solid var(--tv-ink);
+  border: 3px solid var(--color-ink);
   background: #fff;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1900,10 +1702,10 @@ article:has([class*="NUKE"]) {
 .tv-in {
   width: 100%;
   padding: 9px 10px;
-  border: 3px solid var(--tv-ink);
+  border: 3px solid var(--color-ink);
   border-radius: 0;
   background: #fff;
-  color: var(--tv-ink);
+  color: var(--color-ink);
   font: inherit;
   font-weight: 500;
 }
@@ -1928,8 +1730,8 @@ article:has([class*="NUKE"]) {
   padding: 0;
   background: none;
   border: 0;
-  font: 800 0.95rem var(--tv-body);
-  color: var(--tv-ink);
+  font: 800 0.95rem system-ui, sans-serif;
+  color: var(--color-ink);
   cursor: pointer;
   text-align: left;
 }
@@ -1960,8 +1762,8 @@ article:has([class*="NUKE"]) {
 .tv-note {
   margin: 0;
   padding: 8px 10px;
-  background: var(--tv-yel);
-  border: 3px solid var(--tv-ink);
+  background: var(--color-yellow);
+  border: 3px solid var(--color-ink);
   font-size: 0.76rem;
   font-weight: 600;
 }
@@ -1981,7 +1783,7 @@ article:has([class*="NUKE"]) {
     border-right: 0;
   }
   .tv-sum > div:nth-child(-n + 2) {
-    border-bottom: 3px solid var(--tv-ink);
+    border-bottom: 3px solid var(--color-ink);
   }
   .tv-fs {
     grid-template-columns: 1fr;
