@@ -94,7 +94,7 @@ function TicketsPage() {
         }
       />
 
-      <div className="grid grid-cols-2 border-[3px] border-ink bg-panel md:grid-cols-4">
+      <div className="tv-stats">
         <Stat label="EXAMS" value={String(stats.n)} />
         <Stat label="PAID" value={String(stats.paid)} />
         <Stat label="SPENT" value={money(stats.spent)} />
@@ -108,8 +108,8 @@ function TicketsPage() {
       {!hydrated ? <p className="mt-4 font-mono text-xs text-mute">RESTORING VAULT…</p> : null}
 
       {shelfOpen && shelf.length > 0 ? (
-        <section className="mt-6 border-[3px] border-ink bg-yellow/30 p-4">
-          <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
+        <section className="tv-shelf">
+          <div className="tv-shelf-head">
             <SectionLabel>On the shelf</SectionLabel>
             <p className="max-w-md text-sm text-ink">Pick a campus. It moves into your collection. You can skip any of them.</p>
           </div>
@@ -133,18 +133,25 @@ function TicketsPage() {
       <section className="mt-8">
         <SectionLabel>My collection</SectionLabel>
         {tickets.length === 0 ? (
-          <div className="mt-4 border-[3px] border-ink bg-panel p-5">
-            <p className="font-display text-3xl font-bold uppercase leading-none">Vault is empty</p>
-            <p className="mt-2 max-w-prose text-sm">
-              Nothing claimed yet. Open the shelf and add only what you will sit — DU, KUET, RU, JnU, MAT, or none.
-            </p>
-            <button
-              type="button"
-              className="press press-accent mt-4 px-4 py-2 font-mono text-[11px] tracking-widest"
-              onClick={() => setShelfOpen(true)}
-            >
-              OPEN SHELF
-            </button>
+          <div className="tv-empty">
+            <div className="tv-stack" aria-hidden>
+              <i />
+              <i />
+              <i />
+            </div>
+            <div>
+              <p className="font-display text-4xl font-bold uppercase leading-none">Vault is empty</p>
+              <p className="mt-2 max-w-prose text-sm">
+                Nothing claimed yet. Open the shelf and add only what you will sit — DU, KUET, RU, JnU, MAT, or none.
+              </p>
+              <button
+                type="button"
+                className="press press-accent mt-4 px-4 py-2 font-mono text-[11px] tracking-widest"
+                onClick={() => setShelfOpen(true)}
+              >
+                OPEN SHELF
+              </button>
+            </div>
           </div>
         ) : (
           <div className="tv-grid mt-4">
@@ -184,7 +191,7 @@ function TicketsPage() {
 
 function Stat({ label, value, hot }: { label: string; value: string; hot?: boolean }) {
   return (
-    <div className={`border-ink border-r border-b p-3 last:border-r-0 md:[&:nth-child(4)]:border-r-0 ${hot ? "bg-yellow text-onyellow" : ""}`}>
+    <div className={hot ? "tv-hot" : undefined}>
       <p className="font-display text-3xl font-bold tabular-nums md:text-4xl">{value}</p>
       <p className="mt-1 font-mono text-[10px] tracking-widest text-mute">{label}</p>
     </div>
