@@ -1,59 +1,41 @@
 {
-  "updated": "2026-11-14T22:25:00+06:00",
-  "cycle": "n1114-weekend-forms",
+  "updated": "2026-11-15T14:40:00+06:00",
+  "cycle": "n1115-ru-live",
   "news": [
     {
-      "id": "n1114-weekend-forms",
-      "heat": "NUKE",
-      "headline": "Weekend form week: DU · RU/JnU · KUET live",
-      "url": "/newswire"
-    },
-    {
-      "id": "n1114-du",
+      "id": "n1115-ru-live",
       "heat": "HOT",
-      "headline": "DU apps ~11 days left — close 25 Nov 23:59",
-      "url": "/circulars/c-du"
-    },
-    {
-      "id": "n1114-jnu",
-      "heat": "HOT",
-      "headline": "JnU apps in play — verify open day on portal",
-      "url": "/circulars/c-jnu"
-    },
-    {
-      "id": "n1114-ru",
-      "heat": "SYSTEM",
-      "headline": "RU apps 15–30 Nov · tests mid-February",
+      "headline": "RU applications open today through 30 Nov",
       "url": "/circulars/c-ru"
     },
     {
-      "id": "n1114-buet",
-      "heat": "WAR",
-      "headline": "BUET apps open 21 Nov · test 16 Jan",
+      "id": "n1115-du",
+      "heat": "HOT",
+      "headline": "DU still open — about 10 days left",
+      "url": "/circulars/c-du"
+    },
+    {
+      "id": "n1115-jnu",
+      "heat": "SYSTEM",
+      "headline": "JnU: check portal (15 vs 25 Nov)",
+      "url": "/circulars/c-jnu"
+    },
+    {
+      "id": "n1115-buet",
+      "heat": "SYSTEM",
+      "headline": "BUET apps open Friday 21 Nov",
       "url": "/circulars/c-buet"
     },
     {
-      "id": "n1114-kuet",
+      "id": "n1115-kuet",
       "heat": "HOT",
-      "headline": "KUET live through 10 Dec + PDF",
+      "headline": "KUET still open through 10 Dec",
       "url": "/circulars/c-kuet"
     },
     {
-      "id": "n1114-ju",
-      "heat": "SYSTEM",
-      "headline": "JU apps from 25 Nov · tests 10–21 Jan",
-      "url": "/circulars/c-ju"
-    },
-    {
-      "id": "n1114-medical",
-      "heat": "HOT",
-      "headline": "Medical ~18 Dec — DGME PDF still missing",
-      "url": "/circulars/c-dghs"
-    },
-    {
-      "id": "n1114-desk",
+      "id": "n1115-board",
       "heat": "STREET",
-      "headline": "Desk: DU · RU/JnU · BUET Friday",
+      "headline": "Desk board: RU · DU · JnU · BUET Friday",
       "url": "/newswire"
     }
   ]
