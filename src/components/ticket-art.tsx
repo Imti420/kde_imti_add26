@@ -1,231 +1,207 @@
 import type { ReactNode } from "react";
-/** Flat inline-SVG campus scenes — one per ticket kind. */
 
-function R(props: { x: number; y: number; w: number; h: number; f: string; rx?: number }) {
-  return <rect x={props.x} y={props.y} width={props.w} height={props.h} fill={props.f} rx={props.rx} />;
-}
-function C(props: { x: number; y: number; r: number; f: string }) {
-  return <circle cx={props.x} cy={props.y} r={props.r} fill={props.f} />;
-}
-function E(props: { x: number; y: number; a: number; b: number; f: string }) {
-  return <ellipse cx={props.x} cy={props.y} rx={props.a} ry={props.b} fill={props.f} />;
-}
-function P(props: { d: string; f?: string; s?: string; w?: number }) {
+function Frame({ children, bg }: { children: ReactNode; bg: string }) {
   return (
-    <path
-      d={props.d}
-      fill={props.f ?? "none"}
-      stroke={props.s}
-      strokeWidth={props.s ? props.w ?? 6 : undefined}
-      strokeLinejoin={props.s ? "round" : undefined}
-      strokeLinecap={props.s ? "round" : undefined}
-    />
-  );
-}
-
-function grid(x: number, y: number, n: number, m: number, dx: number, dy: number, w: number, h: number, f: string) {
-  const cells = [];
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < m; j++) {
-      cells.push(<R key={`${i}-${j}`} x={x + i * dx} y={y + j * dy} w={w} h={h} f={f} />);
-    }
-  }
-  return cells;
-}
-
-function waves(y: number, col: string) {
-  return Array.from({ length: 4 }, (_, i) => (
-    <P
-      key={i}
-      d={`M${i * 230 - 20} ${y + (i % 2) * 22}q20-10 40 0t40 0t40 0t40 0`}
-      s={col}
-      w={4}
-    />
-  ));
-}
-
-function truss() {
-  let d = "M0 392";
-  for (let i = 0; i < 10; i++) {
-    d += `L${i * 44 + 22} ${i % 3 ? 358 : 352}L${i * 44 + 44} 392`;
-  }
-  return <P d={d} s="#6E9A83" w={4} />;
-}
-
-function arches(x: number, y: number, n: number, dx: number, w: number, h: number, f: string) {
-  return Array.from({ length: n }, (_, i) => (
-    <P
-      key={i}
-      d={`M${x + i * dx} ${y}v-${h}a${w / 2} ${w / 2} 0 0 1 ${w} 0v${h}z`}
-      f={f}
-    />
-  ));
-}
-
-function kite(x: number, y: number, col: string) {
-  return (
-    <>
-      <P d={`M${x} ${y}l24 30l-24 30l-24-30z`} f={col} />
-      <P d={`M${x} ${y + 60}q12 20-6 40t6 40`} s="#6A2C70" w={3} />
-    </>
-  );
-}
-
-function mangoes(pts: [number, number][]) {
-  return pts.map(([x, y], i) => (
-    <g key={i}>
-      <E x={x} y={y} a={13} b={17} f="#F6A61C" />
-      <C x={x + 4} y={y - 6} r={3} f="#FFD27A" />
-    </g>
-  ));
-}
-
-function Frame({ children }: { children: ReactNode }) {
-  return (
-    <svg viewBox="0 0 880 480" preserveAspectRatio="xMaxYMid slice" aria-hidden>
+    <svg viewBox="0 0 280 200" preserveAspectRatio="xMidYMid slice" aria-hidden>
+      <rect width="280" height="200" fill={bg} />
       {children}
     </svg>
   );
 }
 
+/** Flat poster illustrations — one scene per campus, no photo realism. */
 export function TicketArt({ kind }: { kind: string }) {
   switch (kind) {
     case "kuet":
       return (
-        <Frame>
-          <R x={0} y={0} w={880} h={480} f="#CFE3DC" />
-          <E x={520} y={70} a={90} b={20} f="#EEF4F0" />
-          <E x={610} y={92} a={60} b={14} f="#EEF4F0" />
-          <C x={500} y={170} r={62} f="#7DAA6C" />
-          <C x={590} y={120} r={70} f="#7DAA6C" />
-          <C x={690} y={100} r={62} f="#7DAA6C" />
-          <C x={800} y={140} r={72} f="#7DAA6C" />
-          <C x={560} y={205} r={40} f="#5D8F52" />
-          <C x={850} y={200} r={50} f="#5D8F52" />
-          <R x={770} y={170} w={110} h={250} f="#E8D4A9" />
-          {grid(790, 190, 2, 5, 44, 44, 22, 26, "#9DB7A4")}
-          <R x={650} y={120} w={125} h={300} f="#F1DEB6" />
-          <R x={650} y={120} w={125} h={14} f="#D8C190" />
-          <circle cx={712} cy={212} r={38} fill="none" stroke="#2B4A36" strokeWidth={12} strokeDasharray="9.95 9.95" />
-          <C x={712} y={212} r={32} f="#F1DEB6" />
-          <P d="M712 190v30M700 200h24M696 228q16 14 32 0" s="#2B4A36" w={5} />
-          <R x={440} y={284} w={200} h={116} f="#9FC1B4" />
-          {grid(440, 284, 5, 1, 44, 0, 14, 116, "#E0CDA2")}
-          <R x={420} y={262} w={250} h={22} f="#C9B589" />
-          <R x={380} y={330} w={70} h={70} f="#D8C59C" />
-          <R x={0} y={400} w={880} h={80} f="#9CC7BE" />
-          {waves(430, "#C6E1DA")}
-          <P d="M0 380Q210 316 440 392" s="#5F8F78" w={8} />
-          <P d="M0 392H440" s="#5F8F78" w={8} />
-          {truss()}
+        <Frame bg="#d8ebe0">
+          <circle cx="210" cy="48" r="36" fill="#2f6b4f" opacity="0.25" />
+          <rect x="150" y="70" width="100" height="90" fill="#1f4d38" />
+          <rect x="160" y="82" width="22" height="28" fill="#9fd0b4" />
+          <rect x="190" y="82" width="22" height="28" fill="#9fd0b4" />
+          <rect x="220" y="82" width="22" height="28" fill="#9fd0b4" />
+          <circle cx="200" cy="55" r="28" fill="none" stroke="#1f4d38" strokeWidth="8" />
+          <path d="M200 35v20M188 48h24" stroke="#1f4d38" strokeWidth="5" />
+          <rect x="40" y="120" width="90" height="40" fill="#3d7a5c" />
+          <path d="M30 160h220" stroke="#1f4d38" strokeWidth="6" />
         </Frame>
       );
     case "du":
       return (
-        <Frame>
-          <R x={0} y={0} w={880} h={480} f="#F7DCD0" />
-          <R x={380} y={30} w={500} h={40} f="#fff" />
-          {grid(396, 38, 17, 1, 28, 0, 18, 14, "#6FA8DC")}
-          <R x={380} y={60} w={500} h={6} f="#2E6BB0" />
-          <R x={330} y={70} w={550} h={24} f="#B9B2B5" />
-          <R x={560} y={94} w={28} h={306} f="#A79FA3" />
-          <R x={810} y={94} w={28} h={306} f="#A79FA3" />
-          <R x={380} y={250} w={400} h={150} f="#B4443E" />
-          <R x={372} y={236} w={416} h={18} f="#F7E3C5" />
-          {arches(396, 400, 7, 54, 40, 52, "#F7E3C5")}
-          <P d="M540 236a50 50 0 0 1 100 0z" f="#8B1E2B" />
-          <R x={588} y={172} w={4} h={18} f="#8B1E2B" />
-          <P d="M395 236a24 24 0 0 1 48 0z" f="#8B1E2B" />
-          <P d="M717 236a24 24 0 0 1 48 0z" f="#8B1E2B" />
-          <R x={0} y={400} w={880} h={80} f="#E9C9B8" />
-          <R x={420} y={440} w={60} h={6} f="#F7E3C5" />
-          <R x={780} y={440} w={60} h={6} f="#F7E3C5" />
-          <P d="M770 356a46 46 0 0 1 92 0z" f="#F7C948" />
-          <R x={814} y={356} w={4} h={52} f="#6B4A2B" />
-          <R x={590} y={392} w={120} h={18} f="#E4A11B" />
-          <P d="M594 392q34-72 82 0z" f="#D33F49" />
-          <P d="M710 392l40-24" s="#2B2224" w={6} />
-          <circle cx={610} cy={442} r={32} fill="none" stroke="#2B2224" strokeWidth={6} />
-          <circle cx={738} cy={448} r={24} fill="none" stroke="#2B2224" strokeWidth={6} />
+        <Frame bg="#f3d5c8">
+          <rect x="120" y="70" width="140" height="70" fill="#c45c4a" />
+          <path d="M115 70h150l-12-22H127z" fill="#e8b8a0" />
+          <rect x="150" y="40" width="18" height="30" fill="#8b2a2a" />
+          <rect x="210" y="40" width="18" height="30" fill="#8b2a2a" />
+          <circle cx="159" cy="32" r="10" fill="#8b2a2a" />
+          <circle cx="219" cy="32" r="10" fill="#8b2a2a" />
+          <rect x="170" y="95" width="40" height="45" fill="#f0d8c4" />
+          <path d="M20 150h240" stroke="#a86b55" strokeWidth="8" />
+          <circle cx="70" cy="120" r="22" fill="#3d6b3d" />
+          <circle cx="95" cy="110" r="16" fill="#2f5530" />
         </Frame>
       );
     case "ru":
       return (
-        <Frame>
-          <R x={0} y={0} w={880} h={480} f="#FBD38D" />
-          <C x={700} y={210} r={100} f="#F9C269" />
-          <C x={700} y={210} r={64} f="#F6A04D" />
-          <R x={0} y={330} w={880} h={150} f="#7DB7B0" />
-          <R x={620} y={346} w={160} h={8} f="#F6C27A" />
-          <R x={650} y={366} w={100} h={8} f="#F6C27A" />
-          {waves(400, "#A8D3CC")}
-          <R x={400} y={250} w={240} h={80} f="#C98B5A" />
-          <P d="M470 250a50 50 0 0 1 100 0z" f="#A8663C" />
-          <R x={518} y={186} w={4} h={16} f="#A8663C" />
-          {arches(412, 330, 5, 46, 32, 34, "#FFEFC9")}
-          <P d="M520 372q50 34 140 0z" f="#6B3A1E" />
-          <P d="M580 372V296l48 66z" f="#FFF1D0" />
-          <P d="M570 372V320l-34 52z" f="#FFE2A8" />
-          <R x={0} y={430} w={880} h={50} f="#6BA55B" />
-          <R x={790} y={280} w={26} h={170} f="#6B3A1E" />
-          <C x={800} y={230} r={80} f="#4F8F4A" />
-          <C x={730} y={262} r={58} f="#4F8F4A" />
-          <C x={868} y={262} r={58} f="#4F8F4A" />
-          <C x={802} y={170} r={58} f="#5FA055" />
-          {mangoes([
-            [760, 250],
-            [830, 240],
-            [790, 196],
-            [860, 284],
-            [738, 292],
-          ])}
+        <Frame bg="#f6e2a8">
+          <circle cx="210" cy="70" r="40" fill="#f0a84b" />
+          <circle cx="210" cy="70" r="24" fill="#e8872e" />
+          <rect x="30" y="130" width="220" height="40" fill="#6fa89e" />
+          <path d="M40 140q30-20 60 0t60 0t60 0" fill="none" stroke="#9eccc4" strokeWidth="4" />
+          <rect x="90" y="95" width="90" height="40" fill="#c9925a" />
+          <path d="M100 95a35 22 0 0 1 70 0" fill="#a66b3a" />
+          <circle cx="230" cy="100" r="28" fill="#4f8f4a" />
+          <circle cx="250" cy="115" r="18" fill="#5fa055" />
         </Frame>
       );
     case "jnu":
       return (
-        <Frame>
-          <R x={0} y={0} w={880} h={480} f="#F3C6C0" />
-          <C x={480} y={130} r={52} f="#FFD9A0" />
-          {kite(560, 60, "#FF6B4A")}
-          {kite(700, 36, "#FFD23F")}
-          {kite(810, 120, "#4A8FD6")}
-          <R x={560} y={250} w={300} h={150} f="#D9A29A" />
-          <P d="M672 200a38 38 0 0 1 76 0z" f="#8D5A66" />
-          <P d="M548 250L710 186L872 250z" f="#B97A74" />
-          <C x={710} y={224} r={14} f="#FFF3EA" />
-          {grid(580, 262, 7, 1, 40, 0, 14, 138, "#F2D9D2")}
-          <R x={0} y={400} w={880} h={80} f="#7C86B8" />
-          {waves(430, "#A7AFD6")}
-          <P d="M360 400l24-44h190l16 44z" f="#2D3A6B" />
-          <R x={396} y={328} w={150} h={28} f="#fff" />
-          <R x={420} y={302} w={104} h={26} f="#F4F4F8" />
-          <R x={458} y={272} w={24} h={30} f="#FF6B4A" />
-          {grid(404, 336, 7, 1, 20, 0, 10, 12, "#6C7AC0")}
-          {grid(428, 309, 5, 1, 20, 0, 10, 12, "#6C7AC0")}
+        <Frame bg="#e8d0e8">
+          <path d="M40 150 L90 70 L140 150Z" fill="#7a5aa8" />
+          <path d="M100 150 L160 50 L220 150Z" fill="#5c3d8a" />
+          <rect x="150" y="100" width="100" height="50" fill="#c9a0c4" />
+          <path d="M145 100h110l-20-28H165z" fill="#9b6f96" />
+          <rect x="185" y="115" width="30" height="35" fill="#f5e8f2" />
+          <circle cx="60" cy="60" r="14" fill="#f0c96a" />
+          <path d="M200 40l10 14-10 14-10-14z" fill="#ff6b4a" />
+          <path d="M230 55l8 12-8 12-8-12z" fill="#ffd23f" />
+        </Frame>
+      );
+    case "duet":
+      return (
+        <Frame bg="#d6e6f5">
+          <path d="M30 150 L120 90 L160 150Z" fill="#4a7ab0" />
+          <path d="M140 150 L200 70 L260 150" fill="none" stroke="#1e4d7a" strokeWidth="8" />
+          <circle cx="200" cy="55" r="30" fill="none" stroke="#1e4d7a" strokeWidth="8" />
+          <path d="M200 30v20M186 48h28" stroke="#1e4d7a" strokeWidth="5" />
+          <rect x="40" y="120" width="80" height="30" fill="#6a9fd0" />
+        </Frame>
+      );
+    case "gst":
+      return (
+        <Frame bg="#d4ebe3">
+          <rect x="100" y="50" width="140" height="100" fill="#2f7a62" />
+          <rect x="115" y="65" width="28" height="28" fill="#a8d8c8" />
+          <rect x="155" y="65" width="28" height="28" fill="#a8d8c8" />
+          <rect x="195" y="65" width="28" height="28" fill="#a8d8c8" />
+          <rect x="115" y="105" width="28" height="28" fill="#a8d8c8" />
+          <rect x="155" y="105" width="28" height="28" fill="#a8d8c8" />
+          <circle cx="70" cy="130" r="20" fill="#3d9b6e" />
+          <path d="M20 160h240" stroke="#1f5c48" strokeWidth="6" />
+        </Frame>
+      );
+    case "cu":
+      return (
+        <Frame bg="#d8ecd8">
+          <path d="M40 160 Q100 40 160 160" fill="none" stroke="#2f6b3d" strokeWidth="10" />
+          <circle cx="100" cy="90" r="18" fill="#6aab6a" />
+          <rect x="160" y="80" width="90" height="70" fill="#3d7a52" />
+          <rect x="175" y="95" width="20" height="25" fill="#b8e0c0" />
+          <rect x="210" y="95" width="20" height="25" fill="#b8e0c0" />
+          <path d="M20 160h240" stroke="#2f5538" strokeWidth="6" />
+        </Frame>
+      );
+    case "sust":
+      return (
+        <Frame bg="#d9e6f5">
+          <path d="M80 150 L140 40 L200 150Z" fill="#3d6fa8" />
+          <path d="M120 150 L170 60 L220 150Z" fill="#2a5580" />
+          <rect x="40" y="120" width="50" height="30" fill="#6a9fd0" />
+          <circle cx="230" cy="50" r="16" fill="#f0d060" />
+        </Frame>
+      );
+    case "cou":
+      return (
+        <Frame bg="#f5d8d0">
+          <rect x="120" y="70" width="120" height="70" fill="#d46a5c" />
+          <path d="M115 70h130l-15-24H130z" fill="#e8a090" />
+          <rect x="165" y="100" width="30" height="40" fill="#f5e0d8" />
+          <rect x="220" y="40" width="6" height="30" fill="#8b2a2a" />
+          <path d="M210 40 h26 l-13-16z" fill="#c45c4a" />
+          <circle cx="70" cy="120" r="24" fill="#6a8f4a" />
+        </Frame>
+      );
+    case "ruet":
+      return (
+        <Frame bg="#d4e0f0">
+          <path d="M30 140 H120 L160 90 H250" fill="none" stroke="#1e3d6b" strokeWidth="10" />
+          <path d="M120 140 L160 90 L200 140" fill="none" stroke="#3d6fa8" strokeWidth="6" />
+          <circle cx="220" cy="55" r="28" fill="none" stroke="#1e3d6b" strokeWidth="8" />
+          <path d="M220 35v18M208 50h24" stroke="#1e3d6b" strokeWidth="5" />
+          <rect x="40" y="120" width="70" height="28" fill="#4a7ab0" />
+        </Frame>
+      );
+    case "bup":
+      return (
+        <Frame bg="#e8e2c8">
+          <rect x="140" y="60" width="100" height="80" fill="#6a7a4a" />
+          <path d="M135 60h110l-18-28H153z" fill="#8a9a5a" />
+          <rect x="175" y="95" width="30" height="45" fill="#d8d0a8" />
+          <rect x="210" y="30" width="6" height="30" fill="#3d4a28" />
+          <path d="M200 30h26l-13-14z" fill="#c45c4a" />
+          <circle cx="70" cy="120" r="22" fill="#5a7a3a" />
         </Frame>
       );
     case "mat":
       return (
-        <Frame>
-          <R x={0} y={0} w={880} h={480} f="#D6EAF5" />
-          <E x={480} y={70} a={80} b={18} f="#F2F8FC" />
-          <E x={780} y={60} a={70} b={16} f="#F2F8FC" />
-          <R x={560} y={180} w={260} h={240} f="#F4F8FB" />
-          <R x={560} y={180} w={260} h={18} f="#0B4A8B" />
-          {grid(582, 214, 5, 3, 48, 50, 28, 32, "#8EC1E3")}
-          <R x={670} y={350} w={40} h={70} f="#4E8DBF" />
-          <P d="M679 112h22v22h22v22h-22v22h-22v-22h-22v-22h22z" f="#E5293E" />
-          <R x={0} y={420} w={880} h={60} f="#BFD9C8" />
-          <g transform="rotate(-30 480 200)">
-            <rect x={440} y={186} width={80} height={28} rx={14} fill="#fff" />
-            <path d="M480 186h26a14 14 0 0 1 0 28h-26z" fill="#E5293E" />
-          </g>
-          <P d="M440 372C370 322 372 252 414 252c20 0 28 12 28 24 0-12 8-24 28-24 42 0 44 70-30 120z" f="#E5293E" />
-          <P d="M398 286q4-14 16-16" s="#FFB3BC" w={5} />
-          <P d="M300 400h70l14-40 20 72 18-50 10 18h160" s="#0B4A8B" w={6} />
+        <Frame bg="#e0d8f0">
+          <path
+            d="M140 50c-20 0-36 16-36 36 0 28 36 54 36 54s36-26 36-54c0-20-16-36-36-36z"
+            fill="none"
+            stroke="#5a3d8a"
+            strokeWidth="8"
+          />
+          <circle cx="200" cy="90" r="8" fill="#5a3d8a" />
+          <path d="M200 98v40" stroke="#5a3d8a" strokeWidth="6" />
+          <path d="M40 150h200" stroke="#8a6ab0" strokeWidth="4" />
+          <path d="M60 150l20-30 16 40 14-28 10 18h40" fill="none" stroke="#5a3d8a" strokeWidth="5" />
+        </Frame>
+      );
+    case "buet":
+      return (
+        <Frame bg="#dce8f5">
+          <rect x="100" y="55" width="130" height="95" fill="#1e4a7a" />
+          <rect x="115" y="70" width="30" height="30" fill="#9ec0e0" />
+          <rect x="160" y="70" width="30" height="30" fill="#9ec0e0" />
+          <rect x="115" y="110" width="30" height="30" fill="#9ec0e0" />
+          <circle cx="210" cy="50" r="26" fill="none" stroke="#0d2f55" strokeWidth="7" />
+          <path d="M40 160h220" stroke="#1e4a7a" strokeWidth="6" />
+        </Frame>
+      );
+    case "cuet":
+      return (
+        <Frame bg="#d5ebe8">
+          <path d="M40 150 Q100 60 180 150" fill="none" stroke="#1f6b5c" strokeWidth="10" />
+          <circle cx="210" cy="60" r="30" fill="none" stroke="#1f6b5c" strokeWidth="8" />
+          <rect x="50" y="120" width="80" height="30" fill="#3d9b88" />
+        </Frame>
+      );
+    case "mist":
+      return (
+        <Frame bg="#e5e0d0">
+          <rect x="90" y="60" width="140" height="90" fill="#4a5540" />
+          <rect x="110" y="80" width="25" height="25" fill="#c8c0a0" />
+          <rect x="150" y="80" width="25" height="25" fill="#c8c0a0" />
+          <rect x="190" y="80" width="25" height="25" fill="#c8c0a0" />
+          <path d="M155 40 L200 60 H110Z" fill="#6a7558" />
+          <rect x="40" y="140" width="50" height="20" fill="#8a8468" />
+        </Frame>
+      );
+    case "ju":
+      return (
+        <Frame bg="#dde8d8">
+          <ellipse cx="140" cy="130" rx="100" ry="30" fill="#6a9b5a" />
+          <rect x="120" y="70" width="80" height="55" fill="#3d6b3d" />
+          <path d="M115 70h90l-14-20H129z" fill="#5a8f4a" />
+          <circle cx="60" cy="100" r="20" fill="#4a7a40" />
+          <circle cx="220" cy="95" r="24" fill="#3d6b38" />
         </Frame>
       );
     default:
-      return null;
+      return (
+        <Frame bg="#e8e4dc">
+          <rect x="80" y="60" width="120" height="80" fill="#8a8478" />
+        </Frame>
+      );
   }
 }
