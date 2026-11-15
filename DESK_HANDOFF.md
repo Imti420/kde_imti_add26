@@ -23,7 +23,7 @@ Callsigns: RADAR WIRE PULSE SHELL SIREN ARCHIVIST.
 
 ## What this product is
 
-Bangladesh public-university admission desk for session **2026–27**: universities, circulars (dates/seats/eligibility), calendar, discovery/crawl log, newswire (editorial spice cards), settings, desk alerts / OS notifications, Bangla mode, Naughty mode.
+Bangladesh public-university admission desk for session **2026–27**: universities, circulars (dates/seats/eligibility), calendar, discovery/crawl log, newswire (editorial spice cards), **ticket vault** (claim exams + local portal login), settings, desk alerts / OS notifications, Bangla mode, Naughty mode.
 
 Stack: TanStack Start / Vite / Tailwind, data in `src/data/*`, client personal state in localStorage, GitHub Actions crawlers, Vercel deploy from `main`.
 
@@ -40,6 +40,7 @@ Stack: TanStack Start / Vite / Tailwind, data in `src/data/*`, client personal s
 | Desk push | `src/lib/desk-push.ts` |
 | Uni cards | `src/components/university-card.tsx` |
 | Shell | `src/components/shell.tsx` |
+| Ticket vault | `src/routes/tickets.tsx` · `src/data/tickets.ts` · `src/lib/tickets-store.ts` · `src/components/ticket-card.tsx` · `.tk` in `styles.css` |
 | Handoff / crew / radio | `DESK_HANDOFF.md` · `DESK_CREW.md` · `DESK_RADIO.md` |
 
 ---
@@ -72,7 +73,15 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 
 ---
 
-## Changelog (append only)
+## Changelog
+
+### 2026-11-15 — Ticket vault
+- Route `/tickets` (nav: Tickets). Catalog `src/data/tickets.ts` (16 kinds).
+- Store `a26-tickets-v2` local only; password only if user checks keep-on-device.
+- Face template: white card, black border, notch, diagonal stripe, hard-shadow abbr + `//fee` — **no scene art**.
+- Shelf behind ADD TICKET toggle; delete only inside dialog with confirm.
+- Documented in `ARCHITECTURE.md` for all agents.
+ (append only)
 
 ### 2026-11-11 ~16:38 +06 — Agent 05 (Creative) — in-app PDF reader + marks UI
 
