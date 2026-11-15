@@ -19,11 +19,11 @@ function fmtTime(v: string): string {
   return `${h % 12 || 12}:${ms} ${ap}`;
 }
 
-function MetaRow({ label, value, empty }: { label: string; value: string; empty: string }) {
+function Field({ label, value }: { label: string; value: string }) {
   return (
-    <div>
+    <div className="tk__row">
       <span>{label}</span>
-      <b className={value ? undefined : "e"}>{value || empty}</b>
+      <b className={value ? undefined : "is-empty"}>{value || "————"}</b>
     </div>
   );
 }
@@ -41,41 +41,38 @@ export function TicketFace({
 }) {
   const tpl = templateByKind(kind);
   const status = data?.status ?? "none";
-  const fee = data?.fee ?? "";
-  const hasFee = fee !== "";
-  const when = [fmtDate(data?.date ?? ""), fmtTime(data?.time ?? "")].filter(Boolean).join(", ");
-  const longFee = hasFee && String(fee).length > 4;
+  const fee = (data?.fee && data.fee !== "" ? data.fee : tpl.defaultFee) || "1200";
+  const whenDate = fmtDate(data?.date ?? "");
+  const whenTime = fmtTime(data?.time ?? "");
 
-  const inner = (
-    <div className="tk__in">
-      <div className="tk__art" aria-hidden>
-        <TicketArt kind={kind} />
-      </div>
-      <div className="tk__wash" />
-      <i className="tk__h" />
-      <i className="tk__h r" />
-      <div className="tk__top">
-        <span className="tk__chip">ADMISSION//26</span>
-        <span className={`tk__stat tk__stat--${status}`}>{TICKET_STATUS_LABEL[status]}</span>
-      </div>
-      <div className="tk__abbr">{tpl.abbr}</div>
-      <div className="tk__name">{tpl.name}</div>
-      <span />
-      <div className="tk__bot">
-        <div>
-          <div className="tk__meta">
-            <MetaRow label="Candidate" value={data?.name ?? ""} empty="NOT ADDED" />
-            <MetaRow label="Application ID" value={data?.appId ?? ""} empty="NOT ADDED" />
-            <MetaRow label="Exam" value={when} empty="NOT ANNOUNCED" />
+  const body = (
+    <>
+      <span className="tk__notch tk__notch--l" aria-hidden />
+      <span className="tk__notch tk__notch--r" aria-hidden />
+      <div className="tk__shell">
+        <div className="tk__left">
+          <div className="tk__brand-row">
+            <span className="tk__brand">ADMISSION//26</span>
+            <span className={`tk__pill tk__pill--${status}`}>{TICKET_STATUS_LABEL[status]}</span>
           </div>
-          <div className="tk__bc" />
+          <p className="tk__abbr">{tpl.abbr}</p>
+          <p className="tk__uni">{tpl.name}</p>
+          <div className="tk__fields">
+            <Field label="Name" value={data?.name ?? ""} />
+            <Field label="App ID" value={data?.appId ?? ""} />
+            <Field label="Date" value={whenDate} />
+            <Field label="Time" value={whenTime} />
+          </div>
         </div>
-        <div className={`tk__fee${longFee ? " tk__fee--l" : ""}`}>
-          <small>{hasFee ? "EXAM FEE ৳" : "FEE NOT PROVIDED"}</small>
-          <b>//{hasFee ? fee : "——"}</b>
+        <div className="tk__right">
+          <div className="tk__art" aria-hidden>
+            <TicketArt kind={kind} />
+          </div>
+          <div className="tk__barcode" aria-hidden />
+          <p className="tk__fee">/{fee}</p>
         </div>
       </div>
-    </div>
+    </>
   );
 
   if (interactive) {
@@ -93,10 +90,10 @@ export function TicketFace({
           }
         }}
       >
-        {inner}
+        {body}
       </div>
     );
   }
 
-  return <div className={`tk tk--${kind}`}>{inner}</div>;
+  return <div className={`tk tk--${kind}`}>{body}</div>;
 }
