@@ -18647,5 +18647,47 @@
     "shortName": "RU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.iu.ac.bd/public/images/notice/0f826dcc0fda8ee126ce3798a519f1df.pdf",
+    "foundOn": "https://www.iu.ac.bd/",
+    "foundAt": "2026-11-15T09:11:39.038Z",
+    "title": "২০২৫-২০২৬ শিক্ষাবর্ষে এমফিল প্রোগ্রামে ভর্তি ও রেজিস্ট্রেশন সংক্রান্ত বিজ্ঞপ্তি · 15",
+    "kind": "pdf",
+    "score": 14,
+    "sameSite": true,
+    "id": "iu:https://www.iu.ac.bd/public/images/notice/0f826dcc0fda8ee126ce3798a519f1df.pdf",
+    "universityId": "iu",
+    "shortName": "IU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.iu.ac.bd/public/images/notice/d59b8f886b30de64ffbe107b4b4ea5d3.pdf",
+    "foundOn": "https://www.iu.ac.bd/",
+    "foundAt": "2026-11-15T09:11:39.038Z",
+    "title": "২০২৫-২০২৬ শিক্ষাবর্ষে পিএইচডি প্রোগ্রামে ভর্তি ও রেজিস্ট্রেশন সংক্রান্ত বিজ্ঞপ্তি · 15",
+    "kind": "pdf",
+    "score": 14,
+    "sameSite": true,
+    "id": "iu:https://www.iu.ac.bd/public/images/notice/d59b8f886b30de64ffbe107b4b4ea5d3.pdf",
+    "universityId": "iu",
+    "shortName": "IU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://jnu.ac.bd/assets/notice/2d368a46e67f1f3eae578bd5edbf1c2b.pdf",
+    "foundOn": "https://www.jnu.ac.bd/",
+    "foundAt": "2026-11-15T09:11:41.612Z",
+    "title": "Admission Circular and Application Form of Masters in Public Administration and Governance (MPAG), Department of Public Administration, Spring-2027",
+    "kind": "pdf",
+    "score": 21,
+    "sameSite": true,
+    "id": "jnu:https://jnu.ac.bd/assets/notice/2d368a46e67f1f3eae578bd5edbf1c2b.pdf",
+    "universityId": "jnu",
+    "shortName": "JnU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
