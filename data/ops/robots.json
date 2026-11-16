@@ -38,7 +38,7 @@
     },
     {
       "origin": "https://www.ru.ac.bd",
-      "fetchedAt": "2026-11-15T11:12:29.472Z",
+      "fetchedAt": "2026-11-16T11:42:09.384Z",
       "body": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nSitemap: https://www.ru.ac.bd/wp-sitemap.xml\n"
     },
     {
@@ -173,7 +173,7 @@
     },
     {
       "origin": "https://gau.edu.bd",
-      "fetchedAt": "2026-11-15T11:12:50.144Z",
+      "fetchedAt": "2026-11-16T11:42:31.342Z",
       "body": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nSitemap: https://gau.edu.bd/wp-sitemap.xml\n"
     },
     {
