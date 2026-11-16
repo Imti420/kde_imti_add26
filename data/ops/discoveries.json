@@ -18969,5 +18969,61 @@
     "shortName": "AGRI",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.juniv.edu/discussion/18670",
+    "foundOn": "https://www.juniv.edu/",
+    "foundAt": "2026-11-16T20:18:31.327Z",
+    "title": "২০২৬–২০২৭ শিক্ষাবর্ষে প্রথম বর্ষ স্নাতক (সম্মান) শ্রেণিতে ভর্তি বিজ্ঞপ্তি",
+    "kind": "page",
+    "score": 16,
+    "sameSite": true,
+    "id": "ju:https://www.juniv.edu/discussion/18670",
+    "universityId": "ju",
+    "shortName": "JU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://cu.ac.bd/wp-content/uploads/2026/11/67e249b6-9cc6-4fd4-a485-f0ad9d94c6e5.pdf",
+    "foundOn": "https://cu.ac.bd/",
+    "foundAt": "2026-11-16T20:18:32.451Z",
+    "title": "বিস্তারিত দেখুন",
+    "kind": "pdf",
+    "score": 7,
+    "sameSite": true,
+    "id": "cu:https://cu.ac.bd/wp-content/uploads/2026/11/67e249b6-9cc6-4fd4-a485-f0ad9d94c6e5.pdf",
+    "universityId": "cu",
+    "shortName": "CU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bracu.ac.bd/admissions/apply-now",
+    "foundOn": "https://www.bracu.ac.bd/",
+    "foundAt": "2026-11-16T20:20:22.570Z",
+    "title": "Apply Now",
+    "kind": "page",
+    "score": 7,
+    "sameSite": true,
+    "id": "bracu:https://www.bracu.ac.bd/admissions/apply-now",
+    "universityId": "bracu",
+    "shortName": "BRACU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://baust.edu.bd/archive/notices/drptr-bijngpti-shtesnaree-drbz-srbarah",
+    "foundOn": "https://baust.edu.bd/",
+    "foundAt": "2026-11-16T20:21:08.990Z",
+    "title": "দরপত্র বিজ্ঞপ্তি: ষ্টেশনারী দ্রব্য সরবারাহ।",
+    "kind": "page",
+    "score": 8,
+    "sameSite": true,
+    "id": "baust:https://baust.edu.bd/archive/notices/drptr-bijngpti-shtesnaree-drbz-srbarah",
+    "universityId": "baust",
+    "shortName": "BAUST",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
