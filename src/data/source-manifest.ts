@@ -1416,7 +1416,7 @@ export const sourceManifest: SourceManifest = {
       "shortName": "RU",
       "applicationOpens": "2026-11-15",
       "applicationCloses": "2026-11-30",
-      "examDate": "2026-12-05",
+      "examDate": "2027-02-12",
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
