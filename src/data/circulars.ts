@@ -159,7 +159,7 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "Portal live 11 Nov (Channel I, TBS, Observer, Jago News). DU held against UGC 9 Nov floor. Re-eval results due 23 Nov still fit the 25 Nov close. Fee raised on four units (Science/Arts/Business ৳1,200).",
     sources: [STAR_DU, TBS_DU, DU_PORTAL, SEATS_COMP, STAR_CLASH],
-    updatedOn: "2026-11-11",
+    updatedOn: "2026-11-16",
     applicationOpens: "2026-11-11",
     opensAt: "12:00",
     applicationCloses: "2026-11-25",
@@ -402,7 +402,7 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "Application + unit grid from institutional releases cited by Observer / Prothom Alo / Alormela (11–12 Nov). Seats ~2,765 on Alormela circular digest. Formal PDF not mirrored on this desk yet.",
     sources: [BDNEWS_SPLIT, STAR_CLASH, SEATS_COMP],
-    updatedOn: "2026-11-15",
+    updatedOn: "2026-11-16",
     applicationOpens: "2026-11-15",
     opensAt: "12:00",
     applicationCloses: "2026-12-10",
@@ -441,10 +441,10 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "Prothom Alo 11 Nov + RU committee/VC lines. Formal RU circular PDF not yet mirrored here — confidence stays reported.",
     sources: [BDNEWS_SPLIT, STAR_CLASH, SEATS_COMP],
-    updatedOn: "2026-11-15",
+    updatedOn: "2026-11-16",
     applicationOpens: "2026-11-15",
     applicationCloses: "2026-11-30",
-    examDate: "2026-12-05",
+    examDate: "2027-02-12",
     seats: 3956,
     eligibility: [
       "Unit-wise GPA bars belong in the RU circular (science combined ~7.00 / 3.50 each reported under revision).",
