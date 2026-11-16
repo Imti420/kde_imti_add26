@@ -75,6 +75,12 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 
 ## Changelog
 
+### 2026-11-16 — Ticket faces (prototype port)
+- Rich `.tk` face: chip, status, meta, barcode, fee, punch holes, soft art wash.
+- Hover lift + dialog **flip** (front / why-this-ticket).
+- **Unchanged:** shelf toggle, confirm-delete, app shell language.
+
+
 ### 2026-11-16 — GO UPDATE
 - Newswire cycle **n1116**: DU ~9d · RU open · JnU open · KUET open · BUET Friday.
 - `c-ru` examDate corrected to **2027-02-12** (was wrongly 2026-12-05).
