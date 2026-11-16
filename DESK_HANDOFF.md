@@ -75,6 +75,12 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 
 ## Changelog
 
+### 2026-11-16 — GO UPDATE
+- Newswire cycle **n1116**: DU ~9d · RU open · JnU open · KUET open · BUET Friday.
+- `c-ru` examDate corrected to **2027-02-12** (was wrongly 2026-12-05).
+- Soft tone held.
+
+
 ### 2026-11-15 — Ticket vault
 - Route `/tickets` (nav: Tickets). Catalog `src/data/tickets.ts` (16 kinds).
 - Store `a26-tickets-v2` local only; password only if user checks keep-on-device.
