@@ -1419,22 +1419,27 @@ article:has([class*="NUKE"]) {
 
 
 
-/* ===== ADMISSION//26 Ticket Vault — minimal stripe template ===== */
+
+/* ===== ADMISSION//26 Ticket Vault — rich faces + app chrome ===== */
 .tv-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 28px 24px;
+  align-items: start;
 }
 .tv-slot {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+  padding-right: 10px;
 }
 .tv-pop {
-  animation: tv-drop 0.35s cubic-bezier(0.22, 1.2, 0.4, 1);
+  animation: tv-drop 0.38s cubic-bezier(0.3, 1.5, 0.5, 1);
 }
 @keyframes tv-drop {
   from {
-    transform: translateY(-20px) scale(0.97);
+    transform: translateY(-28px) rotate(-4deg);
     opacity: 0;
   }
 }
@@ -1453,7 +1458,7 @@ article:has([class*="NUKE"]) {
   gap: 0.75rem;
   margin-bottom: 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--color-ink);
+  border-bottom: 2px dashed color-mix(in srgb, var(--color-ink) 30%, transparent);
 }
 .tv-stats {
   display: grid;
@@ -1506,43 +1511,124 @@ article:has([class*="NUKE"]) {
   display: none;
 }
 
-/* —— Rich ticket faces (illustrated vault aesthetic) —— */
+/* —— Ticket face (prototype layout) —— */
 .tk {
-  --c: #0B3B1F;
-  --p: #E9E4D3;
-  --a: #5E9B55;
+  --c: #0b3b1f;
+  --p: #e9e4d3;
+  --a: #5e9b55;
   --fs: 21cqw;
-  --bg: var(--color-paper, #fff);
   position: relative;
   width: 100%;
   container-type: inline-size;
   color: var(--c);
-  font-family: "IBM Plex Mono", "Cousine", ui-monospace, Menlo, monospace;
-  transition: transform 0.18s cubic-bezier(0.2, 0.85, 0.25, 1);
+  font-family: "Arial Narrow", "Roboto Condensed", "Helvetica Neue", Arial, sans-serif;
+  transition: transform 0.18s ease;
 }
-.tk[role="button"] { cursor: pointer; }
-.tk[role="button"]:hover { transform: translate(-3px, -3px); }
-.tk[role="button"]:hover .tk__in { box-shadow: 2.6cqw 2.6cqw 0 var(--c); }
-.tk[role="button"]:active { transform: none; }
-.tk[role="button"]:active .tk__in { box-shadow: 1cqw 1cqw 0 var(--c); }
-
-/* Campus ink / paper / accent */
-.tk--kuet { --c: #0B3B1F; --p: #E9E4D3; --a: #7DAA6C; --fs: 21cqw; }
-.tk--du   { --c: #8B0016; --p: #FBF0E2; --a: #F4B400; --fs: 29cqw; }
-.tk--ru   { --c: #9A3A00; --p: #FFEFC9; --a: #4F8F4A; --fs: 29cqw; }
-.tk--jnu  { --c: #4A1D7A; --p: #F5E8F2; --a: #FF6B4A; --fs: 21cqw; }
-.tk--mat  { --c: #0B4A8B; --p: #E4F0F7; --a: #E5293E; --fs: 22cqw; }
-.tk--buet { --c: #10244A; --p: #E8E6DD; --a: #F2B41B; --fs: 21cqw; }
-.tk--cuet { --c: #0A6068; --p: #DDF1EE; --a: #F4A259; --fs: 21cqw; }
-.tk--ruet { --c: #55600E; --p: #F3F0D2; --a: #C8E04A; --fs: 21cqw; }
-.tk--mist { --c: #2B2B30; --p: #E9E3D0; --a: #D62828; --fs: 21cqw; }
-.tk--gst  { --c: #A3123E; --p: #FDE7EA; --a: #FFD166; --fs: 25cqw; }
-.tk--ju   { --c: #0E6B4B; --p: #E3F5EC; --a: #FFB4A2; --fs: 29cqw; }
-.tk--cu   { --c: #3A4A8C; --p: #E6E9F7; --a: #FF9F43; --fs: 29cqw; }
-.tk--sust { --c: #2E6B10; --p: #EEF5D8; --a: #FF8F5A; --fs: 21cqw; }
-.tk--cou  { --c: #A0462E; --p: #F6E7DC; --a: #E9B44C; --fs: 25cqw; }
-.tk--duet { --c: #0A6068; --p: #DDF1EE; --a: #F4A259; --fs: 18cqw; }
-.tk--bup  { --c: #6B4C00; --p: #FFF3BF; --a: #7CB518; --fs: 25cqw; }
+.tk[role="button"] {
+  cursor: pointer;
+}
+.tk[role="button"]:hover {
+  transform: translate(-3px, -4px) rotate(-0.5deg);
+}
+.tk[role="button"]:hover .tk__in {
+  box-shadow: 2.4cqw 2.4cqw 0 var(--c);
+}
+.tk--kuet {
+  --c: #0b3b1f;
+  --p: #e9e4d3;
+  --a: #7daa6c;
+  --fs: 21cqw;
+}
+.tk--du {
+  --c: #8b0016;
+  --p: #fbf0e2;
+  --a: #f4b400;
+  --fs: 29cqw;
+}
+.tk--ru {
+  --c: #9a3a00;
+  --p: #ffefc9;
+  --a: #4f8f4a;
+  --fs: 29cqw;
+}
+.tk--jnu {
+  --c: #4a1d7a;
+  --p: #f5e8f2;
+  --a: #ff6b4a;
+  --fs: 21cqw;
+}
+.tk--mat {
+  --c: #0b4a8b;
+  --p: #e4f0f7;
+  --a: #e5293e;
+  --fs: 22cqw;
+}
+.tk--buet {
+  --c: #10244a;
+  --p: #e8e6dd;
+  --a: #f2b41b;
+  --fs: 21cqw;
+}
+.tk--cuet {
+  --c: #0a6068;
+  --p: #ddf1ee;
+  --a: #f4a259;
+  --fs: 21cqw;
+}
+.tk--ruet {
+  --c: #55600e;
+  --p: #f3f0d2;
+  --a: #c8e04a;
+  --fs: 21cqw;
+}
+.tk--mist {
+  --c: #2b2b30;
+  --p: #e9e3d0;
+  --a: #d62828;
+  --fs: 21cqw;
+}
+.tk--gst {
+  --c: #a3123e;
+  --p: #fde7ea;
+  --a: #ffd166;
+  --fs: 25cqw;
+}
+.tk--ju {
+  --c: #0e6b4b;
+  --p: #e3f5ec;
+  --a: #ffb4a2;
+  --fs: 29cqw;
+}
+.tk--cu {
+  --c: #3a4a8c;
+  --p: #e6e9f7;
+  --a: #ff9f43;
+  --fs: 29cqw;
+}
+.tk--sust {
+  --c: #2e6b10;
+  --p: #eef5d8;
+  --a: #ff8f5a;
+  --fs: 21cqw;
+}
+.tk--cou {
+  --c: #a0462e;
+  --p: #f6e7dc;
+  --a: #e9b44c;
+  --fs: 25cqw;
+}
+.tk--duet {
+  --c: #0d3a66;
+  --p: #e4eef8;
+  --a: #5a8fc0;
+  --fs: 21cqw;
+}
+.tk--bup {
+  --c: #3d4a28;
+  --p: #f2edd8;
+  --a: #6a7a4a;
+  --fs: 25cqw;
+}
 
 .tk__in {
   position: relative;
@@ -1554,17 +1640,16 @@ article:has([class*="NUKE"]) {
   padding: 2.4cqw 3.6cqw 2.8cqw;
   background: var(--p);
   border: max(3px, 0.9cqw) solid var(--c);
-  border-radius: 2.2cqw;
   box-shadow: 1.8cqw 1.8cqw 0 var(--c);
-  transition: box-shadow 0.18s cubic-bezier(0.2, 0.85, 0.25, 1);
+  transition: box-shadow 0.18s ease;
+  color: var(--c);
 }
 .tk__in::before {
   content: "";
   position: absolute;
-  inset: 1.2cqw;
-  border: 0.3cqw dashed var(--c);
-  border-radius: 1.2cqw;
-  opacity: 0.4;
+  inset: 1.1cqw;
+  border: 0.25cqw solid var(--c);
+  opacity: 0.35;
   pointer-events: none;
   z-index: 2;
 }
@@ -1572,18 +1657,18 @@ article:has([class*="NUKE"]) {
   position: absolute;
   inset: 0;
   z-index: -2;
+  color: var(--c);
 }
-.tk__art svg { display: block; width: 100%; height: 100%; }
+.tk__art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 .tk__wash {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(
-    90deg,
-    var(--p) 14%,
-    color-mix(in srgb, var(--p) 55%, transparent) 42%,
-    transparent 68%
-  );
+  background: linear-gradient(90deg, var(--p) 10%, rgba(255, 255, 255, 0) 60%);
 }
 .tk__h {
   position: absolute;
@@ -1593,12 +1678,14 @@ article:has([class*="NUKE"]) {
   height: 6cqw;
   margin-top: -3cqw;
   border-radius: 50%;
-  background: var(--bg);
+  background: var(--color-paper);
   border: 0.9cqw solid var(--c);
   z-index: 1;
 }
-.tk__h--r { left: auto; right: -3cqw; }
-
+.tk__h.r {
+  left: auto;
+  right: -3cqw;
+}
 .tk__top {
   display: flex;
   justify-content: space-between;
@@ -1607,110 +1694,105 @@ article:has([class*="NUKE"]) {
   position: relative;
   z-index: 1;
 }
-.tk__tl { display: flex; flex-wrap: wrap; gap: 1cqw; align-items: center; }
+.tk__tl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1cqw;
+  align-items: center;
+}
 .tk__chip {
-  padding: 0.9cqw 1.6cqw;
+  padding: 0.7cqw 1.4cqw;
   background: var(--c);
   color: var(--p);
-  border-radius: 0.8cqw;
-  font: 700 max(8px, 1.8cqw) / 1 "IBM Plex Mono", ui-monospace, monospace;
-  letter-spacing: 0.12em;
-  box-shadow: 0.5cqw 0.5cqw 0 var(--a);
+  font: 800 max(8px, 1.9cqw) / 1 system-ui, sans-serif;
+  letter-spacing: 0.14em;
 }
 .tk__one {
-  padding: 0.8cqw 1.3cqw;
+  padding: 0.6cqw 1.2cqw;
   background: var(--p);
   border: 0.3cqw solid var(--c);
-  border-radius: 0.8cqw;
-  font: 700 max(8px, 1.6cqw) / 1 "IBM Plex Mono", ui-monospace, monospace;
-  letter-spacing: 0.1em;
-}
-@container (max-width: 430px) {
-  .tk__one { display: none; }
+  font: 800 max(8px, 1.8cqw) / 1 system-ui, sans-serif;
+  letter-spacing: 0.12em;
 }
 .tk__stat {
-  padding: 0.9cqw 1.6cqw;
-  border: 0.6cqw solid var(--c);
-  border-radius: 0.9cqw;
+  padding: 0.7cqw 1.6cqw;
+  border: max(3px, 0.6cqw) double var(--c);
   background: var(--p);
-  font: 700 max(8px, 1.8cqw) / 1 "IBM Plex Mono", ui-monospace, monospace;
-  letter-spacing: 0.08em;
+  font: 800 max(8px, 2cqw) / 1 system-ui, sans-serif;
+  letter-spacing: 0.1em;
   transform: rotate(3deg);
-  box-shadow: 0.6cqw 0.6cqw 0 var(--c);
-  white-space: nowrap;
 }
-.tk__stat--paid { background: var(--c); color: var(--p); }
-.tk__stat--await { background: var(--a); color: #16110f; }
-.tk__stat--none { border-style: dashed; box-shadow: none; }
-
+.tk__stat--paid {
+  background: var(--c);
+  color: var(--p);
+}
+.tk__stat--await {
+  background: var(--a);
+  color: #16110f;
+}
+.tk__stat--none {
+  border-style: dashed;
+}
 .tk__abbr {
+  margin-top: 1.2cqw;
   position: relative;
   z-index: 1;
-  margin-top: 1.4cqw;
-  font-family: "Barlow Condensed", Impact, "Arial Black", sans-serif;
-  font-size: var(--fs);
-  font-weight: 900;
-  line-height: 0.88;
-  letter-spacing: 0.015em;
-  text-transform: uppercase;
-  text-shadow: 0.9cqw 0.9cqw 0 var(--a);
+  font: 900 var(--fs) / 0.86 Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 .tk__name {
+  max-width: 50cqw;
+  margin-top: 1.4cqw;
   position: relative;
   z-index: 1;
-  max-width: 52cqw;
-  margin-top: 2cqw;
-  font: 700 max(9px, 2.9cqw) / 1.25 "IBM Plex Mono", ui-monospace, monospace;
+  font-weight: 700;
+  font-size: max(11px, 3.6cqw);
+  line-height: 1.05;
   letter-spacing: -0.01em;
 }
-
 .tk__bot {
-  position: relative;
-  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 2cqw;
-  margin-top: auto;
+  position: relative;
+  z-index: 1;
 }
 .tk__meta {
-  width: 43cqw;
-  border: 0.5cqw solid var(--c);
-  border-left: 1.2cqw solid var(--a) !important;
-  border-radius: 1cqw;
+  width: 41cqw;
+  border-left: 0.9cqw solid var(--a) !important;
   padding: 1.3cqw 1.8cqw;
+  border: 0.35cqw solid var(--c);
   background: var(--p);
-  box-shadow: 0.8cqw 0.8cqw 0 var(--c);
   display: grid;
-  gap: 0.8cqw;
+  gap: 0.7cqw;
 }
 .tk__meta div {
   display: flex;
   justify-content: space-between;
   gap: 1.5cqw;
-  font: 700 max(8px, 2.1cqw) / 1.2 "IBM Plex Mono", ui-monospace, monospace;
+  font-size: max(9px, 2.5cqw);
+  line-height: 1.15;
 }
 .tk__meta span {
-  font: 400 max(7px, 1.7cqw) / 1.2 "IBM Plex Mono", ui-monospace, monospace;
-  opacity: 0.75;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  opacity: 0.7;
+  font-weight: 600;
   white-space: nowrap;
 }
 .tk__meta b {
   min-width: 0;
   text-align: right;
   overflow-wrap: anywhere;
+  font-weight: 800;
 }
 .tk__meta b.e {
-  font-weight: 400;
-  opacity: 0.5;
-  letter-spacing: 0.04em;
-  font-size: 0.9em;
+  font-size: 0.82em;
+  opacity: 0.65;
+  letter-spacing: 0.05em;
+  font-weight: 700;
 }
 .tk__bc {
-  height: 2.4cqw;
-  margin-top: 2cqw;
+  height: 2.6cqw;
+  margin-top: 1.2cqw;
   background: repeating-linear-gradient(
     90deg,
     var(--c) 0 0.35cqw,
@@ -1728,83 +1810,102 @@ article:has([class*="NUKE"]) {
 .tk__fee small {
   display: inline-block;
   margin-bottom: 0.8cqw;
-  padding: 0.8cqw 1.3cqw;
+  padding: 0.5cqw 1.2cqw;
   background: var(--p);
-  border: 0.4cqw solid var(--c);
-  border-radius: 0.8cqw;
-  font: 700 max(8px, 1.7cqw) / 1 "IBM Plex Mono", ui-monospace, monospace;
-  letter-spacing: 0.08em;
+  border: 0.3cqw solid var(--c);
+  font: 800 max(8px, 2cqw) / 1 system-ui, sans-serif;
+  letter-spacing: 0.1em;
 }
 .tk__fee b {
   display: block;
   white-space: nowrap;
-  font-family: "Barlow Condensed", Impact, "Arial Black", sans-serif;
-  font-size: 13cqw;
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: 0.01em;
-  text-shadow: 0.7cqw 0.7cqw 0 var(--a);
+  font: 900 15cqw / 0.85 Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
-.tk__fee--l b { font-size: 9.5cqw; }
+.tk__fee--l b {
+  font-size: 10.5cqw;
+}
 .tk__slot {
   display: inline-block;
   width: 19cqw;
-  height: 7.5cqw;
+  height: 8.5cqw;
   margin-left: 1cqw;
   vertical-align: -0.6cqw;
-  border: 0.5cqw dashed var(--c);
-  border-radius: 1cqw;
+  border: 0.6cqw dashed var(--c);
   background: var(--p);
 }
+@container (max-width: 430px) {
+  .tk__one {
+    display: none;
+  }
+}
 
-/* Empty vault stack decoration */
-.tv-stack {
+/* Flip in dialog */
+.tv-flip {
+  perspective: 1200px;
+  cursor: pointer;
+}
+.tv-flip__in {
   position: relative;
-  width: 190px;
-  height: 150px;
-  flex: none;
-  margin: 0 auto;
-  display: block !important;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
-.tv-stack i {
+.tv-flip.back .tv-flip__in {
+  transform: rotateY(180deg);
+}
+.tv-face {
+  backface-visibility: hidden;
+}
+.tv-face--b {
   position: absolute;
-  width: 140px;
-  height: 84px;
-  border: 3px solid var(--color-ink);
-  border-radius: 8px;
+  inset: 0;
+  transform: rotateY(180deg);
 }
-.tv-stack i::before {
-  content: "";
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  top: 18px;
-  height: 10px;
-  background: var(--color-ink);
-  opacity: 0.9;
+.tv-fliphint {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.7;
 }
-.tv-stack i::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  width: 50px;
-  top: 40px;
-  height: 8px;
-  background: var(--color-ink);
-  opacity: 0.35;
+.tkb {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 2cqw;
+  margin-top: 2cqw;
+  position: relative;
+  z-index: 1;
 }
-.tv-stack i:nth-child(1) { background: #FF7A1A; left: 0; top: 50px; transform: rotate(-9deg); }
-.tv-stack i:nth-child(2) { background: #8C1C13; left: 44px; top: 34px; transform: rotate(5deg); }
-.tv-stack i:nth-child(3) { background: #BFEFE0; left: 28px; top: 4px; transform: rotate(-2deg); }
-
-.tv-empty {
+.tkb h4 {
+  margin: 0 0 1cqw;
+  font: 900 max(14px, 4.5cqw) / 1 Impact, sans-serif;
+}
+.tkb ul {
+  margin: 0;
+  padding-left: 1.1em;
+  font-size: max(10px, 2.6cqw);
+  font-weight: 600;
+  line-height: 1.35;
+}
+.tkb__r {
+  display: grid;
+  gap: 0.8cqw;
+  align-content: start;
+}
+.tkb__row {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 28px 44px;
+  justify-content: space-between;
+  gap: 1cqw;
+  padding: 0.7cqw 1cqw;
+  border: 0.3cqw solid var(--c);
+  background: var(--p);
+  font-size: max(9px, 2.3cqw);
+  font-weight: 700;
+}
+.tkb__row span {
+  opacity: 0.65;
 }
 
-/* Dialog keeps app chrome */
+/* Dialog chrome */
 .tv-dlg {
   width: min(760px, calc(100% - 20px));
   max-height: calc(100dvh - 20px);
@@ -1829,8 +1930,9 @@ article:has([class*="NUKE"]) {
   border-bottom: 2px solid var(--color-ink);
 }
 .tv-dlg__tk {
-  max-width: 520px;
-  margin: 0 auto 1.5rem;
+  max-width: 640px;
+  margin: 0 auto 1.25rem;
+  padding-right: 0.75rem;
 }
 .tv-fs {
   margin: 0 0 0.9rem;
@@ -1937,7 +2039,8 @@ article:has([class*="NUKE"]) {
 }
 @media (prefers-reduced-motion: reduce) {
   .tk,
-  .tv-pop {
+  .tv-pop,
+  .tv-flip__in {
     transition: none;
     animation: none;
   }
