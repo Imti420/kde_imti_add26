@@ -212,6 +212,7 @@ function TicketDetail({
   const [credOpen, setCredOpen] = useState(false);
   const [showPass, setShowPass] = useState(false);
   const [confirmRemove, setConfirmRemove] = useState(false);
+  const [flipped, setFlipped] = useState(false);
   const abbr = abbrOf(ticket.kind);
 
   const setField = <K extends keyof UserTicket>(key: K, value: UserTicket[K]) => {
@@ -227,7 +228,29 @@ function TicketDetail({
         </button>
       </div>
       <div className="tv-dlg__tk">
-        <TicketFace kind={ticket.kind} data={ticket} />
+        <div
+          className={`tv-flip${flipped ? " back" : ""}`}
+          role="button"
+          tabIndex={0}
+          aria-label="Flip the ticket"
+          onClick={() => setFlipped((v) => !v)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setFlipped((v) => !v);
+            }
+          }}
+        >
+          <div className="tv-flip__in">
+            <div className="tv-face tv-face--f">
+              <TicketFace kind={ticket.kind} data={ticket} />
+            </div>
+            <div className="tv-face tv-face--b">
+              <TicketFace kind={ticket.kind} data={ticket} face="back" />
+            </div>
+          </div>
+        </div>
+        <p className="tv-fliphint">Tap the ticket to flip it</p>
       </div>
 
       <fieldset className="tv-fs">
