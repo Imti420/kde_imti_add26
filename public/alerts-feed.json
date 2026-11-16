@@ -1,41 +1,41 @@
 {
-  "updated": "2026-11-15T14:40:00+06:00",
-  "cycle": "n1115-ru-live",
+  "updated": "2026-11-16T17:00:00+06:00",
+  "cycle": "n1116-form-week",
   "news": [
     {
-      "id": "n1115-ru-live",
+      "id": "n1116-du",
       "heat": "HOT",
-      "headline": "RU applications open today through 30 Nov",
-      "url": "/circulars/c-ru"
-    },
-    {
-      "id": "n1115-du",
-      "heat": "HOT",
-      "headline": "DU still open — about 10 days left",
+      "headline": "DU ~9 days left — close 25 Nov",
       "url": "/circulars/c-du"
     },
     {
-      "id": "n1115-jnu",
-      "heat": "SYSTEM",
-      "headline": "JnU: check portal (15 vs 25 Nov)",
+      "id": "n1116-ru",
+      "heat": "HOT",
+      "headline": "RU open through 30 Nov",
+      "url": "/circulars/c-ru"
+    },
+    {
+      "id": "n1116-jnu",
+      "heat": "HOT",
+      "headline": "JnU open through 10 Dec",
       "url": "/circulars/c-jnu"
     },
     {
-      "id": "n1115-buet",
+      "id": "n1116-buet",
       "heat": "SYSTEM",
-      "headline": "BUET apps open Friday 21 Nov",
+      "headline": "BUET apps Friday 21 Nov",
       "url": "/circulars/c-buet"
     },
     {
-      "id": "n1115-kuet",
+      "id": "n1116-kuet",
       "heat": "HOT",
       "headline": "KUET still open through 10 Dec",
       "url": "/circulars/c-kuet"
     },
     {
-      "id": "n1115-board",
+      "id": "n1116-board",
       "heat": "STREET",
-      "headline": "Desk board: RU · DU · JnU · BUET Friday",
+      "headline": "Monday board: DU · RU · JnU · BUET Friday",
       "url": "/newswire"
     }
   ]
