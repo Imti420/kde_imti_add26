@@ -1,5 +1,23 @@
 [
   {
+    "id": "ba0c1ca1ab599661",
+    "headline": "আইবিএতে বিবিএ পড়াশোনার সুযোগ ও ভর্তিতে প্রস্তুতি যেভাবে নেবেন",
+    "summary": "ঢাকা বিশ্ববিদ্যালয়ের আইবিএতে বিবিএ পড়া ও ক্যারিয়ার সম্ভাবনা, ভর্তি পরীক্ষার প্রস্তুতি ও প্রয়োজনীয় টিপস নিয়ে আলোচনা",
+    "sourceId": "prothom-alo",
+    "sourceName": "Prothom Alo",
+    "sourceUrl": "https://www.prothomalo.com/education/admission/gw1tnxc8l8",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-17T02:07:15.000Z",
+    "discoveredAt": "2026-11-17T02:37:19.139Z",
+    "contentHash": "ba0c1ca1ab599661441e09957defb8cbf2344386a4a932f190380c44cda79493",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "621585c2a21885cb",
     "headline": "JU admission applications for 2026-27 session open on 22 November, tests in January",
     "summary": "Applications for 1,848 seats across 37 departments and institutes will remain open until 15 December.",
