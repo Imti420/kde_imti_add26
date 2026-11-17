@@ -238,7 +238,7 @@
     },
     {
       "origin": "https://www.bou.ac.bd",
-      "fetchedAt": "2026-11-16T01:52:42.910Z",
+      "fetchedAt": "2026-11-17T04:45:58.159Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -320,6 +320,11 @@
       "origin": "https://www.buet.ac.bd",
       "fetchedAt": "2026-11-10T08:52:15.644Z",
       "body": null
+    },
+    {
+      "origin": "https://www.uftb.ac.bd",
+      "fetchedAt": "2026-11-17T04:44:55.608Z",
+      "body": "User-agent: *\nDisallow:\n\nSitemap: https://uftb.ac.bd/sitemap.xml\n"
     }
   ]
 }
