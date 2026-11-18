@@ -19263,5 +19263,61 @@
     "shortName": "AGRI",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://bup.edu.bd/public/upload/news/20261118_1794972706.pdf",
+    "foundOn": "https://www.bup.edu.bd/",
+    "foundAt": "2026-11-18T03:53:36.803Z",
+    "title": "Admission Notice: Bachelor’s and Master’s Programmes (Session 2026-2027)",
+    "kind": "pdf",
+    "score": 12,
+    "sameSite": true,
+    "id": "bup:https://bup.edu.bd/public/upload/news/20261118_1794972706.pdf",
+    "universityId": "bup",
+    "shortName": "BUP",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bup.edu.bd/public/upload/news/20261118_1794973643.pdf",
+    "foundOn": "https://www.bup.edu.bd/",
+    "foundAt": "2026-11-18T03:53:36.803Z",
+    "title": "Nov 18, 2026 BUP POSTDOCTORAL ADMISSION NOTICE",
+    "kind": "pdf",
+    "score": 12,
+    "sameSite": true,
+    "id": "bup:https://www.bup.edu.bd/public/upload/news/20261118_1794973643.pdf",
+    "universityId": "bup",
+    "shortName": "BUP",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bup.edu.bd/public/upload/news/20261118_1794972706.pdf",
+    "foundOn": "https://www.bup.edu.bd/",
+    "foundAt": "2026-11-18T03:53:36.803Z",
+    "title": "Nov 18, 2026 Admission Notice: Bachelor’s and Master’s Programmes (Session 2026-2027)",
+    "kind": "pdf",
+    "score": 12,
+    "sameSite": true,
+    "id": "bup:https://www.bup.edu.bd/public/upload/news/20261118_1794972706.pdf",
+    "universityId": "bup",
+    "shortName": "BUP",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bup.edu.bd/public/upload/news/20261117_1794893897.pdf",
+    "foundOn": "https://www.bup.edu.bd/",
+    "foundAt": "2026-11-18T03:53:36.803Z",
+    "title": "Nov 10, 2026 List of Selected Candidates for Viva-Voce for MPhil and PhD Programme (Session 2026–2027B)",
+    "kind": "pdf",
+    "score": 12,
+    "sameSite": true,
+    "id": "bup:https://www.bup.edu.bd/public/upload/news/20261117_1794893897.pdf",
+    "universityId": "bup",
+    "shortName": "BUP",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
