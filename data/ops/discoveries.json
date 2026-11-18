@@ -19319,5 +19319,61 @@
     "shortName": "BUP",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://jnu.ac.bd/assets/notice/d05fb039e4458ec55b63651aefb5f674.pdf",
+    "foundOn": "https://www.jnu.ac.bd/",
+    "foundAt": "2026-11-18T13:27:59.562Z",
+    "title": "Revised circular for MSc (Professional) in Applied Physics and Electronics",
+    "kind": "pdf",
+    "score": 10,
+    "sameSite": true,
+    "id": "jnu:https://jnu.ac.bd/assets/notice/d05fb039e4458ec55b63651aefb5f674.pdf",
+    "universityId": "jnu",
+    "shortName": "JnU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.butex.edu.bd/%e0%a6%85%e0%a6%a7%e0%a6%bf%e0%a6%ad%e0%a7%81%e0%a6%95%e0%a7%8d%e0%a6%a4-%e0%a6%95%e0%a6%b2%e0%a7%87%e0%a6%9c%e0%a6%b8%e0%a6%ae%e0%a7%82%e0%a6%b9%e0%a7%87%e0%a6%b0-%e0%a7%a7%e0%a7%af-%e0%a7%a7",
+    "foundOn": "https://www.butex.edu.bd/homepage/",
+    "foundAt": "2026-11-18T13:29:21.180Z",
+    "title": "অধিভুক্ত কলেজসমূহের ১৯/১১/২০২৬ তারিখের পরীক্ষা স্থগিতকরণ সংক্রান্ত জরুরী বিজ্ঞপ্তি",
+    "kind": "page",
+    "score": 8,
+    "sameSite": true,
+    "id": "butex:https://www.butex.edu.bd/%e0%a6%85%e0%a6%a7%e0%a6%bf%e0%a6%ad%e0%a7%81%e0%a6%95%e0%a7%8d%e0%a6%a4-%e0%a6%95%e0%a6%b2%e0%a7%87%e0%a6%9c%e0%a6%b8%e0%a6%ae%e0%a7%82%e0%a6%b9%e0%",
+    "universityId": "butex",
+    "shortName": "BUTEX",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/admission/1882185142528173.pdf",
+    "foundOn": "https://www.bou.ac.bd/",
+    "foundAt": "2026-11-18T13:29:30.298Z",
+    "title": "Finally Selected Applicant List for Admission of MBA Program -241 Semester 2026-11-18",
+    "kind": "pdf",
+    "score": 13,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/admission/1882185142528173.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/admission/1881462790862390.pdf",
+    "foundOn": "https://www.bou.ac.bd/",
+    "foundAt": "2026-11-18T13:29:30.298Z",
+    "title": "Admission circular and instruction of DCSA Program (261 Term), 2025-2026 2026-11-18",
+    "kind": "pdf",
+    "score": 25,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/admission/1881462790862390.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
