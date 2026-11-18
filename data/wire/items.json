@@ -1,5 +1,23 @@
 [
   {
+    "id": "ace2498a11a5e4f6",
+    "headline": "UGC scraps decision on public university admission tests",
+    "summary": "According to UGC, a meeting of vice-chancellors on 9 November had requested public universities to defer admission tests until the publication of the results of the review and supplementary examinations of the 2026 HSC examinations.",
+    "sourceId": "tbs-education",
+    "sourceName": "The Business Standard — Education",
+    "sourceUrl": "https://www.tbsnews.net/bangladesh/education/ugc-scraps-decision-public-university-admission-tests-1607271",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-18T19:25:00.000Z",
+    "discoveredAt": "2026-11-18T21:21:58.414Z",
+    "contentHash": "ace2498a11a5e4f67aa892013e3e502c1a30239cfcc721256eaa09824b678f34",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "fc7755f37e86fdb3",
     "headline": "পাবলিক বিশ্ববিদ্যালয়ে ভর্তি নিয়ে আগের সিদ্ধান্ত বাতিল করল ইউজিসি",
     "summary": null,
