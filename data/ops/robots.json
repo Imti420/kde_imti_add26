@@ -108,7 +108,7 @@
     },
     {
       "origin": "https://www.cuet.ac.bd",
-      "fetchedAt": "2026-11-17T03:41:42.781Z",
+      "fetchedAt": "2026-11-18T04:41:05.666Z",
       "body": "# As a condition of accessing this website, you agree to abide by the following\n# content signals:\n\n# (a)  If a content-signal = yes, you may collect content for the corresponding\n#      use.\n# (b)  If a content-signal = no, you may not collect content for the\n#      corresponding use.\n# (c)  If the website operator does not include a content signal for a\n#      corresponding use, the website operator neither grants nor restricts\n#      permission via content signal with respect to the corresponding use.\n\n# The content signals and their meanings are:\n\n# search:   building a search index and providing search results (e.g., returning\n#           hyperlinks and short excerpts from your website's contents). Search does not\n#           include providing AI-generated search summaries.\n# ai-input: inputting content into one or more AI models (e.g., retrieval\n#           augmented generation, grounding, or other real-time taking of content for\n#           generative AI search answers).\n# ai-train: training or fine-tuning AI models.\n\n# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS RESERVATIONS OF\n# RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT\n# AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.\n"
     },
     {
@@ -168,7 +168,7 @@
     },
     {
       "origin": "https://www.prstu.ac.bd",
-      "fetchedAt": "2026-11-17T03:41:56.226Z",
+      "fetchedAt": "2026-11-18T04:41:17.881Z",
       "body": "User-agent: Googlebot\r\nDisallow: /nogooglebot/\r\n\r\nUser-agent: *\r\nAllow: /\r\n\r\nDisallow:\r\nSitemap:https://bsmrstup.ac.bd/sitemap.xml"
     },
     {
