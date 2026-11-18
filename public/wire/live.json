@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-18T02:36:22.102Z",
+  "generatedAt": "2026-11-18T03:40:20.148Z",
   "status": "completed",
   "runner": "github-actions",
   "intervalMinutes": 55,
-  "startedAt": "2026-11-18T02:35:51.646Z",
-  "completedAt": "2026-11-18T02:36:22.102Z",
-  "durationMs": 30456,
-  "nextExpectedAt": "2026-11-18T03:31:22.102Z",
-  "note": "Wire cycle finished. 1 new headline. 1 source failed. 5 sources were not opened because automated access is not authorised. News is not a circular.",
+  "startedAt": "2026-11-18T03:39:50.588Z",
+  "completedAt": "2026-11-18T03:40:20.148Z",
+  "durationMs": 29560,
+  "nextExpectedAt": "2026-11-18T04:35:20.148Z",
+  "note": "Wire cycle finished. 0 new headlines. 1 source failed. 5 sources were not opened because automated access is not authorised. News is not a circular.",
   "counts": {
     "sources": 17,
     "attempted": 12,
@@ -17,7 +17,7 @@
     "notAuthorised": 4,
     "manualOnly": 1,
     "items": 66,
-    "newItems": 1,
+    "newItems": 0,
     "aiClassified": 0,
     "heuristicClassified": 18
   },
@@ -32,8 +32,8 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-18T02:35:51.646Z",
-      "lastCheckedAt": "2026-11-18T02:35:51.646Z",
+      "lastSuccessAt": "2026-11-18T03:39:50.588Z",
+      "lastCheckedAt": "2026-11-18T03:39:50.588Z",
       "status": "no_change",
       "httpStatus": 200,
       "contentHash": "4f75f54b6d3f2f054a6ed2e92061b56bb914dede3bccdce748fd012d49222329",
@@ -51,11 +51,11 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-18T02:35:51.646Z",
-      "lastCheckedAt": "2026-11-18T02:35:51.646Z",
+      "lastSuccessAt": "2026-11-18T03:39:50.588Z",
+      "lastCheckedAt": "2026-11-18T03:39:50.588Z",
       "status": "ok",
       "httpStatus": 200,
-      "contentHash": "94c938e27b364818293a8868da9dbd69e7be8aa1136b4c1c711774e4562c341e",
+      "contentHash": "e1cb89857ccffeb8dcfc2ec99900cd64001990feb2e718c5344061132ea39cfd",
       "itemsFound": 0,
       "error": null,
       "note": "Official website. Link text is kept as the headline. No date is invented. Reached. No admission-season headline in this response."
@@ -70,14 +70,14 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-18T02:35:51.646Z",
-      "lastCheckedAt": "2026-11-18T02:35:51.646Z",
-      "status": "ok",
+      "lastSuccessAt": "2026-11-18T03:39:50.588Z",
+      "lastCheckedAt": "2026-11-18T03:39:50.588Z",
+      "status": "no_change",
       "httpStatus": 200,
       "contentHash": "dbf8c0b6b77fc70e1a7255d318560f5659764fa9c4e0acfa8f960a6d879386ad",
       "itemsFound": 0,
       "error": null,
-      "note": "Official BUET site. Reached. No admission-season headline in this response."
+      "note": "Official BUET site."
     },
     {
       "id": "dghs-home",
@@ -89,11 +89,11 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-18T02:35:51.646Z",
-      "lastCheckedAt": "2026-11-18T02:35:51.646Z",
+      "lastSuccessAt": "2026-11-18T03:39:50.588Z",
+      "lastCheckedAt": "2026-11-18T03:39:50.588Z",
       "status": "ok",
       "httpStatus": 200,
-      "contentHash": "2ef56e3a6ce1621508a5c6fbc8b01c063ea0bcc3c580b18550ad5da8388924d2",
+      "contentHash": "aae20c6536957a1e081356be332197723f5fcf0280f262a7d3f48d28b7fce2f7",
       "itemsFound": 0,
       "error": null,
       "note": "Official DGHS site. Medical admission headlines only when the page itself states them. Reached. No admission-season headline in this response."
@@ -108,11 +108,11 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-18T02:35:51.646Z",
-      "lastCheckedAt": "2026-11-18T02:35:51.646Z",
+      "lastSuccessAt": "2026-11-18T03:39:50.588Z",
+      "lastCheckedAt": "2026-11-18T03:39:50.588Z",
       "status": "ok",
       "httpStatus": 200,
-      "contentHash": "542fcc7c739b3ff0dcdcac7b19177af435bd698248d44c9b2d249f2c3c843f83",
+      "contentHash": "341ae3bdfc8f240debdbdf4a1713f312d7138c7703708203691cdd130b4a5251",
       "itemsFound": 12,
       "error": null,
       "note": "Official Udvash website. Programme titles are coaching announcements, not university circulars."
@@ -127,8 +127,8 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-18T02:35:51.646Z",
-      "lastCheckedAt": "2026-11-18T02:35:51.646Z",
+      "lastSuccessAt": "2026-11-18T03:39:50.588Z",
+      "lastCheckedAt": "2026-11-18T03:39:50.588Z",
       "status": "no_change",
       "httpStatus": 200,
       "contentHash": "dd887b5a0bdcfdcc0faef5769a64a0fcde28743f02b70348ac77455037d1d524",
@@ -146,8 +146,8 @@
       "trust": "official",
       "accessMethod": "html",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-18T02:35:51.646Z",
-      "lastCheckedAt": "2026-11-18T02:35:51.646Z",
+      "lastSuccessAt": "2026-11-18T03:39:50.588Z",
+      "lastCheckedAt": "2026-11-18T03:39:50.588Z",
       "status": "no_change",
       "httpStatus": 200,
       "contentHash": "25258cc35a1463a3759c938b522bae0cd296fcb17e4d9a7e336c6575b55a7fd1",
@@ -165,11 +165,11 @@
       "trust": "reported",
       "accessMethod": "rss",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-18T02:35:51.646Z",
-      "lastCheckedAt": "2026-11-18T02:35:51.646Z",
+      "lastSuccessAt": "2026-11-18T03:39:50.588Z",
+      "lastCheckedAt": "2026-11-18T03:39:50.588Z",
       "status": "ok",
       "httpStatus": 200,
-      "contentHash": "91e4f3ce58fdbc166d03ce94500a0abfeda604d47415894d547724e7cde01a12",
+      "contentHash": "5b5aae84645eebd4f5948a8db2fe517a4300183463e37572888ed04e42f78bdb",
       "itemsFound": 5,
       "error": null,
       "note": "Public education RSS. A reported story is not the university circular."
@@ -184,8 +184,8 @@
       "trust": "reported",
       "accessMethod": "rss",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-18T02:35:51.646Z",
-      "lastCheckedAt": "2026-11-18T02:35:51.646Z",
+      "lastSuccessAt": "2026-11-18T03:39:50.588Z",
+      "lastCheckedAt": "2026-11-18T03:39:50.588Z",
       "status": "no_change",
       "httpStatus": 200,
       "contentHash": "7773233500499422f198124146668adc3134fb5fb4b45a848aa4b786e93a4a4d",
@@ -203,11 +203,11 @@
       "trust": "reported",
       "accessMethod": "rss",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-18T02:35:51.646Z",
-      "lastCheckedAt": "2026-11-18T02:35:51.646Z",
+      "lastSuccessAt": "2026-11-18T03:39:50.588Z",
+      "lastCheckedAt": "2026-11-18T03:39:50.588Z",
       "status": "ok",
       "httpStatus": 200,
-      "contentHash": "dfa43adb0a331f169a50428fce0b287600e5ef8ab1e268ee343d37cba9173ed8",
+      "contentHash": "b6171e6062b68a77f0e0e23b9adfdf1e4b433e78afa822a52f6a7cc11cb5be1e",
       "itemsFound": 1,
       "error": null,
       "note": "Public front-page RSS. Only admission-season headlines are kept. An empty result is not filled in."
@@ -222,11 +222,11 @@
       "trust": "reported",
       "accessMethod": "rss",
       "automatedAuthorised": true,
-      "lastSuccessAt": "2026-11-18T02:35:51.646Z",
-      "lastCheckedAt": "2026-11-18T02:35:51.646Z",
+      "lastSuccessAt": "2026-11-18T03:39:50.588Z",
+      "lastCheckedAt": "2026-11-18T03:39:50.588Z",
       "status": "ok",
       "httpStatus": 200,
-      "contentHash": "11c448a77e0cf1aafa42072138138c0a600bdf56391e8bef08382a0f755f0d8d",
+      "contentHash": "43103693f9eee6e24a393aa752c6e1ad3aa2cadbc3416751f6cbd85c46074498",
       "itemsFound": 0,
       "error": null,
       "note": "Public English RSS. Same admission filter. Reached. No admission-season headline in this response."
@@ -242,7 +242,7 @@
       "accessMethod": "html",
       "automatedAuthorised": true,
       "lastSuccessAt": null,
-      "lastCheckedAt": "2026-11-18T02:35:51.646Z",
+      "lastCheckedAt": "2026-11-18T03:39:50.588Z",
       "status": "blocked",
       "httpStatus": 403,
       "contentHash": null,
@@ -1538,103 +1538,103 @@
   ],
   "log": [
     {
-      "at": "2026-11-18T02:35:54.915Z",
+      "at": "2026-11-18T03:39:53.607Z",
       "level": "info",
       "sourceId": "ugc-home",
       "message": "No change since the last successful read."
     },
     {
-      "at": "2026-11-18T02:35:58.757Z",
+      "at": "2026-11-18T03:39:57.225Z",
       "level": "info",
       "sourceId": "du-home",
       "message": "Reached. Nothing admission-related to keep."
     },
     {
-      "at": "2026-11-18T02:36:03.590Z",
+      "at": "2026-11-18T03:40:02.854Z",
       "level": "info",
       "sourceId": "buet-home",
-      "message": "Reached. Nothing admission-related to keep."
+      "message": "No change since the last successful read."
     },
     {
-      "at": "2026-11-18T02:36:08.611Z",
+      "at": "2026-11-18T03:40:06.883Z",
       "level": "info",
       "sourceId": "dghs-home",
       "message": "Reached. Nothing admission-related to keep."
     },
     {
-      "at": "2026-11-18T02:36:11.756Z",
+      "at": "2026-11-18T03:40:09.675Z",
       "level": "info",
       "sourceId": "udvash-web",
       "message": "Kept 12 admission headlines."
     },
     {
-      "at": "2026-11-18T02:36:13.122Z",
+      "at": "2026-11-18T03:40:11.025Z",
       "level": "info",
       "sourceId": "acs-hub",
       "message": "No change since the last successful read."
     },
     {
-      "at": "2026-11-18T02:36:14.402Z",
+      "at": "2026-11-18T03:40:12.365Z",
       "level": "info",
       "sourceId": "apars-web",
       "message": "No change since the last successful read."
     },
     {
-      "at": "2026-11-18T02:36:16.661Z",
+      "at": "2026-11-18T03:40:14.620Z",
       "level": "info",
       "sourceId": "daily-star-education",
       "message": "Kept 5 admission headlines."
     },
     {
-      "at": "2026-11-18T02:36:17.960Z",
+      "at": "2026-11-18T03:40:15.985Z",
       "level": "info",
       "sourceId": "tbs-education",
       "message": "No change since the last successful read."
     },
     {
-      "at": "2026-11-18T02:36:19.320Z",
+      "at": "2026-11-18T03:40:17.334Z",
       "level": "info",
       "sourceId": "prothom-alo",
       "message": "Kept 1 admission headline."
     },
     {
-      "at": "2026-11-18T02:36:20.684Z",
+      "at": "2026-11-18T03:40:18.689Z",
       "level": "info",
       "sourceId": "prothom-alo-english",
       "message": "Reached. Nothing admission-related to keep."
     },
     {
-      "at": "2026-11-18T02:36:22.097Z",
+      "at": "2026-11-18T03:40:20.142Z",
       "level": "error",
       "sourceId": "dhaka-tribune-education",
       "message": "HTTP 403. Access was refused."
     },
     {
-      "at": "2026-11-18T02:36:22.097Z",
+      "at": "2026-11-18T03:40:20.142Z",
       "level": "warn",
       "sourceId": "fb-udvash",
       "message": "Udvash — Facebook Page was not opened. No authorised access method is configured."
     },
     {
-      "at": "2026-11-18T02:36:22.097Z",
+      "at": "2026-11-18T03:40:20.142Z",
       "level": "warn",
       "sourceId": "fb-du",
       "message": "University of Dhaka — Facebook Page was not opened. No authorised access method is configured."
     },
     {
-      "at": "2026-11-18T02:36:22.097Z",
+      "at": "2026-11-18T03:40:20.142Z",
       "level": "warn",
       "sourceId": "fb-buet",
       "message": "BUET — Facebook Page was not opened. No authorised access method is configured."
     },
     {
-      "at": "2026-11-18T02:36:22.097Z",
+      "at": "2026-11-18T03:40:20.142Z",
       "level": "warn",
       "sourceId": "fb-apars",
       "message": "Apars Classroom — Facebook Page was not opened. No authorised access method is configured."
     },
     {
-      "at": "2026-11-18T02:36:22.097Z",
+      "at": "2026-11-18T03:40:20.142Z",
       "level": "warn",
       "sourceId": "fb-apars-group",
       "message": "Apars Classroom — public Facebook group was not opened. No authorised access method is configured."
