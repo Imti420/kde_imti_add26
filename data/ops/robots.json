@@ -83,7 +83,7 @@
     },
     {
       "origin": "https://www.bu.ac.bd",
-      "fetchedAt": "2026-11-18T13:28:02.571Z",
+      "fetchedAt": "2026-11-19T20:59:20.821Z",
       "body": "User-agent: *\r\nDisallow: \r\n"
     },
     {
@@ -223,7 +223,7 @@
     },
     {
       "origin": "https://www.butex.edu.bd",
-      "fetchedAt": "2026-11-18T13:29:11.156Z",
+      "fetchedAt": "2026-11-19T21:00:21.680Z",
       "body": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n"
     },
     {
@@ -253,7 +253,7 @@
     },
     {
       "origin": "https://www.aiub.edu",
-      "fetchedAt": "2026-11-18T13:29:52.985Z",
+      "fetchedAt": "2026-11-19T21:01:03.670Z",
       "body": null
     },
     {
@@ -263,12 +263,12 @@
     },
     {
       "origin": "https://www.uiu.ac.bd",
-      "fetchedAt": "2026-11-18T13:29:57.097Z",
+      "fetchedAt": "2026-11-19T21:01:05.123Z",
       "body": "User-agent:*\nAllow:/\nSitemap:https://www.uiu.ac.bd/sitemap.xml\n\n"
     },
     {
       "origin": "https://daffodilvarsity.edu.bd",
-      "fetchedAt": "2026-11-18T13:29:58.707Z",
+      "fetchedAt": "2026-11-19T21:01:06.372Z",
       "body": "User-Agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin/\nDisallow: /private/\nDisallow: /_next/\nDisallow: /maintenance\nDisallow: /erp\nDisallow: /login\nDisallow: /register\n\nUser-Agent: Googlebot\nAllow: /\nDisallow: /api/\nDisallow: /admin/\nDisallow: /private/\nDisallow: /_next/\nDisallow: /maintenance\nDisallow: /erp\nDisallow: /login\nDisallow: /register\n\nUser-Agent: GPTBot\nAllow: /\n\nUser-Agent: ChatGPT-User\nAllow: /\n\nHost: https://daffodilvarsity.edu.bd\nSitemap: https://daffodilvarsity.edu.bd/sitemap.xml\n"
     },
     {
@@ -278,12 +278,12 @@
     },
     {
       "origin": "https://ulab.edu.bd",
-      "fetchedAt": "2026-11-18T13:30:02.167Z",
+      "fetchedAt": "2026-11-19T21:01:09.021Z",
       "body": "#\n# robots.txt\n#\n# This file is to prevent the crawling and indexing of certain parts\n# of your site by web crawlers and spiders run by sites like Yahoo!\n# and Google. By telling these \"robots\" where not to go on your site,\n# you save bandwidth and server resources.\n#\n# This file will be ignored unless it is at the root of your host:\n# Used:    http://example.com/robots.txt\n# Ignored: http://example.com/site/robots.txt\n#\n# For more information about the robots.txt standard, see:\n# http://www.robotstxt.org/robotstxt.html\n\nUser-agent: *\nCrawl-delay: 10\n# CSS, JS, Images\nAllow: /misc/*.css$\nAllow: /misc/*.css?\nAllow: /misc/*.js$\nAllow: /misc/*.js?\nAllow: /misc/*.gif\nAllow: /misc/*.jpg\nAllow: /misc/*.jpeg\nAllow: /misc/*.png\nAllow: /modules/*.css$\nAllow: /modules/*.css?\nAllow: /modules/*.js$\nAllow: /modules/*.js?\nAllow: /modules/*.gif\nAllow: /modules/*.jpg\nAllow: /modules/*.jpeg\nAllow: /modules/*.png\nAllow: /profiles/*.css$\nAllow: /profiles/*.css?\nAllow: /profiles/*.js$\nAllow: /profiles/*.js?\nAllow: /profiles/*.gif\nAllow: /profiles/*.jpg\nAllow: /profiles/*.jpeg\nAllow: /profiles/*.png\nAllow: /themes/*.css$\nAllow: /themes/*.css?\nAllow: /themes/*.js$\nAllow: /themes/*.js?\nAllow: /themes/*.gif\nAllow: /themes/*.jpg\nAllow: /themes/*.jpeg\nAllow: /themes/*.png\n# Directories\nDisallow: /includes/\nDisallow: /misc/\nDisallow: /modules/\nDisallow: /profiles/\nDisallow: /scripts/\nDisallow: /themes/\n# Files\nDisallow: /CHANGELOG.txt\nDisallow: /cron.php\nDisallow: /INSTALL.mysql.txt\nDisallow: /INSTALL.pgsql.txt\nDisallow: /INSTALL.sqlite.txt\nDisallow: /install.php\nDisallow: /INSTALL.txt\nDisallow: /LICENSE.txt\nDisallow: /MAINTAINERS.txt\nDisallow: /update.php\nDisallow: /UPGRADE.txt\nDisallow: /xmlrpc.php\n# Paths (clean URLs)\nDisallow: /admin/\nDisallow: /comment/reply/\nDisallow: /filter/tips/\nDisallow: /node/add/\nDisallow: /search/\nDisallow: /user/register/\nDisallow: /user/password/\nDisallow: /user/login/\nDisallow: /user/logout/\n# Paths (no clean URLs)\nDisallow: /?q=admin/\nDisallow: /?q=comment/reply/\nDisallow: /?q=filter/tips/\nDisallow: /?q=node/add/\nDisallow: /?q=search/\nDisallow: /?q=user/password/\nDisallow: /?q=user/register/\nDisallow: /?q=user/login/\nDisallow: /?q=user/logout/\n"
     },
     {
       "origin": "https://www.iubat.edu",
-      "fetchedAt": "2026-11-16T20:20:53.191Z",
+      "fetchedAt": "2026-11-19T21:01:15.784Z",
       "body": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nSitemap: https://iubat.edu/wp-sitemap.xml\n"
     },
     {
