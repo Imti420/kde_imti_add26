@@ -1,8 +1,8 @@
 {
   "version": 1,
   "intervalMinutes": 55,
-  "lastStartedAt": "2026-11-19T18:39:41.997Z",
-  "lastCompletedAt": "2026-11-19T18:40:12.503Z",
+  "lastStartedAt": "2026-11-19T21:25:33.194Z",
+  "lastCompletedAt": "2026-11-19T21:26:06.160Z",
   "lastStatus": "completed",
   "note": "Wire cycle finished. 0 new headlines. 1 source failed. 5 sources were not opened because automated access is not authorised. News is not a circular."
 }
