@@ -128,7 +128,7 @@
     },
     {
       "origin": "https://www.pstu.ac.bd",
-      "fetchedAt": "2026-11-17T22:11:29.239Z",
+      "fetchedAt": "2026-11-19T03:40:20.046Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -183,7 +183,7 @@
     },
     {
       "origin": "https://www.sau.ac.bd",
-      "fetchedAt": "2026-11-17T22:11:44.843Z",
+      "fetchedAt": "2026-11-19T03:40:35.367Z",
       "body": null
     },
     {
@@ -258,7 +258,7 @@
     },
     {
       "origin": "https://www.ewubd.edu",
-      "fetchedAt": "2026-11-17T22:13:04.792Z",
+      "fetchedAt": "2026-11-19T03:41:56.192Z",
       "body": null
     },
     {
@@ -293,7 +293,7 @@
     },
     {
       "origin": "https://www.bubt.edu.bd",
-      "fetchedAt": "2026-11-17T22:13:13.705Z",
+      "fetchedAt": "2026-11-19T03:42:03.887Z",
       "body": null
     },
     {
@@ -313,7 +313,7 @@
     },
     {
       "origin": "https://www.puc.ac.bd",
-      "fetchedAt": "2026-11-17T22:13:19.577Z",
+      "fetchedAt": "2026-11-19T03:42:09.269Z",
       "body": null
     },
     {
