@@ -75,6 +75,17 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 
 ## Changelog
 
+### 2026-11-20 — Calendar lock (GO UPDATE)
+- **BUET:** exam **1 Feb 2027** (was 16 Jan); apps through **7 Jan 2027**.
+- **RU:** units cleaned to **B 12 Feb · C 13 Feb · A 20 Feb** (polluted Jan grid removed).
+- **CU:** apps **15 Nov–10 Dec**; exams **29 Jan–8 Feb** (Dec grid withdrawn).
+- **JU:** apps **22 Nov–15 Dec**; tests tentative **10–21 Jan**.
+- **KU:** tests **4–5 Feb 2027** (was 17–18 Dec).
+- **SUST:** **17–18 Jan**; **Agri:** apps **25 Nov–15 Dec**, test **2 Jan**.
+- Newswire cycle **n1120**. Calendar is derived from circulars — refresh after deploy.
+
+
+
 ### 2026-11-16 — Ticket faces (prototype port)
 - Rich `.tk` face: chip, status, meta, barcode, fee, punch holes, soft art wash.
 - Hover lift + dialog **flip** (front / why-this-ticket).
