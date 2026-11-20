@@ -1,6 +1,6 @@
 /**
  * Desk-written spicy briefings — not crawler headlines.
- * Cycle n1116 · 16 Nov 2026 afternoon — form week: DU ~9d · RU open · JnU open · BUET Friday.
+ * Cycle n1120 · 20 Nov 2026 — calendar lock: BUET → 1 Feb, KU → Feb, CU → Jan/Feb grid.
  */
 export interface SpiceCard {
   id: string;
@@ -17,87 +17,87 @@ export interface SpiceCard {
 
 export const SPICE_CARDS: SpiceCard[] = [
   {
-    id: "n1116-du",
+    id: "n1120-du",
     heat: "HOT",
-    kicker: "DU · ~9 DAYS",
+    kicker: "DU · ~5 DAYS",
     headline:
-      "Dhaka University still taking forms through 25 November 23:59. December tests unchanged.",
+      "Dhaka University forms close 25 November 23:59. December unit tests stay put.",
     body:
-      "About nine days left on admission.eis.du.ac.bd. Only the 2026 HSC batch. Science 8.0 · Arts/Business 7.5 · Fine Arts 6.5 · IBA 8.0. Finish DU this week if it is on your list — no second-timers.",
-    punch: "Quiet clock. Real deadline.",
-    sourceLabel: "admission.eis.du.ac.bd · desk · 16 Nov 2026",
+      "About five days left on admission.eis.du.ac.bd. IBA 5 Dec · Science 12 Dec · Arts 19 Dec · Fine Arts 22 Dec · Business 26 Dec. Only the 2026 HSC batch.",
+    punch: "Finish DU this week.",
+    sourceLabel: "admission.eis.du.ac.bd · desk · 20 Nov 2026",
     sourceUrl: "https://admission.eis.du.ac.bd/",
-    published: "2026-11-16",
+    published: "2026-11-20",
     circularId: "c-du",
   },
   {
-    id: "n1116-ru",
-    heat: "HOT",
-    kicker: "RU · OPEN",
-    headline:
-      "Rajshahi applications running through 30 November. February unit tests on the portal.",
-    body:
-      "Official line: apps 15–30 Nov. Unit tests B 12 Feb · C 13 Feb · A 20 Feb 2027. Supplementary passers get a short window after results. Eight regional centres listed on the notice board.",
-    punch: "RU is open. Mark February.",
-    sourceLabel: "admission.ru.ac.bd · desk · 16 Nov 2026",
-    sourceUrl: "https://admission.ru.ac.bd/",
-    published: "2026-11-16",
-    circularId: "c-ru",
-  },
-  {
-    id: "n1116-jnu",
-    heat: "HOT",
-    kicker: "JnU · OPEN",
-    headline:
-      "Jagannath applications through 10 December. Five MCQ units from 1–23 January.",
-    body:
-      "Desk reads the open window as 15 Nov–10 Dec (All Result / Star / Prothom Alo line). Unit grid: A 1 Jan · E 8 Jan · B 15 Jan · C 22 Jan · D 23 Jan. Fees around ৳1,000–1,200 depending on unit — confirm on admission.jnu.ac.bd before you pay.",
-    punch: "Portal first. Then the fee.",
-    sourceLabel: "admission.jnu.ac.bd · All Result BD · 16 Nov 2026",
-    sourceUrl: "https://admission.jnu.ac.bd/",
-    published: "2026-11-16",
-    circularId: "c-jnu",
-  },
-  {
-    id: "n1116-buet",
+    id: "n1120-buet",
     heat: "SYSTEM",
-    kicker: "BUET · FRIDAY",
+    kicker: "BUET · MOVED",
     headline:
-      "BUET applications expected Friday 21 November. Written test stays 16 January.",
+      "BUET test moved to 1 February 2027. Applications through 7 January.",
     body:
-      "Five days out. GPA wall unchanged on the stored notice. Close date still not on the short notice — watch buet.ac.bd mid-week. No drama, just the form.",
-    punch: "Engineering form this Friday.",
-    sourceLabel: "BUET notice · TBS · 16 Nov 2026",
+      "The 16 January date is gone on this desk. Written test 1 Feb. App window reported ~21 Nov → 7 Jan 23:59. GPA wall unchanged. Re-check the portal before you pay.",
+    punch: "Calendar shift. Engineering.",
+    sourceLabel: "BUET revised schedule · desk · 20 Nov 2026",
     sourceUrl: "https://www.buet.ac.bd/",
-    published: "2026-11-16",
+    published: "2026-11-20",
     circularId: "c-buet",
   },
   {
-    id: "n1116-kuet",
+    id: "n1120-ru",
     heat: "HOT",
-    kicker: "KUET · STILL OPEN",
+    kicker: "RU · OPEN",
     headline:
-      "KUET applications through 10 December 17:00. Test 8 January. PDF on the archive.",
+      "Rajshahi applications through 30 November. Unit tests 12 / 13 / 20 February.",
     body:
-      "1,105 seats. Centres Khulna, Dhaka, Rajshahi. Eligible list targeted late December. Cleanest engineering paper still on the desk.",
-    punch: "Already open. Keep counting.",
-    sourceLabel: "admission.kuet.ac.bd · 16 Nov 2026",
-    sourceUrl: "https://admission.kuet.ac.bd/",
-    published: "2026-11-16",
-    circularId: "c-kuet",
+      "B 12 Feb · C 13 Feb · A 20 Feb. Supplementary passers get a short extra window after results. January unit grid is withdrawn.",
+    punch: "RU is a February exam.",
+    sourceLabel: "admission.ru.ac.bd · desk · 20 Nov 2026",
+    sourceUrl: "https://admission.ru.ac.bd/",
+    published: "2026-11-20",
+    circularId: "c-ru",
   },
   {
-    id: "n1116-board",
-    heat: "STREET",
-    kicker: "DESK · 16 NOV",
+    id: "n1120-cu",
+    heat: "HOT",
+    kicker: "CU · JAN–FEB",
     headline:
-      "Monday board: DU ~9 days · RU open · JnU open · KUET open · BUET Friday.",
+      "Chittagong applications through 10 December. Unit tests 29 Jan – 8 Feb.",
     body:
-      "No new national circular dropped this morning. Form season is portals lighting up, not press conferences. Write what is open; skip the rumour graphic.",
-    punch: "Forms first. Arguments later.",
-    sourceLabel: "Admission//26 desk · 16 Nov 2026",
-    sourceUrl: "/newswire",
-    published: "2026-11-16",
+      "C 29 Jan · A 30 Jan · B1 3 Feb · B2 4 Feb · B 5 Feb · D 6 Feb · D1 8 Feb. December unit grid is off the desk.",
+    punch: "CU is a winter exam.",
+    sourceLabel: "CU schedule · desk · 20 Nov 2026",
+    sourceUrl: "/circulars/c-cu",
+    published: "2026-11-20",
+    circularId: "c-cu",
+  },
+  {
+    id: "n1120-board",
+    heat: "STREET",
+    kicker: "DESK · 20 NOV",
+    headline:
+      "Calendar lock: DU closes Tue · JU opens Sun · BUET → 1 Feb · KU → early Feb.",
+    body:
+      "JnU open through 10 Dec. KUET still open. Agri site from 25 Nov. GST stays March. If a card still shows January for BUET or December for KU, hard-refresh — those are gone.",
+    punch: "Trust the circular cards.",
+    sourceLabel: "Admission//26 desk · 20 Nov 2026",
+    sourceUrl: "/calendar",
+    published: "2026-11-20",
     circularId: null,
+  },
+  {
+    id: "n1120-ju",
+    heat: "SYSTEM",
+    kicker: "JU · SUNDAY",
+    headline:
+      "Jahangirnagar applications open 22 November 10:00 through 15 December.",
+    body:
+      "Tests tentatively 10–21 January on campus (no Fri/Sat). Unit grid still soft — lock the app window first.",
+    punch: "JU form this Sunday.",
+    sourceLabel: "JU circular line · desk · 20 Nov 2026",
+    sourceUrl: "/circulars/c-ju",
+    published: "2026-11-20",
+    circularId: "c-ju",
   },
 ];
