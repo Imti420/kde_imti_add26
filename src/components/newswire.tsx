@@ -123,59 +123,70 @@ const HEAT_CLASS: Record<string, string> = {
   NUKE: "bg-accent text-onaccent nuke-badge",
 };
 
-/** Friendly season board — lead from SPICE_CARDS (weekend form week). */
+/** Season lead — calendar-lock board (no drama banner). */
 export function UgcNukeSuperHead() {
-  const lead =
-    SPICE_CARDS.find((c) => c.id.startsWith("n1114-") || c.id.includes("weekend") || c.id.includes("du")) ??
-    SPICE_CARDS[0];
+  const lead = SPICE_CARDS[0];
+  const pins = [
+    { label: "DU", line: "Closes 25 Nov", tone: "hot" as const },
+    { label: "BUET", line: "Test 1 Feb", tone: "sys" as const },
+    { label: "RU", line: "Open → 30 Nov", tone: "hot" as const },
+    { label: "JU", line: "Opens 22 Nov", tone: "sys" as const },
+  ];
   return (
-    <section className="ugc-nuke-super relative mb-6 overflow-hidden border-[3px] border-ink bg-paper text-ink shadow-[6px_6px_0_0_var(--color-accent)] md:mb-8 md:border-[4px] md:shadow-[10px_10px_0_0_var(--color-accent)]">
-      <div className="absolute -right-6 -top-6 h-32 w-32 rounded-full bg-accent/15 blur-2xl" aria-hidden />
-      <div className="absolute -bottom-8 -left-8 h-36 w-36 rounded-full bg-yellow/20 blur-2xl" aria-hidden />
+    <section
+      className="relative mb-6 overflow-hidden border-[3px] border-ink bg-panel text-ink shadow-[6px_6px_0_0_var(--color-ink)] md:mb-8"
+      aria-label="Season board"
+    >
+      <div className="border-b-[3px] border-ink bg-ink px-3 py-2 text-paper sm:px-5 md:px-6">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <p className="font-mono text-[10px] font-bold tracking-[0.2em] md:text-[11px]">
+            ADMISSION//26 · NEWSWIRE · 20 NOV
+          </p>
+          <p className="font-mono text-[10px] tracking-widest text-paper/70">CALENDAR LOCK</p>
+        </div>
+      </div>
 
-      <div className="relative px-3 py-5 sm:px-5 md:px-8 md:py-8">
-        <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
-          <span className="inline-flex w-fit items-center gap-2 border-2 border-ink bg-accent px-2.5 py-1 font-mono text-[10px] font-black tracking-[0.18em] text-onaccent md:px-3 md:py-1.5 md:text-[11px]">
-            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-paper" />
-            LIVE · WEEKEND FORM BOARD
-          </span>
-          <span className="font-mono text-[10px] tracking-widest text-mute md:text-[11px]">14 NOV · SEASON IN MOTION</span>
+      <div className="px-3 py-5 sm:px-5 md:px-6 md:py-7">
+        <p className="font-mono text-[11px] font-bold tracking-[0.18em] text-accent">SEASON BOARD</p>
+        <h1 className="mt-2 max-w-4xl font-display text-[1.75rem] font-black uppercase leading-[0.95] tracking-tight sm:text-[2.35rem] md:text-[3.1rem]">
+          Forms are live. Dates moved.{" "}
+          <span className="text-accent">Read the board.</span>
+        </h1>
+        <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-ink/85 md:text-base">
+          DU still closes Tuesday. BUET’s test is now 1 February. RU and JnU are open. JU opens Sunday.
+          This strip is the desk’s current map — not a panic banner.
+        </p>
+
+        <div className="mt-5 grid grid-cols-2 gap-2 border-t-[3px] border-ink pt-4 sm:grid-cols-4">
+          {pins.map((p) => (
+            <div
+              key={p.label}
+              className={
+                p.tone === "hot"
+                  ? "border-[2.5px] border-ink bg-accent px-2.5 py-2 text-onaccent"
+                  : "border-[2.5px] border-ink bg-paper px-2.5 py-2"
+              }
+            >
+              <p className="font-display text-xl font-black uppercase leading-none md:text-2xl">{p.label}</p>
+              <p className="mt-1 font-mono text-[10px] font-bold tracking-wide opacity-90">{p.line}</p>
+            </div>
+          ))}
         </div>
 
-        <p className="mt-3 font-mono text-[11px] font-bold tracking-[0.2em] text-accent sm:mt-4 sm:text-xs md:text-sm">
-          DU IS TAKING FORMS · YOU CAN BREATHE
-        </p>
-
-        <h1 className="mt-2 font-display text-[1.85rem] font-black uppercase leading-[0.95] tracking-tight text-ink sm:text-[2.4rem] md:mt-3 md:text-[3.4rem] md:leading-[0.92] lg:text-[4rem]">
-          Applications are <span className="text-accent">open</span>
-        </h1>
-
-        <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-ink/85 sm:text-base md:mt-4 md:text-lg">
-          Dhaka University is accepting applications through 25 Nov. A few campuses are on their own clocks — RU and JnU are in the mix, BUET opens Friday. No need for drama: check the portal, finish the form, go make tea.
-        </p>
-
-        <div className="mt-5 flex flex-col gap-3 border-t-2 border-ink/15 pt-4 sm:gap-4 md:mt-6 md:flex-row md:items-end md:justify-between md:pt-5">
-          <p className="max-w-2xl text-[13px] leading-relaxed text-ink/75 md:text-sm">
-            {lead.body.slice(0, 220)}…
-          </p>
-          <div className="shrink-0 border-l-0 border-accent/40 pl-0 md:border-l-2 md:pl-4">
-            <p className="font-display text-base font-black uppercase leading-snug text-accent md:text-lg md:leading-none">
-              {lead.punch}
-            </p>
-            <p className="mt-1.5 font-mono text-[10px] tracking-wide text-mute md:mt-2">
-              <ExternalLink href={lead.sourceUrl}>{lead.sourceLabel}</ExternalLink>
-            </p>
+        {lead ? (
+          <div className="mt-4 flex flex-col gap-2 border-t border-ink/20 pt-3 sm:flex-row sm:items-end sm:justify-between">
+            <p className="max-w-2xl text-[13px] leading-relaxed text-ink/75 md:text-sm">{lead.body}</p>
             {lead.circularId ? (
               <Link
                 to="/circulars/$id"
                 params={{ id: lead.circularId }}
-                className="mt-3 inline-flex press text-[10px] tracking-widest"
+                className="press shrink-0 text-[10px] tracking-widest"
               >
                 OPEN CIRCULAR →
               </Link>
             ) : null}
           </div>
-        </div>
+        ) : null}
       </div>
     </section>
   );
@@ -193,10 +204,10 @@ export function WireStrip() {
       <UgcNukeSuperHead />
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-ink px-3 py-3">
         <div>
-          <p className="font-mono text-xs tracking-widest text-accent">DESK BRIEFING · NOT A HEADLINE FEED</p>
-          <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none">Nine that matter</h2>
+          <p className="font-mono text-xs tracking-widest text-accent">DESK BRIEFING · 20 NOV</p>
+          <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none">What moved</h2>
           <p className="mt-2 max-w-2xl text-sm text-mute">
-            Written by the desk from the messy admission and edtech season — ACS vs Udvash, Hulkenstein hype, HSC crash, coaching street fights, and the rest. Not a sad grid of scraped headlines.
+            Fresh desk cards for the calendar lock — form deadlines, moved tests, and open portals. Not a scrape of random headlines.
           </p>
         </div>
         <Link to="/newswire" className="press text-xs tracking-widest">
