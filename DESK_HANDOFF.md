@@ -75,6 +75,14 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 
 ## Changelog
 
+### 2026-11-20 — Newswire full replace (UI + cards)
+- Killed **LIVE · WEEKEND FORM BOARD** / **DU IS TAKING FORMS · YOU CAN BREATHE** superhead.
+- New **Season board** lead: ink header, four status pins (DU / BUET / RU / JU), calm copy.
+- Section labels: **What moved** · **20 NOV CALENDAR LOCK** (no NUKE/FALLOUT).
+- Full **n1120b** nine-card desk replace.
+
+
+
 ### 2026-11-20 — Calendar lock (GO UPDATE)
 - **BUET:** exam **1 Feb 2027** (was 16 Jan); apps through **7 Jan 2027**.
 - **RU:** units cleaned to **B 12 Feb · C 13 Feb · A 20 Feb** (polluted Jan grid removed).
