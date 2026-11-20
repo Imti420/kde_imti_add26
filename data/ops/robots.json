@@ -223,7 +223,7 @@
     },
     {
       "origin": "https://www.butex.edu.bd",
-      "fetchedAt": "2026-11-19T21:00:21.680Z",
+      "fetchedAt": "2026-11-20T21:17:03.805Z",
       "body": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n"
     },
     {
@@ -263,7 +263,7 @@
     },
     {
       "origin": "https://www.uiu.ac.bd",
-      "fetchedAt": "2026-11-19T21:01:05.123Z",
+      "fetchedAt": "2026-11-20T21:17:47.911Z",
       "body": "User-agent:*\nAllow:/\nSitemap:https://www.uiu.ac.bd/sitemap.xml\n\n"
     },
     {
