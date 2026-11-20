@@ -220,7 +220,7 @@ function NewswirePage() {
 
       <div className="mb-8">
         <div className="mb-3 flex flex-wrap items-end justify-between gap-2 border-b border-ink pb-2">
-          <p className="font-mono text-[10px] tracking-widest text-accent md:text-xs">DESK · NINE THAT MATTER · FALLOUT FROM THE NUKE</p>
+          <p className="font-mono text-[10px] tracking-widest text-accent md:text-xs">DESK · WHAT MOVED · 20 NOV CALENDAR LOCK</p>
           <p className="font-mono text-[10px] tracking-widest text-mute">{SPICE_CARDS.length} CARDS</p>
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
