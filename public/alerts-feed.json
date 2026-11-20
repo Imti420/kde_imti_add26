@@ -1,42 +1,42 @@
 {
-  "updated": "2026-11-16T17:00:00+06:00",
-  "cycle": "n1116-form-week",
+  "updated": "2026-11-20T22:00:00+06:00",
+  "cycle": "n1120-calendar-lock",
   "news": [
     {
-      "id": "n1116-du",
+      "id": "n1120-du",
       "heat": "HOT",
-      "headline": "DU ~9 days left — close 25 Nov",
+      "headline": "DU closes 25 Nov — ~5 days",
       "url": "/circulars/c-du"
     },
     {
-      "id": "n1116-ru",
-      "heat": "HOT",
-      "headline": "RU open through 30 Nov",
-      "url": "/circulars/c-ru"
-    },
-    {
-      "id": "n1116-jnu",
-      "heat": "HOT",
-      "headline": "JnU open through 10 Dec",
-      "url": "/circulars/c-jnu"
-    },
-    {
-      "id": "n1116-buet",
+      "id": "n1120-buet",
       "heat": "SYSTEM",
-      "headline": "BUET apps Friday 21 Nov",
+      "headline": "BUET test moved to 1 Feb 2027",
       "url": "/circulars/c-buet"
     },
     {
-      "id": "n1116-kuet",
+      "id": "n1120-ru",
       "heat": "HOT",
-      "headline": "KUET still open through 10 Dec",
-      "url": "/circulars/c-kuet"
+      "headline": "RU open · tests 12–20 Feb",
+      "url": "/circulars/c-ru"
     },
     {
-      "id": "n1116-board",
+      "id": "n1120-cu",
+      "heat": "HOT",
+      "headline": "CU tests 29 Jan – 8 Feb",
+      "url": "/circulars/c-cu"
+    },
+    {
+      "id": "n1120-ju",
+      "heat": "SYSTEM",
+      "headline": "JU apps open 22 Nov",
+      "url": "/circulars/c-ju"
+    },
+    {
+      "id": "n1120-board",
       "heat": "STREET",
-      "headline": "Monday board: DU · RU · JnU · BUET Friday",
-      "url": "/newswire"
+      "headline": "Calendar lock 20 Nov — refresh cards",
+      "url": "/calendar"
     }
   ]
 }
