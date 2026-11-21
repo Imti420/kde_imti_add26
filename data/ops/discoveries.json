@@ -21685,5 +21685,33 @@
     "shortName": "CU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://forms.bmu.ac.bd/result_nonres_25",
+    "foundOn": "https://www.bmu.ac.bd/",
+    "foundAt": "2026-11-21T08:47:48.187Z",
+    "title": "Admission Test Result for Non Residency Program July, 2025",
+    "kind": "page",
+    "score": 8,
+    "sameSite": true,
+    "id": "bmu-med:https://forms.bmu.ac.bd/result_nonres_25",
+    "universityId": "bmu-med",
+    "shortName": "BMU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://aust.edu/notice/3488",
+    "foundOn": "https://www.aust.edu/",
+    "foundAt": "2026-11-21T08:48:59.880Z",
+    "title": "Apply for Original Certificate through IUMS and Manual for the graduates of Spring 2024, Fall 2024, Spring 2025 and Fall 2025 will remain postponed from 30 November 2026 (Monday) to 23 December 2026 (Wednesday)",
+    "kind": "page",
+    "score": 8,
+    "sameSite": true,
+    "id": "aust:https://aust.edu/notice/3488",
+    "universityId": "aust",
+    "shortName": "AUST",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
