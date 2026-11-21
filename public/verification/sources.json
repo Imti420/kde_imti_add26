@@ -808,7 +808,9 @@
       "universityIds": [
         "bup"
       ],
-      "circularIds": []
+      "circularIds": [
+        "c-bup"
+      ]
     },
     {
       "id": "site-mist",
@@ -1386,26 +1388,26 @@
       "universityId": "mist",
       "universityName": "Military Institute of Science and Technology",
       "shortName": "MIST",
-      "applicationOpens": null,
-      "applicationCloses": null,
-      "examDate": "2026-12-18",
+      "applicationOpens": "2027-01-05",
+      "applicationCloses": "2027-01-21",
+      "examDate": "2027-02-05",
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
-      "feeBdt": null
+      "feeBdt": 1300
     },
     {
       "circularId": "c-jnu",
       "universityId": "jnu",
       "universityName": "Jagannath University",
       "shortName": "JnU",
-      "applicationOpens": "2026-11-15",
+      "applicationOpens": "2026-11-25",
       "applicationCloses": "2026-12-10",
       "examDate": "2027-01-01",
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
-      "feeBdt": 1000
+      "feeBdt": 1200
     },
     {
       "circularId": "c-ru",
@@ -1418,20 +1420,20 @@
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
-      "feeBdt": null
+      "feeBdt": 1320
     },
     {
       "circularId": "c-cu",
       "universityId": "cu",
       "universityName": "University of Chittagong",
       "shortName": "CU",
-      "applicationOpens": "2026-11-15",
-      "applicationCloses": "2026-12-10",
+      "applicationOpens": "2026-12-10",
+      "applicationCloses": "2027-01-10",
       "examDate": "2027-01-29",
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
-      "feeBdt": null
+      "feeBdt": 1000
     },
     {
       "circularId": "c-ku",
@@ -1457,7 +1459,7 @@
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
-      "feeBdt": null
+      "feeBdt": 1000
     },
     {
       "circularId": "c-gst",
@@ -1483,7 +1485,7 @@
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
-      "feeBdt": null
+      "feeBdt": 1600
     },
     {
       "circularId": "c-dghs",
@@ -1499,6 +1501,19 @@
       "feeBdt": 1250
     },
     {
+      "circularId": "c-bup",
+      "universityId": "bup",
+      "universityName": "Bangladesh University of Professionals",
+      "shortName": "BUP",
+      "applicationOpens": "2026-12-01",
+      "applicationCloses": "2027-01-05",
+      "examDate": null,
+      "admitCardOn": null,
+      "resultOn": null,
+      "classesBegin": null,
+      "feeBdt": 1200
+    },
+    {
       "circularId": "c-ju",
       "universityId": "ju",
       "universityName": "Jahangirnagar University",
@@ -1509,20 +1524,20 @@
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
-      "feeBdt": null
+      "feeBdt": 800
     },
     {
       "circularId": "c-butex",
       "universityId": "butex",
       "universityName": "Bangladesh University of Textiles",
       "shortName": "BUTEX",
-      "applicationOpens": null,
-      "applicationCloses": null,
+      "applicationOpens": "2026-12-01",
+      "applicationCloses": "2027-01-10",
       "examDate": "2027-01-29",
       "admitCardOn": null,
       "resultOn": null,
       "classesBegin": null,
-      "feeBdt": null
+      "feeBdt": 1200
     }
   ]
 }
