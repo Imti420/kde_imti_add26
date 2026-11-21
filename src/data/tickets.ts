@@ -16,7 +16,8 @@ export type TicketKind =
   | "buet"
   | "cuet"
   | "mist"
-  | "ju";
+  | "ju"
+  | "agri";
 
 export type TicketStatus = "none" | "await" | "paid";
 
@@ -55,6 +56,7 @@ export const TICKET_CATALOG: TicketTemplate[] = [
   { kind: "cuet", abbr: "CUET", name: "Chittagong University of Engineering & Technology", shortName: "Chittagong engineering", defaultFee: "1200", circularId: "c-cuet" },
   { kind: "mist", abbr: "MIST", name: "Military Institute of Science & Technology", shortName: "Military institute", defaultFee: "1200", circularId: "c-mist" },
   { kind: "ju", abbr: "JU", name: "Jahangirnagar University", shortName: "Jahangirnagar", defaultFee: "1200", circularId: "c-ju" },
+  { kind: "agri", abbr: "AGRI", name: "Agricultural Cluster — nine universities", shortName: "Agriculture cluster", defaultFee: "1600", circularId: "c-agri" },
 ];
 
 export function templateByKind(kind: TicketKind): TicketTemplate {
