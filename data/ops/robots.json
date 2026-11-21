@@ -73,7 +73,7 @@
     },
     {
       "origin": "https://www.jkkniu.edu.bd",
-      "fetchedAt": "2026-11-16T20:18:40.711Z",
+      "fetchedAt": "2026-11-21T21:54:23.703Z",
       "body": "User-agent: *\r\nDisallow: \r\n"
     },
     {
@@ -83,7 +83,7 @@
     },
     {
       "origin": "https://www.bu.ac.bd",
-      "fetchedAt": "2026-11-19T20:59:20.821Z",
+      "fetchedAt": "2026-11-21T21:54:23.887Z",
       "body": "User-agent: *\r\nDisallow: \r\n"
     },
     {
@@ -93,8 +93,8 @@
     },
     {
       "origin": "https://neu.ac.bd",
-      "fetchedAt": "2026-11-16T20:18:44.211Z",
-      "body": "# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nUser-agent: AdsBot\nDisallow: /\n\nSitemap: https://neu.ac.bd/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK"
+      "fetchedAt": "2026-11-21T21:54:25.714Z",
+      "body": "# BEGIN Elementor Agent Ready\n\nUser-agent: GPTBot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: ClaudeBot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: PerplexityBot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: Google-Extended\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: Applebot-Extended\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: Amazonbot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: meta-externalagent\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\n# END Elementor Agent Ready\n\n# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nUser-agent: AdsBot\nDisallow: /\n\nSitemap: https://neu.ac.bd/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK"
     },
     {
       "origin": "https://www.ub.ac.bd",
@@ -118,7 +118,7 @@
     },
     {
       "origin": "https://www.duet.ac.bd",
-      "fetchedAt": "2026-11-20T18:51:53.479Z",
+      "fetchedAt": "2026-11-21T21:54:38.444Z",
       "body": "User-agent: *\r\nDisallow:\r\n"
     },
     {
@@ -143,7 +143,7 @@
     },
     {
       "origin": "https://bsfmstu.ac.bd",
-      "fetchedAt": "2026-11-14T14:17:14.998Z",
+      "fetchedAt": "2026-11-21T21:54:54.511Z",
       "body": null
     },
     {
@@ -183,7 +183,7 @@
     },
     {
       "origin": "https://www.sau.ac.bd",
-      "fetchedAt": "2026-11-20T10:32:35.100Z",
+      "fetchedAt": "2026-11-21T21:55:01.610Z",
       "body": null
     },
     {
@@ -223,7 +223,7 @@
     },
     {
       "origin": "https://www.butex.edu.bd",
-      "fetchedAt": "2026-11-20T21:17:03.805Z",
+      "fetchedAt": "2026-11-21T21:55:28.946Z",
       "body": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n"
     },
     {
@@ -258,7 +258,7 @@
     },
     {
       "origin": "https://www.ewubd.edu",
-      "fetchedAt": "2026-11-19T03:41:56.192Z",
+      "fetchedAt": "2026-11-21T21:56:22.120Z",
       "body": null
     },
     {

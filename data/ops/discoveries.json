@@ -21825,5 +21825,47 @@
     "shortName": "KurAU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://neu.ac.bd/%e0%a6%a5%e0%a6%bf%e0%a6%b8%e0%a6%bf%e0%a6%b8-%e0%a6%aa%e0%a7%8d%e0%a6%b0%e0%a6%aa%e0%a7%8b%e0%a6%9c%e0%a6%be%e0%a6%b2-%e0%a6%a1%e0%a6%bf%e0%a6%ab%e0%a7%87%e0%a6%a8%e0%a7%8d%e0%a6%b8",
+    "foundOn": "https://neu.ac.bd/feed",
+    "foundAt": "2026-11-21T21:54:34.432Z",
+    "title": "২০২৩-২০২৪ শিক্ষাবর্ষের এম.এ. (মাস্টার্স) ২য় সেমিস্টারের &#8220;Eng- 514: MA Thesis&#8221; এর থিসিস প্রপোজাল ডিফেন্স নোটিশ",
+    "kind": "page",
+    "score": 4,
+    "sameSite": true,
+    "id": "neu:https://neu.ac.bd/%e0%a6%a5%e0%a6%bf%e0%a6%b8%e0%a6%bf%e0%a6%b8-%e0%a6%aa%e0%a7%8d%e0%a6%b0%e0%a6%aa%e0%a7%8b%e0%a6%9c%e0%a6%be%e0%a6%b2-%e0%a6%a1%e0%a6%bf%e0%a6%ab%e0%a7%87%e0",
+    "universityId": "neu",
+    "shortName": "NeU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://neu.ac.bd/cse-admission",
+    "foundOn": "https://neu.ac.bd/feed",
+    "foundAt": "2026-11-21T21:54:34.432Z",
+    "title": "সিএসই বিভাগে ২০২২-’২৩ শিক্ষাবর্ষের শিক্ষার্থীদের ৩য় বর্ষে ভর্তি",
+    "kind": "page",
+    "score": 7,
+    "sameSite": true,
+    "id": "neu:https://neu.ac.bd/cse-admission",
+    "universityId": "neu",
+    "shortName": "NeU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.aaub.edu.bd/content/admission-info",
+    "foundOn": "https://www.aaub.edu.bd/",
+    "foundAt": "2026-11-21T21:55:31.298Z",
+    "title": "Admission Information",
+    "kind": "page",
+    "score": 7,
+    "sameSite": true,
+    "id": "aaub:https://www.aaub.edu.bd/content/admission-info",
+    "universityId": "aaub",
+    "shortName": "AAUB",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
