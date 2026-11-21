@@ -68,7 +68,7 @@
     },
     {
       "origin": "https://www.cou.ac.bd",
-      "fetchedAt": "2026-11-20T18:51:43.969Z",
+      "fetchedAt": "2026-11-21T23:02:42.364Z",
       "body": null
     },
     {
@@ -168,7 +168,7 @@
     },
     {
       "origin": "https://www.prstu.ac.bd",
-      "fetchedAt": "2026-11-20T18:52:06.181Z",
+      "fetchedAt": "2026-11-21T23:03:09.316Z",
       "body": "User-agent: Googlebot\r\nDisallow: /nogooglebot/\r\n\r\nUser-agent: *\r\nAllow: /\r\n\r\nDisallow:\r\nSitemap:https://bsmrstup.ac.bd/sitemap.xml"
     },
     {
@@ -178,7 +178,7 @@
     },
     {
       "origin": "https://www.bau.edu.bd",
-      "fetchedAt": "2026-11-20T19:59:05.487Z",
+      "fetchedAt": "2026-11-21T23:03:13.482Z",
       "body": "# As a condition of accessing this website, you agree to abide by the following\n# content signals:\n\n# (a)  If a content-signal = yes, you may collect content for the corresponding\n#      use.\n# (b)  If a content-signal = no, you may not collect content for the\n#      corresponding use.\n# (c)  If the website operator does not include a content signal for a\n#      corresponding use, the website operator neither grants nor restricts\n#      permission via content signal with respect to the corresponding use.\n\n# The content signals and their meanings are:\n\n# search:   building a search index and providing search results (e.g., returning\n#           hyperlinks and short excerpts from your website's contents). Search does not\n#           include providing AI-generated search summaries.\n# ai-input: inputting content into one or more AI models (e.g., retrieval\n#           augmented generation, grounding, or other real-time taking of content for\n#           generative AI search answers).\n# ai-train: training or fine-tuning AI models.\n\n# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS RESERVATIONS OF\n# RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT\n# AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.\n"
     },
     {
@@ -233,7 +233,7 @@
     },
     {
       "origin": "https://www.iutoic-dhaka.edu",
-      "fetchedAt": "2026-11-20T18:52:56.395Z",
+      "fetchedAt": "2026-11-21T23:03:55.390Z",
       "body": "User-agent:*\nSitemap:https://www.iutoic-dhaka.edu/sitemap.xml"
     },
     {
@@ -308,7 +308,7 @@
     },
     {
       "origin": "https://www.uits.edu.bd",
-      "fetchedAt": "2026-11-14T06:44:12.666Z",
+      "fetchedAt": "2026-11-21T23:04:41.452Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -323,7 +323,7 @@
     },
     {
       "origin": "https://www.uftb.ac.bd",
-      "fetchedAt": "2026-11-20T18:52:07.955Z",
+      "fetchedAt": "2026-11-21T23:03:12.093Z",
       "body": "User-agent: *\nDisallow:\n\nSitemap: https://uftb.ac.bd/sitemap.xml\n"
     }
   ]
