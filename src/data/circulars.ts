@@ -415,8 +415,6 @@ export const seedCirculars: Circular[] = [
     feeNote: "A, B, C, D ৳1,200; E ৳1,500.",
     examDate: "2027-01-01",
     seats: null,
-    J00,
-    feeNote: "A, B, C, D ৳1,200; E ৳1,500 — confirm on portal before paying.",
     eligibility: [
       "Regular students only; second-time applicants not allowed on current line.",
       "Unit GPA bars in the JnU circular (A higher than B/C/D; E lowest).",
