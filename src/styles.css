@@ -1630,6 +1630,13 @@ article:has([class*="NUKE"]) {
   --fs: 25cqw;
 }
 
+.tk--agri {
+  --c: #1a4d12;
+  --p: #eef6e4;
+  --a: #c4a35a;
+  --fs: 21cqw;
+}
+
 .tk__in {
   position: relative;
   isolation: isolate;
