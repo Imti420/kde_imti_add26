@@ -411,6 +411,8 @@ export const seedCirculars: Circular[] = [
     opensAt: "12:00",
     applicationCloses: "2026-12-10",
     closesAt: "23:59",
+    feeBdt: 1200,
+    feeNote: "A, B, C, D ৳1,200; E ৳1,500.",
     examDate: "2027-01-01",
     seats: null,
     J00,
