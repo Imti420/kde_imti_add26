@@ -39,6 +39,16 @@ export function TicketArt({ kind }: { kind: string }) {
           <rect x="274" y="120" width="12" height="50" rx="4" fill="currentColor" opacity="0.22" />
         </svg>
       );
+    case "agri":
+      return (
+        <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden>
+          {common}
+          <ellipse cx="300" cy="150" rx="70" ry="36" fill="currentColor" opacity="0.14" />
+          <path d="M270 150c10-40 40-55 55-55s20 20 10 55" fill="currentColor" opacity="0.2" />
+          <path d="M40 180h200" stroke="currentColor" strokeWidth="8" opacity="0.12" />
+          <path d="M60 160h40M110 150h40M160 165h40" stroke="currentColor" strokeWidth="6" opacity="0.16" />
+        </svg>
+      );
     default:
       return (
         <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden>
