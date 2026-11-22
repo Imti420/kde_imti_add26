@@ -1,5 +1,23 @@
 [
   {
+    "id": "cd0464484981264e",
+    "headline": "গুচ্ছবদ্ধ গোলাপি ফুলের মায়া",
+    "summary": "ব্যালেরিনা রোজের সবচেয়ে আকর্ষণীয় বৈশিষ্ট্য হলো এর গুচ্ছবদ্ধ ফুল। প্রতিটি ফুল আকারে ছোট, সরল গড়নের এবং সাধারণত পাঁচটি পাপড়িযুক্ত।",
+    "sourceId": "prothom-alo",
+    "sourceName": "Prothom Alo",
+    "sourceUrl": "https://www.prothomalo.com/bangladesh/environment/gfal8zp4p0",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-22T08:14:16.000Z",
+    "discoveredAt": "2026-11-22T08:48:40.873Z",
+    "contentHash": "cd0464484981264ef48186e39f9e4f0cd406ede6847dc4a08759f7deaf70e268",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "be636ec806ebfe2d",
     "headline": "বেসরকারি স্কুলে ভর্তি: অতিরিক্ত ভর্তি ফি নিলে বাতিল এমপিও, পুনঃভর্তি ফি নিষিদ্ধ",
     "summary": null,
