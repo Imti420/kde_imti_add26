@@ -159,7 +159,7 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "Portal live 11 Nov (Channel I, TBS, Observer, Jago News). DU held against UGC 9 Nov floor. Re-eval results due 23 Nov still fit the 25 Nov close. Fee raised on four units (Science/Arts/Business ৳1,200).",
     sources: [STAR_DU, TBS_DU, DU_PORTAL, SEATS_COMP, STAR_CLASH],
-    updatedOn: "2026-11-20",
+    updatedOn: "2026-11-23",
     applicationOpens: "2026-11-11",
     opensAt: "12:00",
     applicationCloses: "2026-11-25",
@@ -233,7 +233,7 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "Desk 20 Nov: exam date revised to 1 Feb 2027; application close reported 7 Jan 2027. Confirm fee and group map on buet.ac.bd before paying.",
     sources: [TBS_BUET, PROTHOM_BUET, BDNEWS_BUET, SEATS_COMP, STAR_RETAKE],
-    updatedOn: "2026-11-20",
+    updatedOn: "2026-11-23",
     applicationOpens: "2026-11-21",
     applicationCloses: "2027-01-07",
     closesAt: "23:59",
@@ -281,7 +281,7 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "Official PDF on admission.kuet.ac.bd (1.UG-Admission-2026-Circular.pdf). Archived copy at /circulars/c-kuet.pdf (sha256 6d86886d9fb2813ad20d796e26913146cf7a26a2a53fc6f27dd5da3c9291ac3f, 494729 bytes, ~2 pages, fetched 2026-11-11, officialHost). Apps live; test 8 Jan 2027. Eligible-list due 20 Dec; result pattern 21 Jan. doc field pending A01 types.ts.",
     sources: [KUET_OFFICIAL, KUET_PORTAL, STAR_CLASH, SEATS_COMP, STAR_RETAKE],
-    updatedOn: "2026-11-20",
+    updatedOn: "2026-11-23",
     pdfUrl: "https://admission.kuet.ac.bd/uploads/notices/1.UG-Admission-2026-Circular.pdf",
     applicationOpens: "2026-11-10",
     opensAt: "10:00",
@@ -378,7 +378,7 @@ export const seedCirculars: Circular[] = [
     confidence: "reported",
     confidenceNote: "App window + fees from 21 Nov compiled schedule graphic. Earlier Dec exam line may be superseded; do not treat exam day as locked until portal confirms.",
     sources: [STAR_CLASH],
-    updatedOn: "2026-11-21",
+    updatedOn: "2026-11-23",
     applicationOpens: "2027-01-05",
     applicationCloses: "2027-01-21",
     feeBdt: 1300,
@@ -406,7 +406,7 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "App window revised to 25 Nov–10 Dec per 21 Nov compiled schedule graphic; unit grid retained from prior portal digests. Confirm on admission.jnu.ac.bd.",
     sources: [STAR_CLASH, SEATS_COMP],
-    updatedOn: "2026-11-21",
+    updatedOn: "2026-11-23",
     applicationOpens: "2026-11-25",
     opensAt: "12:00",
     applicationCloses: "2026-12-10",
@@ -444,7 +444,7 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "Official admission portal + national desk compilations as of 20 Nov. Formal PDF not mirrored here — confidence stays reported.",
     sources: [BDNEWS_SPLIT, STAR_CLASH, SEATS_COMP],
-    updatedOn: "2026-11-20",
+    updatedOn: "2026-11-23",
     applicationOpens: "2026-11-15",
     applicationCloses: "2026-11-30",
     feeBdt: 1320,
@@ -479,7 +479,7 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "App window 10 Dec–10 Jan 2027 from 21 Nov compiled schedule graphic; exam grid retained from prior schedule coverage. Portal is source of truth.",
     sources: [STAR_CLASH, SEATS_COMP],
-    updatedOn: "2026-11-21",
+    updatedOn: "2026-11-23",
     applicationOpens: "2026-12-10",
     opensAt: "12:00",
     applicationCloses: "2027-01-10",
@@ -543,7 +543,7 @@ export const seedCirculars: Circular[] = [
     confidenceNote:
       "Prothom Alo / Times of Bangladesh / Kaler Kantho (11–12 Nov) citing VC MM Shariful Karim’s central admission committee. Formal PDF not on this desk.",
     sources: [STAR_RETAKE, SEATS_COMP],
-    updatedOn: "2026-11-13",
+    updatedOn: "2026-11-23",
     applicationOpens: "2026-12-10",
     applicationCloses: "2026-12-31",
     feeBdt: 1000,
@@ -626,7 +626,7 @@ export const seedCirculars: Circular[] = [
     confidence: "reported",
     confidenceNote: "Desk 20 Nov: site opens 25 Nov; test 2 Jan 2027. Seat split is prior-session working reference.",
     sources: [STAR_RETAKE, SEATS_COMP],
-    updatedOn: "2026-11-20",
+    updatedOn: "2026-11-23",
     applicationOpens: "2026-11-25",
     applicationCloses: "2026-12-15",
     feeBdt: 1600,
@@ -694,7 +694,7 @@ C({
     confidenceNote:
       "Test days from official SUST press (1 Nov). Application window from secondary admission timelines (1–25 Dec) — not yet a mirrored official PDF; confidence stays reported.",
     sources: [STAR_CLASH, SEATS_COMP],
-    updatedOn: "2026-11-20",
+    updatedOn: "2026-11-23",
     applicationOpens: "2026-12-01",
     opensAt: "10:00",
     applicationCloses: "2026-12-25",
@@ -726,7 +726,7 @@ C({
     confidenceNote:
       "App window + fee from 21 Nov compiled schedule graphic (Admission Updates – Reading Zone). Full circular/PDF not yet archived on this desk.",
     sources: [STAR_CLASH],
-    updatedOn: "2026-11-21",
+    updatedOn: "2026-11-23",
     applicationOpens: "2026-12-01",
     applicationCloses: "2027-01-05",
     feeBdt: 1200,
@@ -759,7 +759,7 @@ export const EVIDENCE_COPY = [
     confidenceNote:
       "Apps 22 Nov–15 Dec locked; fees from 21 Nov compiled schedule graphic; tests tentative 10–21 Jan.",
     sources: [STAR_CLASH, SEATS_COMP],
-    updatedOn: "2026-11-21",
+    updatedOn: "2026-11-23",
     applicationOpens: "2026-11-22",
     opensAt: "10:00",
     applicationCloses: "2026-12-15",
@@ -792,7 +792,7 @@ export const EVIDENCE_COPY = [
     confidenceNote:
       "App window + fees from 21 Nov compiled schedule graphic. Test day from earlier registrar line — re-check when formal circular lands.",
     sources: [SEATS_COMP],
-    updatedOn: "2026-11-21",
+    updatedOn: "2026-11-23",
     applicationOpens: "2026-12-01",
     opensAt: null,
     applicationCloses: "2027-01-10",
