@@ -21895,5 +21895,19 @@
     "shortName": "BAU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.bmu.ac.bd/notice/2009?from=all",
+    "foundOn": "https://www.bmu.ac.bd/",
+    "foundAt": "2026-11-22T10:20:37.205Z",
+    "title": "22 Nov 2026 জেনারেল নার্স ও স্পেশালাইজড নার্স পদে নিয়োগ পরীক্ষার প্রবেশপত্র উত্তোলন সংক্রান্ত বিজ্ঞপ্তি NEW",
+    "kind": "page",
+    "score": 13,
+    "sameSite": true,
+    "id": "bmu-med:https://www.bmu.ac.bd/notice/2009?from=all",
+    "universityId": "bmu-med",
+    "shortName": "BMU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
