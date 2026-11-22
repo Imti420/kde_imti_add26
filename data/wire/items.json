@@ -1,5 +1,23 @@
 [
   {
+    "id": "be636ec806ebfe2d",
+    "headline": "বেসরকারি স্কুলে ভর্তি: অতিরিক্ত ভর্তি ফি নিলে বাতিল এমপিও, পুনঃভর্তি ফি নিষিদ্ধ",
+    "summary": null,
+    "sourceId": "prothom-alo",
+    "sourceName": "Prothom Alo",
+    "sourceUrl": "https://www.prothomalo.com/education/admission/cvv5ei2c7o",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-22T02:25:32.000Z",
+    "discoveredAt": "2026-11-22T03:01:48.281Z",
+    "contentHash": "be636ec806ebfe2df4f4652af34d919e7d32bd9df268d810efcc4c0bed464851",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "75127cb59a7a2922",
     "headline": "Admission to Class I: Lottery for Dhaka govt secondary schools on 15 Dec",
     "summary": null,
