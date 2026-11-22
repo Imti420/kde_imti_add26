@@ -75,6 +75,15 @@ Desk > crawler · ~9 spice cards with rotating ids · circular truth over invent
 
 ## Changelog
 
+### 2026-11-23 — App board refresh
+- Circulars stamped to compiled schedule graphic (Reading Zone).
+- **Live now:** DU → 25 Nov · RU → 30 Nov · JU open · KUET → 10 Dec.
+- **Wed 25 Nov:** JnU + Agri open.
+- **December:** SUST 1–25 · BUTEX 1 Dec–10 Jan · BUP 1 Dec–5 Jan · CoU 10–31 Dec · CU 10 Dec–10 Jan.
+- **MIST:** 5–21 Jan apps. Newswire **n1123**.
+
+
+
 ### 2026-11-20 — Newswire full replace (UI + cards)
 - Killed **LIVE · WEEKEND FORM BOARD** / **DU IS TAKING FORMS · YOU CAN BREATHE** superhead.
 - New **Season board** lead: ink header, four status pins (DU / BUET / RU / JU), calm copy.
