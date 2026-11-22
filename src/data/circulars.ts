@@ -226,25 +226,26 @@ export const seedCirculars: Circular[] = [
     universityId: "buet",
     title: "BUET undergraduate admission test 2026–27",
     summary:
-      "REVISED: admission test moved to 1 February 2027 (was 16 January). Applications reported open from ~21 November 2026 through 7 January 2027 23:59. Group C written test on 1 Feb. Hard GPA wall unchanged (SSC ≥4.00 science; HSC GPA 5.00 with A+ in Physics, Chemistry, Higher Math). ~1,309 seats.",
+      "Official circular published 22 Nov: online applications 1 December 2026 10:00 → 7 January 2027 15:00. Fee payment until 8 January 15:00. Eligible list targeted 16 January. Admission test 1 February 2027. 1,309 seats. Max ~10,000 examinees shortlisted on HSC Higher Math + Physics + Chemistry marks.",
     system: "engineering",
-    publication: "notice",
+    publication: "circular",
     confidence: "notice",
     confidenceNote:
-      "Desk 20 Nov: exam date revised to 1 Feb 2027; application close reported 7 Jan 2027. Confirm fee and group map on buet.ac.bd before paying.",
+      "BUET circular published 22 Nov 2026 (Daily Campus / Dainik Shiksha). Apps Dec 1–Jan 7; fee to Jan 8; test 1 Feb. GPA wall unchanged.",
     sources: [TBS_BUET, PROTHOM_BUET, BDNEWS_BUET, SEATS_COMP, STAR_RETAKE],
     updatedOn: "2026-11-23",
-    applicationOpens: "2026-11-21",
+    applicationOpens: "2026-12-01",
+    opensAt: "10:00",
     applicationCloses: "2027-01-07",
-    closesAt: "23:59",
+    closesAt: "15:00",
     examDate: "2027-02-01",
     seats: 1309,
     feeBdt: null,
-    feeNote: "Last cycle: Engineering/URP ৳1,300; Architecture ৳1,500. 2026–27 fee — confirm on portal.",
+    feeNote: "Confirm 2026–27 fee on the BUET admission portal when applying. Prior cycle: Engineering/URP ৳1,300; Architecture ৳1,500.",
     eligibility: [
-      "Science group only.",
-      "SSC GPA ≥ 4.00; HSC GPA 5.00 with A+ (GPA 5.00) separately in Physics, Chemistry and Higher Mathematics.",
-      "Roughly 10,000 examinees will be shortlisted if applications exceed capacity.",
+      "Science group. SSC 2023 or 2024; HSC 2026 (special line for some 2025 HSC with revised results after 2 Dec 2025).",
+      "SSC GPA ≥ 4.00; HSC GPA 5.00 with GPA 5.00 separately in Higher Mathematics, Physics and Chemistry.",
+      "Up to ~10,000 examinees shortlisted on combined HSC marks in Higher Math, Physics, Chemistry.",
     ],
     units: [
       {
@@ -263,9 +264,10 @@ export const seedCirculars: Circular[] = [
       },
     ],
     notes: [
-      "SUPERSEDED: 16 Jan 2027 test day is withdrawn on this desk.",
-      "Application close 7 Jan 2027 23:59 (reported).",
-      "No preliminary MCQ screening (same pattern as 2025–26).",
+      "Circular published 22 Nov 2026.",
+      "Application open 1 Dec 10:00 · close 7 Jan 15:00 · fee pay by 8 Jan 15:00.",
+      "Eligible list targeted 16 Jan · test 1 Feb 2027.",
+      "SUPERSEDED: earlier 21 Nov app-open and 16 Jan test lines.",
     ],
   }),
 
@@ -767,7 +769,7 @@ export const EVIDENCE_COPY = [
     examDate: "2027-01-10",
     feeBdt: 800,
     feeNote: "A,B,C,D ৳800; E ৳700; C1/IBA ৳600 (+1.2% service fee).",
-    seats: null,
+    seats: 1848,
     eligibility: ["Criteria belong in the JU circular — not fully archived on this desk."],
     units: [
       { code: "A", detail: "Mathematical & Physical sciences cluster.", examDate: "2027-01-10", examTime: null, centre: "JU campus" },
