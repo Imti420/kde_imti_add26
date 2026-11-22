@@ -21867,5 +21867,33 @@
     "shortName": "AAUB",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://neu.ac.bd/%e0%a6%b8%e0%a6%bf%e0%a6%8f%e0%a6%b8%e0%a6%87-%e0%a6%ac%e0%a6%bf%e0%a6%ad%e0%a6%be%e0%a6%97%e0%a7%87-%e0%a7%a8%e0%a7%a6%e0%a7%a8%e0%a7%a7-%e0%a7%a8%e0%a7%a8-%e0%a6%b6%e0%a6%bf%e0%a6%95/feed",
+    "foundOn": "https://neu.ac.bd/%e0%a6%b8%e0%a6%bf%e0%a6%8f%e0%a6%b8%e0%a6%87-%e0%a6%ac%e0%a6%bf%e0%a6%ad%e0%a6%be%e0%a6%97%e0%a7%87-%e0%a7%a8%e0%a7%a6%e0%a7%a8%e0%a7%a7-%e0%a7%a8%e0%a7%a8-%e0%a6%b6%e0%a6%bf%e0%a6%95/",
+    "foundAt": "2026-11-22T08:08:37.386Z",
+    "title": "RSS or Atom feed",
+    "kind": "feed",
+    "score": 4,
+    "sameSite": true,
+    "id": "neu:https://neu.ac.bd/%e0%a6%b8%e0%a6%bf%e0%a6%8f%e0%a6%b8%e0%a6%87-%e0%a6%ac%e0%a6%bf%e0%a6%ad%e0%a6%be%e0%a6%97%e0%a7%87-%e0%a7%a8%e0%a7%a6%e0%a7%a8%e0%a7%a7-%e0%a7%a8%e0%a7%a8-%",
+    "universityId": "neu",
+    "shortName": "NeU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bau.edu.bd/notice-board/1484",
+    "foundOn": "https://www.bau.edu.bd/",
+    "foundAt": "2026-11-22T08:08:58.110Z",
+    "title": "Notice",
+    "kind": "page",
+    "score": 4,
+    "sameSite": true,
+    "id": "bau:https://www.bau.edu.bd/notice-board/1484",
+    "universityId": "bau",
+    "shortName": "BAU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]

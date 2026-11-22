@@ -253,7 +253,7 @@
     },
     {
       "origin": "https://www.aiub.edu",
-      "fetchedAt": "2026-11-21T00:59:20.170Z",
+      "fetchedAt": "2026-11-22T08:10:16.106Z",
       "body": null
     },
     {
@@ -268,7 +268,7 @@
     },
     {
       "origin": "https://daffodilvarsity.edu.bd",
-      "fetchedAt": "2026-11-21T02:33:13.955Z",
+      "fetchedAt": "2026-11-22T08:10:21.539Z",
       "body": "User-Agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin/\nDisallow: /private/\nDisallow: /_next/\nDisallow: /maintenance\nDisallow: /erp\nDisallow: /login\nDisallow: /register\n\nUser-Agent: Googlebot\nAllow: /\nDisallow: /api/\nDisallow: /admin/\nDisallow: /private/\nDisallow: /_next/\nDisallow: /maintenance\nDisallow: /erp\nDisallow: /login\nDisallow: /register\n\nUser-Agent: GPTBot\nAllow: /\n\nUser-Agent: ChatGPT-User\nAllow: /\n\nHost: https://daffodilvarsity.edu.bd\nSitemap: https://daffodilvarsity.edu.bd/sitemap.xml\n"
     },
     {
@@ -283,7 +283,7 @@
     },
     {
       "origin": "https://www.iubat.edu",
-      "fetchedAt": "2026-11-21T00:59:27.290Z",
+      "fetchedAt": "2026-11-22T08:10:26.185Z",
       "body": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nSitemap: https://iubat.edu/wp-sitemap.xml\n"
     },
     {
