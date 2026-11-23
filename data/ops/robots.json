@@ -73,7 +73,7 @@
     },
     {
       "origin": "https://www.jkkniu.edu.bd",
-      "fetchedAt": "2026-11-21T21:54:23.703Z",
+      "fetchedAt": "2026-11-23T00:45:36.672Z",
       "body": "User-agent: *\r\nDisallow: \r\n"
     },
     {
@@ -93,7 +93,7 @@
     },
     {
       "origin": "https://neu.ac.bd",
-      "fetchedAt": "2026-11-21T21:54:25.714Z",
+      "fetchedAt": "2026-11-23T00:45:38.704Z",
       "body": "# BEGIN Elementor Agent Ready\n\nUser-agent: GPTBot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: ClaudeBot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: PerplexityBot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: Google-Extended\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: Applebot-Extended\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: Amazonbot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: meta-externalagent\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\n# END Elementor Agent Ready\n\n# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nUser-agent: AdsBot\nDisallow: /\n\nSitemap: https://neu.ac.bd/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK"
     },
     {
