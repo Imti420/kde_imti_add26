@@ -1326,7 +1326,7 @@ export const sourceManifest: SourceManifest = {
       "universityName": "University of Dhaka",
       "shortName": "DU",
       "applicationOpens": "2026-11-11",
-      "applicationCloses": "2026-11-25",
+      "applicationCloses": "2026-11-28",
       "examDate": "2026-12-05",
       "admitCardOn": null,
       "resultOn": null,
