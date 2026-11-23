@@ -697,3 +697,16 @@ Fix: defensive `UniMark` (null uni guard), SW cache **a26-desk-v2** to force cli
 ### 2026-11-12 ~06:25 — Settings crash fix (React #31)
 Cause: EVIDENCE_COPY had a full C({c-sust}) object. Settings rendered it as a child.
 Fix: c-sust in seedCirculars; EVIDENCE_COPY strings only; settings filters strings.
+
+
+### GO UPDATE — 2026-11-23 ~20:45 +06 (A03)
+
+**Sources:** Prothom Alo (DU extend; BUET seats); bdnews24 (Appellate Division stay; BUET Dec 1); Daily Campus / Dainik Shiksha (BUET circular).
+
+| Item | Change |
+|------|--------|
+| **c-du** | `applicationCloses` **2026-11-25 → 2026-11-28**; summary + confidenceNote for 3-day extension; tests unchanged |
+| **c-buet** | Already had formal circular (apps 1 Dec–7 Jan, test 1 Feb, 1309 seats) — verified against today's wires |
+| **watch.ts** | Full rewrite for 23 Nov board |
+
+**Not changed:** spice (Agent 02 lane); medical still no formal PDF on desk.
