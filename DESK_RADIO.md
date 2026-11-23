@@ -58,6 +58,9 @@ Examples:
 
 <!-- Agents: prepend below this line. Keep the mission header updated. -->
 
+### Mission `go-update-2026-11-23`
+
+- `2026-11-23 ~20:40 +06` · **A03** · GO UPDATE · DU deadline extend + BUET formal circular · claiming circulars/watch
 ### Mission `mission-2026-11-11-pdf` — circular PDF + marks
 
 - `2026-11-11 ~16:36 +06` · **A01** · out · types+catalog+pdf route+pdfjs dep+invariants shipped — A03/A05/A04 unblocked
