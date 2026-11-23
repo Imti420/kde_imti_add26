@@ -21937,5 +21937,47 @@
     "shortName": "RU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://ssl.du.ac.bd/storage/private/assets/images/ckeditorFiles/d8762949-8be4-44e3-a4f5-e5e658b5fa6f.pdf",
+    "foundOn": "https://www.du.ac.bd/du_post_details/notice/29265",
+    "foundAt": "2026-11-23T14:53:58.720Z",
+    "title": "মূল বিজ্ঞপ্তি দেখতে ক্লিক করুন...",
+    "kind": "pdf",
+    "score": 6,
+    "sameSite": true,
+    "id": "du:https://ssl.du.ac.bd/storage/private/assets/images/ckeditorFiles/d8762949-8be4-44e3-a4f5-e5e658b5fa6f.pdf",
+    "universityId": "du",
+    "shortName": "DU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.du.ac.bd/du_post_details/notice/29265",
+    "foundOn": "https://www.du.ac.bd/",
+    "foundAt": "2026-11-23T14:53:58.722Z",
+    "title": "22 Nov বিভিন্ন বৃত্তি বিজ্ঞপ্তি 22 Nov, 2026",
+    "kind": "page",
+    "score": 8,
+    "sameSite": true,
+    "id": "du:https://www.du.ac.bd/du_post_details/notice/29265",
+    "universityId": "du",
+    "shortName": "DU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/admission/1882637527774790.pdf",
+    "foundOn": "https://www.bou.ac.bd/",
+    "foundAt": "2026-11-23T14:55:34.873Z",
+    "title": "Finally Selected Applicant List for Admission of BFSN Program (Session: 2025 - 2026), 7th Batch 2026-11-23",
+    "kind": "pdf",
+    "score": 13,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/admission/1882637527774790.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
