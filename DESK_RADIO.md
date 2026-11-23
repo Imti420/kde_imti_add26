@@ -60,6 +60,7 @@ Examples:
 
 ### Mission `go-update-2026-11-23`
 
+- `2026-11-23 ~20:45 +06` · **A03** · out · DU close→28 Nov; watch rewritten; BUET circular verified
 - `2026-11-23 ~20:40 +06` · **A03** · GO UPDATE · DU deadline extend + BUET formal circular · claiming circulars/watch
 ### Mission `mission-2026-11-11-pdf` — circular PDF + marks
 
