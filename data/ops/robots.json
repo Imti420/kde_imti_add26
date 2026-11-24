@@ -23,7 +23,7 @@
     },
     {
       "origin": "https://www.sau.edu.bd",
-      "fetchedAt": "2026-11-22T22:32:53.260Z",
+      "fetchedAt": "2026-11-24T02:20:25.140Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -33,12 +33,12 @@
     },
     {
       "origin": "https://www.du.ac.bd",
-      "fetchedAt": "2026-11-22T22:32:15.373Z",
+      "fetchedAt": "2026-11-24T02:19:49.328Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
       "origin": "https://www.ru.ac.bd",
-      "fetchedAt": "2026-11-22T22:32:15.386Z",
+      "fetchedAt": "2026-11-24T02:19:49.618Z",
       "body": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nSitemap: https://www.ru.ac.bd/wp-sitemap.xml\n"
     },
     {
@@ -73,7 +73,7 @@
     },
     {
       "origin": "https://www.jkkniu.edu.bd",
-      "fetchedAt": "2026-11-23T00:45:36.672Z",
+      "fetchedAt": "2026-11-24T02:19:58.789Z",
       "body": "User-agent: *\r\nDisallow: \r\n"
     },
     {
@@ -83,7 +83,7 @@
     },
     {
       "origin": "https://www.bu.ac.bd",
-      "fetchedAt": "2026-11-22T22:32:23.740Z",
+      "fetchedAt": "2026-11-24T02:19:59.239Z",
       "body": "User-agent: *\r\nDisallow: \r\n"
     },
     {
@@ -93,7 +93,7 @@
     },
     {
       "origin": "https://neu.ac.bd",
-      "fetchedAt": "2026-11-23T00:45:38.704Z",
+      "fetchedAt": "2026-11-24T02:20:02.621Z",
       "body": "# BEGIN Elementor Agent Ready\n\nUser-agent: GPTBot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: ClaudeBot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: PerplexityBot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: Google-Extended\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: Applebot-Extended\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: Amazonbot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: meta-externalagent\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\n# END Elementor Agent Ready\n\n# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nUser-agent: AdsBot\nDisallow: /\n\nSitemap: https://neu.ac.bd/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK"
     },
     {
@@ -118,7 +118,7 @@
     },
     {
       "origin": "https://www.duet.ac.bd",
-      "fetchedAt": "2026-11-22T22:32:29.993Z",
+      "fetchedAt": "2026-11-24T02:20:09.484Z",
       "body": "User-agent: *\r\nDisallow:\r\n"
     },
     {
@@ -128,7 +128,7 @@
     },
     {
       "origin": "https://www.pstu.ac.bd",
-      "fetchedAt": "2026-11-22T22:32:37.306Z",
+      "fetchedAt": "2026-11-24T02:20:14.915Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -143,7 +143,7 @@
     },
     {
       "origin": "https://bsfmstu.ac.bd",
-      "fetchedAt": "2026-11-22T22:32:45.775Z",
+      "fetchedAt": "2026-11-24T02:20:17.380Z",
       "body": null
     },
     {
@@ -173,17 +173,17 @@
     },
     {
       "origin": "https://gau.edu.bd",
-      "fetchedAt": "2026-11-22T22:32:53.597Z",
+      "fetchedAt": "2026-11-24T02:20:25.268Z",
       "body": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nSitemap: https://gau.edu.bd/wp-sitemap.xml\n"
     },
     {
       "origin": "https://www.bau.edu.bd",
-      "fetchedAt": "2026-11-22T23:52:03.625Z",
+      "fetchedAt": "2026-11-24T02:20:23.967Z",
       "body": "# As a condition of accessing this website, you agree to abide by the following\n# content signals:\n\n# (a)  If a content-signal = yes, you may collect content for the corresponding\n#      use.\n# (b)  If a content-signal = no, you may not collect content for the\n#      corresponding use.\n# (c)  If the website operator does not include a content signal for a\n#      corresponding use, the website operator neither grants nor restricts\n#      permission via content signal with respect to the corresponding use.\n\n# The content signals and their meanings are:\n\n# search:   building a search index and providing search results (e.g., returning\n#           hyperlinks and short excerpts from your website's contents). Search does not\n#           include providing AI-generated search summaries.\n# ai-input: inputting content into one or more AI models (e.g., retrieval\n#           augmented generation, grounding, or other real-time taking of content for\n#           generative AI search answers).\n# ai-train: training or fine-tuning AI models.\n\n# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS RESERVATIONS OF\n# RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT\n# AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.\n"
     },
     {
       "origin": "https://www.sau.ac.bd",
-      "fetchedAt": "2026-11-22T22:32:58.517Z",
+      "fetchedAt": "2026-11-24T02:20:31.192Z",
       "body": null
     },
     {
@@ -193,12 +193,12 @@
     },
     {
       "origin": "https://www.kuriau.edu.bd",
-      "fetchedAt": "2026-11-22T22:33:03.385Z",
+      "fetchedAt": "2026-11-24T02:20:37.864Z",
       "body": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nSitemap: https://kuriau.edu.bd/sitemap_index.xml\n"
     },
     {
       "origin": "https://www.bmu.ac.bd",
-      "fetchedAt": "2026-11-22T22:33:06.087Z",
+      "fetchedAt": "2026-11-24T02:20:42.101Z",
       "body": "User-agent: *\nallow: /\nsitemap: https://bmu.ac.bd/sitemap.xml\n"
     },
     {
@@ -223,12 +223,12 @@
     },
     {
       "origin": "https://www.butex.edu.bd",
-      "fetchedAt": "2026-11-22T22:33:28.900Z",
+      "fetchedAt": "2026-11-24T02:21:09.440Z",
       "body": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n"
     },
     {
       "origin": "https://www.aaub.edu.bd",
-      "fetchedAt": "2026-11-22T22:33:30.165Z",
+      "fetchedAt": "2026-11-24T02:21:14.448Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -238,7 +238,7 @@
     },
     {
       "origin": "https://www.bou.ac.bd",
-      "fetchedAt": "2026-11-22T22:33:55.555Z",
+      "fetchedAt": "2026-11-24T02:21:24.902Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -258,7 +258,7 @@
     },
     {
       "origin": "https://www.ewubd.edu",
-      "fetchedAt": "2026-11-22T22:34:15.930Z",
+      "fetchedAt": "2026-11-24T02:21:54.239Z",
       "body": null
     },
     {
