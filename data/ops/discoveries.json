@@ -21979,5 +21979,19 @@
     "shortName": "BOU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://cu.ac.bd/wp-content/uploads/2026/11/inter-University-Employees-Federation.pdf",
+    "foundOn": "https://cu.ac.bd/",
+    "foundAt": "2026-11-24T04:59:31.763Z",
+    "title": "বিস্তারিত দেখুন",
+    "kind": "pdf",
+    "score": 7,
+    "sameSite": true,
+    "id": "cu:https://cu.ac.bd/wp-content/uploads/2026/11/inter-University-Employees-Federation.pdf",
+    "universityId": "cu",
+    "shortName": "CU",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
