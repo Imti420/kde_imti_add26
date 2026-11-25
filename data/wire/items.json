@@ -1,5 +1,23 @@
 [
   {
+    "id": "e4898846f231d31a",
+    "headline": "MBBS, BDS admission test for 2026-27 session on December 18",
+    "summary": "Online applications open, deadline set for December 3",
+    "sourceId": "daily-star-education",
+    "sourceName": "The Daily Star — Education",
+    "sourceUrl": "https://www.thedailystar.net/news/bangladesh/education/news/mbbs-bds-admission-test-2026-27-session-december-18-4333191",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-25T15:57:16.000Z",
+    "discoveredAt": "2026-11-25T16:06:56.951Z",
+    "contentHash": "e4898846f231d31a3d836f77fe934654c8b715647b6db958550351da0dca3bd9",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "073a5d33e58785c8",
     "headline": "HSC supplementary exams 2026: Urgent meeting on 26 November",
     "summary": null,
