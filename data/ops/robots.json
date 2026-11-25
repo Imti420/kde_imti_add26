@@ -68,7 +68,7 @@
     },
     {
       "origin": "https://www.cou.ac.bd",
-      "fetchedAt": "2026-11-24T13:56:57.287Z",
+      "fetchedAt": "2026-11-25T19:25:42.685Z",
       "body": null
     },
     {
@@ -283,7 +283,7 @@
     },
     {
       "origin": "https://www.iubat.edu",
-      "fetchedAt": "2026-11-24T13:59:19.003Z",
+      "fetchedAt": "2026-11-25T19:27:45.259Z",
       "body": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nSitemap: https://iubat.edu/wp-sitemap.xml\n"
     },
     {
