@@ -113,7 +113,7 @@
     },
     {
       "origin": "https://www.ruet.ac.bd",
-      "fetchedAt": "2026-11-24T16:28:12.079Z",
+      "fetchedAt": "2026-11-25T17:34:46.068Z",
       "body": null
     },
     {
@@ -168,7 +168,7 @@
     },
     {
       "origin": "https://www.prstu.ac.bd",
-      "fetchedAt": "2026-11-24T13:57:36.220Z",
+      "fetchedAt": "2026-11-25T17:34:59.839Z",
       "body": "User-agent: Googlebot\r\nDisallow: /nogooglebot/\r\n\r\nUser-agent: *\r\nAllow: /\r\n\r\nDisallow:\r\nSitemap:https://bsmrstup.ac.bd/sitemap.xml"
     },
     {
@@ -188,7 +188,7 @@
     },
     {
       "origin": "https://www.hau.ac.bd",
-      "fetchedAt": "2026-11-24T13:57:52.560Z",
+      "fetchedAt": "2026-11-25T17:35:12.704Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -233,7 +233,7 @@
     },
     {
       "origin": "https://www.iutoic-dhaka.edu",
-      "fetchedAt": "2026-11-21T23:03:55.390Z",
+      "fetchedAt": "2026-11-25T17:35:50.961Z",
       "body": "User-agent:*\nSitemap:https://www.iutoic-dhaka.edu/sitemap.xml"
     },
     {
@@ -253,7 +253,7 @@
     },
     {
       "origin": "https://www.aiub.edu",
-      "fetchedAt": "2026-11-24T13:59:06.776Z",
+      "fetchedAt": "2026-11-25T17:36:32.356Z",
       "body": null
     },
     {
@@ -263,12 +263,12 @@
     },
     {
       "origin": "https://www.uiu.ac.bd",
-      "fetchedAt": "2026-11-24T13:59:11.647Z",
+      "fetchedAt": "2026-11-25T17:36:34.468Z",
       "body": "User-agent:*\nAllow:/\nSitemap:https://www.uiu.ac.bd/sitemap.xml\n\n"
     },
     {
       "origin": "https://daffodilvarsity.edu.bd",
-      "fetchedAt": "2026-11-24T13:59:13.477Z",
+      "fetchedAt": "2026-11-25T17:36:36.470Z",
       "body": "User-Agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin/\nDisallow: /private/\nDisallow: /_next/\nDisallow: /maintenance\nDisallow: /erp\nDisallow: /login\nDisallow: /register\n\nUser-Agent: Googlebot\nAllow: /\nDisallow: /api/\nDisallow: /admin/\nDisallow: /private/\nDisallow: /_next/\nDisallow: /maintenance\nDisallow: /erp\nDisallow: /login\nDisallow: /register\n\nUser-Agent: GPTBot\nAllow: /\n\nUser-Agent: ChatGPT-User\nAllow: /\n\nHost: https://daffodilvarsity.edu.bd\nSitemap: https://daffodilvarsity.edu.bd/sitemap.xml\n"
     },
     {
@@ -323,7 +323,7 @@
     },
     {
       "origin": "https://www.uftb.ac.bd",
-      "fetchedAt": "2026-11-24T13:57:39.127Z",
+      "fetchedAt": "2026-11-25T17:35:02.507Z",
       "body": "User-agent: *\nDisallow:\n\nSitemap: https://uftb.ac.bd/sitemap.xml\n"
     }
   ]

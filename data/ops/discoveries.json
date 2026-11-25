@@ -22259,5 +22259,61 @@
     "shortName": "BUTEX",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.aiub.edu/Files/Uploads/building_seat_plan-25112026.pdf",
+    "foundOn": "https://www.aiub.edu/admission-test-written-exam-except-llb--b-pharm-of-spring-2026-27-slot-1",
+    "foundAt": "2026-11-25T17:36:35.669Z",
+    "title": "Admission Exam Building Seat Plan",
+    "kind": "pdf",
+    "score": 5,
+    "sameSite": true,
+    "id": "aiub:https://www.aiub.edu/Files/Uploads/building_seat_plan-25112026.pdf",
+    "universityId": "aiub",
+    "shortName": "AIUB",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.aiub.edu/Files/Uploads/program_seat_plan_.pdf",
+    "foundOn": "https://www.aiub.edu/admission-test-written-exam-except-llb--b-pharm-of-spring-2026-27-slot-1",
+    "foundAt": "2026-11-25T17:36:35.669Z",
+    "title": "Admission Exam Program Seat Plan",
+    "kind": "pdf",
+    "score": 5,
+    "sameSite": true,
+    "id": "aiub:https://www.aiub.edu/Files/Uploads/program_seat_plan_.pdf",
+    "universityId": "aiub",
+    "shortName": "AIUB",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.aiub.edu/Files/Uploads/student_seat_plan-25112026.pdf",
+    "foundOn": "https://www.aiub.edu/admission-test-written-exam-except-llb--b-pharm-of-spring-2026-27-slot-1",
+    "foundAt": "2026-11-25T17:36:35.669Z",
+    "title": "Admission Exam Student Seat plan",
+    "kind": "pdf",
+    "score": 5,
+    "sameSite": true,
+    "id": "aiub:https://www.aiub.edu/Files/Uploads/student_seat_plan-25112026.pdf",
+    "universityId": "aiub",
+    "shortName": "AIUB",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.aiub.edu/admission-test-written-exam-except-llb--b-pharm-of-spring-2026-27-slot-1",
+    "foundOn": "https://www.aiub.edu/",
+    "foundAt": "2026-11-25T17:36:35.672Z",
+    "title": "25 Nov Admission Test Written Exam (Except LL B &amp; B Pharm) of Spring 2026-27, [Slot-1]",
+    "kind": "page",
+    "score": 12,
+    "sameSite": true,
+    "id": "aiub:https://www.aiub.edu/admission-test-written-exam-except-llb--b-pharm-of-spring-2026-27-slot-1",
+    "universityId": "aiub",
+    "shortName": "AIUB",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
