@@ -22231,5 +22231,33 @@
     "shortName": "BOU",
     "downloaded": false,
     "disposition": "new"
+  },
+  {
+    "url": "https://www.bou.ac.bd/upload/notice/admission/1882821690440425.pdf",
+    "foundOn": "https://www.bou.ac.bd/",
+    "foundAt": "2026-11-25T10:31:19.430Z",
+    "title": "Finally Selected Applicant List for Admission of BFSN Program (Session: 2025 - 2026), 7th Batch 2026-11-23",
+    "kind": "pdf",
+    "score": 13,
+    "sameSite": true,
+    "id": "bou:https://www.bou.ac.bd/upload/notice/admission/1882821690440425.pdf",
+    "universityId": "bou",
+    "shortName": "BOU",
+    "downloaded": false,
+    "disposition": "new"
+  },
+  {
+    "url": "https://www.butex.edu.bd/re-admission-notice-of-mba-in-textiles-program-10th-batch-2nd-semester",
+    "foundOn": "https://www.butex.edu.bd/homepage/",
+    "foundAt": "2026-11-25T10:31:27.906Z",
+    "title": "Re-Admission Notice of MBA in Textiles Program 10th Batch 2nd Semester",
+    "kind": "page",
+    "score": 10,
+    "sameSite": true,
+    "id": "butex:https://www.butex.edu.bd/re-admission-notice-of-mba-in-textiles-program-10th-batch-2nd-semester",
+    "universityId": "butex",
+    "shortName": "BUTEX",
+    "downloaded": false,
+    "disposition": "new"
   }
 ]
