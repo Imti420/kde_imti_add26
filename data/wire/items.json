@@ -1,5 +1,23 @@
 [
   {
+    "id": "d2e44b9f5e050a4c",
+    "headline": "এমবিবিএস–ডেন্টালে ভর্তিতে আবেদন শুরু, যেভাবে আবেদন করবেন",
+    "summary": "২০২৬-২৭ শিক্ষাবর্ষে মেডিকেল-ডেন্টালে ভর্তি আবেদন শুরু, পরীক্ষা ১৮ ডিসেম্বর, ফলাফলে জিপিএ ও পরীক্ষার নম্বর বিবেচনা হবে।",
+    "sourceId": "prothom-alo",
+    "sourceName": "Prothom Alo",
+    "sourceUrl": "https://www.prothomalo.com/education/admission/ix6wjy2cym",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-26T06:20:22.000Z",
+    "discoveredAt": "2026-11-26T08:55:10.547Z",
+    "contentHash": "d2e44b9f5e050a4cdb3f1586160b3cf40f04e84313a1fab9b8e34470e4fffd15",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "e4898846f231d31a",
     "headline": "MBBS, BDS admission test for 2026-27 session on December 18",
     "summary": "Online applications open, deadline set for December 3",
