@@ -1566,6 +1566,24 @@
     "aiModel": null
   },
   {
+    "id": "630e99100f301993",
+    "headline": "মেডিকেল ফাইনাল মডেল টেস্ট ২০২৬",
+    "summary": null,
+    "sourceId": "udvash-web",
+    "sourceName": "Udvash Academic & Admission Care",
+    "sourceUrl": "https://udvash.com/HomePage",
+    "sourceCategory": "official",
+    "platform": "web",
+    "verification": "official",
+    "publishedAt": null,
+    "discoveredAt": "2026-11-26T19:17:01.695Z",
+    "contentHash": "630e99100f301993ad85c51b5f9ad9e638f7908f5f7a056878d5422d1ddfb5ad",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "8f273c1df5e22da1",
     "headline": "ক্যাডেট কলেজ ভর্তি প্রস্তুতি ২০২৭ Final Model Test",
     "summary": null,
