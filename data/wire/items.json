@@ -1,5 +1,23 @@
 [
   {
+    "id": "2a17dd7654bc603e",
+    "headline": "ঢাকা বিশ্ববিদ্যালয়ে ভর্তিতে আবেদন শেষ ২৮ নভেম্বর, জেনে নিন সব ইউনিটের তথ্য",
+    "summary": null,
+    "sourceId": "prothom-alo",
+    "sourceName": "Prothom Alo",
+    "sourceUrl": "https://www.prothomalo.com/education/admission/8dvu6debin",
+    "sourceCategory": "news",
+    "platform": "web",
+    "verification": "reported",
+    "publishedAt": "2026-11-27T02:00:00.000Z",
+    "discoveredAt": "2026-11-27T02:24:08.382Z",
+    "contentHash": "2a17dd7654bc603ea3060e1fd24e01492449a6dc16f4323970dd832b1b5e0d0a",
+    "importance": "normal",
+    "origin": "crawled",
+    "classifier": "heuristic",
+    "aiModel": null
+  },
+  {
     "id": "f949a50643198564",
     "headline": "Application for admission begins at JnU, check the unit-wise GPA requirements",
     "summary": null,
