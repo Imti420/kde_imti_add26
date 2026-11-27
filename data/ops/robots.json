@@ -43,7 +43,7 @@
     },
     {
       "origin": "https://www.juniv.edu",
-      "fetchedAt": "2026-11-26T12:50:43.369Z",
+      "fetchedAt": "2026-11-27T14:23:13.941Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -78,7 +78,7 @@
     },
     {
       "origin": "https://www.brur.ac.bd",
-      "fetchedAt": "2026-11-26T12:50:50.812Z",
+      "fetchedAt": "2026-11-27T14:23:22.828Z",
       "body": "User-agent: *\nDisallow:\n"
     },
     {
@@ -93,7 +93,7 @@
     },
     {
       "origin": "https://neu.ac.bd",
-      "fetchedAt": "2026-11-26T11:26:35.566Z",
+      "fetchedAt": "2026-11-27T14:23:23.749Z",
       "body": "# BEGIN Elementor Agent Ready\n\nUser-agent: GPTBot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: ClaudeBot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: PerplexityBot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: Google-Extended\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: Applebot-Extended\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: Amazonbot\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: meta-externalagent\nAllow: /\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\nUser-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\n# END Elementor Agent Ready\n\n# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nUser-agent: AdsBot\nDisallow: /\n\nSitemap: https://neu.ac.bd/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK"
     },
     {
@@ -178,7 +178,7 @@
     },
     {
       "origin": "https://www.bau.edu.bd",
-      "fetchedAt": "2026-11-26T11:27:00.665Z",
+      "fetchedAt": "2026-11-27T14:23:44.320Z",
       "body": "# As a condition of accessing this website, you agree to abide by the following\n# content signals:\n\n# (a)  If a content-signal = yes, you may collect content for the corresponding\n#      use.\n# (b)  If a content-signal = no, you may not collect content for the\n#      corresponding use.\n# (c)  If the website operator does not include a content signal for a\n#      corresponding use, the website operator neither grants nor restricts\n#      permission via content signal with respect to the corresponding use.\n\n# The content signals and their meanings are:\n\n# search:   building a search index and providing search results (e.g., returning\n#           hyperlinks and short excerpts from your website's contents). Search does not\n#           include providing AI-generated search summaries.\n# ai-input: inputting content into one or more AI models (e.g., retrieval\n#           augmented generation, grounding, or other real-time taking of content for\n#           generative AI search answers).\n# ai-train: training or fine-tuning AI models.\n\n# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS RESERVATIONS OF\n# RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT\n# AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.\n"
     },
     {
