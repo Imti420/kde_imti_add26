@@ -11,14 +11,36 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ADMISSION//26" },
+      { title: "ADMISSION//26 — Never miss a Bangladesh university admission deadline" },
       {
         name: "description",
-        content: "The Bangladesh university admission archive for the 2026–27 session.",
+        content:
+          "Bangladesh university admission circulars, application windows, exam dates and calendar for the 2026–27 session. One desk for DU, BUET, RU, JU, KUET and more.",
       },
       { name: "theme-color", content: "#141414" },
+      { name: "robots", content: "index,follow" },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "ADMISSION//26" },
+      { property: "og:title", content: "ADMISSION//26 — Never miss a Bangladesh university admission deadline" },
+      {
+        property: "og:description",
+        content:
+          "Circulars, calendars and open application windows for Bangladesh public universities — 2026–27 session.",
+      },
+      { property: "og:url", content: "https://kdeimtiadd26.vercel.app/" },
+      { property: "og:image", content: "https://kdeimtiadd26.vercel.app/og.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "ADMISSION//26 — Never miss a Bangladesh university admission deadline" },
+      {
+        name: "twitter:description",
+        content: "Circulars, calendars and open application windows for Bangladesh public universities — 2026–27.",
+      },
+      { name: "twitter:image", content: "https://kdeimtiadd26.vercel.app/og.jpg" },
     ],
     links: [
+      { rel: "canonical", href: "https://kdeimtiadd26.vercel.app/" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "icon", type: "image/png", sizes: "192x192", href: "/icons/icon-192.png" },
       { rel: "icon", type: "image/png", sizes: "512x512", href: "/icons/icon-512.png" },
@@ -48,6 +70,7 @@ export const Route = createRootRoute({
           </LangProvider>
         </AuthProvider>
         <Scripts />
+        <script defer src="/_vercel/insights/script.js"></script>
       </body>
     </html>
   ),
