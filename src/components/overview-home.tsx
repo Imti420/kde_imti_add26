@@ -3,10 +3,10 @@ import { useMemo, useState } from "react";
 import { watchItems } from "@/data/watch";
 import { TRACK_LABEL, type Track } from "@/data/types";
 import { WireStrip } from "@/components/newswire";
-import { ExternalLink, SectionLabel, StatusPill } from "@/components/marks";
+import { ExternalLink, StatusPill } from "@/components/marks";
 import { UniversityCard } from "@/components/university-card";
 import { useCatalog } from "@/lib/catalog";
-import { daysUntil, formatDay, relativeDay, todayISO } from "@/lib/dates";
+import { formatDay, relativeDay, todayISO } from "@/lib/dates";
 import { deriveStatus, eventsFor, isUrgent } from "@/lib/status";
 import { useT } from "@/lib/i18n";
 
@@ -179,9 +179,7 @@ export function OverviewHome() {
                   <p className="font-mono text-[10px] tracking-widest text-mute">
                     {String(index + 1).padStart(2, "0")} · {formatDay(event.day)} · {relativeDay(event.day, now)}
                   </p>
-                  <p className="mt-1 font-display text-2xl font-bold uppercase leading-none">
-                    {uni?.shortName ?? "—"}
-                  </p>
+                  <p className="mt-1 font-display text-2xl font-bold uppercase leading-none">{uni?.shortName ?? "—"}</p>
                   <p className="mt-1 font-mono text-xs uppercase">
                     {event.kind === "closes" ? "Application closes" : event.kind === "opens" ? "Application opens" : event.label}
                     {isUrgent(event, now) ? " · URGENT" : ""}
@@ -191,9 +189,6 @@ export function OverviewHome() {
             );
           })}
         </ol>
-        <p className="mt-3 font-mono text-[10px] tracking-widest text-mute">
-          RED MEANS A CLOSE INSIDE 14 DAYS, OR AN OPENING INSIDE 7.
-        </p>
 
         <div className="mt-8 mb-3 flex flex-wrap items-end justify-between gap-3 border-b-[3px] border-ink pb-2">
           <div>
@@ -230,9 +225,7 @@ export function OverviewHome() {
         <div className="mb-3 flex flex-wrap items-end justify-between gap-3 border-b-[3px] border-ink pb-2">
           <div>
             <p className="font-mono text-xs tracking-widest text-accent">01 · THE DIRECTORY</p>
-            <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none md:text-5xl">
-              {t("home.panel.universe")}
-            </h2>
+            <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none md:text-5xl">{t("home.panel.universe")}</h2>
           </div>
           <Link to="/universities" className="press shrink-0">
             Full directory
@@ -257,8 +250,8 @@ export function OverviewHome() {
           />
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {grid.slice(0, 18).map(({ uni, status }) => (
-            <UniversityCard key={uni.id} university={uni} status={status} />
+          {grid.slice(0, 18).map(({ uni, related, status }, index) => (
+            <UniversityCard key={uni.id} uni={uni} related={related} status={status} index={index} />
           ))}
         </div>
         {grid.length > 18 ? (
