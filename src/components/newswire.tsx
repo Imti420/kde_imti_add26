@@ -127,10 +127,10 @@ const HEAT_CLASS: Record<string, string> = {
 export function UgcNukeSuperHead() {
   const lead = SPICE_CARDS[0];
   const pins = [
-    { label: "DU", line: "Closes 25 Nov", tone: "hot" as const },
+    { label: "DU", line: "Closes 28 Nov", tone: "hot" as const },
     { label: "BUET", line: "Test 1 Feb", tone: "sys" as const },
     { label: "RU", line: "Open → 30 Nov", tone: "hot" as const },
-    { label: "JU", line: "Opens 22 Nov", tone: "sys" as const },
+    { label: "JU", line: "Open → 15 Dec", tone: "sys" as const },
   ];
   return (
     <section
@@ -140,7 +140,7 @@ export function UgcNukeSuperHead() {
       <div className="border-b-[3px] border-ink bg-ink px-3 py-2 text-paper sm:px-5 md:px-6">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="font-mono text-[10px] font-bold tracking-[0.2em] md:text-[11px]">
-            ADMISSION//26 · NEWSWIRE · 20 NOV
+            ADMISSION//26 · NEWSWIRE · 28 NOV
           </p>
           <p className="font-mono text-[10px] tracking-widest text-paper/70">CALENDAR LOCK</p>
         </div>
@@ -153,8 +153,8 @@ export function UgcNukeSuperHead() {
           <span className="text-accent">Read the board.</span>
         </h1>
         <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-ink/85 md:text-base">
-          DU still closes Tuesday. BUET’s test is now 1 February. RU and JnU are open. JU opens Sunday.
-          This strip is the desk’s current map — not a panic banner.
+          DU closes today (28 Nov, extended from 25). BUET&apos;s test is 1 February. RU and JU are open. JnU and Agri are live.
+          This strip is the desk&apos;s current map — not a panic banner.
         </p>
 
         <div className="mt-5 grid grid-cols-2 gap-2 border-t-[3px] border-ink pt-4 sm:grid-cols-4">
@@ -204,7 +204,7 @@ export function WireStrip() {
       <UgcNukeSuperHead />
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-ink px-3 py-3">
         <div>
-          <p className="font-mono text-xs tracking-widest text-accent">DESK BRIEFING · 20 NOV</p>
+          <p className="font-mono text-xs tracking-widest text-accent">DESK BRIEFING · 28 NOV</p>
           <h2 className="mt-1 font-display text-4xl font-bold uppercase leading-none">What moved</h2>
           <p className="mt-2 max-w-2xl text-sm text-mute">
             Fresh desk cards for the calendar lock — form deadlines, moved tests, and open portals. Not a scrape of random headlines.
