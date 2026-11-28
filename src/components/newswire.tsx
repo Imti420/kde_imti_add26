@@ -128,7 +128,7 @@ export function UgcNukeSuperHead() {
   const lead = SPICE_CARDS[0];
   const pins = [
     { label: "DU", line: "Closes 28 Nov", tone: "hot" as const },
-    { label: "BUET", line: "Test 1 Feb", tone: "sys" as const },
+    { label: "BUET", line: "Test 1 Feb 2027", tone: "sys" as const },
     { label: "RU", line: "Open → 30 Nov", tone: "hot" as const },
     { label: "JU", line: "Open → 15 Dec", tone: "sys" as const },
   ];
@@ -153,8 +153,7 @@ export function UgcNukeSuperHead() {
           <span className="text-accent">Read the board.</span>
         </h1>
         <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-ink/85 md:text-base">
-          DU closes today (28 Nov, extended from 25). BUET&apos;s test is 1 February. RU and JU are open. JnU and Agri are live.
-          This strip is the desk&apos;s current map — not a panic banner.
+          DU closes 28 Nov 2026 (extended from 25). BUET test is 1 February 2027. RU, JU, JnU and Agri are open. This strip is the desk&apos;s current map — not a panic banner.
         </p>
 
         <div className="mt-5 grid grid-cols-2 gap-2 border-t-[3px] border-ink pt-4 sm:grid-cols-4">
@@ -185,6 +184,7 @@ export function UgcNukeSuperHead() {
                 OPEN CIRCULAR →
               </Link>
             ) : null}
+          </
           </div>
         ) : null}
       </div>
@@ -260,7 +260,7 @@ export function WireStrip() {
                 params={{ id: card.circularId }}
                 className="mt-2 inline-flex w-fit border-[2px] border-ink bg-paper px-2 py-1 font-mono text-[10px] font-bold tracking-widest text-ink hover:bg-yellow"
               >
-                CIRCULAR · {card.circularId.toUpperCase()} →
+                OPEN CIRCULAR →
               </Link>
             ) : null}
           </article>
