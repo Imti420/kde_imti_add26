@@ -1,6 +1,6 @@
 /**
- * Desk briefings — cycle n1123b · 23 Nov 2026.
- * BUET circular published; JU live; DU ~2 days.
+ * Desk briefings — cycle n1128 · 28 Nov 2026.
+ * DU closes today (extended from 25 Nov); BUET opens 1 Dec; JU/RU/KUET open.
  */
 export interface SpiceCard {
   id: string;
@@ -17,16 +17,16 @@ export interface SpiceCard {
 
 export const SPICE_CARDS: SpiceCard[] = [
   {
-    id: "n1123b-du",
+    id: "n1128-du",
     heat: "HOT",
-    kicker: "DU · ~2 DAYS",
-    headline: "Dhaka University forms close Tuesday 25 November 23:59.",
+    kicker: "DU · CLOSES TODAY",
+    headline: "Dhaka University forms close today — 28 November 23:59.",
     body:
-      "Last stretch on admission.eis.du.ac.bd. Only the 2026 HSC batch. December unit tests stay: IBA 5 · Science 12 · Arts 19 · Fine Arts 22 · Business 26.",
-    punch: "Finish DU before Tuesday night.",
-    sourceLabel: "admission.eis.du.ac.bd · 23 Nov 2026",
+      "Extended three days from the original 25 Nov cut-off. Last stretch on admission.eis.du.ac.bd. Only the 2026 HSC batch. December unit tests stay: IBA 5 · Science 12 · Arts 19 · Fine Arts 22 · Business 26.",
+    punch: "Finish DU before midnight tonight.",
+    sourceLabel: "Prothom Alo · admission.eis.du.ac.bd · 23 Nov 2026",
     sourceUrl: "https://admission.eis.du.ac.bd/",
-    published: "2026-11-23",
+    published: "2026-11-28",
     circularId: "c-du",
   },
   {
@@ -126,11 +126,11 @@ export const SPICE_CARDS: SpiceCard[] = [
     kicker: "MONDAY BOARD",
     headline: "Live: DU · RU · JU · KUET. Opening Wed: JnU · Agri. Circular: BUET.",
     body:
-      "Finish DU by Tuesday, keep RU in the queue, and save 1 December for BUET. Calendar follows the circulars.",
+      "Finish DU by tonight (28 Nov), keep RU in the queue, and save 1 December for BUET. Calendar follows the circulars.",
     punch: "Forms first.",
-    sourceLabel: "Admission//26 desk · 23 Nov 2026",
+    sourceLabel: "Admission//26 desk · 28 Nov 2026",
     sourceUrl: "/newswire",
-    published: "2026-11-23",
+    published: "2026-11-28",
     circularId: null,
   },
 ];
